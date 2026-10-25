@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="ArrayMesh" path="res://showcase/shield_mesh.tres" id="1_mesh"]
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 1
+background_color = Color(0.32, 0.36, 0.42, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.3
+tonemap_mode = 0
+
+[sub_resource type="PlaneMesh" id="FloorMesh"]
+size = Vector2(4, 4)
+
+[sub_resource type="StandardMaterial3D" id="FloorMat"]
+albedo_color = Color(0.42, 0.4, 0.37, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="PlaceholderA"]
+resource_name = "placeholder_wood_a"
+albedo_color = Color(0.6, 0.42, 0.26, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="PlaceholderB"]
+resource_name = "placeholder_wood_b"
+albedo_color = Color(0.36, 0.25, 0.17, 1)
+roughness = 0.8
+
+[sub_resource type="CylinderMesh" id="Plinth"]
+top_radius = 0.08
+bottom_radius = 0.12
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="PlinthMat"]
+albedo_color = Color(0.25, 0.25, 0.27, 1)
+
+[node name="ShieldRoom" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 3, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 2.3)
+fov = 45.0
+current = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("FloorMesh")
+surface_material_override/0 = SubResource("FloorMat")
+
+[node name="ShieldA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.62, 0)
+mesh = ExtResource("1_mesh")
+surface_material_override/0 = SubResource("PlaceholderA")
+
+[node name="PlinthA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.05, 0)
+mesh = SubResource("Plinth")
+surface_material_override/0 = SubResource("PlinthMat")
+
+[node name="ShieldB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.62, 0)
+mesh = ExtResource("1_mesh")
+surface_material_override/0 = SubResource("PlaceholderB")
+
+[node name="PlinthB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0)
+mesh = SubResource("Plinth")
+surface_material_override/0 = SubResource("PlinthMat")

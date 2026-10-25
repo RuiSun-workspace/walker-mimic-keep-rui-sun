@@ -1,0 +1,6 @@
+# Godot cache: never committed, rebuilt by --import
+godot/.godot/
+
+# Film media lives in course media storage, not in git
+*.mp4
+*.mp3
