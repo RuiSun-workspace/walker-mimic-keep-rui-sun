@@ -7,11 +7,10 @@ Rui's; everything Claude Code did is labelled as Claude's.
 
 **The change.** Assignments 2–3 were built on walker-lamplight-rui-sun (Wick, a lantern in a
 mine). Assignment 4 was the game design document for a new game, Mimic Keep. From Assignment 5 on,
-the course game is Mimic Keep, in this repository. This is the course's one allowed change of game.
+the course game is Mimic Keep, in this repository. 
 
-**Why (Rui):**
+**Why (Rui):** After completing Assignments 2 and 3, I felt that Lamplight’s main idea had already been explored. Continuing the project would mostly mean adding more levels, assets, and balance adjustments instead of introducing meaningful new gameplay decisions. I was also no longer interested enough in the concept to continue developing it. I chose Mimic Keep because its enemy waves, material and element interactions, upgrades, and shop systems provide a clearer direction for future development.
 
-> _To be written by Rui._
 
 **What Claude Code (Opus 5.5) did, at Rui's request ("开工做新游戏吧"):** built a playable
 prototype from the GDD before any Assignment 5 work. That is a new Godot 4.7.2 project (Forward+),
@@ -75,3 +74,48 @@ scarecrows in all. Claude had described it badly ("90 秒时加快到每 1.5 秒
 
 After replaying, Rui said: "目前的游戏没什么问题，继续下一步吧" (the game is fine for now; on to
 the next step).
+
+## 2026-10-26 — CHANGE-BRIEF: Rui's specification, Claude's review
+
+**Rui** wrote CHANGE-BRIEF.md: the Burning state, the shader and its colour line, the six rules,
+boundaries, evidence split, all hand calculations (pixel predictions at 0.0 / 0.5 / 0.65 / 1.0,
+contrast ratios, and both grayscale-experiment quads), the material plan, five failure cases and the
+seven short answers. Rui's first saved draft was a different document: a game-change rationale.
+Rui removed it ("不要这份文件了") and wrote the specification instead.
+
+**Claude reviewed it before its first commit.** Claude recomputed every number independently. All
+pixel predictions, the 0.65 row, the contrast ratios (1.80 and 1.81) and the grayscale predictions
+(64/128/192 and 137/188/225) matched. Claude then found the problems below. Rui chose the fix for
+the first one ("改成普通 uniform + 每只一份材质") and asked Claude to apply the rest and convert the
+file to Markdown.
+
+**What Claude changed in CHANGE-BRIEF.md (Rui approved; the scratch diff was shown to Rui before commit):**
+
+1. *Formatting only.* Plain text with tab-separated tables became Markdown: headings, pipe tables,
+   code fences, and URLs for the four Godot documentation links whose URLs had been lost. A
+   word-by-word comparison against Rui's text showed no wording changes in this step.
+2. *`instance uniform` → ordinary `uniform` with one ShaderMaterial per scarecrow.* Claude probed
+   Godot 4.7.2, both headless and windowed with Forward+. `get_shader_uniform_list()` does not report
+   an instance uniform; `set_instance_shader_parameter()` accepts an undeclared name silently. The
+   required rename mutation could therefore never fail the test. This changed the uniform table,
+   Rule 6, the evidence table, Failure 2 and short answer 6. The brief's claim that the
+   documentation confirms canvas_item instance uniforms was removed; it was not checked here.
+3. *Tolerance.* "One 60 fps frame / 1/60 s" became "one frame period at the measured frame rate".
+   The driver updates once per frame, and at 30 fps a frame is 1/30 s.
+4. *Evidence split.* "Exact tint calculation" had a capture in the headless column; headless runs
+   draw nothing, so it moved to the human/image column.
+5. *Section 6.* Added that three 0.5 values sit exactly on .5 (146.5, 30.5, 188.5) and are
+   predicted ±1, and that the arithmetic assumes `burn_color` is not linearised in 2D with HDR 2D
+   off. That second point is a reading of the engine, to be checked by the captures. Rui's numbers
+   are unchanged.
+6. *Normal maps.* The `_nor_dx` calibration and Failure 5 now use the course's curl check
+   (`normal_map_check.gd`) instead of a render comparison. `_nor_dx` is not sampled by any shader.
+7. *Failure 4.* The check is now the material test reading sampler hints from source, plus the
+   `source_color` mutation. The grayscale experiment is kept as the on-screen illustration.
+8. *Scorch mask source.* "Authored" became "written by a committed script in `godot/tools/` from
+   seeded noise". Claude chose this; Rui can still choose a different source.
+9. *Short answer 1.* Added what Forward+ does and does not rule out.
+10. Added the Poly Haven URL and a Revision Log section at the end.
+
+**Not yet verified:** the Poly Haven page and file names (`wood_planks_*_1k`) will be checked when
+the textures are downloaded.
