@@ -1,0 +1,27 @@
+You are working in my game repository (Godot 4, GDScript, project in
+godot/). Do not change any file except the one you create: CLAUDE.md at
+the repository root.
+
+Read AGENTS.md if it exists, README.md, CHANGE-BRIEF.md,
+godot/project.godot, scripts/run-test.sh, the scripts that own the game
+state named in CHANGE-BRIEF.md, the script and scene that draw the
+object my effect will change, the 3D scene and object named for the
+textured shader, and the test scripts in godot/tests/.
+
+Write CLAUDE.md, under 120 lines, in this order:
+1. If AGENTS.md exists, the first line is exactly: @AGENTS.md
+2. "Project context": engine version, renderer, main scene, how the
+   shaded object is drawn, which script owns the game state that drives
+   the effect, the 3D object for the textured shader and where its
+   material comes from, and the exact test commands, all through
+   scripts/run-test.sh. Give a file reference for every fact. Do not
+   guess.
+3. "Current change": a heading followed by exactly this line:
+   @CHANGE-BRIEF.md
+4. "Ownership": files in godot/shaders/ are hand-written by the human
+   and are never edited by an agent.
+5. "Out of scope": what this change must not touch, in your own words,
+   consistent with the spec.
+6. "Unconfirmed": anything you could not confirm from the files.
+
+Do not write a shader and do not edit any script. Stop after CLAUDE.md.
