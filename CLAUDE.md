@@ -3,10 +3,10 @@
 ## Project context
 
 - **Engine:** Godot 4.7.2 stable, `4.7.2.stable.official.ed1daf0bf` (README.md:18).
-  `godot/project.godot:11` lists only the feature tag `"4.7"`.
+  `godot/project.godot:11` lists the feature tags `"4.7"` and `"Forward Plus"`.
 - **Renderer:** Forward+, `renderer/rendering_method="forward_plus"` (godot/project.godot:48).
-  2D default texture filter is nearest (godot/project.godot:49). No HDR 2D key is set, so it is
-  at the engine default (godot/project.godot:46-49).
+  2D default texture filter is nearest (godot/project.godot:49). No HDR 2D key is set
+  (godot/project.godot:46-49); the default is off (see Headless facts).
 - **Viewport:** 1280×720, stretch mode `canvas_items` (godot/project.godot:15-17).
 - **Main scene:** `res://game/main.tscn` (godot/project.godot:10). Root `Main` (Node2D,
   script `game/main.gd`); scarecrows are added under `World/Enemies` (godot/game/main.tscn:9-21).
@@ -55,19 +55,28 @@ to `logs/<name>_<fps>fps.log`, and exits 1 if the log contains `SHADER ERROR` or
 (scripts/run-test.sh:1-9). It uses relative paths, so run it from the repository root.
 
 ```bash
+godot --headless --path godot --import    # once after a fresh clone or a deleted godot/.godot (README.md:56)
 bash scripts/run-test.sh test_rules.gd 60
 bash scripts/run-test.sh test_input.gd 60
-# the brief requires 30 and 144 fps as well (CHANGE-BRIEF.md Rule 2):
-bash scripts/run-test.sh test_rules.gd 30
-bash scripts/run-test.sh test_rules.gd 144
-bash scripts/run-test.sh test_input.gd 30
-bash scripts/run-test.sh test_input.gd 144
 ```
-
+Existing tests run at 60 fps; the new effect test at 30, 60 and 144 (CHANGE-BRIEF.md Rule 2).
 - `godot/tests/test_rules.gd`: game-rule checks through the real main scene; one PASS/FAIL line
   per check, exits 1 on failure (lines 1-4, 34-35).
 - `godot/tests/test_input.gd`: real key events via `Input.parse_input_event` (lines 1-4, 46-52).
-- Baseline: test_rules 23/0, test_input 14/0 at 60 fps (README.md:61-64; commit 29ebc5b).
+- Baseline: test_rules 23/0, test_input 14/0 at 60 fps through run-test.sh
+  (evidence/baseline/test_rules_60fps.log, evidence/baseline/test_input_60fps.log; commit 29ebc5b).
+
+### Headless facts (probed on this machine, Godot 4.7.2, 2026-10-26/27)
+- A headless run uses `DisplayServer` "headless" with an empty video adapter: a dummy renderer
+  that draws nothing. No headless test can judge how anything looks.
+- `Shader.get_shader_uniform_list()` reports each uniform's name, type and hint headlessly, but
+  not its default (null from the material and from RenderingServer): read defaults from source text.
+  A shader that fails to parse prints `SHADER ERROR` and reports an empty list.
+- `set_shader_parameter()` with an undeclared name raises no error and reads back the stored value.
+- `instance uniform`s are missing from `get_shader_uniform_list()` (CHANGE-BRIEF.md Rule 6).
+- Physics runs at 60 ticks/s whatever `--fixed-fps` says; `rendering/viewport/hdr_2d` is false.
+- `shield_mesh.tres` has UV and tangent arrays (surface format flags).
+- `godot` on PATH is a shim in `~/bin` (outside the repo) to the portable 4.7.2 console build.
 
 ## Current change
 
@@ -103,15 +112,7 @@ not created, modified, renamed, reformatted or deleted. If a shader looks wrong,
 - The presentation driver's file and node location are not named in the brief.
 - Not in the repo yet: the Poly Haven wood textures and their credits file, the scorch-mask
   generator in `godot/tools/`, and `godot/tests/normal_map_check.gd` (CHANGE-BRIEF.md §8).
-- The exact Godot patch version comes only from README.md; project.godot says just `"4.7"`.
-- I did not run the tests. That `godot` and `timeout` are on PATH in this Windows/Git Bash
-  setup, and that the 23/14 results still hold, are not checked here.
-- `run-test.sh` does not run `godot --headless --path godot --import` (README.md:56); whether a
-  fresh checkout needs that first was not checked.
-- HDR 2D is assumed off only because project.godot has no key for it; the claim that
-  `source_color` is not linearised for canvas_item with HDR 2D off is the brief's own unverified
-  reading (CHANGE-BRIEF.md §6).
+- That a `source_color` uniform is not linearised in a canvas_item shader with HDR 2D off is the
+  brief's reading of the engine, to be checked by the controlled-value captures (CHANGE-BRIEF.md §6).
 - The shield's UVs cover 0..1 on the front face only; the back and rim use other mappings
-  (make_shield_mesh.gd:25, 38-40). That the stored tangents are valid was not checked at runtime.
-- `test_rules.gd` hard-codes `TICK := 1.0 / 60.0` (line 7); how that behaves at 30/144 fps
-  depends on `--fixed-fps` semantics, which I did not verify (README.md:64 says they passed).
+  (make_shield_mesh.gd:25, 38-40).

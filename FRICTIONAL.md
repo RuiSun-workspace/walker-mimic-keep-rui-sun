@@ -119,3 +119,33 @@ file to Markdown.
 
 **Not yet verified:** the Poly Haven page and file names (`wood_planks_*_1k`) will be checked when
 the textures are downloaded.
+
+## 2026-10-26/27 — Session 1: the CLAUDE.md draft and its review
+
+**First attempt failed.** `claude -p` stopped after 355 ms with "Not logged in · Please run /login".
+The desktop app was signed in, but its bundled CLI was not. Rui logged the CLI in
+(`claude auth login`). The failed transcript is kept: `sessions/session-1-attempt1-not-logged-in.jsonl`.
+
+**Second attempt** (`sessions/session-1.jsonl`, prompt `prompts/prompt-1.txt`, read-only git
+tools, `--max-turns 40`): final result event `success`, `is_error` false, 21 turns, no permission
+denials. `scripts/check-session.sh` showed `godot/shaders/` and `scripts/run-test.sh` unchanged;
+the only new file was CLAUDE.md (117 lines). Committed unedited as `0d0eb9c`.
+
+**Review (Rui reviewed and approved the list; Claude made the edits; separate commit).** Claude
+printed every line the draft cites and compared it with the claim. Most were exact. The draft did
+not list a build script as a test, which Chapter 6's run did. Found and fixed:
+
+1. The draft said `project.godot:11` lists "only" `"4.7"`; it lists `"4.7"` and `"Forward Plus"`.
+2. It told the reader the brief requires the *existing* suites at 30 and 144 fps (citing Rule 2).
+   The assignment runs existing tests at 60; only the new effect test runs at 30/60/144.
+3. No "Headless facts" block. Added one, every line from a probe on this machine. The headless
+   display server draws nothing. `get_shader_uniform_list()` gives names, types and hints but no
+   defaults. A broken shader prints SHADER ERROR and gives an empty list. An undeclared
+   `set_shader_parameter` is silent. Instance uniforms are not listed. Physics runs at 60 ticks/s.
+   `hdr_2d` is false. The shield mesh has tangents.
+4. Five "Unconfirmed" items were confirmed by those probes or by the baseline run, and were removed
+   or moved. The `source_color`-in-2D question stays unconfirmed until the captures.
+5. The `--import` step was added to the test commands. The baseline now cites the logs in
+   `evidence/baseline/`, not the README.
+
+Result: 118 lines, still under 120; `@CHANGE-BRIEF.md` is still imported on its own line.
