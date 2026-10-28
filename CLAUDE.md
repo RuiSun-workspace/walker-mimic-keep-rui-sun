@@ -107,8 +107,8 @@ not created, modified, renamed, reformatted or deleted. If a shader looks wrong,
 ## Unconfirmed
 
 - No `AGENTS.md` exists, so this file has no `@AGENTS.md` line.
-- `godot/shaders/` does not exist yet; `burning_tint.gdshader` and the spatial shield shader are
-  not written. The scarecrow Sprite2D and both shields have no ShaderMaterial yet.
+- `godot/shaders/burning_tint.gdshader` exists (Rui, commit 6a2c298); the spatial shield shader
+  is not written. The scarecrow Sprite2D and both shields have no ShaderMaterial yet.
 - The presentation driver's file and node location are not named in the brief.
 - Not in the repo yet: the Poly Haven wood textures and their credits file, the scorch-mask
   generator in `godot/tools/`, and `godot/tests/normal_map_check.gd` (CHANGE-BRIEF.md §8).
