@@ -149,3 +149,25 @@ not list a build script as a test, which Chapter 6's run did. Found and fixed:
    `evidence/baseline/`, not the README.
 
 Result: 118 lines, still under 120; `@CHANGE-BRIEF.md` is still imported on its own line.
+
+## 2026-10-28 — Step 2: the Burning shader, and the editor's first rewrite
+
+**Rui** created `godot/shaders/burning_tint.gdshader` in the Godot shader editor and typed it from
+CHANGE-BRIEF.md section 2. Getting there took three tries. The FileSystem dock's "New" menu in
+4.7.2 has no "Shader" entry. Then the Shader Editor panel looked empty until Rui clicked its
+"File" menu, which shows as plain text. Claude compared the file with the spec character by
+character (identical) and ran `--import`: no SHADER ERROR. Headless `get_shader_uniform_list()`
+reports `burn_mix: float` (hint_range 0..1) and `burn_color: Color`. The list does not show
+`source_color`, so tests must read hints from source text. Committed alone as `6a2c298`, Rui's.
+
+**Editor rewrite.** `git status` after that first editor session showed two modified files.
+- `main.tscn` gained uids and node `unique_id`s and lost `load_steps`. With those removed, every
+  line matched, so it was a format-only change.
+- `project.godot` got Godot's stock header and lost `renderer/rendering_method="forward_plus"`.
+  That value is the default, so the editor omits it. A probe still reads `forward_plus`.
+
+Claude recommended keeping the rewrite rather than restoring the key, because the editor would drop
+it again on every save. Rui chose "接受并修正引用". The rewrite is its own commit (`ccb9529`), and
+the suites still pass (23/0, 14/0). The follow-up commit moves CLAUDE.md's project.godot line
+numbers (+5) and rewords its renderer line. It also updates README's renderer line and adds a dated
+CHANGE-BRIEF revision for short answer 1.

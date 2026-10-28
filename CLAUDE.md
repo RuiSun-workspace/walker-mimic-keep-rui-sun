@@ -3,12 +3,12 @@
 ## Project context
 
 - **Engine:** Godot 4.7.2 stable, `4.7.2.stable.official.ed1daf0bf` (README.md:18).
-  `godot/project.godot:11` lists the feature tags `"4.7"` and `"Forward Plus"`.
-- **Renderer:** Forward+, `renderer/rendering_method="forward_plus"` (godot/project.godot:48).
-  2D default texture filter is nearest (godot/project.godot:49). No HDR 2D key is set
-  (godot/project.godot:46-49); the default is off (see Headless facts).
-- **Viewport:** 1280×720, stretch mode `canvas_items` (godot/project.godot:15-17).
-- **Main scene:** `res://game/main.tscn` (godot/project.godot:10). Root `Main` (Node2D,
+  `godot/project.godot:16` lists the feature tags `"4.7"` and `"Forward Plus"`.
+- **Renderer:** Forward+, the default: the editor drops `rendering_method="forward_plus"` from the
+  file (commit ccb9529); a probe reads `forward_plus`. 2D texture filter nearest
+  (godot/project.godot:53). No HDR 2D key (godot/project.godot:51-53); default off (Headless facts).
+- **Viewport:** 1280×720, stretch mode `canvas_items` (godot/project.godot:20-22).
+- **Main scene:** `res://game/main.tscn` (godot/project.godot:15). Root `Main` (Node2D,
   script `game/main.gd`); scarecrows are added under `World/Enemies` (godot/game/main.tscn:9-21).
   The scene has no Light2D or CanvasModulate node (godot/game/main.tscn:1-63).
 

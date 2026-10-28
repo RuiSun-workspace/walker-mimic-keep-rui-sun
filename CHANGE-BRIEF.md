@@ -475,3 +475,4 @@ My prediction is no. `hint_range` controls the Inspector editing interface but d
 Later changes are added below with a date; the text above is not rewritten.
 
 - **2026-10-26:** Original brief, written by Rui. Before its first commit, Claude Code converted it to Markdown and applied the review corrections Rui approved (listed in FRICTIONAL.md, 2026-10-26). The hand calculations are Rui's and were not recomputed in this file.
+- **2026-10-28:** Short answer 1 quotes `renderer/rendering_method="forward_plus"` from `project.godot`. Rui's first editor session removed that key from the file because Forward+ is the default (commit ccb9529). The renderer is unchanged: a headless probe still reads `forward_plus`, and `config/features` still lists "Forward Plus". The answer stands; the key is now implicit. (Added by Claude at Rui's request.)

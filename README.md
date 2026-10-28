@@ -16,7 +16,8 @@ events, pinned frame rate) follows the earlier walker projects.
 ## Engine and renderer
 
 - Godot **4.7.2** stable (`4.7.2.stable.official.ed1daf0bf`)
-- Renderer: **Forward+** (`godot/project.godot`, `rendering/renderer/rendering_method`)
+- Renderer: **Forward+**, Godot's default. The editor leaves `rendering/renderer/rendering_method`
+  out of `godot/project.godot` because it equals the default; `config/features` lists "Forward Plus".
 - Viewport 1280×720, stretch mode `canvas_items`; 2D textures use nearest filtering
 
 ## Run
