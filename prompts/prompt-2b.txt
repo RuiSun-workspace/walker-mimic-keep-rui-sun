@@ -1,0 +1,35 @@
+Read CLAUDE.md first. This run continues your own plan from the previous
+run, saved in sessions/session-2-plan.md. CHANGE-BRIEF.md now ends with
+two dated revisions, A and B, that answer the two issues you raised; they
+are part of the contract.
+
+I approve Steps 1, 2 and 3 of that plan, in that order. Implement one
+step, show its diff, then go on to the next. If resource_local_to_scene
+does not give each scarecrow a distinct material, use your duplicate()
+fallback in the driver and say that you did.
+
+Every rule from prompts/prompt-2.txt still applies. In particular: do not
+edit any .gdshader file; do not edit the existing tests or their
+expectations; do not commit; run every test with ./scripts/run-test.sh,
+the existing ones at 60 and the new one at 30, 60 and 144, and show the
+real output, including any SHADER ERROR lines.
+
+Two more requirements:
+1. The sampler records numbers only. Between frames it must not hold a
+   reference to any material, Sprite or scarecrow (store floats and ints,
+   or a weakref), so the Rule 5 weakref check can only fail because of
+   the game code.
+2. Every ignition must come from a real auto-fired arrow. If the
+   steer-in/steer-out timing fires extra arrows or is flaky at any frame
+   rate, report it with the real output and stop. Do not replace it with
+   calls to ignite(), to the driver, or writes to burn_time_left, and do
+   not loosen a tolerance to get a pass.
+
+Run commands from the repository root with no leading cd: the permission
+allowlist only matches commands that begin with ./scripts/run-test.sh,
+godot --headless --path godot --import, git status, git diff, git log,
+ls or mkdir.
+
+Finish with: the files you changed, the summary line of every test run
+at each frame rate, exactly what the new test proves and cannot prove
+headlessly, and the human checks still needed.
