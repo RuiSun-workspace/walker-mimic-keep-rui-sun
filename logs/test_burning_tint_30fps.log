@@ -13,22 +13,22 @@ PASS all three share the one Shader; burn_color is unset (shader default) on eac
 PASS [3 scarecrows] exactly one auto-fired arrow ignites the middle one
 PASS [3 scarecrows] at the hit: (0.0000, 0.6500, 0.0000), expected (0, 0.65, 0)
 PASS [3 scarecrows] with 1.9667 s left: (0.0000, 0.3196, 0.0000), expected (0, ~0.325, 0)
-PASS [3 scarecrows] the outer two read 0.0 in all 135 frames of the middle one's burn
+PASS [3 scarecrows] the outer two read 0.0 in all 134 frames of the middle one's burn
 PASS [time_scale 1.0] one auto-fired arrow ignites it
 PASS [time_scale 1.0] burn_mix is 0.0 in every frame before the hit
 PASS [time_scale 1.0] first frame after the hit: 0.650000 (2 ticks in it), Rule 1 / revision A
 PASS [time_scale 1.0] burn_mix is 0.0 in the frame burning_ended is emitted, > 0 the frame before
-INFO [time_scale 1.0 @ 30 fps] 242 physics ticks from hit to 0.0 (240 = 4 s); burn_time_left the frame before: 9.207912210484892e-15
-PASS [time_scale 1.0 @ 30 fps] 0.65 -> 0.0 takes 4.033333 s of game time, 4.0 +- one frame (0.033333)
-PASS [time_scale 1.0 @ 30 fps] that is 121 frames = 4.0333 s real time, 4.0/1.0 = 4.0000 +- one frame
+INFO [time_scale 1.0 @ 30 fps] 240 physics ticks from hit to 0.0 (240 = 4 s); burn_time_left the frame before: 0.03333333333334254
+PASS [time_scale 1.0 @ 30 fps] 0.65 -> 0.0 takes 4.000000 s of game time, 4.0 +- one frame (0.033333)
+PASS [time_scale 1.0 @ 30 fps] that is 120 frames = 4.0000 s real time, 4.0/1.0 = 4.0000 +- one frame
 PASS [time_scale 1.0] no further arrow after the burn
 PASS [time_scale 0.5] one auto-fired arrow ignites it
 PASS [time_scale 0.5] burn_mix is 0.0 in every frame before the hit
 PASS [time_scale 0.5] first frame after the hit: 0.650000 (2 ticks in it), Rule 1 / revision A
 PASS [time_scale 0.5] burn_mix is 0.0 in the frame burning_ended is emitted, > 0 the frame before
-INFO [time_scale 0.5 @ 30 fps] 482 physics ticks from hit to 0.0 (480 = 4 s); burn_time_left the frame before: 1.1709383462843448e-14
-PASS [time_scale 0.5 @ 30 fps] 0.65 -> 0.0 takes 4.016667 s of game time, 4.0 +- one frame (0.016667)
-PASS [time_scale 0.5 @ 30 fps] that is 241 frames = 8.0333 s real time, 4.0/0.5 = 8.0000 +- one frame
+INFO [time_scale 0.5 @ 30 fps] 480 physics ticks from hit to 0.0 (480 = 4 s); burn_time_left the frame before: 0.016666666666678376
+PASS [time_scale 0.5 @ 30 fps] 0.65 -> 0.0 takes 4.000000 s of game time, 4.0 +- one frame (0.016667)
+PASS [time_scale 0.5 @ 30 fps] that is 240 frames = 8.0000 s real time, 4.0/0.5 = 8.0000 +- one frame
 PASS [time_scale 0.5] no further arrow after the burn
 PASS [time_scale 2.0] one auto-fired arrow ignites it
 PASS [time_scale 2.0] burn_mix is 0.0 in every frame before the hit
@@ -42,7 +42,7 @@ PASS [pause] one auto-fired arrow ignites it
 PASS [pause] P pauses and P resumes
 PASS [pause] burn_mix 0.395417 and burn_time_left 2.433333 identical over 30 paused frames
 PASS [pause] after resume it continues from the frozen value (2.433333 -> 2.400000 -> 2.100000)
-PASS [pause] the paused burn still takes 4.033333 s of game time, 4.0 +- one frame
+PASS [pause] the paused burn still takes 4.000000 s of game time, 4.0 +- one frame
 PASS [retrigger] first auto-fired arrow ignites it
 PASS [retrigger] a second auto-fired arrow hits it
 PASS [retrigger] burn_mix 0.167917 (< 0.3) returns to 0.650000 in the hit frame (2 ticks), Rule 3

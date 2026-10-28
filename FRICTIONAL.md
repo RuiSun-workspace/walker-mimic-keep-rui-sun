@@ -171,3 +171,39 @@ it again on every save. Rui chose "接受并修正引用". The rewrite is its ow
 the suites still pass (23/0, 14/0). The follow-up commit moves CLAUDE.md's project.godot line
 numbers (+5) and rewords its renderer line. It also updates README's renderer line and adds a dated
 CHANGE-BRIEF revision for short answer 1.
+
+## 2026-10-28 — Session 2: the driver, the test, and a game bug the test found
+
+**Plan run** (`sessions/session-2-plan.jsonl`/`.md`, read-only tools, 20 turns): the agent confirmed
+Rui's shader matched the spec. It noticed a stale CLAUDE.md line and raised two spec questions.
+A: at 30 fps the first frame after a hit can't show exactly 0.65, because one frame holds two
+physics ticks. B: under time_scale, "one frame" means time_scale/fps of game time. Rui:
+"都批准". Both went in as dated CHANGE-BRIEF revisions (`2dd39a9`). Claude drafted the approval
+prompt (`prompts/prompt-2b.txt`) from Rui's answer and added two requirements of its own. The
+sampler may keep no references. Every ignition must come from a real arrow: report and stop,
+never call `ignite()` or loosen a tolerance.
+
+**Implementation run** (`sessions/session-2-implement.jsonl`/`.md`, 47 turns, 2 denials for
+`run-test.sh ...; echo` compound commands, then rerun plainly): the scene material, the driver
+and a 49-check test, committed unedited as `69489d8`.
+
+- Claude read the test before trusting the summary. No `ignite()`, no writes to
+  `burn_time_left`, no direct driver call. Pause is a real P key; the sampler runs at
+  process_priority 1000.
+- Claude re-ran everything through `run-test.sh` and got the agent's numbers: 49/0 at 30 and
+  60 fps, **42/7 at 144 fps**.
+
+**What the failure was.** Every burn lasted 241 ticks instead of 240. The agent's INFO line
+printed `burn_time_left` the frame before zero: `9.2e-15`. That is float residue from 240
+subtractions of 1/60, so the game's timer, not the tint, ran one extra tick. It passed at 30 and
+60 fps only because one frame there is at least as long as a tick. The agent stopped without
+loosening anything, as prompt-2b required.
+
+**Claude's own miss:** `test_rules.gd`, which Claude wrote for the prototype, allows ±1 tick
+on the burn duration. That tolerance hid this bug from the start.
+
+**Decision (Rui): "修游戏计时器".** The fix is a one-line epsilon (`BURN_END_EPSILON = 1e-9`) in
+`scarecrow.gd`. It is recorded as the single boundary exception in CHANGE-BRIEF. After the fix:
+test_rules 23/0 and test_input 14/0 at 60, test_burning_tint 49/0 at 30, 60 and 144. The
+INFO lines show 240/480/120 ticks. Not required but run anyway: test_rules and test_input also
+pass at 30 and 144. No test expectation was changed.

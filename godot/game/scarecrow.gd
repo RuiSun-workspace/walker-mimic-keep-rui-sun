@@ -10,6 +10,8 @@ signal burning_ended
 signal died
 signal attacking_gate(amount: float)
 
+const BURN_END_EPSILON := 1e-9      # s; float residue below this counts as burnt out
+
 var hp: float = Tuning.SCARECROW_HP
 var burn_time_left: float = 0.0
 var at_wall := false
@@ -51,7 +53,8 @@ func _physics_process(delta: float) -> void:
 		var burned := minf(delta, burn_time_left)
 		hp -= Tuning.BURN_DPS * burned
 		burn_time_left -= delta
-		if burn_time_left <= 0.0:
+		# Summing 240 deltas of 1/60 leaves ~1e-14 instead of 0, which used to add a 241st tick.
+		if burn_time_left <= BURN_END_EPSILON:
 			burn_time_left = 0.0
 			burning_ended.emit()
 		_check_death()
