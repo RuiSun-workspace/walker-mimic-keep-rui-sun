@@ -1,0 +1,29 @@
+Read CLAUDE.md first. The specification in CHANGE-BRIEF.md is the
+contract for this change; its headless facts describe what a test on
+this machine can observe. The shader in godot/shaders/ is hand-written
+by me and is not yours to edit: do not edit any .gdshader file. If you
+believe it is wrong or cannot meet the spec, say so and stop.
+
+First propose the smallest plan that meets the spec: the code that gives
+the object a ShaderMaterial using my shader, the code that sets each
+uniform from game state, and a new headless test in godot/tests/. Say
+which spec rule each test assertion covers, and which rules only a human
+can check. Do not edit yet.
+
+After I approve a step, implement only that step and show the diff.
+Rules:
+- Do not edit the existing tests or change their expectations.
+- The test asserts the shader's uniform names and types with
+  get_shader_uniform_list(), and reads defaults from the shader source
+  text, because a headless engine does not report them.
+- The test drives the state through the real game loop and real input,
+  not by calling the update function directly, and checks the retrigger
+  rule.
+- Sample the uniform from a node with a high process_priority, so it
+  reads after every other _process() in the frame.
+- Run every test with ./scripts/run-test.sh: the existing ones at 60,
+  and the new one at 30, 60 and 144. Show the real output, including any
+  SHADER ERROR lines.
+- Say exactly what your test proves and what it cannot prove in a
+  headless run, and list the human checks needed to judge the look.
+- Do not commit.
