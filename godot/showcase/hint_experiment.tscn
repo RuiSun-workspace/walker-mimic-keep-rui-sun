@@ -1,46 +1,40 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://8cn72ygnkvjn"]
 
 [ext_resource type="Material" path="res://showcase/hint_source_color.tres" id="1_srgb"]
 [ext_resource type="Material" path="res://showcase/hint_raw.tres" id="2_raw"]
 
 [sub_resource type="Environment" id="Env"]
 background_mode = 1
-background_color = Color(0, 0, 0, 1)
-tonemap_mode = 0
-tonemap_exposure = 1.0
-glow_enabled = false
-fog_enabled = false
-adjustment_enabled = false
 
 [sub_resource type="QuadMesh" id="Quad"]
 size = Vector2(1.2, 0.4)
 
-[node name="HintExperiment" type="Node3D"]
+[node name="HintExperiment" type="Node3D" unique_id=707228371]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=720460988]
 environment = SubResource("Env")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=433464399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-fov = 45.0
 current = true
+fov = 45.0
 
-[node name="QuadSourceColor" type="MeshInstance3D" parent="."]
+[node name="QuadSourceColor" type="MeshInstance3D" parent="." unique_id=1374970258]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("Quad")
 surface_material_override/0 = ExtResource("1_srgb")
 
-[node name="LabelSourceColor" type="Label3D" parent="."]
+[node name="LabelSourceColor" type="Label3D" parent="." unique_id=1241888741]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56, 0)
 pixel_size = 0.002
 text = "source_color"
 
-[node name="QuadRaw" type="MeshInstance3D" parent="."]
+[node name="QuadRaw" type="MeshInstance3D" parent="." unique_id=1935611602]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 mesh = SubResource("Quad")
 surface_material_override/0 = ExtResource("2_raw")
 
-[node name="LabelRaw" type="Label3D" parent="."]
+[node name="LabelRaw" type="Label3D" parent="." unique_id=1173239263]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.56, 0)
 pixel_size = 0.002
 text = "no hint"
