@@ -1,0 +1,39 @@
+Inspect before editing. Always run Godot through ./scripts/run-test.sh
+or godot --headless --path godot --import; never add
+--rendering-driver. A headless run uses a dummy renderer: it draws
+nothing.
+
+Task: audit the materials named in CHANGE-BRIEF.md, then write a
+headless test that pins what you found. Do not change any .gdshader
+file, material, scene or .import file in this task.
+
+1. Read the textured shader, both ShaderMaterial resources that use it,
+   the hint-experiment shader and its two materials, the .import file
+   of every texture they use, and the lights and environment of the
+   scenes they appear in.
+2. Write godot/MATERIALS.md with:
+   - one row per material: resource path, shader path, every uniform
+     value it sets, and every texture it binds;
+   - one row per sampler in each shader: name, hints as written in the
+     source, the texture each material binds to it, and that texture's
+     import settings (compress/mode, compress/normal_map,
+     mipmaps/generate);
+   - the lights and environment settings that change the look,
+     including tonemap and exposure;
+   - findings: anything that looks wrong, wasteful, unused or
+     inconsistent with CHANGE-BRIEF.md, each with the evidence line;
+   - attribution, using exactly the facts in CHANGE-BRIEF.md, which I
+     checked myself.
+3. Write godot/tests/test_materials.gd (extends SceneTree) that loads the
+   scenes headlessly and asserts the tables: both materials for the
+   textured shader reference the same shader path; each sampler's hints,
+   read from the source text; each material's uniform values and texture
+   paths; the import settings read from the .import files with
+   ConfigFile; and the uniform list from get_shader_uniform_list(). For
+   each normal map, preload godot/tests/normal_map_check.gd, decode the
+   source file with Image.load_from_file, and print curl_ratio under
+   both conventions. Print one PASS/FAIL line per check and exit 1 on
+   any failure.
+4. Run it with ./scripts/run-test.sh test_materials.gd 60 and show the
+   real output. Say what the test cannot establish headlessly.
+Do not commit.
