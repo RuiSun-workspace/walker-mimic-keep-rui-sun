@@ -358,3 +358,29 @@ the sampler's hints as written, and the Failure 4 check that only the albedo sam
 reports a sampler only as a Texture2D resource, with or without `source_color`. As with mutation 2,
 the property that matters is caught only by a check written for that property. Rui restored the
 line. The whole-file diff against `822d27a` was empty, and test_materials was back at 132/0.
+
+## 2026-10-28 — Controlled-value captures for the Burning tint
+
+`godot/tools/capture_burn_values.gd` (Claude, at Rui's request: "写截图脚本") puts five
+scarecrows on the real meadow and freezes them by disabling World, so the driver does not run.
+Each scarecrow's own material gets one `burn_mix` value: 0.0, 0.5, 0.65, 1.0, 2.0. The script
+saves one frame from the real renderer (Forward+, RTX 3070 Laptop, 1280×720, hdr_2d false) and
+reads CHANGE-BRIEF §6's three named pixels on each scarecrow. Output is in
+`evidence/controlled_values/`.
+
+- **15 of 15 pixels match** the colour line, within one 8-bit step. Every value at 0.0, 0.65 and
+  1.0 is exact, and so is every value at 2.0. At 0.5, the three half-integer channels the brief
+  flagged as ±1 (patch green 146.5, patch blue 30.5, head green 188.5) came out 146, 30 and 188.
+  They rounded down, inside Rui's ±1.
+- **`burn_color` is not linearised.** At 1.0 every pixel is exactly (255, 192, 32), so the
+  `source_color` uniform reaches this canvas_item shader as written with HDR 2D off. This was
+  the brief's unconfirmed reading of the engine (§6 and CLAUDE.md "Unconfirmed"); it is now
+  observed.
+- **`hint_range` does not clamp a value set from code.** The material reads back 2.0. The
+  captured pixels are the colour line at 2.0 with only the output clamped, for example straw
+  (255, 188, 0) and patch (255, 255, 35). They are not the clamped-to-1.0 result, (255, 192, 32).
+  That confirms Rui's prediction in short answer 7.
+- What it looks like (Claude's description of `burn_values_zoom.png`; Rui's own look is still
+  to come): at 1.0 the sprite is a flat silhouette and the outline, face and patch are gone. At 2.0
+  the details come back, inverted towards bright yellow. The gameplay maximum, 0.65, keeps the
+  details visible.

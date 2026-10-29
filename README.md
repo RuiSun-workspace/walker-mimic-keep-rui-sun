@@ -77,6 +77,7 @@ godot --headless --path godot --script res://tools/make_sprites.gd      # 4 spri
 godot --headless --path godot --script res://tools/make_shield_mesh.gd  # shield mesh
 godot --headless --path godot --script res://tools/make_scorch_mask.gd  # shield scorch mask
 godot --path godot --script res://tools/capture_prototype.gd            # evidence frames (not headless)
+godot --path godot --script res://tools/capture_burn_values.gd         # burn_mix 0/0.5/0.65/1/2 captures (not headless)
 ```
 
 ## Known limitations

@@ -121,7 +121,8 @@ not created, modified, renamed, reformatted or deleted. If a shader looks wrong,
   `hint_experiment.gdshader` (f76bb03).
 - The presentation driver's file and node location are not named in the brief; it is
   `godot/game/burning_tint.gd` on the scarecrow's Sprite (session 2).
-- That a `source_color` uniform is not linearised in a canvas_item shader with HDR 2D off is the
-  brief's reading of the engine, to be checked by the controlled-value captures (CHANGE-BRIEF.md §6).
+- (Now observed.) A `source_color` uniform is not linearised in a canvas_item shader with HDR 2D
+  off: at `burn_mix` 1.0 the captured pixels are exactly (255, 192, 32)
+  (evidence/controlled_values/pixels.txt, 2026-10-28).
 - The shield's UVs cover 0..1 on the front face only; the back and rim use other mappings
   (make_shield_mesh.gd:25, 38-40).
