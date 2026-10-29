@@ -1,0 +1,152 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS project renderer is forward_plus
+PASS ShieldA surface_material_override/0 is res://showcase/shield_new.tres
+PASS ShieldB surface_material_override/0 is res://showcase/shield_burned.tres
+PASS QuadSourceColor surface_material_override/0 is res://showcase/hint_source_color.tres
+PASS QuadRaw surface_material_override/0 is res://showcase/hint_raw.tres
+PASS ShieldA and ShieldB have different ShaderMaterial objects
+PASS both shield materials reference res://shaders/shield_wood.gdshader
+PASS both shield materials share one Shader object
+PASS both hint materials reference res://shaders/hint_experiment.gdshader
+PASS shield_wood.gdshader: Shader.code is the file on disk
+PASS shield_wood.gdshader: declares exactly ["wood_albedo_texture", "wood_roughness_texture", "wood_normal_texture", "scorch_mask_texture", "wood_tint", "texture_scale", "roughness_scale", "normal_strength", "scorch_amount", "scorch_color", "char_roughness"]
+FAIL shield_wood.gdshader: sampler2D wood_albedo_texture in group [], hints [source_color, filter_linear_mipmap, repeat_enable]  ["sampler2D", "", "filter_linear_mipmap, repeat_enable", ""]
+PASS shield_wood.gdshader: sampler2D wood_roughness_texture in group [], hints [filter_linear_mipmap, repeat_enable]
+PASS shield_wood.gdshader: sampler2D wood_normal_texture in group [], hints [hint_normal, filter_linear_mipmap, repeat_enable]
+PASS shield_wood.gdshader: sampler2D scorch_mask_texture in group [], hints [filter_linear_mipmap, repeat_disable]
+PASS shield_wood.gdshader: vec4 wood_tint in group [Surface], hint [source_color] default [vec4(1.0, 1.0, 1.0, 1.0)]
+PASS shield_wood.gdshader: float texture_scale in group [Surface], hint [hint_range(0.25, 4.0, 0.05)] default [1.0]
+PASS shield_wood.gdshader: float roughness_scale in group [Surface], hint [hint_range(0.0, 1.0, 0.01)] default [0.85]
+PASS shield_wood.gdshader: float normal_strength in group [Surface], hint [hint_range(0.0, 2.0, 0.01)] default [1.0]
+PASS shield_wood.gdshader: float scorch_amount in group [Damage], hint [hint_range(0.0, 1.0, 0.01)] default [0.0]
+PASS shield_wood.gdshader: vec4 scorch_color in group [Damage], hint [source_color] default [vec4(0.08, 0.025, 0.01, 1.0)]
+PASS shield_wood.gdshader: float char_roughness in group [Damage], hint [hint_range(0.0, 1.0, 0.01)] default [0.95]
+PASS hint_experiment.gdshader: Shader.code is the file on disk
+PASS hint_experiment.gdshader: declares exactly ["source_color_texture", "raw_texture", "use_source_color"]
+PASS hint_experiment.gdshader: sampler2D source_color_texture in group [], hints [source_color, filter_nearest, repeat_disable]
+PASS hint_experiment.gdshader: sampler2D raw_texture in group [], hints [filter_nearest, repeat_disable]
+PASS hint_experiment.gdshader: bool use_source_color in group [], hint [] default [true]
+FAIL Failure 4: wood_albedo_texture has source_color  ["filter_linear_mipmap", "repeat_enable"]
+PASS Failure 4: wood_roughness_texture has no source_color
+PASS Failure 4: wood_normal_texture has no source_color
+PASS Failure 4: scorch_mask_texture has no source_color
+INFO shield_wood.gdshader uniform list: wood_albedo_texture type 24 hint 17 hint_string "Texture2D"
+INFO shield_wood.gdshader uniform list: wood_roughness_texture type 24 hint 17 hint_string "Texture2D"
+INFO shield_wood.gdshader uniform list: wood_normal_texture type 24 hint 17 hint_string "Texture2D"
+INFO shield_wood.gdshader uniform list: scorch_mask_texture type 24 hint 17 hint_string "Texture2D"
+INFO shield_wood.gdshader uniform list: wood_tint type 20 hint 0 hint_string ""
+INFO shield_wood.gdshader uniform list: texture_scale type 3 hint 1 hint_string "0.25,4.0,0.05000000074506"
+INFO shield_wood.gdshader uniform list: roughness_scale type 3 hint 1 hint_string "0.0,1.0,0.00999999977648"
+INFO shield_wood.gdshader uniform list: normal_strength type 3 hint 1 hint_string "0.0,2.0,0.00999999977648"
+INFO shield_wood.gdshader uniform list: scorch_amount type 3 hint 1 hint_string "0.0,1.0,0.00999999977648"
+INFO shield_wood.gdshader uniform list: scorch_color type 20 hint 0 hint_string ""
+INFO shield_wood.gdshader uniform list: char_roughness type 3 hint 1 hint_string "0.0,1.0,0.00999999977648"
+PASS shield_wood.gdshader: get_shader_uniform_list() reports exactly the declared uniforms
+PASS shield_wood.gdshader: wood_albedo_texture reported as Object
+PASS shield_wood.gdshader: wood_albedo_texture reported as a Texture2D resource
+PASS shield_wood.gdshader: wood_roughness_texture reported as Object
+PASS shield_wood.gdshader: wood_roughness_texture reported as a Texture2D resource
+PASS shield_wood.gdshader: wood_normal_texture reported as Object
+PASS shield_wood.gdshader: wood_normal_texture reported as a Texture2D resource
+PASS shield_wood.gdshader: scorch_mask_texture reported as Object
+PASS shield_wood.gdshader: scorch_mask_texture reported as a Texture2D resource
+PASS shield_wood.gdshader: wood_tint reported as Color
+PASS shield_wood.gdshader: texture_scale reported as float
+PASS shield_wood.gdshader: texture_scale reported with range hint_range(0.25, 4.0, 0.05)
+PASS shield_wood.gdshader: roughness_scale reported as float
+PASS shield_wood.gdshader: roughness_scale reported with range hint_range(0.0, 1.0, 0.01)
+PASS shield_wood.gdshader: normal_strength reported as float
+PASS shield_wood.gdshader: normal_strength reported with range hint_range(0.0, 2.0, 0.01)
+PASS shield_wood.gdshader: scorch_amount reported as float
+PASS shield_wood.gdshader: scorch_amount reported with range hint_range(0.0, 1.0, 0.01)
+PASS shield_wood.gdshader: scorch_color reported as Color
+PASS shield_wood.gdshader: char_roughness reported as float
+PASS shield_wood.gdshader: char_roughness reported with range hint_range(0.0, 1.0, 0.01)
+INFO hint_experiment.gdshader uniform list: source_color_texture type 24 hint 17 hint_string "Texture2D"
+INFO hint_experiment.gdshader uniform list: raw_texture type 24 hint 17 hint_string "Texture2D"
+INFO hint_experiment.gdshader uniform list: use_source_color type 1 hint 0 hint_string ""
+PASS hint_experiment.gdshader: get_shader_uniform_list() reports exactly the declared uniforms
+PASS hint_experiment.gdshader: source_color_texture reported as Object
+PASS hint_experiment.gdshader: source_color_texture reported as a Texture2D resource
+PASS hint_experiment.gdshader: raw_texture reported as Object
+PASS hint_experiment.gdshader: raw_texture reported as a Texture2D resource
+PASS hint_experiment.gdshader: use_source_color reported as bool
+PASS shield_new.tres: sets exactly ["wood_albedo_texture", "wood_roughness_texture", "wood_normal_texture", "scorch_mask_texture", "wood_tint", "texture_scale", "roughness_scale", "normal_strength", "scorch_amount", "char_roughness"]
+PASS shield_new.tres: wood_albedo_texture = res://assets/textures/wood_planks/wood_planks_diff_1k.png
+PASS shield_new.tres: wood_roughness_texture = res://assets/textures/wood_planks/wood_planks_rough_1k.png
+PASS shield_new.tres: wood_normal_texture = res://assets/textures/wood_planks/wood_planks_nor_gl_1k.png
+PASS shield_new.tres: scorch_mask_texture = res://assets/textures/shield_scorch_mask.png
+PASS shield_new.tres: wood_tint = (1.0, 1.0, 1.0, 1.0)
+PASS shield_new.tres: texture_scale = 1.0
+PASS shield_new.tres: roughness_scale = 0.75
+PASS shield_new.tres: normal_strength = 0.8
+PASS shield_new.tres: scorch_amount = 0.05
+PASS shield_new.tres: scorch_color = not set (shader default)
+PASS shield_new.tres: char_roughness = 0.95
+PASS shield_burned.tres: sets exactly ["wood_albedo_texture", "wood_roughness_texture", "wood_normal_texture", "scorch_mask_texture", "wood_tint", "texture_scale", "roughness_scale", "normal_strength", "scorch_amount", "char_roughness"]
+PASS shield_burned.tres: wood_albedo_texture = res://assets/textures/wood_planks/wood_planks_diff_1k.png
+PASS shield_burned.tres: wood_roughness_texture = res://assets/textures/wood_planks/wood_planks_rough_1k.png
+PASS shield_burned.tres: wood_normal_texture = res://assets/textures/wood_planks/wood_planks_nor_gl_1k.png
+PASS shield_burned.tres: scorch_mask_texture = res://assets/textures/shield_scorch_mask.png
+PASS shield_burned.tres: wood_tint = (0.72, 0.5, 0.34, 1.0)
+PASS shield_burned.tres: texture_scale = 1.0
+PASS shield_burned.tres: roughness_scale = 0.95
+PASS shield_burned.tres: normal_strength = 1.15
+PASS shield_burned.tres: scorch_amount = 0.7
+PASS shield_burned.tres: scorch_color = not set (shader default)
+PASS shield_burned.tres: char_roughness = 0.98
+PASS hint_source_color.tres: sets exactly ["source_color_texture", "raw_texture", "use_source_color"]
+PASS hint_source_color.tres: source_color_texture = res://assets/textures/hint_greys_3x1.png
+PASS hint_source_color.tres: raw_texture = res://assets/textures/hint_greys_3x1.png
+PASS hint_source_color.tres: use_source_color = true
+PASS hint_raw.tres: sets exactly ["source_color_texture", "raw_texture", "use_source_color"]
+PASS hint_raw.tres: source_color_texture = res://assets/textures/hint_greys_3x1.png
+PASS hint_raw.tres: raw_texture = res://assets/textures/hint_greys_3x1.png
+PASS hint_raw.tres: use_source_color = false
+PASS wood_planks_diff_1k.png.import loads
+PASS wood_planks_diff_1k.png.import: source_file is the PNG
+PASS wood_planks_diff_1k.png.import: compress/mode=2 compress/normal_map=2 mipmaps/generate=true
+PASS wood_planks_rough_1k.png.import loads
+PASS wood_planks_rough_1k.png.import: source_file is the PNG
+PASS wood_planks_rough_1k.png.import: compress/mode=2 compress/normal_map=2 mipmaps/generate=true
+PASS wood_planks_nor_gl_1k.png.import loads
+PASS wood_planks_nor_gl_1k.png.import: source_file is the PNG
+PASS wood_planks_nor_gl_1k.png.import: compress/mode=2 compress/normal_map=1 mipmaps/generate=true
+PASS wood_planks_nor_dx_1k.png.import loads
+PASS wood_planks_nor_dx_1k.png.import: source_file is the PNG
+PASS wood_planks_nor_dx_1k.png.import: compress/mode=2 compress/normal_map=1 mipmaps/generate=true
+PASS shield_scorch_mask.png.import loads
+PASS shield_scorch_mask.png.import: source_file is the PNG
+PASS shield_scorch_mask.png.import: compress/mode=0 compress/normal_map=2 mipmaps/generate=true
+PASS hint_greys_3x1.png.import loads
+PASS hint_greys_3x1.png.import: source_file is the PNG
+PASS hint_greys_3x1.png.import: compress/mode=0 compress/normal_map=2 mipmaps/generate=false
+PASS ShieldA mesh is res://showcase/shield_mesh.tres
+PASS ShieldB mesh is res://showcase/shield_mesh.tres
+PASS shield mesh has UVs and tangents (normal map needs both)
+PASS shield mesh resource declares no material
+PASS shield room has exactly one Light3D
+PASS Sun is a DirectionalLight3D, energy 1.2, white, shadows on
+PASS Sun transform is the scene's
+INFO Sun shines along (-0.433013, -0.5, -0.75)
+PASS shield room camera at (0, 0.65, 2.3), fov 45, perspective, no CameraAttributes
+PASS shield room background: colour (0.32, 0.36, 0.42)
+PASS shield room ambient: colour source, white, energy 0.3
+PASS shield room tonemap Linear, exposure 1.0, white 1.0
+PASS shield room: glow, fog, volumetric fog, adjustments, SSAO, SSIL, SSR, SDFGI all off
+PASS hint scene has no Light3D (both quads unshaded)
+PASS hint camera at (0, 0, 2), fov 45, no CameraAttributes
+PASS hint background: black colour
+PASS hint scene tonemap Linear, exposure 1.0, white 1.0
+PASS hint scene: glow, fog, volumetric fog, adjustments, SSAO, SSIL, SSR, SDFGI all off
+PASS hint_greys_3x1.png source texels are 64, 128, 192
+PASS wood_planks_nor_gl_1k.png decodes from the source file
+INFO curl_ratio wood_planks_nor_gl_1k.png (source PNG, 1024x1024, format 5): directx=false 0.6957  directx=true 1.3043
+PASS wood_planks_nor_dx_1k.png decodes from the source file
+INFO curl_ratio wood_planks_nor_dx_1k.png (source PNG, 1024x1024, format 5): directx=false 1.3043  directx=true 0.6957
+PASS source nor_gl scores lower read as OpenGL
+PASS source nor_dx scores lower read as DirectX
+PASS shield_new.tres: bound normal map wood_planks_nor_gl_1k.png read as OpenGL, curl_ratio 0.6957 < 0.8479
+PASS shield_burned.tres: bound normal map wood_planks_nor_gl_1k.png read as OpenGL, curl_ratio 0.6957 < 0.8479
+test_materials: 130 passed, 2 failed

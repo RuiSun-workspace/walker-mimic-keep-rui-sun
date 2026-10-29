@@ -1,0 +1,13 @@
+diff --git a/godot/shaders/shield_wood.gdshader b/godot/shaders/shield_wood.gdshader
+index 54ef11c..2933775 100644
+--- a/godot/shaders/shield_wood.gdshader
++++ b/godot/shaders/shield_wood.gdshader
+@@ -4,7 +4,7 @@ shader_type spatial;
+ /* Texture inputs */
+ 
+ uniform sampler2D wood_albedo_texture
+-    : source_color, filter_linear_mipmap, repeat_enable;
++    : filter_linear_mipmap, repeat_enable;
+ 
+ uniform sampler2D wood_roughness_texture
+     : filter_linear_mipmap, repeat_enable;

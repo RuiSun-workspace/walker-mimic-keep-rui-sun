@@ -346,3 +346,15 @@ said that the author and licence are not in the brief, rather than copying or in
 (`git status`), so the explicit settings hold. From the empty cache: test_materials 132/0,
 normal_map_check 9/0, test_rules 23/0, test_input 14/0, test_burning_tint 49/0, all at 60 fps
 through run-test.sh.
+
+## 2026-10-28 — Mutation 3: source_color removed from the albedo sampler
+
+Rui removed `source_color, ` from `shield_wood.gdshader:7`, the albedo sampler, by hand. The
+whole-file diff showed that one change (`evidence/mutations/m3_source_color.diff`).
+`./scripts/run-test.sh test_materials.gd 60` exited 1: 130 passed, 2 failed
+(`m3_source_color_test_materials_60fps.log`). Both failures come from reading the source text:
+the sampler's hints as written, and the Failure 4 check that only the albedo sampler has
+`source_color`. Every check based on `get_shader_uniform_list()` still passed, because the engine
+reports a sampler only as a Texture2D resource, with or without `source_color`. As with mutation 2,
+the property that matters is caught only by a check written for that property. Rui restored the
+line. The whole-file diff against `822d27a` was empty, and test_materials was back at 132/0.
