@@ -207,3 +207,35 @@ on the burn duration. That tolerance hid this bug from the start.
 test_rules 23/0 and test_input 14/0 at 60, test_burning_tint 49/0 at 30, 60 and 144. The
 INFO lines show 240/480/120 ticks. Not required but run anyway: test_rules and test_input also
 pass at 30 and 144. No test expectation was changed.
+
+## 2026-10-28 — Mutations 1 and 2: does the test catch a broken shader?
+
+Rui: "开始变异". Rui made both edits by hand in `godot/shaders/burning_tint.gdshader` and
+restored them by hand; no agent touched the file. Each run went through
+`scripts/run-test.sh test_burning_tint.gd 60`. Logs and diffs are in `evidence/mutations/`.
+
+**Mutation 1: delete the `;` at the end of line 3** (`m1_semicolon.diff`). Exit 1, 45 passed,
+4 failed (`m1_semicolon_test_burning_tint_60fps.log`). The log has `SHADER ERROR: Expected a ';'`,
+pointing at line 4: the parser only notices at the next token. Two things caught it:
+`run-test.sh` matched `SHADER ERROR`, and the test saw an empty uniform list `[]` (three
+uniform checks plus the source check for `burn_mix`'s default failed).
+
+**Mutation 2: rename `burn_mix` to `burn_amount` in the shader only** (both places, so the
+shader still compiles; `m2_rename.diff`). Exit 1, 46 passed, 3 failed
+(`m2_rename_test_burning_tint_60fps.log`). No `SHADER ERROR`, so `run-test.sh`'s grep did not
+catch it; the test did. The failing checks were `burn_mix is a float with hint_range(0, 1)`
+(uniform list from the engine) and two source-text checks.
+
+**What the two runs show.** In both, all behaviour checks still passed (timing, pause,
+time_scale, retrigger, death). `set_shader_parameter()` stores a value under any name and reads
+it back without an error, even on a shader that failed to compile. So a test that only reads
+back `burn_mix` would have passed both mutations; in the game, the scarecrow would burn without
+changing colour. The check that matters is the uniform list by name: "exactly two uniforms"
+passed under the rename, so counting alone is not enough.
+
+**Restoring.** After mutation 2, Rui's first restore left an extra space in line 3
+(`float  burn_mix`); the test passed (49/0), but the file differed from `6a2c298`. Claude
+compared the md5 rather than trusting the test. Rui removed the space; a further save was needed
+before it reached the disk. Final state: md5 `aa5ca255114e283ac24d1c5dceef69d0`, same as
+`6a2c298`, `git status` clean for `godot/shaders/`, test_burning_tint 49/0 at 60 fps.
+The third mutation (`source_color`) belongs to the material test and comes in Step 3.

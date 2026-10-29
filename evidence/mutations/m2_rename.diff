@@ -1,0 +1,16 @@
+diff --git a/godot/shaders/burning_tint.gdshader b/godot/shaders/burning_tint.gdshader
+index ed61a56..d20ed0b 100644
+--- a/godot/shaders/burning_tint.gdshader
++++ b/godot/shaders/burning_tint.gdshader
+@@ -1,8 +1,8 @@
+ shader_type canvas_item;
+ 
+-uniform float burn_mix : hint_range(0.0, 1.0) = 0.0;
++uniform float  burn_amount : hint_range(0.0, 1.0) = 0.0;
+ uniform vec4 burn_color : source_color = vec4(1.0, 0.752941, 0.125490, 1.0);
+ 
+ void fragment() {
+-    COLOR.rgb = mix(COLOR.rgb, burn_color.rgb, burn_mix);
++    COLOR.rgb = mix(COLOR.rgb, burn_color.rgb,  burn_amount);
+ }
+\ No newline at end of file
