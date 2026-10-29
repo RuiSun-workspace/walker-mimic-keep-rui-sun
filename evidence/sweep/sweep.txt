@@ -1,0 +1,49 @@
+Interface sweep of shield_wood.gdshader, 2026-10-29, Godot 4.7.2-stable (official), forward_plus
+Surface uniforms on ShieldA (shield_new.tres), Damage uniforms on ShieldB (shield_burned.tres);
+every other value as in the material. Room lighting as saved: Sun energy 1.2 with shadows,
+ambient 0.3, linear tonemap.
+
+wood_tint on ShieldA
+wood_tint        min     = (0.0, 0.0, 0.0, 1.0)
+wood_tint        default = (1.0, 1.0, 1.0, 1.0)
+wood_tint        max     = (1.0, 1.0, 1.0, 1.0)
+wood_tint        back to the material's (1.0, 1.0, 1.0, 1.0)
+
+texture_scale on ShieldA
+texture_scale    min     = 0.25
+texture_scale    default = 1.0
+texture_scale    max     = 4.0
+texture_scale    back to the material's 1.0
+
+roughness_scale on ShieldA
+roughness_scale  min     = 0.0
+roughness_scale  default = 0.85
+roughness_scale  max     = 1.0
+roughness_scale  back to the material's 0.75
+
+normal_strength on ShieldA
+normal_strength  min     = 0.0
+normal_strength  default = 1.0
+normal_strength  max     = 2.0
+normal_strength  back to the material's 0.8
+
+scorch_amount on ShieldB
+scorch_amount    min     = 0.0
+scorch_amount    default = 0.0
+scorch_amount    max     = 1.0
+scorch_amount    back to the material's 0.7
+
+scorch_color on ShieldB
+scorch_color     min     = (0.0, 0.0, 0.0, 1.0)
+scorch_color     default = (0.08, 0.025, 0.01, 1.0)
+scorch_color     max     = (1.0, 1.0, 1.0, 1.0)
+scorch_color     back to the material's <null>
+
+char_roughness on ShieldB
+char_roughness   min     = 0.0
+char_roughness   default = 0.95
+char_roughness   max     = 1.0
+char_roughness   back to the material's 0.98
+
+sweep_sheet.png: rows in the order above, columns min | default | max, the swept shield
+cropped to [P: (284, 168), S: (331, 407)] (ShieldA) or [P: (665, 168), S: (331, 407)] (ShieldB).

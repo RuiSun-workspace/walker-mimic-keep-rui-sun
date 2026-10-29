@@ -78,6 +78,11 @@ godot --headless --path godot --script res://tools/make_shield_mesh.gd  # shield
 godot --headless --path godot --script res://tools/make_scorch_mask.gd  # shield scorch mask
 godot --path godot --script res://tools/capture_prototype.gd            # evidence frames (not headless)
 godot --path godot --script res://tools/capture_burn_values.gd         # burn_mix 0/0.5/0.65/1/2 captures (not headless)
+godot --path godot --script res://tools/capture_in_play.gd             # scripted ignite/kill frames (not headless)
+godot --path godot --script res://tools/capture_shield_room.gd -- sweep  # interface sweep, 21 frames (not headless)
+godot --path godot --script res://tools/capture_shield_room.gd -- shot <name>  # one shield-room frame
+powershell -ExecutionPolicy Bypass -File godot/tools/os_screenshot.ps1 -Godot <Godot .exe>  # OS screenshot of the burn frame
+godot --headless --path godot --script res://tools/compare_os_screenshot.gd  # in-engine vs OS screenshot
 ```
 
 ## Known limitations

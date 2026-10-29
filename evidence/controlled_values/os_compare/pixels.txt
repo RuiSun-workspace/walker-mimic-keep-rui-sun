@@ -1,0 +1,29 @@
+Controlled-value capture, 2026-10-29, Godot 4.7.2-stable (official)
+renderer=forward_plus adapter=NVIDIA GeForce RTX 3070 Laptop GPU frame=1280x720 hdr_2d=false
+burn_color as set in the shader: (255, 192, 32). Values read back from each material:
+  scarecrow 0 at x=320: burn_mix = 0.0
+  scarecrow 1 at x=480: burn_mix = 0.5
+  scarecrow 2 at x=640: burn_mix = 0.65
+  scarecrow 3 at x=800: burn_mix = 1.0
+  scarecrow 4 at x=960: burn_mix = 2.0
+
+Prediction = original*(1-m) + burn_color*m, clamped to 0..1 on output, rounded to 8 bit.
+For m = 2.0 the line also shows what m clamped to 1.0 would give.
+
+m=0.0  Straw body (28, 46)  original (233, 196, 106)  predicted (233, 196, 106)  captured (233, 196, 106)  MATCH
+m=0.0  Patch (33, 47)       original (181, 101,  29)  predicted (181, 101,  29)  captured (181, 101,  29)  MATCH
+m=0.0  Sack head (28, 22)   original (217, 185, 138)  predicted (217, 185, 138)  captured (217, 185, 138)  MATCH
+m=0.5  Straw body (28, 46)  original (233, 196, 106)  predicted (244, 194,  69)  captured (244, 194,  69)  MATCH
+m=0.5  Patch (33, 47)       original (181, 101,  29)  predicted (218, 147,  31)  captured (218, 146,  30)  MATCH
+m=0.5  Sack head (28, 22)   original (217, 185, 138)  predicted (236, 189,  85)  captured (236, 188,  85)  MATCH
+m=0.65 Straw body (28, 46)  original (233, 196, 106)  predicted (247, 193,  58)  captured (247, 193,  58)  MATCH
+m=0.65 Patch (33, 47)       original (181, 101,  29)  predicted (229, 160,  31)  captured (229, 160,  31)  MATCH
+m=0.65 Sack head (28, 22)   original (217, 185, 138)  predicted (242, 190,  69)  captured (242, 190,  69)  MATCH
+m=1.0  Straw body (28, 46)  original (233, 196, 106)  predicted (255, 192,  32)  captured (255, 192,  32)  MATCH
+m=1.0  Patch (33, 47)       original (181, 101,  29)  predicted (255, 192,  32)  captured (255, 192,  32)  MATCH
+m=1.0  Sack head (28, 22)   original (217, 185, 138)  predicted (255, 192,  32)  captured (255, 192,  32)  MATCH
+m=2.0  Straw body (28, 46)  original (233, 196, 106)  predicted (255, 188,   0)  captured (255, 188,   0)  MATCH   (if clamped to 1.0: (255, 192,  32))
+m=2.0  Patch (33, 47)       original (181, 101,  29)  predicted (255, 255,  35)  captured (255, 255,  35)  MATCH   (if clamped to 1.0: (255, 192,  32))
+m=2.0  Sack head (28, 22)   original (217, 185, 138)  predicted (255, 199,   0)  captured (255, 199,   0)  MATCH   (if clamped to 1.0: (255, 192,  32))
+
+15 of 15 sampled pixels match the colour-line prediction within 1 step.

@@ -1,0 +1,4 @@
+client_position=(640, 404)
+client_size=(1280, 720)
+screen=0
+screen_scale=1.0

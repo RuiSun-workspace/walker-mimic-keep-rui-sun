@@ -1,0 +1,19 @@
+In-engine capture 1280x720; OS screenshot 1280x720; game client area at (0, 0) size (1280, 720) (screen_scale 1.0).
+
+m=0.0  Straw body (28, 46)  in-engine (233, 196, 106)  OS (233, 196, 106)  max diff 0
+m=0.0  Patch (33, 47)       in-engine (181, 101,  29)  OS (181, 101,  29)  max diff 0
+m=0.0  Sack head (28, 22)   in-engine (217, 185, 138)  OS (217, 185, 138)  max diff 0
+m=0.5  Straw body (28, 46)  in-engine (244, 194,  69)  OS (244, 194,  69)  max diff 0
+m=0.5  Patch (33, 47)       in-engine (218, 146,  30)  OS (218, 146,  30)  max diff 0
+m=0.5  Sack head (28, 22)   in-engine (236, 188,  85)  OS (236, 188,  85)  max diff 0
+m=0.65 Straw body (28, 46)  in-engine (247, 193,  58)  OS (247, 193,  58)  max diff 0
+m=0.65 Patch (33, 47)       in-engine (229, 160,  31)  OS (229, 160,  31)  max diff 0
+m=0.65 Sack head (28, 22)   in-engine (242, 190,  69)  OS (242, 190,  69)  max diff 0
+m=1.0  Straw body (28, 46)  in-engine (255, 192,  32)  OS (255, 192,  32)  max diff 0
+m=1.0  Patch (33, 47)       in-engine (255, 192,  32)  OS (255, 192,  32)  max diff 0
+m=1.0  Sack head (28, 22)   in-engine (255, 192,  32)  OS (255, 192,  32)  max diff 0
+m=2.0  Straw body (28, 46)  in-engine (255, 188,   0)  OS (255, 188,   0)  max diff 0
+m=2.0  Patch (33, 47)       in-engine (255, 255,  35)  OS (255, 255,  35)  max diff 0
+m=2.0  Sack head (28, 22)   in-engine (255, 199,   0)  OS (255, 199,   0)  max diff 0
+
+Whole frame: 920982 of 921600 pixels identical (99.93%), largest channel difference 183.

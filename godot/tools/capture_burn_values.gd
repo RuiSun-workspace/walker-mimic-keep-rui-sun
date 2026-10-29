@@ -7,6 +7,9 @@ extends SceneTree
 ## is saved, the brief's named sprite pixels are read from it, and each is compared with the colour
 ## line computed here: result = original * (1 - burn_mix) + burn_color * burn_mix.
 ## Writes evidence/controlled_values/{burn_values.png, burn_values_zoom.png, pixels.txt}.
+## With "-- --hold" it writes the same files to evidence/controlled_values/os_compare/ instead, adds
+## window.txt (the client area on screen) and keeps the window open HOLD_S seconds so an OS screenshot
+## of the same frame can be taken and compared with tools/compare_os_screenshot.gd.
 
 const OUT := "res://../evidence/controlled_values/"
 const SPRITE := "res://assets/sprites/scarecrow.png"
@@ -21,8 +24,10 @@ const PIXELS := {                        # CHANGE-BRIEF §6 named pixels, in spr
 	"Sack head (28, 22)": Vector2i(28, 22),
 }
 const ZOOM := 4
+const HOLD_S := 12.0
 
 var lines := PackedStringArray()
+var out := OUT
 
 
 func _initialize() -> void:
@@ -30,7 +35,10 @@ func _initialize() -> void:
 
 
 func _run() -> void:
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
+	var hold := OS.get_cmdline_user_args().has("--hold")
+	if hold:
+		out = OUT + "os_compare/"
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(out))
 	var game := (load("res://game/main.tscn") as PackedScene).instantiate() as Game
 	game.spawning_enabled = false
 	root.add_child(game)
@@ -51,7 +59,7 @@ func _run() -> void:
 		await process_frame
 	await RenderingServer.frame_post_draw
 	var img := root.get_texture().get_image()
-	img.save_png(ProjectSettings.globalize_path(OUT + "burn_values.png"))
+	img.save_png(ProjectSettings.globalize_path(out + "burn_values.png"))
 
 	_log("Controlled-value capture, %s, Godot %s" % [Time.get_date_string_from_system(), Engine.get_version_info().string])
 	_log("renderer=%s adapter=%s frame=%dx%d hdr_2d=%s" % [RenderingServer.get_current_rendering_method(),
@@ -90,11 +98,19 @@ func _run() -> void:
 	var x0 := FIRST_X - half.x - 8
 	var crop := img.get_region(Rect2i(x0, ROW_Y - half.y - 8, (VALUES.size() - 1) * STEP_X + 2 * half.x + 16, 2 * half.y + 16))
 	crop.resize(crop.get_width() * ZOOM, crop.get_height() * ZOOM, Image.INTERPOLATE_NEAREST)
-	crop.save_png(ProjectSettings.globalize_path(OUT + "burn_values_zoom.png"))
+	crop.save_png(ProjectSettings.globalize_path(out + "burn_values_zoom.png"))
 
-	var f := FileAccess.open(ProjectSettings.globalize_path(OUT + "pixels.txt"), FileAccess.WRITE)
+	var f := FileAccess.open(ProjectSettings.globalize_path(out + "pixels.txt"), FileAccess.WRITE)
 	f.store_string("\n".join(lines) + "\n")
 	f.close()
+	if hold:
+		var w := FileAccess.open(ProjectSettings.globalize_path(out + "window.txt"), FileAccess.WRITE)
+		w.store_string("client_position=%s\nclient_size=%s\nscreen=%d\nscreen_scale=%s\n" % [
+			str(DisplayServer.window_get_position()), str(DisplayServer.window_get_size()),
+			DisplayServer.window_get_current_screen(), str(DisplayServer.screen_get_scale())])
+		w.close()
+		print("HOLDING %.0f s" % HOLD_S)
+		await create_timer(HOLD_S).timeout
 	quit(0)
 
 

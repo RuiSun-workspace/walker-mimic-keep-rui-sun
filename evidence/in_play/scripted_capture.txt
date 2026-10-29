@@ -1,0 +1,9 @@
+Scripted in-play capture, 2026-10-29, Godot 4.7.2-stable (official), renderer=forward_plus
+Archer and spawning off; scarecrows, the Burning timer and the tint driver run as in play.
+
+scripted_1_before.png (gate 100.0): #0 burn_time_left=0.000 burn_mix=0.000, #1 burn_time_left=0.000 burn_mix=0.000, #2 burn_time_left=0.000 burn_mix=0.000
+scripted_2_middle_burning.png (gate 100.0): #0 burn_time_left=0.000 burn_mix=0.000, #1 burn_time_left=3.500 burn_mix=0.569, #2 burn_time_left=0.000 burn_mix=0.000
+Middle scarecrow killed at (640.0, 280.0) with burn_time_left=3.500.
+scripted_3_after_death.png (gate 100.0): #0 burn_time_left=0.000 burn_mix=0.000, #1 gone, #2 burn_time_left=0.000 burn_mix=0.000
+Pixels with red > green inside the dead scarecrow's last sprite box [P: (612, 244), S: (56, 72)]: 0 (0 = nothing left).
+Middle scarecrow node still valid: false.

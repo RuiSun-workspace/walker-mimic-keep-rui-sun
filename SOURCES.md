@@ -11,6 +11,7 @@
 |---|---|---|
 | `godot/game/*`, `godot/showcase/*`, `godot/tests/test_rules.gd`, `godot/tests/test_input.gd`, `godot/tools/*` | Claude Code (Claude Opus 5.5), in an interactive session directed by Rui | 2026-10-25 |
 | `godot/tools/make_scorch_mask.gd`, `godot/tools/make_hint_greys.gd`, `godot/tools/capture_burn_values.gd`, `godot/tests/normal_map_check.gd` (except `curl_ratio()` and its three helpers, copied unchanged from the CSYE 7270 Assignment 5 text) | Claude Code (Claude Opus 5.5), in an interactive session directed by Rui | 2026-10-28 |
+| `godot/tools/capture_in_play.gd`, `godot/tools/capture_shield_room.gd`, `godot/tools/os_screenshot.ps1`, `godot/tools/compare_os_screenshot.gd`; hold mode in `godot/tools/capture_burn_values.gd` | Claude Code (Claude Opus 5.5), in an interactive session directed by Rui | 2026-10-29 |
 
 ## Downloaded textures
 
