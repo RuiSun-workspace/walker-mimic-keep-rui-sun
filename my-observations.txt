@@ -1,0 +1,56 @@
+1. Screenshots and recorded evidence
+
+Burning effect in play
+
+In `scripted_2_middle_burning.png`, the middle scarecrow is the only one that turns orange. The other two keep their normal colours, so it is easy to tell which one is burning.
+In `scripted_3_after_death.png`, the middle scarecrow is gone. I do not see any orange colour or other effect left behind where it used to be.
+I also checked `one_burning.png`. The scarecrow at the lower left is orange, while the other visible scarecrow is still normal. This screenshot has a different arrangement, but it shows the same result: only one scarecrow is affected.
+Overall, the effect is clear, stays on the correct scarecrow, and disappears when that scarecrow is removed.
+
+Parameter sweep
+
+I read the three columns as minimum, default, and maximum.
+Wood tint: At the minimum, the shield is almost black and most of the wood detail disappears. The default and maximum look the same because both are white. The minimum is too dark to use.
+Texture scale: The minimum makes the texture look too large and stretched across the shield. The default looks the most natural. At the maximum, the texture repeats too many times and the tiling becomes obvious.
+Roughness scale: This difference is fairly hard to see in the screenshots. The minimum has slightly stronger highlights, while the default and maximum look more matte. The minimum looks a little too smooth for old wood, but none of these images looks completely broken.
+Normal strength: The minimum looks flatter. The default gives the wood some visible depth. At the maximum, the horizontal seams become very dark and look deeper than they should.
+Scorch amount: The minimum and default look the same because both use zero. At the maximum, the dark scorch pattern is fully visible. Zero makes the burned shield look too clean, but the maximum also looks a little too blotchy. A value between them works better.
+Scorch colour: The minimum and default both make the scorch marks dark. At the maximum, the marks become white, which does not look like burned wood at all.
+Char roughness:At the minimum, the scorched areas have bright, glossy reflections. The default and maximum are more matte and look very similar. The minimum looks too polished for a burned surface.
+
+The matching wood-tint and scorch-amount images make sense because of the values used in the sweep. I do not think they are duplicate screenshots by mistake.
+
+Engine screenshot compared with OS screenshot
+I compared `burn_values.png` and `os_screenshot.png`. They look almost identical to me, and I could not find all the differences just by looking at them.
+According to `os_compare.txt`, the 15 test pixels match exactly. It also says that 618 pixels elsewhere in the frame are different, mainly near the archer's face, belt, and the edges of the gate. I am using the text file for those numbers because they cannot be counted reliably by eye.
+For exact pixel evidence, I trust the in-engine screenshot more. It comes directly from the game renderer at `1280 × 720`. The OS screenshot also goes through the game window and desktop capture process, so there are more places where small edge differences could be introduced. Both are fine for the 15 test pixels because those values are identical.
+
+2. Hint experiment
+I opened `hint_experiment.tscn` and ran it with F6.
+The lower row, labelled `no hint`, is clearly brighter than the upper `source_color` row. Both rows still go from dark grey on the left to light grey on the right. The three sections also have clear edges, so the texture is not being blurred into a gradient.
+The result looks the same as `hint_experiment_render.png`.
+I cannot tell the exact RGB values by looking at the screen. Visually, I can only confirm that the lower row is brighter. The exact values come from `band_values.txt`, which records `64/128/192` for the upper row and `137/188/225` for the lower row. The file says that all six measured values match the prediction.
+
+3. Shield comparison
+I opened `shield_room.tscn` and ran it with F6.
+ShieldA on the left looks like clean, light-coloured wood. ShieldB on the right is much darker and has a reddish-brown burned colour. It also has dark scorch patches, especially near the top. The difference between the clean and burned shield is easy to notice.
+ShieldB looks a little more matte, although the roughness difference is not very strong in this lighting. I cannot work out the exact roughness values just by looking at the scene. The horizontal boards are visible on both shields, but some of the smaller details on ShieldB are hidden by its darker colour.
+The shadows fall mostly toward the left and rear, which makes sense for a light coming from the upper-right and closer to the camera.
+The horizontal seams look dark with a small amount of light along their lower edges. That generally makes them look recessed instead of raised. The difference is subtle, so I would not say the normal direction is completely obvious, but I also do not see a clear sign that the normal map is inverted.
+
+4. One shader and two materials
+
+Shared shader test
+
+I first compared `0_before.png` with `1_shader_edit.png`.
+Before the edit, ShieldA was light brown and ShieldB was dark reddish-brown. After I added the temporary blue multiplier to `shield_wood.gdshader`, both shields changed. ShieldA became noticeably blue-purple, while ShieldB became much darker with a cooler colour.
+The change was easier to see on ShieldA, but it affected both objects. This shows that `shield_new.tres` and `shield_burned.tres` both use the same `shield_wood.gdshader`.
+After the shader line was restored, `1b_shader_restored.png` looked the same as the original `0_before.png`. ShieldA returned to light wood and ShieldB returned to its dark brown colour.
+
+Separate material test
+
+For the second test, I changed `Scorch Amount` only in `shield_new.tres`.
+In `2_material_edit.png`, dark scorch patches appeared across ShieldA on the left. ShieldB on the right did not show the same new change and kept its previous dark brown appearance.
+This shows that the two shields do not share the same material parameters. Changing a value in `shield_new.tres` affects ShieldA, but it does not change `shield_burned.tres` or ShieldB.
+After the value was restored, `2b_material_restored.png` looked the same as the original image again. The extra scorch marks disappeared from ShieldA, while ShieldB remained unchanged throughout the material test.
+The two tests together show that both materials share one shader, but each material stores its own parameter values.
