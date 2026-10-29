@@ -30,7 +30,7 @@ uniform float roughness_scale
     : hint_range(0.0, 1.0, 0.01) = 0.85;
 
 uniform float normal_strength
-    : hint_range(0.0, 1.0, 0.01) = 1.0;
+    : hint_range(0.0, 2.0, 0.01) = 1.0;
 
 
 /* Damage controls */
