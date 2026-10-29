@@ -6,6 +6,10 @@ PASS calibration: nor_gl scores lower read as OpenGL (directx = false)
 PASS calibration: nor_dx scores lower read as DirectX (directx = true)
 PASS calibration: the known-good pair scores below 1.0 (a surface is behind it)
 INFO threshold from the pair: (0.6714 + 1.0) / 2 = 0.8357
-INFO ShieldA has no ShaderMaterial yet; its normal map is not checked
-INFO ShieldB has no ShaderMaterial yet; its normal map is not checked
-normal_map_check: 3 passed, 0 failed
+PASS ShieldA: the shader declares exactly one hint_normal sampler
+PASS ShieldA: a texture is bound to wood_normal_texture
+PASS ShieldA: wood_planks_nor_gl_1k.png read as OpenGL, curl_ratio 0.6703 < 0.8357
+PASS ShieldB: the shader declares exactly one hint_normal sampler
+PASS ShieldB: a texture is bound to wood_normal_texture
+PASS ShieldB: wood_planks_nor_gl_1k.png read as OpenGL, curl_ratio 0.6703 < 0.8357
+normal_map_check: 9 passed, 0 failed

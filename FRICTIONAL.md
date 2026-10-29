@@ -268,3 +268,28 @@ Claude checked the threshold by hand with a throwaway probe: bound nor_gl 0.6703
 nor_dx 1.3286 fails, and a noise "normal map" with no surface behind it scores 1.0200 and fails.
 `normal_map_check.gd` 3/0 through run-test.sh. Its shield checks start running once the
 shields have a ShaderMaterial with a `hint_normal` sampler.
+
+## 2026-10-28 — Rui's spatial shader and the two shield materials
+
+**Shader.** Rui wrote `godot/shaders/shield_wood.gdshader` by hand. Claude only read it and
+compared it with the CHANGE-BRIEF §8 table. Two ranges differed: `texture_scale` went to 8.0
+instead of 4.0, and `roughness_scale` was 0–2 with default 1.0 instead of 0–1 with 0.85.
+Claude listed both, and Rui chose to fix the shader ("我改着色器"). After Rui's edit, a headless
+`get_shader_uniform_list(true)` reported 4 samplers, the groups `Surface` and `Damage`, and 7
+uniforms whose types and hint ranges match the table. Committed unchanged as `416e5f5`.
+
+**Materials.** Claude wrote `godot/showcase/shield_new.tres` (ShieldA) and `shield_burned.tres`
+(ShieldB) with a one-off script, not committed, that called `ResourceSaver` with the brief's
+values. Both bind diff, rough, nor_gl and the scorch mask. A headless save writes unset
+parameters as `null`, because the dummy renderer has no defaults, so Claude deleted the
+`scorch_color = null` line from both files; both use the shader default. In
+`shield_room.tscn`, the two placeholder StandardMaterial3Ds are replaced by the two files.
+Light, environment, camera and mesh are untouched. A probe read two distinct materials, one
+shared shader, and the brief's values.
+
+**Checks.** `normal_map_check.gd` 9/0: its shield checks ran for the first time, nor_gl bound
+on both, 0.6703 < 0.8357. test_rules 23/0, test_input 14/0, test_burning_tint 49/0 at 60 fps.
+One frame rendered by the real renderer (Forward+, RTX 3070 Laptop) is in
+`evidence/materials/shield_room_first_render.png`. It shows that both materials compile on the
+GPU and that the scorch shows on ShieldB. It is Claude's render check, not the human visual
+judgement, which is still to do.

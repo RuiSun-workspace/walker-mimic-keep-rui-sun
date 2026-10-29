@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/shield_wood.gdshader" id="1_4h1yw"]
+[ext_resource type="Texture2D" path="res://assets/textures/shield_scorch_mask.png" id="2_728jx"]
+[ext_resource type="Texture2D" path="res://assets/textures/wood_planks/wood_planks_diff_1k.png" id="3_5d04m"]
+[ext_resource type="Texture2D" path="res://assets/textures/wood_planks/wood_planks_nor_gl_1k.png" id="4_qx78g"]
+[ext_resource type="Texture2D" path="res://assets/textures/wood_planks/wood_planks_rough_1k.png" id="5_t5y6p"]
+
+[resource]
+resource_name = "shield_burned"
+render_priority = 0
+shader = ExtResource("1_4h1yw")
+shader_parameter/wood_albedo_texture = ExtResource("3_5d04m")
+shader_parameter/wood_roughness_texture = ExtResource("5_t5y6p")
+shader_parameter/wood_normal_texture = ExtResource("4_qx78g")
+shader_parameter/scorch_mask_texture = ExtResource("2_728jx")
+shader_parameter/wood_tint = Color(0.72, 0.5, 0.34, 1)
+shader_parameter/texture_scale = 1.0
+shader_parameter/roughness_scale = 0.95
+shader_parameter/normal_strength = 1.15
+shader_parameter/scorch_amount = 0.7
+shader_parameter/char_roughness = 0.98
