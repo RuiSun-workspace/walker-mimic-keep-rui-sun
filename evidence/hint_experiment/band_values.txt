@@ -1,0 +1,10 @@
+Hint experiment, one frame, real renderer (not headless). 2026-10-28, Godot 4.7.2.
+renderer=forward_plus adapter=NVIDIA GeForce RTX 3070 Laptop GPU size=(1280, 720) format=4 (RGB8)
+Scene res://showcase/hint_experiment.tscn: unshaded quads, Linear tonemap, exposure 1.0, glow/fog/adjustments off.
+Centre pixel of each band, found with Camera3D.unproject_position at x = -0.4, 0.0, 0.4:
+
+QuadSourceColor:  (466,229)=64/64/64  (640,229)=128/128/128  (813,229)=192/192/192
+QuadRaw:  (466,490)=137/137/137  (640,490)=188/188/188  (813,490)=225/225/225
+
+CHANGE-BRIEF section 7 predicted 64/128/192 with source_color and 137/188/225 without.
+All six values match exactly.

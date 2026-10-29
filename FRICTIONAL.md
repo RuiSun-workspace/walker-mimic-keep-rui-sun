@@ -293,3 +293,19 @@ One frame rendered by the real renderer (Forward+, RTX 3070 Laptop) is in
 `evidence/materials/shield_room_first_render.png`. It shows that both materials compile on the
 GPU and that the scorch shows on ShieldB. It is Claude's render check, not the human visual
 judgement, which is still to do.
+
+## 2026-10-28 — The hint experiment
+
+Claude wrote `godot/tools/make_hint_greys.gd`, which makes the 3×1 PNG (64, 128, 192),
+imported lossless with no mipmaps. A probe of the imported image read `#404040 #808080 #c0c0c0`.
+Rui hand-wrote `godot/shaders/hint_experiment.gdshader`. It is unshaded and has two samplers,
+one with `source_color, filter_nearest` and one with `filter_nearest` only, plus the bool
+`use_source_color`. Claude only compiled it and read its uniform list. Claude made the two
+materials (`hint_source_color.tres`: true, `hint_raw.tres`: false), both bound to the same
+PNG, with a one-off `ResourceSaver` script. Claude also wrote `godot/showcase/hint_experiment.tscn`.
+It has two quads facing the camera and a WorldEnvironment with a Linear tonemap, exposure 1.0,
+and glow, fog and adjustments off.
+
+One frame from the real renderer (`evidence/hint_experiment/`): the source_color quad reads
+64/128/192 and the unhinted quad 137/188/225. That is exactly CHANGE-BRIEF §7's prediction, all
+six values. Rui's own look at the scene is still part of the human checks.

@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/hint_experiment.gdshader" id="1_fmamv"]
+[ext_resource type="Texture2D" path="res://assets/textures/hint_greys_3x1.png" id="2_mcbrj"]
+
+[resource]
+resource_name = "hint_raw"
+render_priority = 0
+shader = ExtResource("1_fmamv")
+shader_parameter/source_color_texture = ExtResource("2_mcbrj")
+shader_parameter/raw_texture = ExtResource("2_mcbrj")
+shader_parameter/use_source_color = false
