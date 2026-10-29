@@ -39,7 +39,7 @@ const WOOD_UNIFORMS := {
 	"wood_tint": ["vec4", "Surface", "source_color", "vec4(1.0, 1.0, 1.0, 1.0)"],
 	"texture_scale": ["float", "Surface", "hint_range(0.25, 4.0, 0.05)", "1.0"],
 	"roughness_scale": ["float", "Surface", "hint_range(0.0, 1.0, 0.01)", "0.85"],
-	"normal_strength": ["float", "Surface", "hint_range(0.0, 1.0, 0.01)", "1.0"],
+	"normal_strength": ["float", "Surface", "hint_range(0.0, 2.0, 0.01)", "1.0"],
 	"scorch_amount": ["float", "Damage", "hint_range(0.0, 1.0, 0.01)", "0.0"],
 	"scorch_color": ["vec4", "Damage", "source_color", "vec4(0.08, 0.025, 0.01, 1.0)"],
 	"char_roughness": ["float", "Damage", "hint_range(0.0, 1.0, 0.01)", "0.95"],

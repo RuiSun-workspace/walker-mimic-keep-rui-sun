@@ -1,0 +1,7 @@
+./scripts/run-test.sh test_materials.gd 60, after Rui fixed shield_wood.gdshader:33 to
+hint_range(0.0, 2.0, 0.01) and before the test's expectation was updated (2026-10-28):
+
+EXIT=1
+FAIL shield_wood.gdshader: float normal_strength in group [Surface], hint [hint_range(0.0, 1.0, 0.01)] default [1.0]  ["float", "Surface", "hint_range(0.0, 2.0, 0.01)", "1.0"]
+FAIL shield_wood.gdshader: normal_strength reported with range hint_range(0.0, 1.0, 0.01)  hint 1 "0.0,2.0,0.00999999977648"
+test_materials: 130 passed, 2 failed

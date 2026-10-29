@@ -29,7 +29,7 @@ share one Shader object.
 | shield_wood | `wood_tint` | vec4 | Surface | `source_color` | `vec4(1.0, 1.0, 1.0, 1.0)` | Color |
 | shield_wood | `texture_scale` | float | Surface | `hint_range(0.25, 4.0, 0.05)` | `1.0` | float, range 0.25,4.0,0.05 |
 | shield_wood | `roughness_scale` | float | Surface | `hint_range(0.0, 1.0, 0.01)` | `0.85` | float, range 0,1,0.01 |
-| shield_wood | `normal_strength` | float | Surface | `hint_range(0.0, 1.0, 0.01)` | `1.0` | float, range 0,1,0.01 |
+| shield_wood | `normal_strength` | float | Surface | `hint_range(0.0, 2.0, 0.01)` | `1.0` | float, range 0,2,0.01 |
 | shield_wood | `scorch_amount` | float | Damage | `hint_range(0.0, 1.0, 0.01)` | `0.0` | float, range 0,1,0.01 |
 | shield_wood | `scorch_color` | vec4 | Damage | `source_color` | `vec4(0.08, 0.025, 0.01, 1.0)` | Color |
 | shield_wood | `char_roughness` | float | Damage | `hint_range(0.0, 1.0, 0.01)` | `0.95` | float, range 0,1,0.01 |
@@ -82,7 +82,8 @@ Project: Forward+ (`rendering/renderer/rendering_method` reads `forward_plus`).
 
 ## Findings
 
-1. **`normal_strength` range disagrees with the brief, and ShieldB's value lies outside it.**
+1. **Resolved after review (see "Review corrections").** As found by the audit:
+   **`normal_strength` range disagrees with the brief, and ShieldB's value lies outside it.**
    `shield_wood.gdshader:32-33` declares `hint_range(0.0, 1.0, 0.01)`. CHANGE-BRIEF §8, Shader
    Uniform Groups, gives the range as 0–2 ("2 exaggerates the grain"). `shield_burned.tres:20`
    sets `normal_strength = 1.15`, as the brief's ShieldB values require. That is above the hint's
@@ -92,7 +93,7 @@ Project: Forward+ (`rendering/renderer/rendering_method` reads `forward_plus`).
    ranges match the table"; for `normal_strength` they do not. The shader is Rui's, so this is
    reported, not changed. The test pins the current 0–1 range, so fixing it will fail that one check
    until the table is updated.
-2. **CLAUDE.md is out of date about the materials.** It says the scarecrow Sprite2D "has no
+2. **Resolved after review.** As found by the audit: **CLAUDE.md is out of date about the materials.** It says the scarecrow Sprite2D "has no
    material today", but `scarecrow.tscn:8-16` gives it a local ShaderMaterial. It places the shield
    materials in embedded `PlaceholderA`/`PlaceholderB` sub-resources (lines 20-28) and `ShieldA` at
    lines 57-60. Those placeholders are gone: `ShieldA` is at `shield_room.tscn:49-52` and uses
@@ -156,3 +157,41 @@ hints and import settings the renderer is given, not what it shows. In particula
   show whether grooves read as grooves under the Sun, or whether ShieldA and ShieldB look clearly
   different. That is the human A/B judgement in one frame at the real resolution.
 - Whether the credits are true, or whether the licence permits the use.
+
+## Review corrections (2026-10-28)
+
+Everything above was written by the agent in session 3 (`sessions/session-3-audit.jsonl`) and
+committed unedited as `d6dc475`. Claude reviewed it in the interactive session. These are the
+changes Rui approved:
+
+- **Finding 1 fixed in the shader.** Rui changed `shield_wood.gdshader:33` to
+  `hint_range(0.0, 2.0, 0.01)`, the brief's range. ShieldB's 1.15 is now inside it. The
+  `normal_strength` row above and the test's expected hint (`test_materials.gd:42`) now say 0–2.
+  Before the test was updated, the fixed shader made exactly those two checks fail (130/2). That
+  shows the test reads the real hint. After the update: 132/0.
+- **Finding 2 fixed.** CLAUDE.md now names the scarecrow's ShaderMaterial and driver, the two
+  shield material files, the hint experiment, and the current line numbers in `scarecrow.gd` and
+  `shield_room.tscn`.
+- **Enum labels checked by measurement**, as the course asks: not looked up, measured. Each
+  texture was loaded and `get_image().get_format()` was read
+  (`evidence/audit/import_enums_vs_formats.txt`):
+
+  | Texture | compress/mode | compress/normal_map | mipmaps/generate | Imported format | Mipmaps |
+  |---|---|---|---|---|---|
+  | `wood_planks_diff_1k.png` | 2 | 2 | true | 17 `FORMAT_DXT1` (VRAM compressed) | yes |
+  | `wood_planks_rough_1k.png` | 2 | 2 | true | 17 `FORMAT_DXT1` | yes |
+  | `wood_planks_nor_gl_1k.png` | 2 | 1 | true | 21 `FORMAT_RGTC_RG` (normal-map compression) | yes |
+  | `wood_planks_nor_dx_1k.png` | 2 | 1 | true | 21 `FORMAT_RGTC_RG` | yes |
+  | `shield_scorch_mask.png` | 0 | 2 | true | 0 `FORMAT_L8`, uncompressed | yes |
+  | `hint_greys_3x1.png` | 0 | 2 | false | 4 `FORMAT_RGB8`, uncompressed | no |
+
+  So the agent's labels hold: 2 = VRAM Compressed, 0 = Lossless, normal_map 1 = Enabled
+  (RGTC), 2 = Disabled (not RGTC). `tonemap_mode = 0` is `Environment.TONE_MAPPER_LINEAR` (0),
+  read from the engine constant.
+- **Two thresholds, both measured.** The test's normal-map threshold 0.8479 comes from the decoded
+  source PNGs, as the prompt asked: (0.6957 + 1.0) / 2. `normal_map_check.gd` uses the imported
+  RGTC maps, as CHANGE-BRIEF revision C says: (0.6714 + 1.0) / 2 = 0.8357. Both are computed at
+  run time and the bound map passes both. No unmeasured number was found to delete.
+- Findings 3–8 need no change: 3 is the structure the hint experiment requires, 4 and 6 are
+  intended, 5 does not affect the front-facing A/B view, and 7 matches the default. For 8, Rui
+  checked the Poly Haven page and licence against `ATTRIBUTION.md` before the audit.

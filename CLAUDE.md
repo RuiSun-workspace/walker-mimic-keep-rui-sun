@@ -15,9 +15,11 @@
 ### The shaded object: the Straw Scarecrow sprite
 - Scene `godot/game/scarecrow.tscn`: root `Scarecrow` (Node2D, script `res://game/scarecrow.gd`)
   with one child `Sprite` of type **Sprite2D**, texture `res://assets/sprites/scarecrow.png`
-  (godot/game/scarecrow.tscn:6-10). The Sprite2D has **no material** today.
+  (godot/game/scarecrow.tscn:15-18). Its material is a local-to-scene ShaderMaterial on
+  `res://shaders/burning_tint.gdshader` (godot/game/scarecrow.tscn:8-10), driven by
+  `res://game/burning_tint.gd` on the Sprite.
 - No script draws it: `scarecrow.gd` has no `_draw()`; the engine draws the Sprite2D
-  (godot/game/scarecrow.gd:1-71).
+  (godot/game/scarecrow.gd:1-74).
 - Instances are created by `Game.spawn_scarecrow()`, which instantiates `SCARECROW_SCENE` and
   adds it to `enemies` (godot/game/main.gd:10, 51-57). Every instance shares the one scene file,
   so a material set in `scarecrow.tscn` is shared unless made local or duplicated
@@ -26,27 +28,32 @@
 
 ### Game state that drives the effect
 - Owner: `godot/game/scarecrow.gd` (class `Scarecrow`, godot/game/scarecrow.gd:1-6).
-  - `var burn_time_left: float = 0.0` (line 14); `is_burning()` returns `burn_time_left > 0.0`
-    (lines 23-24).
+  - `var burn_time_left: float = 0.0` (line 16); `is_burning()` returns `burn_time_left > 0.0`
+    (lines 25-26).
   - `signal burning_started` / `signal burning_ended` (lines 8-9). `ignite()` sets
     `burn_time_left = Tuning.BURN_DURATION` and emits `burning_started` only if it was not
-    already burning (lines 40-44).
-  - Counted down in `_physics_process(delta)`, clamped to 0.0, then `burning_ended` (lines 47-57),
-    so it follows `Engine.time_scale` and stops when paused.
-  - On death: `died` is emitted and the node is `queue_free()`d (lines 67-71).
+    already burning (lines 42-46).
+  - Counted down in `_physics_process(delta)`; at or below `BURN_END_EPSILON` (1e-9, line 13) it
+    is set to 0.0 and `burning_ended` is emitted (lines 49-62, CHANGE-BRIEF revision "boundary
+    exception"), so it follows `Engine.time_scale` and stops when paused.
+  - On death: `died` is emitted and the node is `queue_free()`d (lines 70-74).
 - Constants: `BURN_DURATION := 4.0`, `BURN_DPS := 4.0` (godot/game/tuning.gd:22-23).
 
 ### 3D object for the textured shader
-- Scene `godot/showcase/shield_room.tscn`. Nodes `ShieldA` (lines 57-60) and `ShieldB`
-  (lines 67-70), both MeshInstance3D with `mesh = res://showcase/shield_mesh.tres` (line 3).
-- Material today comes from `surface_material_override/0` on each node, pointing at embedded
-  StandardMaterial3D sub-resources `PlaceholderA` (lines 20-23) and `PlaceholderB` (lines 25-28).
-  The mesh resource itself declares no material (godot/showcase/shield_mesh.tres:1-14).
+- Scene `godot/showcase/shield_room.tscn`. Nodes `ShieldA` (lines 49-52) and `ShieldB`
+  (lines 59-62), both MeshInstance3D with `mesh = res://showcase/shield_mesh.tres` (line 3).
+- Each node's `surface_material_override/0` is a ShaderMaterial file (lines 4-5):
+  `res://showcase/shield_new.tres` on ShieldA and `res://showcase/shield_burned.tres` on ShieldB,
+  both on Rui's `res://shaders/shield_wood.gdshader`. Their values and textures are listed in
+  `godot/MATERIALS.md`. The mesh resource itself declares no material
+  (godot/showcase/shield_mesh.tres:1-14).
+- Hint experiment: `godot/showcase/hint_experiment.tscn`, two unshaded quads with
+  `hint_source_color.tres` and `hint_raw.tres` on Rui's `res://shaders/hint_experiment.gdshader`.
 - Mesh source: `godot/tools/make_shield_mesh.gd` writes `res://showcase/shield_mesh.tres`
   (line 7, 44); front face has planar UVs over 0..1 (line 3) and tangents are generated (line 41).
 - Lighting: one DirectionalLight3D `Sun`, `light_energy = 1.2`, `shadow_enabled = true`
-  (lines 43-46); Environment `ambient_light_energy = 0.3`, `tonemap_mode = 0` (Linear) (lines 5-11);
-  Camera3D at (0, 0.65, 2.3), fov 45 (lines 48-51).
+  (lines 35-38); Environment `ambient_light_energy = 0.3`, `tonemap_mode = 0` (Linear) (lines 7-13);
+  Camera3D at (0, 0.65, 2.3), fov 45 (lines 40-43).
 
 ### Tests — always through scripts/run-test.sh
 `scripts/run-test.sh <test-file.gd> <fps>` runs
@@ -65,6 +72,8 @@ Existing tests run at 60 fps; the new effect test at 30, 60 and 144 (CHANGE-BRIE
 - `godot/tests/test_input.gd`: real key events via `Input.parse_input_event` (lines 1-4, 46-52).
 - Baseline: test_rules 23/0, test_input 14/0 at 60 fps through run-test.sh
   (evidence/baseline/test_rules_60fps.log, evidence/baseline/test_input_60fps.log; commit 29ebc5b).
+- Added in Assignment 5: `test_burning_tint.gd` (the tint), `normal_map_check.gd` (curl check,
+  threshold from CHANGE-BRIEF revision C) and `test_materials.gd` (the material audit).
 
 ### Headless facts (probed on this machine, Godot 4.7.2, 2026-10-26/27)
 - A headless run uses `DisplayServer` "headless" with an empty video adapter: a dummy renderer
@@ -107,11 +116,11 @@ not created, modified, renamed, reformatted or deleted. If a shader looks wrong,
 ## Unconfirmed
 
 - No `AGENTS.md` exists, so this file has no `@AGENTS.md` line.
-- `godot/shaders/burning_tint.gdshader` exists (Rui, commit 6a2c298); the spatial shield shader
-  is not written. The scarecrow Sprite2D and both shields have no ShaderMaterial yet.
-- The presentation driver's file and node location are not named in the brief.
-- Not in the repo yet: the Poly Haven wood textures and their credits file, the scorch-mask
-  generator in `godot/tools/`, and `godot/tests/normal_map_check.gd` (CHANGE-BRIEF.md §8).
+- Rui's three shaders exist: `burning_tint.gdshader` (commit 6a2c298), `shield_wood.gdshader`
+  (416e5f5, `normal_strength` range corrected after the material audit) and
+  `hint_experiment.gdshader` (f76bb03).
+- The presentation driver's file and node location are not named in the brief; it is
+  `godot/game/burning_tint.gd` on the scarecrow's Sprite (session 2).
 - That a `source_color` uniform is not linearised in a canvas_item shader with HDR 2D off is the
   brief's reading of the engine, to be checked by the controlled-value captures (CHANGE-BRIEF.md §6).
 - The shield's UVs cover 0..1 on the front face only; the back and rim use other mappings

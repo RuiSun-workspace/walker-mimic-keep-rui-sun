@@ -1,0 +1,8 @@
+TONE_MAPPER_LINEAR=0 AMBIENT_SOURCE_COLOR=2 BG_COLOR=1
+FORMAT L8=0 RGB8=4 DXT1=17 RGTC_RG=21
+wood_planks_diff_1k.png                  mode=2 normal_map=2 mipmaps=true -> format=17 compressed=true has_mipmaps=true
+wood_planks_rough_1k.png                 mode=2 normal_map=2 mipmaps=true -> format=17 compressed=true has_mipmaps=true
+wood_planks_nor_gl_1k.png                mode=2 normal_map=1 mipmaps=true -> format=21 compressed=true has_mipmaps=true
+wood_planks_nor_dx_1k.png                mode=2 normal_map=1 mipmaps=true -> format=21 compressed=true has_mipmaps=true
+shield_scorch_mask.png                   mode=0 normal_map=2 mipmaps=true -> format=0 compressed=false has_mipmaps=true
+hint_greys_3x1.png                       mode=0 normal_map=2 mipmaps=false -> format=4 compressed=false has_mipmaps=false

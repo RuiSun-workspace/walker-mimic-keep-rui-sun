@@ -309,3 +309,40 @@ and glow, fog and adjustments off.
 One frame from the real renderer (`evidence/hint_experiment/`): the source_color quad reads
 64/128/192 and the unhinted quad 137/188/225. That is exactly CHANGE-BRIEF §7's prediction, all
 six values. Rui's own look at the scene is still part of the human checks.
+
+## 2026-10-28 — Session 3: the material audit, and a range Claude missed
+
+**Run** (`prompts/prompt-3.txt`, the course text verbatim; `sessions/session-3-audit.jsonl`;
+35 turns, $2.13). Before the run Claude pointed out that the prompt's "which I checked myself"
+speaks for Rui. Rui checked the Poly Haven page and licence against `ATTRIBUTION.md` first:
+"核对好了，运行". The run had 6 permission denials, all from running the test as
+`bash scripts/run-test.sh` or a compound command. It then used `./scripts/run-test.sh`. No
+shader, material, scene or `.import` file changed. Committed unedited as `d6dc475`. Claude read
+the test, not only the summary: values come from the materials, hints from the source text,
+imports through ConfigFile, plus the engine's uniform list. Claude's own rerun: 132/0.
+
+**Claude's error, caught by the audit.** When Rui fixed `roughness_scale`, the next uniform,
+`normal_strength`, also went from `hint_range(0.0, 2.0, …)` to `(0.0, 1.0, …)`. Claude's re-check
+grepped only the two uniforms it had asked about. The entry above therefore says "7 uniforms whose
+types and hint ranges match the table", which was wrong for `normal_strength`; ShieldB's 1.15 was
+above the declared maximum. The agent's finding 1 caught it. Rui's first fix of line 33 also
+changed line 30 again. This time Claude diffed the whole file instead of grepping, saw it, and Rui
+corrected it. The final diff against `416e5f5` is the single number on line 33. From now on,
+Claude checks a shader edit by diffing the whole file.
+
+**The test pinned the wrong value too.** With Rui's fix, test_materials failed exactly the two
+`normal_strength` checks (130/2, `evidence/audit/test_materials_shader_fixed_test_not_yet.txt`).
+That shows it reads the real hint. Claude then updated the expectation; 132/0.
+
+**Review** (separate commit): MATERIALS.md findings 1–2 marked resolved, plus a section
+recording the corrections. The course asks for the enum labels to be checked: Claude measured them
+with `get_image().get_format()` (2 → DXT1, normal_map 1 → RGTC, 0 → uncompressed L8/RGB8;
+`evidence/audit/import_enums_vs_formats.txt`). CLAUDE.md's outdated material and line references
+are updated (finding 2). The agent got the attribution right: it used only the brief's facts and
+said that the author and licence are not in the brief, rather than copying or inventing them.
+
+**Fresh cache.** Claude deleted `godot/.godot` and ran `godot --headless --path godot --import`
+(exit 0, `evidence/audit/fresh_cache_import.log`). The reimport changed no `.import` file
+(`git status`), so the explicit settings hold. From the empty cache: test_materials 132/0,
+normal_map_check 9/0, test_rules 23/0, test_input 14/0, test_burning_tint 49/0, all at 60 fps
+through run-test.sh.

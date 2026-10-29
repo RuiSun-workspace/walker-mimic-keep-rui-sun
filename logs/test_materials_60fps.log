@@ -18,7 +18,7 @@ PASS shield_wood.gdshader: sampler2D scorch_mask_texture in group [], hints [fil
 PASS shield_wood.gdshader: vec4 wood_tint in group [Surface], hint [source_color] default [vec4(1.0, 1.0, 1.0, 1.0)]
 PASS shield_wood.gdshader: float texture_scale in group [Surface], hint [hint_range(0.25, 4.0, 0.05)] default [1.0]
 PASS shield_wood.gdshader: float roughness_scale in group [Surface], hint [hint_range(0.0, 1.0, 0.01)] default [0.85]
-PASS shield_wood.gdshader: float normal_strength in group [Surface], hint [hint_range(0.0, 1.0, 0.01)] default [1.0]
+PASS shield_wood.gdshader: float normal_strength in group [Surface], hint [hint_range(0.0, 2.0, 0.01)] default [1.0]
 PASS shield_wood.gdshader: float scorch_amount in group [Damage], hint [hint_range(0.0, 1.0, 0.01)] default [0.0]
 PASS shield_wood.gdshader: vec4 scorch_color in group [Damage], hint [source_color] default [vec4(0.08, 0.025, 0.01, 1.0)]
 PASS shield_wood.gdshader: float char_roughness in group [Damage], hint [hint_range(0.0, 1.0, 0.01)] default [0.95]
@@ -38,7 +38,7 @@ INFO shield_wood.gdshader uniform list: scorch_mask_texture type 24 hint 17 hint
 INFO shield_wood.gdshader uniform list: wood_tint type 20 hint 0 hint_string ""
 INFO shield_wood.gdshader uniform list: texture_scale type 3 hint 1 hint_string "0.25,4.0,0.05000000074506"
 INFO shield_wood.gdshader uniform list: roughness_scale type 3 hint 1 hint_string "0.0,1.0,0.00999999977648"
-INFO shield_wood.gdshader uniform list: normal_strength type 3 hint 1 hint_string "0.0,1.0,0.00999999977648"
+INFO shield_wood.gdshader uniform list: normal_strength type 3 hint 1 hint_string "0.0,2.0,0.00999999977648"
 INFO shield_wood.gdshader uniform list: scorch_amount type 3 hint 1 hint_string "0.0,1.0,0.00999999977648"
 INFO shield_wood.gdshader uniform list: scorch_color type 20 hint 0 hint_string ""
 INFO shield_wood.gdshader uniform list: char_roughness type 3 hint 1 hint_string "0.0,1.0,0.00999999977648"
@@ -57,7 +57,7 @@ PASS shield_wood.gdshader: texture_scale reported with range hint_range(0.25, 4.
 PASS shield_wood.gdshader: roughness_scale reported as float
 PASS shield_wood.gdshader: roughness_scale reported with range hint_range(0.0, 1.0, 0.01)
 PASS shield_wood.gdshader: normal_strength reported as float
-PASS shield_wood.gdshader: normal_strength reported with range hint_range(0.0, 1.0, 0.01)
+PASS shield_wood.gdshader: normal_strength reported with range hint_range(0.0, 2.0, 0.01)
 PASS shield_wood.gdshader: scorch_amount reported as float
 PASS shield_wood.gdshader: scorch_amount reported with range hint_range(0.0, 1.0, 0.01)
 PASS shield_wood.gdshader: scorch_color reported as Color
