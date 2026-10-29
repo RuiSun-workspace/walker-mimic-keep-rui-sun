@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS  the wall stop line is above the archer
+PASS  a scarecrow at the wall is in the cone at least 60 px either side
+PASS  a scarecrow at the wall +0 px from the archer is targeted
+PASS  a scarecrow at the wall -30 px from the archer is targeted
+PASS  a scarecrow at the wall +30 px from the archer is targeted
+PASS  a scarecrow at the wall -60 px from the archer is targeted
+PASS  a scarecrow at the wall +60 px from the archer is targeted
+PASS  a scarecrow at the wall +93 px from the archer is ignored
+PASS  an auto-fired arrow hits a scarecrow at the wall
+PASS  that scarecrow was attacking the gate
+10 passed, 0 failed
