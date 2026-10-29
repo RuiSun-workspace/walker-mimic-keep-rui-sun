@@ -239,3 +239,32 @@ compared the md5 rather than trusting the test. Rui removed the space; a further
 before it reached the disk. Final state: md5 `aa5ca255114e283ac24d1c5dceef69d0`, same as
 `6a2c298`, `git status` clean for `godot/shaders/`, test_burning_tint 49/0 at 60 fps.
 The third mutation (`source_color`) belongs to the material test and comes in Step 3.
+
+## 2026-10-28 — Step 3 begins: textures, scorch mask, and a normal-map prediction that missed
+
+**Textures.** Rui approved the download ("下载") of Poly Haven's Wood Planks 1K PNGs: diff,
+rough, nor_gl, nor_dx, 18.6 MB. Claude downloaded them to a scratch folder first and checked each
+md5 against Poly Haven's file API; all four matched. Poly Haven's licence page says CC0.
+Credits and md5s are in `godot/assets/textures/wood_planks/ATTRIBUTION.md`. The import settings
+in CHANGE-BRIEF §8 are written explicitly in each `.import` file, with `detect_3d` off so the
+editor has nothing to change later. A probe of the imported textures read: diff and rough DXT1,
+both normal maps RGTC (Godot's normal-map compression), all with mipmaps.
+
+**Scorch mask.** `godot/tools/make_scorch_mask.gd` writes a 512×512 grayscale mask from seeded
+noise plus a ramp towards the UV border. Claude tuned it twice by looking at the output. The
+first version was a plain frame with a clean middle; the second had flat grey plateaus, from
+clamping the noise before the sum. The final mask has a mean of 0.173, and 13.6% of pixels are
+above 0.5. Two runs give the same md5.
+
+**Normal-map check.** Claude first wrote its own curl measure: L1, every pixel, z rebuilt from
+x and y. It scored 1.22 vs 1.79, nowhere near 0 vs 2. Before changing the brief, Claude
+re-read the assignment text and found that it gives `curl_ratio()` as code. Claude switched to
+that code, copied unchanged. It measured 0.67 vs 1.33. The direction is right, but the values
+are not the brief's "near 0 / near 2". The midpoint threshold the brief implied is always 1.0
+for one image, because the two scores always sum to 2. Claude gave two options: A, halfway between
+the known-good score and 1.0; B, the midpoint 1.0, which checks the convention only. Rui:
+"A：0.836". This is recorded as CHANGE-BRIEF revision C. Before the shields have a material,
+Claude checked the threshold by hand with a throwaway probe: bound nor_gl 0.6703 passes,
+nor_dx 1.3286 fails, and a noise "normal map" with no surface behind it scores 1.0200 and fails.
+`normal_map_check.gd` 3/0 through run-test.sh. Its shield checks start running once the
+shields have a ShaderMaterial with a `hint_normal` sampler.

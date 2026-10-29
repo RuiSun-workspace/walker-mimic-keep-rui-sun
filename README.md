@@ -64,13 +64,18 @@ time scale and pause, gate damage, losing and winning. `test_input.gd` (14 check
 real keys through `Input.parse_input_event`. Both print one PASS/FAIL line per check and exit 1
 on any failure. Both passed at 30, 60 and 144 fps on 2026-10-25.
 
-## Generated content
+## Assets
 
-Every asset is written by code in this repository; nothing is downloaded or AI-generated.
+One downloaded texture set: Poly Haven's **Wood Planks** (1K PNG, CC0) in
+`godot/assets/textures/wood_planks/`, for the shield material. Its credits, md5s and the role of
+each file are in `ATTRIBUTION.md` next to it. The material uses the OpenGL normal map
+(`_nor_gl`); `_nor_dx` is kept only to calibrate `godot/tests/normal_map_check.gd`.
+Nothing is AI-generated. Everything else is written by code in this repository:
 
 ```bash
 godot --headless --path godot --script res://tools/make_sprites.gd      # 4 sprites
 godot --headless --path godot --script res://tools/make_shield_mesh.gd  # shield mesh
+godot --headless --path godot --script res://tools/make_scorch_mask.gd  # shield scorch mask
 godot --path godot --script res://tools/capture_prototype.gd            # evidence frames (not headless)
 ```
 

@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+INFO curl_ratio  nor_gl: directx=false 0.6703  directx=true 1.3297
+INFO curl_ratio  nor_dx: directx=false 1.3286  directx=true 0.6714
+PASS calibration: nor_gl scores lower read as OpenGL (directx = false)
+PASS calibration: nor_dx scores lower read as DirectX (directx = true)
+PASS calibration: the known-good pair scores below 1.0 (a surface is behind it)
+INFO threshold from the pair: (0.6714 + 1.0) / 2 = 0.8357
+INFO ShieldA has no ShaderMaterial yet; its normal map is not checked
+INFO ShieldB has no ShaderMaterial yet; its normal map is not checked
+normal_map_check: 3 passed, 0 failed
