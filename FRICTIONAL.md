@@ -384,3 +384,95 @@ reads CHANGE-BRIEF §6's three named pixels on each scarecrow. Output is in
   to come): at 1.0 the sprite is a flat silhouette and the outline, face and patch are gone. At 2.0
   the details come back, inverted towards bright yellow. The gameplay maximum, 0.65, keeps the
   details visible.
+
+## 2026-10-29 — LANGUAGE-NOTES, and a question the shaders could not answer
+
+Rui wrote `LANGUAGE-NOTES.md`. Claude checked only that each line reference points where it says,
+and pointed out factual problems without writing replacement text. All references were right except
+two ranges that stopped one line short of a closing brace. The real problem was question 3, "Name
+three built-ins you read": Rui's three shaders read only `COLOR` and `UV`, and the first draft
+counted `UV` twice. Rui asked "所以第三题的问题怎么解决" and then "之前为什么没有弄第三个内置变量".
+The honest answer is Claude's: the Step 4 questions were in the course text from the start, but
+Claude checked each shader only against its own step and never against the later questions that
+would cite it. By then the tests, captures and mutations all depended on the shaders as they were,
+so Rui chose to state in the notes that only two built-ins are read rather than change a shader.
+From now on Claude checks a design against every later question that will cite it, before Rui
+writes the code. Committed as Rui's own text, `8626c1a`.
+
+## 2026-10-29 — Rui's playtest: two gameplay faults, fixed off main
+
+Playing normally, Rui found two faults that are not in the tint:
+"横向距离远的时候子弹瞄准的过于靠后会导致打空" and
+"小怪到墙前面开始打墙后子弹打不中墙了". Rui wanted the second fixed at once and the first later,
+together with homing and fixed-trajectory arrows.
+
+Claude reproduced both headlessly. Arrows aim at the scarecrow's current position with no lead: at
+600 px sideways the arrow flies 0.77 s, the scarecrow moves 35 px, and the closest approach is 29 px,
+outside the 26 px hit radius. Scarecrows stopped at y 570 and the archer stands at 572, so a
+scarecrow at the wall is about 90° off the 120° upward fire cone and is targeted only within 3 px.
+
+The A5 boundary (course text, CLAUDE.md "Out of scope") forbids changes to targeting, game logic and
+existing tests, so Claude asked where the fix should go. Rui chose a separate branch on the question
+card. The fix is on `gameplay-fixes` in its own worktree (`../walker-mimic-keep-rui-sun-fixes`) and
+stays out of main until after the `a5` tag. Rui chose to move the stop line up. Claude's first value,
+500, worked but Rui wrote: "打得到了，但是停止线太远了，完全看不出怪在打墙，可以适当近一点然后以后给怪加上动辄动作"
+("动辄动作" is presumably 攻击动作, an attack animation). Rui picked 530 from renders at 500, 520, 530
+and 540, played it, and wrote "可以提交，别的试玩也没什么问题，开始下一步吧". New
+`tests/test_wall_targeting.gd`: 3/7 on main's stop line, 10/0 on the branch at 30, 60 and 144 fps.
+Every earlier suite kept its count, and balance_sim was unchanged (idle 1/8, chase 8/8). Commit
+`dbb4806` on `gameplay-fixes`.
+
+One confusion on the way: Rui first reported "还是打不到正在打墙的怪物". The running editor's
+command line showed it had the main project open, not the branch. Claude launched the branch build
+directly and the second playtest hit.
+
+## 2026-10-29 — Use It captures, and a screenshot of the whole desktop
+
+Rui's screenshot tool lagged ("我截图有延迟，截不到死亡的那一帧，没有要求我截的话剩下的你想办法截图吧"),
+so Claude wrote the remaining capture tools: `capture_in_play.gd` (scripted ignite and kill in the
+real game, labelled scripted), `capture_shield_room.gd` (the interface sweep and single shots),
+`os_screenshot.ps1` with `compare_os_screenshot.gd` (the course's one OS-screenshot comparison),
+and a hold mode in `capture_burn_values.gd`.
+
+**Claude's error.** The first version of `os_screenshot.ps1` grabbed the whole 2560×1600 desktop.
+The image showed Rui's name and seat, this chat, the session list and the taskbar, and Claude
+committed it (`87e54a0`) before looking at it. Claude found it when opening the image after the
+commit. Nothing had been pushed (there is no remote). The script now grabs only the game window's
+client area, the comparison was rerun (same result), and the unpushed commit was amended to
+`65800cd`, so no commit on main contains the desktop image. From now on Claude crops a screen
+capture to the target window when it is taken and looks at every image before committing it.
+
+The comparison itself: the 15 named pixels are identical in the in-engine capture and the OS
+screenshot; 618 of 921,600 pixels differ, at the window's rounded bottom corners and along the
+archer's face and belt and the gate edges. The cause of the last two is not established.
+
+The sweep first ran every uniform on ShieldA. At its `scorch_amount` of 0.05 the Damage uniforms
+barely showed, so Claude moved those three to ShieldB and reran. Claude wanted to delete the old
+sweep files first; the deletion was blocked by a safety check, and the rerun overwrote the same
+file names instead.
+
+## 2026-10-29 — Human checks and the two edit tests
+
+Rui wrote `my-observations.txt` (committed unedited in `0bd5acb`). Claude checked it against the
+images and data and found no factual error. Claude suggested three optional changes: a typo, saying
+that the band values come from `band_values.txt` rather than the eye, and recording specific
+playtest looks. Rui made the first two. When TEST-REPORT marked five looks from the brief as not
+separately recorded, Rui answered: "1.结束时消失了 2.淡出部分比较平滑 3.再次被打中颜色刷新明显
+4.暂停时颜色不变5.能看清稻草人的细节".
+
+The two edit tests were done by hand: Rui edited the shader and the material, and Claude captured
+the frames and checked each step. Rui multiplied `shield_wood.gdshader:68` by `vec3(0.3, 0.3, 1.0)`.
+The whole-file diff showed only that line, and both shields changed (98,610 pixels in each half of
+the frame). Rui restored it: md5 `c69c4d88` again, and the frame was byte-identical to the one taken
+before. Rui then set `scorch_amount` 0.05 → 0.8 in `shield_new.tres` in the Inspector: only ShieldA
+changed (0 pixels in the right half). Saving also made the editor add uids and write the default
+`scorch_color`, so after Rui set the value back, Claude restored the file's committed text with git.
+The frame was byte-identical again, and test_materials 132/0.
+
+Running `hint_experiment.tscn` from the editor rewrote it: six Environment lines equal to their
+defaults were dropped, and uids were added. Claude loaded the rewritten scene and read the same
+environment back (black background, Linear tonemap, exposure 1.0, glow, fog and adjustments off,
+fov 45), and committed it on its own, `b77e30d`. No `.import` file has been rewritten by the editor.
+Rui deleted the scratch scene `godot/node_3d.tscn` from Step 4 ("删掉"); it was never tracked.
+
+TEST-REPORT.md (`5dacf8f`) records every suite at `b77e30d` and the human checks above.
