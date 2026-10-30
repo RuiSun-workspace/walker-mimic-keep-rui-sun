@@ -1,0 +1,7 @@
+{
+ "source": "brutalist.art logos/bear-brown/bear-brown-6.mp3 (stock @NikBearBrown jingle, unchanged except gain)",
+ "pick": "sha256(slug) mod 6 + 1 = 6 (OUTRO-LOCK: jingle seeded by the reel slug; the toolkit has no picker code)",
+ "gain_db": -8,
+ "audio_file": "mix/B25-jingle.wav",
+ "duration_s": 9.360979
+}

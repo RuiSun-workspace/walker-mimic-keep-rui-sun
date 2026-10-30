@@ -1,0 +1,158 @@
+{
+ "burn_zoom": {
+  "path": "evidence\\controlled_values\\burn_values_zoom.png",
+  "sha256": "0a6b23b05b223d51898df85e765b0d959161c9d622a8b49465b081b1f7592b22"
+ },
+ "pixels": {
+  "path": "evidence\\controlled_values\\pixels.txt",
+  "sha256": "1fc010b34e65d1488a45d07411bde2e4ed5564b9abffd765758a8261f1a61b92"
+ },
+ "rui_one_burning": {
+  "path": "evidence\\in_play\\one_burning.png",
+  "sha256": "693a0d0a2cfd601a2d152169e171b17c434555471ad5a29996a84b6c9bc317a1"
+ },
+ "tint_30": {
+  "path": "logs\\test_burning_tint_30fps.log",
+  "sha256": "9867872a9823ac29385d1207900c9ba3ccb28534034a8a8ca54d0d25ff06a645"
+ },
+ "tint_60": {
+  "path": "logs\\test_burning_tint_60fps.log",
+  "sha256": "1b856fc88a7047f1a6d395b86b280aa506e59ce59682dac0002a4468e343ba67"
+ },
+ "tint_144": {
+  "path": "logs\\test_burning_tint_144fps.log",
+  "sha256": "0cde62952ca351b50dfc406ddcf9fe5ae108f9da2b6ed5294f106c7a8ab7a222"
+ },
+ "m1_log": {
+  "path": "evidence\\mutations\\m1_semicolon_test_burning_tint_60fps.log",
+  "sha256": "c565357b65df4306052463607ddbde9f9fdd3031f4594a8d955cc2dce99c2201"
+ },
+ "m2_log": {
+  "path": "evidence\\mutations\\m2_rename_test_burning_tint_60fps.log",
+  "sha256": "b76ce029a633a4c4232681f31143d9b323696042735d06331479affca21a4b6b"
+ },
+ "m3_log": {
+  "path": "evidence\\mutations\\m3_source_color_test_materials_60fps.log",
+  "sha256": "f9c15964f742f3eccf2a3f232922003ecdb8bab6911c271729f11baea5efa362"
+ },
+ "m3_diff": {
+  "path": "evidence\\mutations\\m3_source_color.diff",
+  "sha256": "b8fd90efb60f3aa9c8b9dfe937a13e2b6dc45d40d51cdafcb9bf6dc82e8f46fe"
+ },
+ "hint_render": {
+  "path": "evidence\\hint_experiment\\hint_experiment_render.png",
+  "sha256": "dece309ca5fcd2ce7e1fcb123af890f3aed554d5802f22ee486af7ab14046152"
+ },
+ "bands": {
+  "path": "evidence\\hint_experiment\\band_values.txt",
+  "sha256": "9e17afe057ccbadc7260f81faf1cecc04b2c72c6931c89d46f5fc3222b5881dd"
+ },
+ "shield_before": {
+  "path": "evidence\\two_materials\\0_before.png",
+  "sha256": "0256a337bcd439ad7514b18e20280d21c47104492b65ad363a48ed020b17a857"
+ },
+ "shader_edit": {
+  "path": "evidence\\two_materials\\1_shader_edit.png",
+  "sha256": "eb84870302f5ef6321385521d3a5f7962212d65f846873b88d6a4b438b94ad46"
+ },
+ "material_edit": {
+  "path": "evidence\\two_materials\\2_material_edit.png",
+  "sha256": "35f0bac3b353549275e3d067114a379ff6e54640a6bd13e14fee301d6265e810"
+ },
+ "normal_log": {
+  "path": "logs\\normal_map_check_60fps.log",
+  "sha256": "817ead5fe6a56eea5b1c9da3217b2b12a3cb237fc8ca9330493175d8a5da1999"
+ },
+ "observations": {
+  "path": "my-observations.txt",
+  "sha256": "a3a6d8f280e7a8a1cacc647e2c55bdbd859e2ff6dd69d77eb4d07b6047e3c935"
+ },
+ "sweep_txt": {
+  "path": "evidence\\sweep\\sweep.txt",
+  "sha256": "02f2bb068cea8c0d3d3e3000d147614b4dc37213651a9e0f7356e9a1785c0c18"
+ },
+ "sweep_wood_tint_min": {
+  "path": "evidence\\sweep\\wood_tint_min.png",
+  "sha256": "e798389d2162d293b9d1741408a319e61893e0d0d0f736cf50aeda9b78ab300c"
+ },
+ "sweep_wood_tint_default": {
+  "path": "evidence\\sweep\\wood_tint_default.png",
+  "sha256": "0256a337bcd439ad7514b18e20280d21c47104492b65ad363a48ed020b17a857"
+ },
+ "sweep_wood_tint_max": {
+  "path": "evidence\\sweep\\wood_tint_max.png",
+  "sha256": "0256a337bcd439ad7514b18e20280d21c47104492b65ad363a48ed020b17a857"
+ },
+ "sweep_texture_scale_min": {
+  "path": "evidence\\sweep\\texture_scale_min.png",
+  "sha256": "2f8cdf541c59590426ea840a751f0233ba322e657d2a70a1473838f3476994e3"
+ },
+ "sweep_texture_scale_default": {
+  "path": "evidence\\sweep\\texture_scale_default.png",
+  "sha256": "0256a337bcd439ad7514b18e20280d21c47104492b65ad363a48ed020b17a857"
+ },
+ "sweep_texture_scale_max": {
+  "path": "evidence\\sweep\\texture_scale_max.png",
+  "sha256": "12a95ab28abf8b90a547c6b388c8fa727759ecc872119c26cd26e404cd3b0106"
+ },
+ "sweep_roughness_scale_min": {
+  "path": "evidence\\sweep\\roughness_scale_min.png",
+  "sha256": "fdf5c5ef10602b7d83b6613815bacf23a8394c9756123ed5044d738562759b2a"
+ },
+ "sweep_roughness_scale_default": {
+  "path": "evidence\\sweep\\roughness_scale_default.png",
+  "sha256": "c34d3ff61e91b8da78854a8cc4fffe0f32d4841d68ed131f0e566170e0db96d4"
+ },
+ "sweep_roughness_scale_max": {
+  "path": "evidence\\sweep\\roughness_scale_max.png",
+  "sha256": "1bc46c1dadb4357947a2a7ba5189ccd522c876cc68ca0d0cbf8d68c11ddbc5c7"
+ },
+ "sweep_normal_strength_min": {
+  "path": "evidence\\sweep\\normal_strength_min.png",
+  "sha256": "8fc2778303c9350a4208faa38c293c3935800372c0a6449f34a5adbbcbdb4ef1"
+ },
+ "sweep_normal_strength_default": {
+  "path": "evidence\\sweep\\normal_strength_default.png",
+  "sha256": "9b566ea78d7db50053581a2807976fa495f4589920ca2b21d31f9636c1197bdc"
+ },
+ "sweep_normal_strength_max": {
+  "path": "evidence\\sweep\\normal_strength_max.png",
+  "sha256": "a92122afbcd203943828e1001bd89690186cb571b6856d67d0701ad47c4959b0"
+ },
+ "sweep_scorch_amount_min": {
+  "path": "evidence\\sweep\\scorch_amount_min.png",
+  "sha256": "92c06852b81bfa0d6106455f06fde9e1dacd301170039a6b2194442d346e2f40"
+ },
+ "sweep_scorch_amount_default": {
+  "path": "evidence\\sweep\\scorch_amount_default.png",
+  "sha256": "92c06852b81bfa0d6106455f06fde9e1dacd301170039a6b2194442d346e2f40"
+ },
+ "sweep_scorch_amount_max": {
+  "path": "evidence\\sweep\\scorch_amount_max.png",
+  "sha256": "a25d9ee8c865409e48aedd88f6bafb2cae3aba7c09e3eaa3ac31ab905c898713"
+ },
+ "sweep_scorch_color_min": {
+  "path": "evidence\\sweep\\scorch_color_min.png",
+  "sha256": "81fec0f3096627a7442e64b56c45bd1ac8ce3a77127b60b78e047c2b7fc2c17d"
+ },
+ "sweep_scorch_color_default": {
+  "path": "evidence\\sweep\\scorch_color_default.png",
+  "sha256": "0256a337bcd439ad7514b18e20280d21c47104492b65ad363a48ed020b17a857"
+ },
+ "sweep_scorch_color_max": {
+  "path": "evidence\\sweep\\scorch_color_max.png",
+  "sha256": "476a7d0250a16f853b368c22dc03157425de03bcec0600bd1d0c4aa6daf5aeb6"
+ },
+ "sweep_char_roughness_min": {
+  "path": "evidence\\sweep\\char_roughness_min.png",
+  "sha256": "a6436ca813faa4898cc6d822c3d21bb42a6995efdd72e4e5df066a237d542b1b"
+ },
+ "sweep_char_roughness_default": {
+  "path": "evidence\\sweep\\char_roughness_default.png",
+  "sha256": "bdf9ff44fd1e2964883656e4546f630dd93d86ca983c2d8a1ee4fe2e6ab86559"
+ },
+ "sweep_char_roughness_max": {
+  "path": "evidence\\sweep\\char_roughness_max.png",
+  "sha256": "b3d06e50db9998818ff2e16a8c1f35810fb5970420c693738fee97a109e4ec1a"
+ }
+}

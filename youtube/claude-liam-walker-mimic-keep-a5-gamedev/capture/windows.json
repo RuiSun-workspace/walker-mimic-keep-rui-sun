@@ -1,0 +1,26 @@
+{
+ "B02": {
+  "media": "media/B02.mp4",
+  "audio_file": "mix/B02.wav",
+  "duration": 15.1,
+  "start_s": 33.0,
+  "end_s": 48.1,
+  "frames": [
+   990,
+   1443
+  ],
+  "take": "idle"
+ },
+ "B07": {
+  "media": "media/B07.mp4",
+  "audio_file": "mix/B07.wav",
+  "duration": 11.433333333333334,
+  "start_s": 0.5,
+  "end_s": 11.9333,
+  "frames": [
+   15,
+   358
+  ],
+  "take": "fade"
+ }
+}

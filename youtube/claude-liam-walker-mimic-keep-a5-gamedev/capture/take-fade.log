@@ -1,0 +1,22 @@
+f0000 t=  0.00s  middle burn_time_left 0.000 burn_mix 0.000
+f0015 t=  0.50s  middle burn_time_left 0.000 burn_mix 0.000
+f0030 t=  1.00s  middle hit with fire (hp 30.0)
+f0030 t=  1.00s  middle burn_time_left 4.000 burn_mix 0.000
+f0045 t=  1.50s  middle burn_time_left 3.500 burn_mix 0.574
+f0060 t=  2.00s  middle burn_time_left 3.000 burn_mix 0.493
+f0075 t=  2.50s  middle burn_time_left 2.500 burn_mix 0.412
+f0090 t=  3.00s  middle burn_time_left 2.000 burn_mix 0.330
+f0105 t=  3.50s  before second hit: burn_time_left 1.500
+f0105 t=  3.50s  middle hit again (hp 10.0, burn_time_left 4.000)
+f0105 t=  3.50s  middle burn_time_left 4.000 burn_mix 0.249
+f0120 t=  4.00s  middle burn_time_left 3.500 burn_mix 0.574
+f0135 t=  4.50s  Esc pressed: paused=false
+f0135 t=  4.50s  middle burn_time_left 3.000 burn_mix 0.493
+f0150 t=  5.00s  middle burn_time_left 3.000 burn_mix 0.488
+f0165 t=  5.50s  middle burn_time_left 3.000 burn_mix 0.488
+f0180 t=  6.00s  Esc pressed: paused=true
+f0180 t=  6.00s  middle burn_time_left 3.000 burn_mix 0.488
+f0195 t=  6.50s  middle burn_time_left 2.500 burn_mix 0.412
+f0210 t=  7.00s  middle burn_time_left 2.000 burn_mix 0.330
+f0225 t=  7.50s  middle burn_time_left 1.500 burn_mix 0.249
+f0226 t=  7.53s  middle scarecrow gone

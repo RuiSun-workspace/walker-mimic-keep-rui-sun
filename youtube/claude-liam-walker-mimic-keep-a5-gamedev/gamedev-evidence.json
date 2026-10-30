@@ -1,0 +1,763 @@
+{
+ "schema_version": 1,
+ "teaching_contract": "code-then-result-v1",
+ "source_revision": "879324b94cd51d52d43fa2cefd459d085d623a22",
+ "build_id": "dbba8efaf4e60620eae1bb2a8625714a996cefda2b51acdf7571675994456823",
+ "files": [
+  {
+   "path": "MATERIALS.md",
+   "sha256": "7d5cd619f7143c0384cdcd39c3490c7e56e2cb2cbf95e4abbe46f5949069902a",
+   "role": "documentation",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer.png",
+   "sha256": "1e64f5e3b10e13a288da08dcdfdfad6c1480a6a50a447a4c438f1e11af8e1917",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer.png.import",
+   "sha256": "4ff8b7d693f2f3709974f55c8b3b1f7c518703c4e86d5a2fc942cd6eafd06c9b",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/arrow.png",
+   "sha256": "d8203784ecfe61ba1e0838ad8aa05dd0700cb779b370ea8c5d106f4e4aaa0bce",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/arrow.png.import",
+   "sha256": "e4c0991df2b75aace5bd652de20c3d44d80ea290eee276f785252fb9f983514c",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/mimi.png",
+   "sha256": "0f45a24c8b227c1ad83569ea0dd7600a951c5dfb944d727d48c861600f28a9ff",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/mimi.png.import",
+   "sha256": "a1a789a60e9887e8202b59a0d26c1b7b82008003f55f2e4987f2f1bae8a9b18d",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/scarecrow.png",
+   "sha256": "11ac842023a31ea944b0e756f996a44e48152c9757850ce40b37d8d482a06199",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/scarecrow.png.import",
+   "sha256": "e3dc240367831cd65c6819a5cd4bbbaece7219a503444d7dae9a3be4beb7cf4a",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/hint_greys_3x1.png",
+   "sha256": "deb9df2a9689dd2297f2d37a3fa2759104f49dbb2eb3e33c00e1fa6292060ca6",
+   "role": "texture",
+   "component_ids": [
+    "hint-experiment"
+   ]
+  },
+  {
+   "path": "assets/textures/hint_greys_3x1.png.import",
+   "sha256": "c412e714abedfc2f8473a7222eb197facc5cfc954796f9c59990af128c9d1267",
+   "role": "import settings",
+   "component_ids": [
+    "hint-experiment"
+   ]
+  },
+  {
+   "path": "assets/textures/shield_scorch_mask.png",
+   "sha256": "a6613bfda349135092ce21c6bbd2f4b01e6e9de7eac2eba2eb1864944fbb0ee9",
+   "role": "texture",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/shield_scorch_mask.png.import",
+   "sha256": "61b9bf146062a70e1ac02b6230ae5521d2617b51a96bbd200a82ebac4b9727f9",
+   "role": "import settings",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/ATTRIBUTION.md",
+   "sha256": "37f77475dd0c04c8b21caeff1ea3e0dfa207c2c042f2234f4f39c95c7687cb57",
+   "role": "documentation",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_diff_1k.png",
+   "sha256": "2d079a0bea287e2b167eaec78360932aa822e970b4b9650c7c4f55bbdf36a91f",
+   "role": "texture",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_diff_1k.png.import",
+   "sha256": "aeb5b05b9255d87095ca12660d091a998849bfef2571307419e7b4f304367406",
+   "role": "import settings",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_dx_1k.png",
+   "sha256": "d259de8ef9cfb3a0f3b8d917622734c45362142798ad7331895ba3c5f7076455",
+   "role": "texture",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_dx_1k.png.import",
+   "sha256": "2a489edf3df5307c42ec6939a7f906e3240680336fb709b28aa5c38200d4c9ed",
+   "role": "import settings",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_gl_1k.png",
+   "sha256": "f0b8c0e78a28f0e4aa962921f508a232b42a1f787a9b10cdb37aa1050e6e845d",
+   "role": "texture",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_gl_1k.png.import",
+   "sha256": "981b56648dc93573c9ec7abf8ca5fc2fd6886204a16c656c94e8e4caa811bf3a",
+   "role": "import settings",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_rough_1k.png",
+   "sha256": "f1eec48d61e647be0274012318137d9093ac94551d59b082414cb26c2f4da66d",
+   "role": "texture",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_rough_1k.png.import",
+   "sha256": "0442b7342eab62cadd100404ba9a5c7a0e0bb78ddebe0642e800b0913219e5f6",
+   "role": "import settings",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "game/archer.gd",
+   "sha256": "e4826a73b3220be78ad574dde01c5ed4486676220f820ba6d6d9bc1e6ed7c0f7",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/archer.tscn",
+   "sha256": "34b5f18f914725f9a5a03bb41df1f588f58ea0fe32d9bf588ee64e61b9a3858b",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/arrow.gd",
+   "sha256": "e0ffe36c919e48bf24bd0955b908bd77408430eb81eb209e1e80b35ed3bea5d7",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/arrow.tscn",
+   "sha256": "d9895afbc5b48e43a9255873f5e35fb0df458ee7f7e3fb164fd388e8fe5d3d75",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/background.gd",
+   "sha256": "8a2ef444cb3dd34ab310afea85feff14a78c71d2b868b9bc121802d5052f3ca6",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/burning_tint.gd",
+   "sha256": "0144491071c9d08994784d440f98e5099b353b92a8b4592d088fa29a9c21d4cb",
+   "role": "script",
+   "component_ids": [
+    "burning-tint"
+   ]
+  },
+  {
+   "path": "game/hud.gd",
+   "sha256": "a004ac19d60a73e04389a3c386e548fa64e9921b08f3405cf4ad8629d8368621",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/main.gd",
+   "sha256": "ccfc37e70794b19fe45c96eaa0c52b868b5e6f3ca038ce14ec2ef85cf607fe83",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/main.tscn",
+   "sha256": "5d9e1416864b5bf6b0707634b46605d543012ff9efda30eb9702380b3d547d2b",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/scarecrow.gd",
+   "sha256": "d593886734098b1c60f38a6642f181b5b32f755b5771c5f849cdef10d353aec4",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/scarecrow.tscn",
+   "sha256": "4b20e62989e55e7bc3d185b808c7ead960bf1462484370731f17b11192681cc2",
+   "role": "scene",
+   "component_ids": [
+    "burning-tint"
+   ]
+  },
+  {
+   "path": "game/tuning.gd",
+   "sha256": "2f9bc097215516555588785b314c8642d2026b7448729130ffafefc5b6e068e6",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "project.godot",
+   "sha256": "2044219d37c49b8105408b60f929fd80bce3aaba57f2aab66ec508f67b6e1cef",
+   "role": "config",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/burning_tint.gdshader",
+   "sha256": "3a4373cc278f77b985b1fadf35834ba38a718608bdb6a5349257c234d413cb72",
+   "role": "shader",
+   "component_ids": [
+    "burning-tint"
+   ]
+  },
+  {
+   "path": "shaders/hint_experiment.gdshader",
+   "sha256": "dcca1deebc18ce694ea3f26964a614958b7313939d557c080108d63ea6ed0bdb",
+   "role": "shader",
+   "component_ids": [
+    "hint-experiment"
+   ]
+  },
+  {
+   "path": "shaders/shield_wood.gdshader",
+   "sha256": "acbee02dfff8f4fa36ff712c65ef7d1f62c981b9ffc9615b88143bda286b0625",
+   "role": "shader",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "shaders/standard_generated.gdshader",
+   "sha256": "ca1c191c44fb614ae64a258fce3efbc13b77fdc82f480e98ac4582e30805650d",
+   "role": "shader",
+   "component_ids": [
+    "generated-shader"
+   ]
+  },
+  {
+   "path": "showcase/hint_experiment.tscn",
+   "sha256": "13f642cee6f1abf6e4b36baf859b370e7f5e9d3b760a61dbd80802a19ab3c9d5",
+   "role": "scene",
+   "component_ids": [
+    "hint-experiment"
+   ]
+  },
+  {
+   "path": "showcase/hint_raw.tres",
+   "sha256": "0bfba4cae5d56575232130b174df277bd1e38fadfd4b56b7b914f45da2fca7d7",
+   "role": "resource",
+   "component_ids": [
+    "hint-experiment"
+   ]
+  },
+  {
+   "path": "showcase/hint_source_color.tres",
+   "sha256": "71bbd9af6fcec3b4152c9d104ebe7454498d79db1e4a0bb9e5921173e01601d6",
+   "role": "resource",
+   "component_ids": [
+    "hint-experiment"
+   ]
+  },
+  {
+   "path": "showcase/shield_burned.tres",
+   "sha256": "1ee48e02199ccf1c70439ff669fbe812dfc9d3b9913d8fb5d0c15f996ef4bf6d",
+   "role": "resource",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "showcase/shield_mesh.tres",
+   "sha256": "8502daa39c4455b619fdc828bbebec8a62efdf21dd2fcac52dff5b6c4452febb",
+   "role": "resource",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "showcase/shield_new.tres",
+   "sha256": "d808a88a6218a18d30efda48bf8c44207356b31363b1148bcd687349c6445861",
+   "role": "resource",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "showcase/shield_room.tscn",
+   "sha256": "d1f5000b106866c0a6dc764cc29c1a04576696b3fadb12c59745180e1465a679",
+   "role": "scene",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "tests/normal_map_check.gd",
+   "sha256": "36ffb0b71f568690e3107726d90854e5a52cf9b909948618f2cec12803523b70",
+   "role": "script",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "tests/test_burning_tint.gd",
+   "sha256": "694f73a0228c160aeaa9f7f8fe666d66805c730c595b8e9f1d51783d7cb0090a",
+   "role": "script",
+   "component_ids": [
+    "burning-tint"
+   ]
+  },
+  {
+   "path": "tests/test_input.gd",
+   "sha256": "dbe3b9fd20bf20b41cc31cb3a400dd9d0cffa77103f28590fa03efc6afc2fd7e",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_materials.gd",
+   "sha256": "4dc0590c3f174b1bff9498f9f8ca558b48b45b1969a5cf9354bd7b9ece57f3bc",
+   "role": "script",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "tests/test_rules.gd",
+   "sha256": "bed2ce16a2effe7cf45a30e5b76b583b77bb0537916621eee5d71c3ed02ae50e",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/balance_sim.gd",
+   "sha256": "53d78b15966b31aa5586bc8d6751cb53cccae442d5942b27e72038187c0628b8",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_burn_values.gd",
+   "sha256": "79c34c2779ac58430dbae041d0427336383fa518b8546064eb88391a96f59ba9",
+   "role": "script",
+   "component_ids": [
+    "burning-tint"
+   ]
+  },
+  {
+   "path": "tools/capture_in_play.gd",
+   "sha256": "c86fc1de60d1473dcc06eb29e6252dae45894a721bf9bc8d3f4f790df5c85948",
+   "role": "script",
+   "component_ids": [
+    "burning-tint"
+   ]
+  },
+  {
+   "path": "tools/capture_prototype.gd",
+   "sha256": "4f2ed0c8bf139c8b28d5deede84ff274d95ef386442301c25f33d5de8b35142b",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_shield_room.gd",
+   "sha256": "c83940411429c599555e8746374dbf4feb16b37a41576c6a1f431223f7547d7b",
+   "role": "script",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "tools/compare_os_screenshot.gd",
+   "sha256": "fa36b0dc589299619bae657c06616faa93a66b275c5eb31f7b88f00e2c66a1a4",
+   "role": "script",
+   "component_ids": [
+    "burning-tint"
+   ]
+  },
+  {
+   "path": "tools/make_hint_greys.gd",
+   "sha256": "c7a4cede6be1cb86f59642d2071fd0c13a907b1667c2b3e8e80f43ec63ef99f8",
+   "role": "script",
+   "component_ids": [
+    "hint-experiment"
+   ]
+  },
+  {
+   "path": "tools/make_scorch_mask.gd",
+   "sha256": "91927d866dad9e2fd09fdfe2500ff17264519a923e8755e69a40d103057d6efe",
+   "role": "script",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "tools/make_shield_mesh.gd",
+   "sha256": "ebcc668346759acc91eb9e5e205aff75beca6770d582f99d0b0112d2260b3f68",
+   "role": "script",
+   "component_ids": [
+    "shield-material"
+   ]
+  },
+  {
+   "path": "tools/make_sprites.gd",
+   "sha256": "821d742d5976bede9ceacb0f945de483949d4be45820fbe571e35d01147cbc2d",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/os_screenshot.ps1",
+   "sha256": "ee97062c6d852b68028d01886905d6b1fa7df8f598d003dbaff3e56a9e1a1f83",
+   "role": "script",
+   "component_ids": [
+    "burning-tint"
+   ]
+  }
+ ],
+ "components": [
+  {
+   "id": "game",
+   "explanation": "The Mimic Keep prototype the effect lives in: main.gd owns the run, archer.gd auto-fires at the nearest scarecrow in a 120 degree cone, arrow.gd hits and ignites, scarecrow.gd owns Burning (burn_time_left, 4 s, 4 dps); sprites drawn by tools/make_sprites.gd; earlier suites test_rules and test_input; balance_sim and capture_prototype are prototype tools.",
+   "beat_ids": [
+    "B02",
+    "B08"
+   ],
+   "files": [
+    "project.godot",
+    "game/main.tscn",
+    "game/main.gd",
+    "game/archer.gd",
+    "game/archer.tscn",
+    "game/arrow.gd",
+    "game/arrow.tscn",
+    "game/scarecrow.gd",
+    "game/tuning.gd",
+    "game/hud.gd",
+    "game/background.gd",
+    "assets/sprites/archer.png",
+    "assets/sprites/archer.png.import",
+    "assets/sprites/arrow.png",
+    "assets/sprites/arrow.png.import",
+    "assets/sprites/mimi.png",
+    "assets/sprites/mimi.png.import",
+    "assets/sprites/scarecrow.png",
+    "assets/sprites/scarecrow.png.import",
+    "tests/test_rules.gd",
+    "tests/test_input.gd",
+    "tools/make_sprites.gd",
+    "tools/balance_sim.gd",
+    "tools/capture_prototype.gd"
+   ]
+  },
+  {
+   "id": "burning-tint",
+   "explanation": "Rui's burning_tint.gdshader (canvas_item; burn_mix, burn_color, one colour line), driven every frame by game/burning_tint.gd from burn_time_left on each scarecrow's own local-to-scene ShaderMaterial (scarecrow.tscn); test_burning_tint.gd samples it at 30/60/144 fps; capture_burn_values.gd, capture_in_play.gd, os_screenshot.ps1 and compare_os_screenshot.gd make the in-engine evidence.",
+   "beat_ids": [
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B11"
+   ],
+   "files": [
+    "shaders/burning_tint.gdshader",
+    "game/burning_tint.gd",
+    "game/scarecrow.tscn",
+    "tests/test_burning_tint.gd",
+    "tools/capture_burn_values.gd",
+    "tools/capture_in_play.gd",
+    "tools/os_screenshot.ps1",
+    "tools/compare_os_screenshot.gd"
+   ]
+  },
+  {
+   "id": "hint-experiment",
+   "explanation": "hint_experiment.gdshader (Rui; unshaded, one source_color sampler and one plain sampler) on two quads in hint_experiment.tscn, bound to the same 3x1 grey strip written by tools/make_hint_greys.gd.",
+   "beat_ids": [
+    "B12",
+    "B13"
+   ],
+   "files": [
+    "shaders/hint_experiment.gdshader",
+    "showcase/hint_experiment.tscn",
+    "showcase/hint_source_color.tres",
+    "showcase/hint_raw.tres",
+    "assets/textures/hint_greys_3x1.png",
+    "assets/textures/hint_greys_3x1.png.import",
+    "tools/make_hint_greys.gd"
+   ]
+  },
+  {
+   "id": "shield-material",
+   "explanation": "Rui's shield_wood.gdshader (spatial; albedo with source_color, roughness, hint_normal normal map, scorch mask; Surface and Damage groups) used by shield_new.tres and shield_burned.tres on two shields in shield_room.tscn; Poly Haven Wood Planks textures with explicit .import settings; generated scorch mask and shield mesh; test_materials.gd audits the wiring, normal_map_check.gd the normal map; capture_shield_room.gd makes the sweep and edit frames.",
+   "beat_ids": [
+    "B14",
+    "B15",
+    "B16",
+    "B17",
+    "B18",
+    "B19",
+    "B21"
+   ],
+   "files": [
+    "shaders/shield_wood.gdshader",
+    "showcase/shield_new.tres",
+    "showcase/shield_burned.tres",
+    "showcase/shield_room.tscn",
+    "showcase/shield_mesh.tres",
+    "assets/textures/shield_scorch_mask.png",
+    "assets/textures/shield_scorch_mask.png.import",
+    "assets/textures/wood_planks/ATTRIBUTION.md",
+    "assets/textures/wood_planks/wood_planks_diff_1k.png",
+    "assets/textures/wood_planks/wood_planks_diff_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_rough_1k.png",
+    "assets/textures/wood_planks/wood_planks_rough_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_nor_gl_1k.png",
+    "assets/textures/wood_planks/wood_planks_nor_gl_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_nor_dx_1k.png",
+    "assets/textures/wood_planks/wood_planks_nor_dx_1k.png.import",
+    "tools/make_scorch_mask.gd",
+    "tools/make_shield_mesh.gd",
+    "tools/capture_shield_room.gd",
+    "tests/test_materials.gd",
+    "tests/normal_map_check.gd",
+    "MATERIALS.md"
+   ]
+  },
+  {
+   "id": "generated-shader",
+   "explanation": "standard_generated.gdshader: a StandardMaterial3D converted to code by Rui in the editor, unedited, annotated against shield_wood.gdshader (source_color on the albedo sampler, a normal hint on the normal sampler).",
+   "beat_ids": [
+    "B20",
+    "B21"
+   ],
+   "files": [
+    "shaders/standard_generated.gdshader"
+   ]
+  }
+ ],
+ "excerpts": [
+  {
+   "beat_id": "B04",
+   "path": "shaders/burning_tint.gdshader",
+   "start_line": 1,
+   "end_line": 8,
+   "text": "shader_type canvas_item;\n\nuniform float burn_mix : hint_range(0.0, 1.0) = 0.0;\nuniform vec4 burn_color : source_color = vec4(1.0, 0.752941, 0.125490, 1.0);\n\nvoid fragment() {\n    COLOR.rgb = mix(COLOR.rgb, burn_color.rgb, burn_mix);\n}"
+  },
+  {
+   "beat_id": "B06",
+   "path": "game/burning_tint.gd",
+   "start_line": 7,
+   "end_line": 13,
+   "text": "const BURN_MIX_MAX := 0.65\n\n\nfunc _process(_delta: float) -> void:\n\tvar s := get_parent() as Scarecrow\n\tvar mix := BURN_MIX_MAX * clampf(s.burn_time_left / Tuning.BURN_DURATION, 0.0, 1.0)\n\t(material as ShaderMaterial).set_shader_parameter(\"burn_mix\", mix)"
+  },
+  {
+   "beat_id": "B09",
+   "path": "tests/test_burning_tint.gd",
+   "start_line": 90,
+   "end_line": 98,
+   "text": "\t\t\tvar mat := (s.get_node(\"Sprite\") as Sprite2D).material as ShaderMaterial\n\t\t\tvar v: Variant = mat.get_shader_parameter(\"burn_mix\")\n\t\t\tvar m: float = UNSET if v == null else float(v)\n\t\t\tvar left := s.burn_time_left\n\t\t\tmix[i].append(m)\n\t\t\tbtl[i].append(left)\n\t\t\tchecked += 1\n\t\t\tvar expect := PEAK * clampf(left / DURATION, 0.0, 1.0)\n\t\t\tif m < 0.0 or m > PEAK or absf(m - expect) > EPS:"
+  },
+  {
+   "beat_id": "B12",
+   "path": "shaders/hint_experiment.gdshader",
+   "start_line": 4,
+   "end_line": 17,
+   "text": "uniform sampler2D source_color_texture\n    : source_color, filter_nearest, repeat_disable;\n\nuniform sampler2D raw_texture\n    : filter_nearest, repeat_disable;\n\nuniform bool use_source_color = true;\n\nvoid fragment() {\n    if (use_source_color) {\n        ALBEDO = texture(source_color_texture, UV).rgb;\n    } else {\n        ALBEDO = texture(raw_texture, UV).rgb;\n    }"
+  },
+  {
+   "beat_id": "B14",
+   "path": "shaders/shield_wood.gdshader",
+   "start_line": 6,
+   "end_line": 16,
+   "text": "uniform sampler2D wood_albedo_texture\n    : source_color, filter_linear_mipmap, repeat_enable;\n\nuniform sampler2D wood_roughness_texture\n    : filter_linear_mipmap, repeat_enable;\n\nuniform sampler2D wood_normal_texture\n    : hint_normal, filter_linear_mipmap, repeat_enable;\n\nuniform sampler2D scorch_mask_texture\n    : filter_linear_mipmap, repeat_disable;"
+  },
+  {
+   "beat_id": "B16",
+   "path": "shaders/shield_wood.gdshader",
+   "start_line": 21,
+   "end_line": 33,
+   "text": "group_uniforms Surface;\n\nuniform vec4 wood_tint\n    : source_color = vec4(1.0, 1.0, 1.0, 1.0);\n\nuniform float texture_scale\n    : hint_range(0.25, 4.0, 0.05) = 1.0;\n\nuniform float roughness_scale\n    : hint_range(0.0, 1.0, 0.01) = 0.85;\n\nuniform float normal_strength\n    : hint_range(0.0, 2.0, 0.01) = 1.0;"
+  },
+  {
+   "beat_id": "B18",
+   "path": "showcase/shield_burned.tres",
+   "start_line": 10,
+   "end_line": 22,
+   "text": "resource_name = \"shield_burned\"\nrender_priority = 0\nshader = ExtResource(\"1_4h1yw\")\nshader_parameter/wood_albedo_texture = ExtResource(\"3_5d04m\")\nshader_parameter/wood_roughness_texture = ExtResource(\"5_t5y6p\")\nshader_parameter/wood_normal_texture = ExtResource(\"4_qx78g\")\nshader_parameter/scorch_mask_texture = ExtResource(\"2_728jx\")\nshader_parameter/wood_tint = Color(0.72, 0.5, 0.34, 1)\nshader_parameter/texture_scale = 1.0\nshader_parameter/roughness_scale = 0.95\nshader_parameter/normal_strength = 1.15\nshader_parameter/scorch_amount = 0.7\nshader_parameter/char_roughness = 0.98"
+  },
+  {
+   "beat_id": "B20",
+   "path": "shaders/standard_generated.gdshader",
+   "start_line": 7,
+   "end_line": 19,
+   "text": "uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;\nuniform ivec2 albedo_texture_size;\nuniform float point_size : hint_range(0.1, 128.0, 0.1);\n\nuniform float roughness : hint_range(0.0, 1.0);\nuniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;\nuniform vec4 metallic_texture_channel;\nuniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;\n\nuniform float specular : hint_range(0.0, 1.0, 0.01);\nuniform float metallic : hint_range(0.0, 1.0, 0.01);\n\nuniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;"
+  }
+ ],
+ "exclusions": [],
+ "code_result_pairs": [
+  {
+   "code_beat": "B04",
+   "result_beat": "B05",
+   "observation": "Line 7 measured: five frozen scarecrows at burn_mix 0, 0.5, 0.65, 1, 2; 15/15 named pixels within one step of Rui's hand calculation; at 2.0 the pixels follow 2.0 (no hint_range clamp).",
+   "media": {
+    "path": "media/B05.png",
+    "sha256": "9809dfcca4eb99802b55091ed46a6ad5dc1822f625d689775afd53069f101827"
+   }
+  },
+  {
+   "code_beat": "B06",
+   "result_beat": "B07",
+   "observation": "The driver in the running game: the middle scarecrow tints at the fire hit, fades, jumps back to full at the second hit, holds still while Esc pauses, and leaves nothing when it burns down.",
+   "media": {
+    "path": "media/B07.mp4",
+    "sha256": "99d138713593e3b4adfa3561772fb1e6d5f5917ab7e401161fe6eea99494c52e"
+   }
+  },
+  {
+   "code_beat": "B09",
+   "result_beat": "B10",
+   "observation": "Recorded output: 49/0 at 30, 60 and 144 fps (4.000000 s of game time, retrigger, pause); mutation 1 SHADER ERROR 45/4 and mutation 2 46/3, both exit 1.",
+   "media": {
+    "path": "media/B10.png",
+    "sha256": "020ee0160c5ce681ffdb75b60c130d8f8e43bee6d05ccb6dabab361bd6ea79d6"
+   }
+  },
+  {
+   "code_beat": "B12",
+   "result_beat": "B13",
+   "observation": "The two samplers on screen: source_color 64/128/192, no hint 137/188/225, as Rui predicted; all six measured exact.",
+   "media": {
+    "path": "media/B13.png",
+    "sha256": "860e12729116900a6b08e71fa3f924defeecde3cb67080e3c8bdb48fb63ce992"
+   }
+  },
+  {
+   "code_beat": "B14",
+   "result_beat": "B15",
+   "observation": "The shields under the room's light, and normal_map_check: nor_gl 0.6703 as OpenGL vs 1.3297, below Rui's threshold 0.8357; 9/0.",
+   "media": {
+    "path": "media/B15.png",
+    "sha256": "0d04bbcb77feaf39eb1a9fbeb8f7ff46586f79eafd802909d795f78c8fa6546d"
+   }
+  },
+  {
+   "code_beat": "B16",
+   "result_beat": "B17",
+   "observation": "Every uniform at min, default and max, Surface on ShieldA and Damage on ShieldB, in the room's fixed light.",
+   "media": {
+    "path": "media/B17.png",
+    "sha256": "3ad2da4c4b60cdf00a9364fec062994d44376be8798203e23afe9436ae9f6bbd"
+   }
+  },
+  {
+   "code_beat": "B18",
+   "result_beat": "B19",
+   "observation": "Rui's shader edit changed both shields (98,610 px each half); the material edit changed only ShieldA (0 px on the right); both restored byte-identical.",
+   "media": {
+    "path": "media/B19.png",
+    "sha256": "a3c1fbb5a5c86d79326f337c1945c3f63a77858426c84bee5673730dfe6d380c"
+   }
+  },
+  {
+   "code_beat": "B20",
+   "result_beat": "B21",
+   "observation": "Mutation 3: source_color removed from the albedo sampler; test_materials 130/2, exit 1, caught only by the source-text checks.",
+   "media": {
+    "path": "media/B21.png",
+    "sha256": "413336b47a4ecbe9b40b0504023e77eedb4eabb02dbe459755319918829c162f"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1394 @@
+{
+  "metadata": {
+    "title": "Mimic Keep: The Test Cannot See the Fire.",
+    "slug": "claude-liam-walker-mimic-keep-a5-gamedev",
+    "topic": "WALKER · MIMIC KEEP SHADERS",
+    "kind": "gamedev",
+    "playlist": "Brutalist",
+    "brand": "claude-liam",
+    "audience": "CSYE 7270 reviewers and Walker readers",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "fit": "contain",
+    "captions": false,
+    "channel": "@NikBearBrown",
+    "channel_title": "@NikBearBrown",
+    "folderLabel": "@NikBearBrown",
+    "greeting": "Kia ora, Liam",
+    "greeting_note": "hello lexicon: Kia ora (Māori), not used by any reel in this toolkit's youtube/, examples/ or the A1-A3 reels (Zdravo, Kumusta and Mingalaba were).",
+    "persona": "Liam (in for Bear)",
+    "presenter": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "episode_id": "walker-mimic-keep-a5-gamedev",
+    "note": "godot-gamedev in walker mode over walker-mimic-keep-rui-sun (CSYE 7270 Assignment 5). Source commit 879324b94cd51d52d43fa2cefd459d085d623a22, build_id dbba8efaf4e60620eae1bb2a8625714a996cefda2b51acdf7571675994456823, Godot 4.7.2.stable.official.ed1daf0bf, Forward+. B02 and B07 are native 3840x2160 Godot Movie Maker output from an isolated copy of that commit, driven by capture/capture_a5_film.gd (B02: scripted key presses; B07: scripted hits, archer off). Stills are in-engine captures and recorded tool output committed in the repository, and Rui's own screenshot; all labelled in frame.",
+    "build": {
+      "at": "2026-10-29T20:38:00",
+      "cut": "master",
+      "filled": 26,
+      "of": 26,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "role_note": "COLD OPEN LAW - Claude UI cold open. The prompt is an ILLUSTRATIVE RECONSTRUCTION of the walker ask, never a transcript.",
+      "narration_text": "Kia ora, this is Liam, in for Bear. The ask, reconstructed: in Mimic Keep, an archer on a castle wall sets straw scarecrows burning. Write two shaders by hand: one shows the Burning state, driven by the game; one reads wood textures onto a shield, used by two materials.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 20,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Kia ora, Liam",
+            "topic": "WALKER · MIMIC KEEP SHADERS",
+            "segment": "walker-mimic-keep-rui-sun",
+            "command": "Please use Walker to convert my game design document about Mimic Keep, a castle-defense roguelite where an archer on the wall shoots fire arrows at straw scarecrows, into an Assignment 5 change: a hand-written canvas_item shader that tints a scarecrow while it is Burning, driven from game state, and a hand-written spatial shader that reads wood textures onto a shield, used by two materials. I write every shader line; you write the driver, the tests and the evidence.",
+            "runningText": "reading CHANGE-BRIEF.md, CLAUDE.md; get_shader_uniform_list()…",
+            "output": [
+              "shader 1: burning_tint.gdshader · burn_mix from burn_time_left",
+              "shader 2: shield_wood.gdshader · 4 samplers · 2 materials",
+              "proof: headless 30/60/144 fps, then the real renderer and Rui's eyes"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "Opus",
+            "durationSeconds": 15.25
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-10-29T23:46:15.230783+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 15.25,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 15.266666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "role_note": "What was built, with one real correction: the tests pass, and they cannot see what the shaders draw.",
+      "narration_text": "Two shaders, every line typed by Rui. Claude and three agent sessions wrote the driver, the tests and the materials. The tests pass at three frame rates, and still cannot see a pixel. So every look here comes from the real renderer, or from Rui's eyes.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Mimic Keep:\nthe test can\nsee the fire.",
+            "triggerWords": "can",
+            "replacementWords": "cannot",
+            "seed": "mimic-keep-a5-b01",
+            "face": "serif",
+            "fontSize": 190,
+            "lineSpacing": 1.7,
+            "align": "center",
+            "charMs": 26,
+            "jitter": 18,
+            "mistakeRate": 0,
+            "hesitateWithin": 0,
+            "hesitateBetween": 0,
+            "durationSeconds": 14.27
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-10-30T00:29:55.463485+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.27,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 14.3,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "GAME",
+      "role_note": "The game, the state the first shader shows, and where the second one lives.",
+      "narration_text": "This is the game, running with nobody at the keys. The archer fires on its own, and a fire arrow sets a scarecrow Burning: four damage a second, for four seconds. The first shader makes that state visible. The second goes on a wooden shield, in a 3D room of its own.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "Unattended run · no keys pressed",
+        "clip_file": "media/B02.mp4",
+        "capture_window": {
+          "take": "idle",
+          "start_s": 33.0,
+          "end_s": 48.1,
+          "frames": [
+            990,
+            1443
+          ],
+          "media_sha256": "68b0692f73d9747904ed4b247191540d3d268a2619a0c61528bc73920edf673f"
+        }
+      },
+      "actual_duration_s": 15.1,
+      "audio_file": "mix/B02.wav",
+      "render_duration_s": 15.1,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Native 3840x2160 engine capture fills the frame by design.",
+        "contrast_regions": [
+          {
+            "label": "burned-in shot label",
+            "box": [
+              0.028,
+              0.85,
+              0.66,
+              0.945
+            ]
+          }
+        ],
+        "contrast_reason": "Engine footage of a flat green meadow by design; the text a viewer must read is the burned-in label, so contrast is measured there."
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "media",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "BRIEF",
+      "role_note": "The specification's colour line and Rui's hand calculation, before any code.",
+      "narration_text": "Rui wrote the specification first. One colour line: mix the sprite toward straw yellow, two fifty five, one ninety two, thirty two, by burn mix. Burn mix is zero point six five at the hit, and reaches zero after four seconds of game time. Rui also predicted three pixels by hand.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 20,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "The colour line, written first",
+            "section": "CHANGE-BRIEF.md §2 · The colour line",
+            "excerpt": "COLOR.rgb = mix(COLOR.rgb, burn_color.rgb, burn_mix);",
+            "source": "CHANGE-BRIEF.md §2, §3 Rule 2, §6 · Rui's specification · @ 879324b",
+            "status": "WRITTEN BY RUI BEFORE THE SHADER · 2026-10-26",
+            "visualLabel": "What the brief fixed",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "burn_color",
+                "text": "(255, 192, 32): a straw yellow, the shader default"
+              },
+              {
+                "label": "burn_mix",
+                "text": "0.65 × clamp(burn_time_left / 4, 0, 1): 0.65 at the hit, 0.0 after 4 s of game time"
+              },
+              {
+                "label": "Hand calculation",
+                "text": "straw body (233, 196, 106) at 0.5 → (244, 194, 69); at 1.0 → (255, 192, 32)"
+              },
+              {
+                "label": "Predicted, not yet seen",
+                "text": "a source_color uniform in 2D, with HDR 2D off, arrives unconverted"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.33,
+                "card": 0
+              },
+              {
+                "at": 5.75,
+                "card": 1
+              },
+              {
+                "at": 10.17,
+                "card": 2
+              },
+              {
+                "at": 14.59,
+                "card": 3
+              }
+            ],
+            "durationSeconds": 16.58,
+            "excerptLabel": "DOCUMENT EXCERPT"
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-10-30T00:13:01.548502+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 16.58,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 16.6,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "MECHANISM",
+      "role_note": "Code → result 1: the shader, then its measured pixels.",
+      "narration_text": "Rui's shader, eight lines. A shader is a small program the GPU runs for every pixel the sprite covers. Line one, canvas item, makes it a 2D shader and decides which built-ins exist. Lines three and four are its uniforms. Line seven is the effect: mix the pixel's colour toward the burn colour.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "Eight lines, typed by Rui.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/shaders/burning_tint.gdshader",
+            "source": "Verbatim project source at commit 879324b · Godot editor reconstruction (teaching view)",
+            "code": "shader_type canvas_item;\n\nuniform float burn_mix : hint_range(0.0, 1.0) = 0.0;\nuniform vec4 burn_color : source_color = vec4(1.0, 0.752941, 0.125490, 1.0);\n\nvoid fragment() {\n    COLOR.rgb = mix(COLOR.rgb, burn_color.rgb, burn_mix);\n}",
+            "startLine": 1,
+            "cues": [
+              {
+                "at": 1.35,
+                "line": 1,
+                "label": "shader_type: a 2D shader; picks the built-ins"
+              },
+              {
+                "at": 5.86,
+                "line": 3,
+                "label": "a knob the game will turn"
+              },
+              {
+                "at": 10.37,
+                "line": 4,
+                "label": "the burn colour, marked as colour"
+              },
+              {
+                "at": 14.87,
+                "line": 7,
+                "label": "the whole effect, once per pixel"
+              }
+            ],
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "What a shader is",
+                "value": "a small program the GPU runs\nfor every pixel the sprite covers"
+              },
+              {
+                "label": "COLOR on line 7",
+                "value": "already holds the sprite's\ntexture × modulate"
+              }
+            ],
+            "durationSeconds": 16.9
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": "2026-10-29T23:44:33.993003+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 16.9,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 16.9,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "RESULT",
+      "role_note": "Visible result of B04: the controlled-value capture and its sampled pixels.",
+      "narration_text": "A script froze five scarecrows and set burn mix by hand, from zero to two. All fifteen named pixels match Rui's hand calculation, within one step. At one, every pixel is exactly the burn colour. At two, the pixels follow two: the hint range does not clamp a value set from code.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Scripted capture · world frozen · in-engine frame",
+        "evidence_media": "media/B05.png"
+      },
+      "image_file": "assets/b05.png",
+      "actual_duration_s": 16.55,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 16.566666666666666,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B05.png",
+        "filled_by": "still",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "MECHANISM",
+      "role_note": "Code → result 2: the driver, then the effect moving in the game.",
+      "narration_text": "The shader knows nothing about fire. This driver does. Every frame it reads the scarecrow's burn time left, turns it into zero to zero point six five, and sets it on this sprite's own material. Each scarecrow has its own copy, so one cannot tint another.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "Game state in, one number out.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/game/burning_tint.gd",
+            "source": "Verbatim project source at commit 879324b · Godot editor reconstruction (teaching view)",
+            "code": "const BURN_MIX_MAX := 0.65\n\n\nfunc _process(_delta: float) -> void:\n\tvar s := get_parent() as Scarecrow\n\tvar mix := BURN_MIX_MAX * clampf(s.burn_time_left / Tuning.BURN_DURATION, 0.0, 1.0)\n\t(material as ShaderMaterial).set_shader_parameter(\"burn_mix\", mix)",
+            "startLine": 7,
+            "cues": [
+              {
+                "at": 1.16,
+                "line": 7,
+                "label": "the peak the brief chose"
+              },
+              {
+                "at": 5.01,
+                "line": 11,
+                "label": "the scarecrow that owns the burn"
+              },
+              {
+                "at": 8.87,
+                "line": 12,
+                "label": "burn time left → 0..0.65, every frame"
+              },
+              {
+                "at": 12.72,
+                "line": 13,
+                "label": "this sprite's own material only"
+              }
+            ],
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Own material",
+                "value": "scarecrow.tscn:9\nresource_local_to_scene = true"
+              },
+              {
+                "label": "Never writes back",
+                "value": "reads burn_time_left;\nno TIME, no frame count"
+              }
+            ],
+            "durationSeconds": 14.46
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": "2026-10-29T23:50:37.106860+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.46,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 14.466666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B06.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "RESULT",
+      "role_note": "Visible result of B06: hit, fade, second hit, pause, burn-down.",
+      "narration_text": "In the real game: the middle scarecrow is hit, and fades. Hit again, it jumps back to full. Escape pauses, and the tint holds. Resumed, it fades until the straw burns down, leaving nothing behind.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 14,
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "Scripted capture",
+        "evidence_media": "media/B07.mp4",
+        "clip_file": "media/B07.mp4",
+        "capture_window": {
+          "take": "fade",
+          "start_s": 0.5,
+          "end_s": 11.9333,
+          "frames": [
+            15,
+            358
+          ],
+          "media_sha256": "99d138713593e3b4adfa3561772fb1e6d5f5917ab7e401161fe6eea99494c52e"
+        }
+      },
+      "actual_duration_s": 11.4333,
+      "audio_file": "mix/B07.wav",
+      "render_duration_s": 11.433333333333334,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Native 3840x2160 engine capture fills the frame by design.",
+        "contrast_regions": [
+          {
+            "label": "burned-in shot label",
+            "box": [
+              0.028,
+              0.85,
+              0.66,
+              0.945
+            ]
+          }
+        ],
+        "contrast_reason": "Engine footage of a flat green meadow by design; the text a viewer must read is the burned-in label, so contrast is measured there."
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B07.mp4",
+        "filled_by": "media",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "PLAYTEST",
+      "role_note": "Rui's own playtest, in Rui's words, with the two gameplay faults it found.",
+      "narration_text": "Rui then played it normally, and checked what no test can: the tint vanished at the end, the fade was smooth, a second hit was obvious, pause froze it, and the details stayed readable. Rui also found two gameplay faults: long shots miss, and scarecrows at the wall could not be hit.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Screenshot by Rui"
+      },
+      "image_file": "assets/b08.png",
+      "actual_duration_s": 15.13,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 15.133333333333333,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B08.png",
+        "filled_by": "still",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "MECHANISM",
+      "role_note": "Code → result 3: the test, then its recorded output and the mutations.",
+      "narration_text": "The test samples every live scarecrow every frame, at thirty, sixty and one forty four frames a second, with real arrows. Line ninety seven is the brief's rule as code; line ninety eight fails on any error above a millionth.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "Every live scarecrow, every frame.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/tests/test_burning_tint.gd",
+            "source": "Verbatim project source at commit 879324b · Godot editor reconstruction (teaching view)",
+            "code": "\t\t\tvar mat := (s.get_node(\"Sprite\") as Sprite2D).material as ShaderMaterial\n\t\t\tvar v: Variant = mat.get_shader_parameter(\"burn_mix\")\n\t\t\tvar m: float = UNSET if v == null else float(v)\n\t\t\tvar left := s.burn_time_left\n\t\t\tmix[i].append(m)\n\t\t\tbtl[i].append(left)\n\t\t\tchecked += 1\n\t\t\tvar expect := PEAK * clampf(left / DURATION, 0.0, 1.0)\n\t\t\tif m < 0.0 or m > PEAK or absf(m - expect) > EPS:",
+            "startLine": 90,
+            "cues": [
+              {
+                "at": 1.04,
+                "line": 90,
+                "label": "this scarecrow's own material"
+              },
+              {
+                "at": 4.51,
+                "line": 93,
+                "label": "the game's own timer"
+              },
+              {
+                "at": 7.98,
+                "line": 97,
+                "label": "Rule 2 of the brief, as code"
+              },
+              {
+                "at": 11.45,
+                "line": 98,
+                "label": "off by more than a millionth: a failure"
+              }
+            ],
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Runs at",
+                "value": "30, 60 and 144 fps\nthrough scripts/run-test.sh"
+              },
+              {
+                "label": "Real events",
+                "value": "auto-fired arrows hit;\nthe P key pauses"
+              }
+            ],
+            "durationSeconds": 13.01
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-10-29T23:51:56.111862+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 13.01,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 13.033333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B09.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "RESULT",
+      "role_note": "Visible result of B09: actual recorded output, including both shader mutations.",
+      "narration_text": "Forty nine checks, zero failures, at all three rates. Then Rui broke the shader on purpose. A missing semicolon: shader error, exit one. Burn mix renamed: exit one, but only the name checks noticed. Every behaviour check still passed.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Headless output, verbatim",
+        "evidence_media": "media/B10.png"
+      },
+      "image_file": "assets/b10.png",
+      "actual_duration_s": 13.46,
+      "audio_file": "mp3/beat-B10.mp3",
+      "render_duration_s": 13.466666666666667,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B10.png",
+        "filled_by": "still",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "LIMIT",
+      "role_note": "Gives the tests their limit before the textured shader starts.",
+      "narration_text": "That is the limit. A headless run draws nothing. It proves the shaders parse and the driver sends the right number. It cannot show a colour, a fade, or a groove in the wood. That needs the captures, and Rui's eyes.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "What no headless run can show",
+            "section": "CLAUDE.md · Headless facts · TEST-REPORT.md §4",
+            "excerpt": "A headless run uses DisplayServer \"headless\" with an empty video adapter: a dummy renderer that draws nothing.",
+            "source": "CLAUDE.md Headless facts (probed on this machine) · TEST-REPORT.md @ 879324b",
+            "status": "PROBED · GODOT 4.7.2 HEADLESS",
+            "visualLabel": "Proved / not proved",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Proved headless",
+                "text": "both shaders parse · uniforms declared · burn_mix right every frame at 30/60/144"
+              },
+              {
+                "label": "Proved headless",
+                "text": "materials wired · hints read from source · curl ratio of the normal map"
+              },
+              {
+                "label": "Not proved",
+                "text": "any colour on screen · the fade's look · grooves in the wood"
+              },
+              {
+                "label": "Who checks it",
+                "text": "in-engine captures, and Rui's eyes"
+              }
+            ],
+            "cues": [
+              {
+                "at": 0.91,
+                "card": 0
+              },
+              {
+                "at": 3.94,
+                "card": 1
+              },
+              {
+                "at": 6.97,
+                "card": 2
+              },
+              {
+                "at": 10.01,
+                "card": 3
+              }
+            ],
+            "durationSeconds": 11.37,
+            "excerptLabel": "DOCUMENT EXCERPT"
+          },
+          "rendered": {
+            "out": "media/B11.mp4",
+            "at": "2026-10-30T00:14:12.115925+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 11.37,
+      "audio_file": "mp3/beat-B11.mp3",
+      "render_duration_s": 11.4,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B11.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "MECHANISM",
+      "role_note": "Code → result 4: the hint experiment's shader, then its measured screen.",
+      "narration_text": "Now textures. Why is a texture information? One grey strip, sixty four, one twenty eight, one ninety two, bound to two samplers. Line five reads it as colour, with source colour. Line eight reads it as plain data.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 15,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "Same pixels, two samplers.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/shaders/hint_experiment.gdshader",
+            "source": "Verbatim project source at commit 879324b · Godot editor reconstruction (teaching view)",
+            "code": "uniform sampler2D source_color_texture\n    : source_color, filter_nearest, repeat_disable;\n\nuniform sampler2D raw_texture\n    : filter_nearest, repeat_disable;\n\nuniform bool use_source_color = true;\n\nvoid fragment() {\n    if (use_source_color) {\n        ALBEDO = texture(source_color_texture, UV).rgb;\n    } else {\n        ALBEDO = texture(raw_texture, UV).rgb;\n    }",
+            "startLine": 4,
+            "cues": [
+              {
+                "at": 0.98,
+                "line": 5,
+                "label": "read as colour: source_color"
+              },
+              {
+                "at": 4.23,
+                "line": 8,
+                "label": "read as plain data"
+              },
+              {
+                "at": 7.48,
+                "line": 14,
+                "label": "one quad uses the first"
+              },
+              {
+                "at": 10.74,
+                "line": 16,
+                "label": "the other quad, the second"
+              }
+            ],
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "The texture",
+                "value": "hint_greys_3x1.png\n64 · 128 · 192, lossless"
+              },
+              {
+                "label": "Unshaded",
+                "value": "line 2: no light,\nso the screen shows the value"
+              }
+            ],
+            "durationSeconds": 12.2
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": "2026-10-29T23:54:22.945829+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 12.2,
+      "audio_file": "mp3/beat-B12.mp3",
+      "render_duration_s": 12.2,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B12.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "RESULT",
+      "role_note": "Visible result of B12: predicted vs measured bands.",
+      "narration_text": "Rui predicted the result. With source colour, the screen shows the file's own values. Without it, the numbers are treated as light, and come out brighter: one thirty seven, one eighty eight, two twenty five. All six measured exact.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "In-engine frame + measured values",
+        "evidence_media": "media/B13.png"
+      },
+      "image_file": "assets/b13.png",
+      "actual_duration_s": 12.1,
+      "audio_file": "mp3/beat-B13.mp3",
+      "render_duration_s": 12.1,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B13.png",
+        "filled_by": "still",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "MECHANISM",
+      "role_note": "Code → result 5: the samplers, then the lit shield and the normal-map check.",
+      "narration_text": "The shield follows the rule. Albedo is colour, so it gets source colour. Roughness, normals and the scorch mask are data, so they don't. The normal map is marked hint normal, and imported in the OpenGL convention.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 15,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "Colour, and three kinds of data.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/shaders/shield_wood.gdshader",
+            "source": "Verbatim project source at commit 879324b · Godot editor reconstruction (teaching view)",
+            "code": "uniform sampler2D wood_albedo_texture\n    : source_color, filter_linear_mipmap, repeat_enable;\n\nuniform sampler2D wood_roughness_texture\n    : filter_linear_mipmap, repeat_enable;\n\nuniform sampler2D wood_normal_texture\n    : hint_normal, filter_linear_mipmap, repeat_enable;\n\nuniform sampler2D scorch_mask_texture\n    : filter_linear_mipmap, repeat_disable;",
+            "startLine": 6,
+            "cues": [
+              {
+                "at": 0.98,
+                "line": 7,
+                "label": "albedo: colour, so source_color"
+              },
+              {
+                "at": 4.24,
+                "line": 10,
+                "label": "roughness: data"
+              },
+              {
+                "at": 7.49,
+                "line": 13,
+                "label": "normal map: data, hint_normal"
+              },
+              {
+                "at": 10.75,
+                "line": 16,
+                "label": "scorch mask: data, no repeat"
+              }
+            ],
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Textures",
+                "value": "Poly Haven Wood Planks 1K\nAmal Kumar · CC0 · _nor_gl"
+              },
+              {
+                "label": "Scorch mask",
+                "value": "written by\ntools/make_scorch_mask.gd"
+              }
+            ],
+            "durationSeconds": 12.22
+          },
+          "rendered": {
+            "out": "media/B14.mp4",
+            "at": "2026-10-29T23:55:38.030224+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 12.22,
+      "audio_file": "mp3/beat-B14.mp3",
+      "render_duration_s": 12.233333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B14.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "RESULT",
+      "role_note": "Visible result of B14: the shield under the room's light, and the curl check.",
+      "narration_text": "Is it the right convention? The course's curl check reads zero point six seven as OpenGL, against one point three three the other way, under Rui's threshold of zero point eight three six. On screen, Rui sees the seams as grooves, but subtly.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 17,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "In-engine frame + headless output",
+        "evidence_media": "media/B15.png"
+      },
+      "image_file": "assets/b15.png",
+      "actual_duration_s": 14.34,
+      "audio_file": "mp3/beat-B15.mp3",
+      "render_duration_s": 14.366666666666667,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B15.png",
+        "filled_by": "still",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "MECHANISM",
+      "role_note": "Code → result 6: the interface, then the sweep.",
+      "narration_text": "Group uniforms puts the knobs into named Inspector sections, and every float gets a range, a step and a default. Normal strength runs from zero to two. That line was once wrong, and a review caught it.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 15,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "Knobs, in named groups.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/shaders/shield_wood.gdshader",
+            "source": "Verbatim project source at commit 879324b · Godot editor reconstruction (teaching view)",
+            "code": "group_uniforms Surface;\n\nuniform vec4 wood_tint\n    : source_color = vec4(1.0, 1.0, 1.0, 1.0);\n\nuniform float texture_scale\n    : hint_range(0.25, 4.0, 0.05) = 1.0;\n\nuniform float roughness_scale\n    : hint_range(0.0, 1.0, 0.01) = 0.85;\n\nuniform float normal_strength\n    : hint_range(0.0, 2.0, 0.01) = 1.0;",
+            "startLine": 21,
+            "cues": [
+              {
+                "at": 0.93,
+                "line": 21,
+                "label": "group_uniforms: an Inspector section"
+              },
+              {
+                "at": 4.02,
+                "line": 24,
+                "label": "a colour knob, default white"
+              },
+              {
+                "at": 7.12,
+                "line": 27,
+                "label": "min, max, step, default"
+              },
+              {
+                "at": 10.22,
+                "line": 33,
+                "label": "0 to 2: once wrong, caught by review"
+              }
+            ],
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Damage group",
+                "value": "line 38: scorch_amount,\nscorch_color, char_roughness"
+              },
+              {
+                "label": "Read from source",
+                "value": "the uniform list has\nno defaults: tests read the text"
+              }
+            ],
+            "durationSeconds": 11.61
+          },
+          "rendered": {
+            "out": "media/B16.mp4",
+            "at": "2026-10-29T23:56:49.457231+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 11.61,
+      "audio_file": "mp3/beat-B16.mp3",
+      "render_duration_s": 11.633333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B16.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B17",
+      "act": "RESULT",
+      "role_note": "Visible result of B16: the sweep, with Rui's notes.",
+      "narration_text": "Each knob at its minimum, default and maximum, under fixed light. Rui noted what breaks: a black tint, obvious tiling at scale four, seams too deep at normal strength two, white scorch marks, and polished-looking burns at char roughness zero.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "In-engine frames · interface sweep",
+        "evidence_media": "media/B17.png"
+      },
+      "image_file": "assets/b17.png",
+      "actual_duration_s": 13.82,
+      "audio_file": "mp3/beat-B17.mp3",
+      "render_duration_s": 13.833333333333334,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B17.png",
+        "filled_by": "still",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B18",
+      "act": "MECHANISM",
+      "role_note": "Code → result 7: a material file, then the one-shader-two-materials edits.",
+      "narration_text": "So what is a material? This file. It names Rui's one shader on line twelve, and stores its own values: a darker tint, stronger normals, seventy percent scorch. The shader is the program. A material is one set of inputs to it.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 17,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "A material is not a shader.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/showcase/shield_burned.tres",
+            "source": "Verbatim project source at commit 879324b · Godot editor reconstruction (teaching view)",
+            "code": "resource_name = \"shield_burned\"\nrender_priority = 0\nshader = ExtResource(\"1_4h1yw\")\nshader_parameter/wood_albedo_texture = ExtResource(\"3_5d04m\")\nshader_parameter/wood_roughness_texture = ExtResource(\"5_t5y6p\")\nshader_parameter/wood_normal_texture = ExtResource(\"4_qx78g\")\nshader_parameter/scorch_mask_texture = ExtResource(\"2_728jx\")\nshader_parameter/wood_tint = Color(0.72, 0.5, 0.34, 1)\nshader_parameter/texture_scale = 1.0\nshader_parameter/roughness_scale = 0.95\nshader_parameter/normal_strength = 1.15\nshader_parameter/scorch_amount = 0.7\nshader_parameter/char_roughness = 0.98",
+            "startLine": 10,
+            "cues": [
+              {
+                "at": 1.03,
+                "line": 12,
+                "label": "names Rui's one shader"
+              },
+              {
+                "at": 4.48,
+                "line": 17,
+                "label": "its own tint"
+              },
+              {
+                "at": 7.92,
+                "line": 20,
+                "label": "its own normal strength"
+              },
+              {
+                "at": 11.36,
+                "line": 21,
+                "label": "its own scorch: 70 %"
+              }
+            ],
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "shield_new.tres",
+                "value": "same shader · white tint\nroughness 0.75 · scorch 0.05"
+              },
+              {
+                "label": "Shader",
+                "value": "the program\n(shield_wood.gdshader)"
+              }
+            ],
+            "durationSeconds": 12.91
+          },
+          "rendered": {
+            "out": "media/B18.mp4",
+            "at": "2026-10-30T00:15:31.158242+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 12.91,
+      "audio_file": "mp3/beat-B18.mp3",
+      "render_duration_s": 12.933333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B18.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B19",
+      "act": "RESULT",
+      "role_note": "Visible result of B18: the shader edit and the material edit.",
+      "narration_text": "Rui tested exactly that. Edit one shader line, and both shields change. Edit one value in the new shield's material, and only that shield changes: zero pixels move on the other side. Both edits undone, each frame came back byte for byte.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 17,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "In-engine frames · edits made by Rui",
+        "evidence_media": "media/B19.png"
+      },
+      "image_file": "assets/b19.png",
+      "actual_duration_s": 13.99,
+      "audio_file": "mp3/beat-B19.mp3",
+      "render_duration_s": 14.0,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B19.png",
+        "filled_by": "still",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B20",
+      "act": "MECHANISM",
+      "role_note": "Code → result 8: the generated shader beside Rui's, then the mutation that removes the hint.",
+      "narration_text": "Finally, the language. Rui converted a standard material to code. Its line seven reads albedo as colour; line nineteen reads the normal map as data. Rui's equivalents are the shield's lines seven and thirteen. Godot's shading language looks like GLSL, but adds a shader type that picks the pipeline, hints that talk to import and the Inspector, and group uniforms.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 24,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "The generated shader, annotated.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/shaders/standard_generated.gdshader",
+            "source": "Verbatim project source at commit 879324b · Godot editor reconstruction (teaching view)",
+            "code": "uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;\nuniform ivec2 albedo_texture_size;\nuniform float point_size : hint_range(0.1, 128.0, 0.1);\n\nuniform float roughness : hint_range(0.0, 1.0);\nuniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;\nuniform vec4 metallic_texture_channel;\nuniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;\n\nuniform float specular : hint_range(0.0, 1.0, 0.01);\nuniform float metallic : hint_range(0.0, 1.0, 0.01);\n\nuniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;",
+            "startLine": 7,
+            "cues": [
+              {
+                "at": 1.6,
+                "line": 7,
+                "label": "albedo read as colour: source_color"
+              },
+              {
+                "at": 9.62,
+                "line": 14,
+                "label": "roughness: from the red channel"
+              },
+              {
+                "at": 17.64,
+                "line": 19,
+                "label": "normal map read as data"
+              }
+            ],
+            "codeFontSize": 19,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Rui's equivalent",
+                "value": "shield_wood.gdshader:7\nsource_color"
+              },
+              {
+                "label": "Rui's equivalent",
+                "value": "shield_wood.gdshader:13\nhint_normal"
+              }
+            ],
+            "durationSeconds": 20.05
+          },
+          "rendered": {
+            "out": "media/B20.mp4",
+            "at": "2026-10-30T00:17:25.439295+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 20.05,
+      "audio_file": "mp3/beat-B20.mp3",
+      "render_duration_s": 20.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B20.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B21",
+      "act": "RESULT",
+      "role_note": "Visible result of B20: mutation 3 and the test that caught it.",
+      "narration_text": "Why the hint matters: Rui deleted source colour from the shield's albedo sampler, and the material test failed, a hundred and thirty to two. Only the source-text checks caught it. The engine's uniform list cannot see a sampler's hint.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Headless output, verbatim",
+        "evidence_media": "media/B21.png"
+      },
+      "image_file": "assets/b21.png",
+      "actual_duration_s": 12.69,
+      "audio_file": "mp3/beat-B21.mp3",
+      "render_duration_s": 12.7,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B21.png",
+        "filled_by": "still",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B22",
+      "act": "MISTAKES",
+      "role_note": "The agent mistakes that were caught, as recorded in FRICTIONAL.md.",
+      "narration_text": "The mistakes were mostly Claude's. It checked a shader fix by searching two lines, and missed a third; the audit agent caught it. A one tick tolerance it wrote hid a timer bug. Its own curl measure was wrong. It never checked the shaders against the language questions. And it committed a screenshot of the whole desktop, then amended it away before any push.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 26,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "Agent mistakes, caught",
+            "section": "FRICTIONAL.md · 2026-10-28 and 2026-10-29",
+            "excerpt": "Claude checks a shader edit by diffing the whole file, crops screen captures to the window, and checks a design against every later question that will cite it.",
+            "source": "FRICTIONAL.md @ 879324b",
+            "status": "RECORDED IN FRICTIONAL.md",
+            "visualLabel": "Five mistakes",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Grep, not diff",
+                "text": "normal_strength 0–1 missed; audit finding 1"
+              },
+              {
+                "label": "Tolerance",
+                "text": "±1 tick in test_rules hid a 241-tick burn"
+              },
+              {
+                "label": "Own curl measure",
+                "text": "1.22 vs 1.79; the course's code: 0.67 vs 1.33"
+              },
+              {
+                "label": "Two built-ins",
+                "text": "LANGUAGE-NOTES Q3 could cite only COLOR and UV"
+              },
+              {
+                "label": "Whole desktop",
+                "text": "committed unseen, amended before any push"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.44,
+                "card": 0
+              },
+              {
+                "at": 5.03,
+                "card": 1
+              },
+              {
+                "at": 8.63,
+                "card": 2
+              },
+              {
+                "at": 12.23,
+                "card": 3
+              },
+              {
+                "at": 15.82,
+                "card": 4
+              }
+            ],
+            "durationSeconds": 17.98,
+            "excerptLabel": "DOCUMENT EXCERPT"
+          },
+          "rendered": {
+            "out": "media/B22.mp4",
+            "at": "2026-10-30T00:19:10.342143+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.98,
+      "audio_file": "mp3/beat-B22.mp3",
+      "render_duration_s": 18.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B22.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B23",
+      "act": "VERDICT",
+      "role_note": "Verdict: checked, uncertain, next step, contributions, texture sources, source revision.",
+      "narration_text": "The verdict. Shown working: both shaders, a driver on game time, controlled pixels within one step, an exact hint experiment, and two materials from one shader. Uncertain: some pixels differ from an OS screenshot, cause unknown, and the grooves read only subtly. Next: fix the long-range miss, with aiming lead or homing arrows. Rui wrote every shader line and made every human check. Claude and the agents wrote the rest.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 28,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "walker-mimic-keep-rui-sun @ 879324b · shown, checked, still open",
+            "artifactLines": [
+              "shown — tint from burn_time_left; 15/15 pixels; hint test 6/6 exact; one shader, two materials.",
+              "checked — tint 49/0 at 30/60/144 fps; materials 132/0, also fresh; normal map 9/0; 3 mutations exit 1.",
+              "uncertain — 618 pixels differ from an OS screenshot, cause unknown; the grooves read subtly.",
+              "next — fix the long-range miss: aiming lead or homing arrows (wall fix: branch gameplay-fixes).",
+              "who — Rui: every shader line, brief, notes, mutations, human checks · Claude + 3 agents: the rest.",
+              "sources — Wood Planks 1K, Amal Kumar, CC0 (Poly Haven) · source 879324b · Godot 4.7.2 Forward+."
+            ],
+            "durationSeconds": 21.78
+          },
+          "rendered": {
+            "out": "media/B23.mp4",
+            "at": "2026-10-30T00:32:08.709037+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 21.78,
+      "audio_file": "mp3/beat-B23.mp3",
+      "render_duration_s": 21.8,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B23.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B24",
+      "act": "HANDOFF",
+      "role_note": "Your Turn - a paste-ready Walker prompt; Liam signs off here, before the final card.",
+      "narration_text": "Your turn. Here is the paste ready prompt. Pick a state your player cannot see. Write its colour line, and the pixels you expect, before the shader. Let an agent drive it from game time, break it on purpose, and then look yourself, because the test can't. Liam, in for Bear.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 20,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "WALKER · MIMIC KEEP SHADERS",
+            "segment": "your turn",
+            "command": "Use Walker. Pick one game state my player cannot see yet. I will write its colour line and the pixel values I expect before I write the shader myself. Then write a driver that sets the uniform from game time, a headless test at 30, 60 and 144 fps, and an in-engine capture of my controlled values. Break the shader on purpose once and show me the test fail. Never edit my shader.",
+            "runningText": "reading the brief; get_shader_uniform_list(); sampling every frame…",
+            "output": [
+              "a colour line and predicted pixels, before the shader",
+              "a test that fails when the shader is broken",
+              "a capture you look at yourself"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "Opus",
+            "durationSeconds": 14.04
+          },
+          "rendered": {
+            "out": "media/B24.mp4",
+            "at": "2026-10-30T00:05:17.138777+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.04,
+      "audio_file": "mp3/beat-B24.mp3",
+      "render_duration_s": 14.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B24.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-10-29T20:38:00"
+      }
+    },
+    {
+      "beat_id": "B25",
+      "act": "OUTRO",
+      "role_note": "OUTRO LOCK - ClaudeTitleOutro, exact title, @NikBearBrown, slug-seeded mascot/jingle.",
+      "narration_text": "",
+      "audio_file": "mix/B25-jingle.wav",
+      "jingle": {
+        "source": "brutalist.art logos/bear-brown/bear-brown-6.mp3 (stock @NikBearBrown jingle, unchanged except gain)",
+        "pick": "sha256(slug) mod 6 + 1 = 6 (OUTRO-LOCK: jingle seeded by the reel slug; the toolkit has no picker code)",
+        "gain_db": -8
+      },
+      "estimated_duration_s": 9.360979,
+      "actual_duration_s": 9.360979,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Mimic Keep: The Test Cannot See the Fire.",
+            "slug": "claude-liam-walker-mimic-keep-a5-gamedev",
+            "durationSeconds": 9.360979
+          },
+          "rendered": {
+            "out": "media/B25.mp4",
+            "at": "2026-10-30T00:06:12.938742+00:00"
+          }
+        }
+      },
+      "render_duration_s": 9.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B25.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-10-29T20:38:00"
+      }
+    }
+  ]
+}

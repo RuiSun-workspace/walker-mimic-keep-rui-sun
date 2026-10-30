@@ -476,3 +476,47 @@ fov 45), and committed it on its own, `b77e30d`. No `.import` file has been rewr
 Rui deleted the scratch scene `godot/node_3d.tscn` from Step 4 ("删掉"); it was never tracked.
 
 TEST-REPORT.md (`5dacf8f`) records every suite at `b77e30d` and the human checks above.
+
+## 2026-10-29 — The film
+
+Rui asked for it ("做影片") and, before going out, for everything that needed approval in one list:
+"我马上要出门吃饭，把做影片中要我批准的先列给我让我批准一下". Claude listed nine items (structure, a new
+4K capture, the voice, the labels, the five named agent mistakes, the next step, the jingle, where files
+go, render time). Rui answered "全部批准" on the question card. Claude then built the film alone; the
+records are in `youtube/claude-liam-walker-mimic-keep-a5-gamedev/`.
+
+What did not go to plan (Claude):
+- The narration first came to 1,503 words, about ten minutes against the approved five to six. Claude
+  cut it to 1,158; the master is 6:13 with 26 beats, slightly over the plan.
+- The first in-play take pressed the move keys towards the nearest scarecrow. Every scarecrow died at
+  the top edge within about two seconds, so the tint was barely on screen; dropped. The next take, with
+  no keys pressed, recorded 75 s of empty meadow because Claude's driver only enabled spawning for the
+  first take. After a headless dry run of the fixed driver, the third take (50 s) was used, and the
+  narration changed from "the archer slides along the wall" to "running with nobody at the keys".
+  The dry run also showed the gate falling at about 56 s with nobody playing: the wall fault Rui found.
+- The fade take was 9 s, shorter than its 11 s narration; it was re-recorded at 12 s rather than held.
+- Review of the rendered scenes found three layout faults (B01's corrected line overflowed, B18 lost a
+  line, B20 pushed the key line 19 out of the code panel), and the board component labels every excerpt
+  "GDD", which these are not. Claude added an optional label prop to the toolkit's `GodotDesignBoard.tsx`
+  (local, disclosed in `toolkit-local-patch.diff`). The first compile showed Rui's playtest still as a
+  blank slate (stills must be copied to `media/`); the second was refused by the frame QC (two
+  edge-bleeds, an overlong verdict, an underfilled title). The third passed: 0 BLOCKER, 0 MAJOR.
+- `verify_gamedev.py` passed (62 files, 8 excerpts, 8 code → result pairs). It checks hashes and lines,
+  not whether the explanation is right; FACTCHECK.md ties each narrated claim to a file.
+
+Rui watched and listened to the master: "我看没有什么问题，在最后提交前再核对一遍作业要求".
+
+## 2026-10-29 — Checking the submission against the assignment text
+
+Claude re-read the course text section by section against the repository. Most requirements were met;
+five were not, and Claude fixed them after Rui's "修吧":
+- CLAUDE.md had grown to 128 lines, over the 120-line limit, through Claude's own additions after the
+  review (it was 118 then). Shortened to 118 without dropping a fact or a reference. Two of its README
+  line references had gone stale when Claude added the capture tools to README; both now point at the
+  right lines.
+- README still said "Burning has no visual yet". It now has "What Assignment 5 added", a "Film" section
+  (link still to come from Rui's upload) and current limitations, including the two gameplay faults.
+- SOURCES.md did not say which files Rui wrote by hand, which the agent sessions wrote, or which of
+  Claude's suggestions Rui adopted; it does now, with the film's tools.
+- The film's records were not in the repository; they are now, without media.
+- This entry and the one above.
