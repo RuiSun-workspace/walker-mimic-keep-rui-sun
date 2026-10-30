@@ -2,11 +2,10 @@
 
 ## Project context
 
-- **Engine:** Godot 4.7.2 stable, `4.7.2.stable.official.ed1daf0bf` (README.md:18).
+- **Engine:** Godot 4.7.2 stable, `4.7.2.stable.official.ed1daf0bf` (README.md:18);
   `godot/project.godot:16` lists the feature tags `"4.7"` and `"Forward Plus"`.
-- **Renderer:** Forward+, the default: the editor drops `rendering_method="forward_plus"` from the
-  file (commit ccb9529); a probe reads `forward_plus`. 2D texture filter nearest
-  (godot/project.godot:53). No HDR 2D key (godot/project.godot:51-53); default off (Headless facts).
+- **Renderer:** Forward+, the default, so the editor drops `rendering_method` (commit ccb9529; a probe reads
+  `forward_plus`). 2D filter nearest (godot/project.godot:53); no HDR 2D key (:51-53), so it is off.
 - **Viewport:** 1280×720, stretch mode `canvas_items` (godot/project.godot:20-22).
 - **Main scene:** `res://game/main.tscn` (godot/project.godot:15). Root `Main` (Node2D,
   script `game/main.gd`); scarecrows are added under `World/Enemies` (godot/game/main.tscn:9-21).
@@ -18,24 +17,21 @@
   (godot/game/scarecrow.tscn:15-18). Its material is a local-to-scene ShaderMaterial on
   `res://shaders/burning_tint.gdshader` (godot/game/scarecrow.tscn:8-10), driven by
   `res://game/burning_tint.gd` on the Sprite.
-- No script draws it: `scarecrow.gd` has no `_draw()`; the engine draws the Sprite2D
-  (godot/game/scarecrow.gd:1-74).
+- No script draws it: `scarecrow.gd` has no `_draw()` (godot/game/scarecrow.gd:1-74).
 - Instances are created by `Game.spawn_scarecrow()`, which instantiates `SCARECROW_SCENE` and
   adds it to `enemies` (godot/game/main.gd:10, 51-57). Every instance shares the one scene file,
   so a material set in `scarecrow.tscn` is shared unless made local or duplicated
   (CHANGE-BRIEF.md Rule 6).
-- The sprite PNG is written by `godot/tools/make_sprites.gd` (README.md:71).
+- The sprite PNG is written by `godot/tools/make_sprites.gd` (README.md:81).
 
 ### Game state that drives the effect
 - Owner: `godot/game/scarecrow.gd` (class `Scarecrow`, godot/game/scarecrow.gd:1-6).
-  - `var burn_time_left: float = 0.0` (line 16); `is_burning()` returns `burn_time_left > 0.0`
-    (lines 25-26).
-  - `signal burning_started` / `signal burning_ended` (lines 8-9). `ignite()` sets
-    `burn_time_left = Tuning.BURN_DURATION` and emits `burning_started` only if it was not
-    already burning (lines 42-46).
-  - Counted down in `_physics_process(delta)`; at or below `BURN_END_EPSILON` (1e-9, line 13) it
-    is set to 0.0 and `burning_ended` is emitted (lines 49-62, CHANGE-BRIEF revision "boundary
-    exception"), so it follows `Engine.time_scale` and stops when paused.
+  - `var burn_time_left: float = 0.0` (line 16); `is_burning()` is `burn_time_left > 0.0` (lines 25-26).
+  - `signal burning_started` / `burning_ended` (lines 8-9). `ignite()` sets `burn_time_left =
+    Tuning.BURN_DURATION`, emitting `burning_started` only if not already burning (lines 42-46).
+  - Counted down in `_physics_process(delta)`; at or below `BURN_END_EPSILON` (1e-9, line 13) it is set
+    to 0.0 and `burning_ended` is emitted (lines 49-62, CHANGE-BRIEF revision "boundary exception"),
+    so it follows `Engine.time_scale` and stops when paused.
   - On death: `died` is emitted and the node is `queue_free()`d (lines 70-74).
 - Constants: `BURN_DURATION := 4.0`, `BURN_DPS := 4.0` (godot/game/tuning.gd:22-23).
 
@@ -51,9 +47,8 @@
   `hint_source_color.tres` and `hint_raw.tres` on Rui's `res://shaders/hint_experiment.gdshader`.
 - Mesh source: `godot/tools/make_shield_mesh.gd` writes `res://showcase/shield_mesh.tres`
   (line 7, 44); front face has planar UVs over 0..1 (line 3) and tangents are generated (line 41).
-- Lighting: one DirectionalLight3D `Sun`, `light_energy = 1.2`, `shadow_enabled = true`
-  (lines 35-38); Environment `ambient_light_energy = 0.3`, `tonemap_mode = 0` (Linear) (lines 7-13);
-  Camera3D at (0, 0.65, 2.3), fov 45 (lines 40-43).
+- Lighting: DirectionalLight3D `Sun`, energy 1.2, shadows on (lines 35-38); Environment ambient 0.3,
+  `tonemap_mode = 0` (Linear) (lines 7-13); Camera3D at (0, 0.65, 2.3), fov 45 (lines 40-43).
 
 ### Tests — always through scripts/run-test.sh
 `scripts/run-test.sh <test-file.gd> <fps>` runs
@@ -62,14 +57,13 @@ to `logs/<name>_<fps>fps.log`, and exits 1 if the log contains `SHADER ERROR` or
 (scripts/run-test.sh:1-9). It uses relative paths, so run it from the repository root.
 
 ```bash
-godot --headless --path godot --import    # once after a fresh clone or a deleted godot/.godot (README.md:56)
+godot --headless --path godot --import    # once after a fresh clone or a deleted godot/.godot (README.md:57)
 bash scripts/run-test.sh test_rules.gd 60
 bash scripts/run-test.sh test_input.gd 60
 ```
 Existing tests run at 60 fps; the new effect test at 30, 60 and 144 (CHANGE-BRIEF.md Rule 2).
-- `godot/tests/test_rules.gd`: game-rule checks through the real main scene; one PASS/FAIL line
-  per check, exits 1 on failure (lines 1-4, 34-35).
-- `godot/tests/test_input.gd`: real key events via `Input.parse_input_event` (lines 1-4, 46-52).
+- `godot/tests/test_rules.gd`: game rules through the real main scene, one PASS/FAIL line per check,
+  exit 1 on failure (lines 1-4, 34-35); `test_input.gd`: real keys via `Input.parse_input_event` (1-4, 46-52).
 - Baseline: test_rules 23/0, test_input 14/0 at 60 fps through run-test.sh
   (evidence/baseline/test_rules_60fps.log, evidence/baseline/test_input_60fps.log; commit 29ebc5b).
 - Added in Assignment 5: `test_burning_tint.gd` (the tint), `normal_map_check.gd` (curl check,
@@ -111,18 +105,14 @@ not created, modified, renamed, reformatted or deleted. If a shader looks wrong,
 - Using an `instance uniform` for `burn_mix`, or sharing one ShaderMaterial between scarecrows.
 - Tinting any object other than the scarecrow sprite (archer, arrows, Mimi, background, HUD).
 - Changing the shield room's light, environment, camera or mesh during the A/B material comparison.
-- GDD systems not in this change (gold, XP, level-ups, shop, other elements, bosses) (README.md:80-87).
+- GDD systems not in this change (gold, XP, level-ups, shop, other elements, bosses) (README.md:131-138).
 
 ## Unconfirmed
 
 - No `AGENTS.md` exists, so this file has no `@AGENTS.md` line.
-- Rui's three shaders exist: `burning_tint.gdshader` (commit 6a2c298), `shield_wood.gdshader`
-  (416e5f5, `normal_strength` range corrected after the material audit) and
-  `hint_experiment.gdshader` (f76bb03).
-- The presentation driver's file and node location are not named in the brief; it is
-  `godot/game/burning_tint.gd` on the scarecrow's Sprite (session 2).
-- (Now observed.) A `source_color` uniform is not linearised in a canvas_item shader with HDR 2D
-  off: at `burn_mix` 1.0 the captured pixels are exactly (255, 192, 32)
-  (evidence/controlled_values/pixels.txt, 2026-10-28).
-- The shield's UVs cover 0..1 on the front face only; the back and rim use other mappings
-  (make_shield_mesh.gd:25, 38-40).
+- Rui's shaders: `burning_tint.gdshader` (commit 6a2c298), `shield_wood.gdshader` (416e5f5;
+  `normal_strength` corrected after the audit, 822d27a), `hint_experiment.gdshader` (f76bb03).
+- The driver is not named in the brief; it is `godot/game/burning_tint.gd` on the Sprite (session 2).
+- (Now observed.) A `source_color` uniform is not linearised in a canvas_item shader with HDR 2D off:
+  at `burn_mix` 1.0 the pixels are exactly (255, 192, 32) (evidence/controlled_values/pixels.txt).
+- Shield UVs cover 0..1 on the front face only; back and rim differ (make_shield_mesh.gd:25, 38-40).
