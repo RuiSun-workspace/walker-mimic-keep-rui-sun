@@ -117,7 +117,9 @@ agent sessions, reviewed and checked by Rui). Details: CHANGE-BRIEF.md, MATERIAL
 
 - File: `claude-liam-walker-mimic-keep-a5-gamedev.mp4`
 - SHA-256: `10a99c22d53e31b330393846d9a1ecddd5d1f360e6f78dcf417baa45601d0ec3`
-- Link: FILM-LINK-PENDING (course media storage; the MP4 is not in this repository)
+- **[▶ Watch the film](https://northeastern-my.sharepoint.com/:v:/g/personal/sun_r3_northeastern_edu/IQDZY7AdKwcTRaacSlGB4bqyAfG3lmOAaQuQDUvm744kg4A?e=hkY4ve)**
+  — Northeastern OneDrive, viewable by anyone signed in with a Northeastern account (the MP4 is not
+  in this repository)
 - Game source shown: commit `879324b`. Beat sheet, script, captures' driver and evidence ledger:
   `youtube/claude-liam-walker-mimic-keep-a5-gamedev/`.
 
