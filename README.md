@@ -55,14 +55,19 @@ from the GDD or chosen for this prototype.
 
 ```bash
 godot --headless --path godot --import
-godot --headless --path godot --script res://tests/test_rules.gd --fixed-fps 60
-godot --headless --path godot --script res://tests/test_input.gd --fixed-fps 60
+./scripts/run-test.sh test_rules.gd 60
+./scripts/run-test.sh test_input.gd 60
+./scripts/run-test.sh test_burning_tint.gd 30    # also 60 and 144
+./scripts/run-test.sh test_materials.gd 60
+./scripts/run-test.sh normal_map_check.gd 60
 ```
 
+`scripts/run-test.sh` runs one test headless at a pinned frame rate, writes `logs/<test>_<fps>fps.log`
+and exits 1 on `SHADER ERROR` or `SCRIPT ERROR`; run it from the repository root.
 `test_rules.gd` (23 checks) covers spawning, targeting, the burn's duration, damage, refresh,
 time scale and pause, gate damage, losing and winning. `test_input.gd` (14 checks) drives the
-real keys through `Input.parse_input_event`. Both print one PASS/FAIL line per check and exit 1
-on any failure. Both passed at 30, 60 and 144 fps on 2026-10-25.
+real keys through `Input.parse_input_event`. The Assignment 5 suites and their counts are in
+TEST-REPORT.md. Every test prints one PASS/FAIL line per check and exits 1 on any failure.
 
 ## Assets
 
@@ -85,10 +90,44 @@ powershell -ExecutionPolicy Bypass -File godot/tools/os_screenshot.ps1 -Godot <G
 godot --headless --path godot --script res://tools/compare_os_screenshot.gd  # in-engine vs OS screenshot
 ```
 
+## What Assignment 5 added
+
+Two hand-written shaders (every line by Rui) and everything around them (by Claude Code and three
+agent sessions, reviewed and checked by Rui). Details: CHANGE-BRIEF.md, MATERIALS.md, TEST-REPORT.md.
+
+- **Burning tint** — `godot/shaders/burning_tint.gdshader` (canvas_item). While a scarecrow is Burning,
+  its sprite is mixed toward (255, 192, 32) by `burn_mix`, 0.65 at the hit and 0 after 4 s of game time.
+  The driver `godot/game/burning_tint.gd` sets it every frame from `burn_time_left` on each scarecrow's
+  own material; `godot/tests/test_burning_tint.gd` checks it at 30, 60 and 144 fps.
+- **Wooden shield** — `godot/shaders/shield_wood.gdshader` (spatial): Poly Haven albedo with
+  `source_color`, roughness, an OpenGL normal map with `hint_normal`, and a code-generated scorch mask;
+  seven uniforms in two groups. Two materials, `godot/showcase/shield_new.tres` and `shield_burned.tres`,
+  on two shields in `res://showcase/shield_room.tscn`. Audited by `godot/tests/test_materials.gd`
+  and `normal_map_check.gd`.
+- **Hint experiment** — `godot/shaders/hint_experiment.gdshader` in `res://showcase/hint_experiment.tscn`:
+  one grey strip read with and without `source_color` (64/128/192 vs 137/188/225).
+- **The language** — `godot/shaders/standard_generated.gdshader` (an unedited StandardMaterial3D
+  conversion) and LANGUAGE-NOTES.md.
+- Evidence (in-engine captures, logs, mutations) in `evidence/`; the agent prompts in `prompts/` and their
+  transcripts in `sessions/`; the record of who did what in FRICTIONAL.md and SOURCES.md.
+
+## Film
+
+*Mimic Keep: The Test Cannot See the Fire* — Brutalist godot-gamedev explainer (walker), 4K, 6:13.
+
+- File: `claude-liam-walker-mimic-keep-a5-gamedev.mp4`
+- SHA-256: `10a99c22d53e31b330393846d9a1ecddd5d1f360e6f78dcf417baa45601d0ec3`
+- Link: FILM-LINK-PENDING (course media storage; the MP4 is not in this repository)
+- Game source shown: commit `879324b`. Beat sheet, script, captures' driver and evidence ledger:
+  `youtube/claude-liam-walker-mimic-keep-a5-gamedev/`.
+
 ## Known limitations
 
-- Burning has **no visual** yet. A burning scarecrow looks the same as one that is not. Assignment 5
-  adds the shader that shows it.
+- Two gameplay faults found in Rui's playtest are still in this revision, because Assignment 5 may
+  not change game rules: long sideways shots aim at where a scarecrow was and can miss, and a
+  scarecrow attacking the wall stands level with the archer, outside the fire cone, so it cannot be
+  shot. The wall fix is on branch `gameplay-fixes` (commit `dbb4806`), to be merged after `a5`.
+- The tint was checked by Rui in play and in captures; nobody else has playtested it.
 - One enemy type and one wave. No gold, XP, level-ups, Mimi's moods or shop, other elements, or
   bosses from the GDD.
 - Placeholder art: flat code-drawn sprites, not final art.
