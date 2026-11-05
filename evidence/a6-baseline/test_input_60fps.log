@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS D moves the archer +210 px in 0.5 s
+PASS Right arrow moves the archer +210 px in 0.5 s
+PASS A moves the archer -210 px in 0.5 s
+PASS Left arrow moves the archer -210 px in 0.5 s
+PASS the archer stops at the right edge
+PASS Esc pauses
+PASS Esc: the run clock stops while paused
+PASS Esc resumes
+PASS P pauses
+PASS P: the run clock stops while paused
+PASS P resumes
+PASS R does nothing during play
+PASS the run is lost (setup for restart)
+PASS Enter restarts after a loss
+test_input: 14 passed, 0 failed

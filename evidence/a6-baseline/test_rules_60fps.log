@@ -1,0 +1,26 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS first scarecrow spawns after 1 s
+PASS spawn interval starts at 3.0 s
+PASS spawn interval reaches 1.5 s at the end
+PASS archer holds fire with no scarecrow in the cone
+PASS archer ignores a scarecrow outside the 120 degree cone
+PASS an auto-fired arrow hits the scarecrow
+PASS a fire arrow sets it Burning
+PASS arrows and fire burn the scarecrow down
+PASS the kill is counted
+PASS Burning lasts 4.0 s of game time (+-1 tick)
+PASS Burning deals 16 damage in total
+PASS Burning ends: is_burning() false
+PASS re-ignite mid-burn refreshes to a full 4.0 s (ends at 6 s)
+PASS re-ignite does not emit burning_started again
+PASS at time_scale 2 Burning still lasts 4.0 s of scaled game time (+-1 scaled tick)
+PASS at time_scale 2 that takes about half the physics ticks
+PASS Burning timer stops while the tree is paused
+PASS Burning resumes after unpause
+PASS one scarecrow at the wall takes 5 gate HP per second
+PASS gate at 0 HP loses the run
+PASS the field freezes after a loss
+PASS surviving 90 s wins the run
+PASS reset restores the gate and the clock
+test_rules: 23 passed, 0 failed
