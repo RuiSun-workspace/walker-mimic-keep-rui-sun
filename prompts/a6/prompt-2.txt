@@ -1,0 +1,22 @@
+Read CLAUDE.md first. Effect A's intent and settings are in
+CHANGE-BRIEF.md.
+
+Build Effect A as a scene file in godot/effects/, using Godot 4 class
+and property names for the version CLAUDE.md pins. If you are unsure a
+property exists in this version, say so instead of guessing. Configure
+it in the scene file, not in code. If the brief layers several
+emitters, put them under one root node.
+
+Then add:
+- a configuration test, godot/tests/test_<effect>_config.gd, that
+  loads the scene and reads back every setting the brief names from the
+  loaded resources, using the brief's values as the expected values;
+- a preview scene, godot/previews/<effect>_preview.tscn, that holds the
+  effect at in-game camera scale over the background the brief names,
+  and triggers it at frame 10, and again at the frame the brief gives
+  when its retrigger export is on.
+
+Run the configuration test with ./scripts/run-test.sh at 60 and show
+the real output. Then give me the capture command for the preview, and
+stop. Do not wire the effect into gameplay, do not edit any .gdshader
+file, and do not commit.

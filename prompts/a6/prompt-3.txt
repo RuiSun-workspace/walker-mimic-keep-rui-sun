@@ -1,0 +1,28 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract for this change.
+Effect A's scene is built and its configuration test passes. Do not
+change the effect's settings in this task, and do not edit any
+.gdshader file.
+
+First propose the smallest plan that meets the brief: the code that
+triggers or instances Effect A on its event, how that code implements
+the brief's retrigger rule, and a new state test in godot/tests/. Say
+which brief rule each assertion covers, and which rules only a human
+can check. Do not edit yet.
+
+After I approve a step, implement only that step and show the diff.
+Rules:
+- Presentation code may read game state; it never writes it. Do not
+  change collision, movement, input, the state machine or the existing
+  tests.
+- The test drives the event through the real game loop and real input,
+  never by calling the trigger function directly.
+- It asserts that the effect fires on every event the retrigger rule
+  allows and never otherwise, including on scene load, at the event's
+  position.
+- It fires two events inside one lifetime and asserts the brief's
+  retrigger rule.
+- Run every test with ./scripts/run-test.sh: the existing ones as
+  CLAUDE.md says, and the new one at 60, or in realtime if it waits on
+  audio. Show the real output and say which mode you used.
+- Say exactly what the test proves and what it cannot prove headlessly.
+- Do not commit.
