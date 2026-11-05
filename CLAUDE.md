@@ -3,83 +3,63 @@
 ## Project context
 
 - **Engine:** Godot 4.7.2 stable, `4.7.2.stable.official.ed1daf0bf` (README.md:18);
-  `godot/project.godot:16` lists the feature tags `"4.7"` and `"Forward Plus"`.
-- **Renderer:** Forward+, the default, so the editor drops `rendering_method` (commit ccb9529; a probe reads
-  `forward_plus`). 2D filter nearest (godot/project.godot:53); no HDR 2D key (:51-53), so it is off.
-- **Viewport:** 1280×720, stretch mode `canvas_items` (godot/project.godot:20-22).
-- **Main scene:** `res://game/main.tscn` (godot/project.godot:15). Root `Main` (Node2D,
-  script `game/main.gd`); scarecrows are added under `World/Enemies` (godot/game/main.tscn:9-21).
-  The scene has no Light2D or CanvasModulate node (godot/game/main.tscn:1-63).
+  `config/features` lists `"4.7"` and `"Forward Plus"` (godot/project.godot:16).
+- **Renderer:** Forward+, the default, so `rendering_method` is absent from godot/project.godot
+  (README.md:19-20). No HDR 2D key (godot/project.godot:51-53). 1280×720, stretch `canvas_items`
+  (:20-22). Main scene `res://game/main.tscn` (:15).
 
-### The shaded object: the Straw Scarecrow sprite
-- Scene `godot/game/scarecrow.tscn`: root `Scarecrow` (Node2D, script `res://game/scarecrow.gd`)
-  with one child `Sprite` of type **Sprite2D**, texture `res://assets/sprites/scarecrow.png`
-  (godot/game/scarecrow.tscn:15-18). Its material is a local-to-scene ShaderMaterial on
-  `res://shaders/burning_tint.gdshader` (godot/game/scarecrow.tscn:8-10), driven by
-  `res://game/burning_tint.gd` on the Sprite.
-- No script draws it: `scarecrow.gd` has no `_draw()` (godot/game/scarecrow.gd:1-74).
-- Instances are created by `Game.spawn_scarecrow()`, which instantiates `SCARECROW_SCENE` and
-  adds it to `enemies` (godot/game/main.gd:10, 51-57). Every instance shares the one scene file,
-  so a material set in `scarecrow.tscn` is shared unless made local or duplicated
-  (CHANGE-BRIEF.md Rule 6).
-- The sprite PNG is written by `godot/tools/make_sprites.gd` (README.md:81).
+### Effect A — Arrow Impact Burst: two GPUParticles2D, flash A1 + straw A2 (CHANGE-BRIEF.md §3)
+- Event owner: `Scarecrow.hit(damage, element)` (godot/game/scarecrow.gd:33-39), called only from
+  godot/game/arrow.gd:22 when an arrow is within `ARROW_HIT_RADIUS` 26 px (godot/game/tuning.gd:15).
+- `signal hit_taken(position: Vector2)` **does not exist yet**; the brief allows adding it and emitting
+  `global_position` between scarecrow.gd:38 (`ignite()`) and :39 (`_check_death()`) (CHANGE-BRIEF.md §5).
+- A lethal hit: `_check_death()` removes the group, emits `died`, `queue_free()`s (scarecrow.gd:70-74).
+- Appears in: one new burst scene per hit under a new Node2D `World/Effects` after `World/Archer`
+  (CHANGE-BRIEF.md §5). Today `World` holds `Enemies`, `Arrows`, `Archer` (godot/game/main.tscn:19-26);
+  `reset()` frees only Enemies and Arrows children (main.gd:36-40). Fire interval 0.6 s (tuning.gd:10).
 
-### Game state that drives the effect
-- Owner: `godot/game/scarecrow.gd` (class `Scarecrow`, godot/game/scarecrow.gd:1-6).
-  - `var burn_time_left: float = 0.0` (line 16); `is_burning()` is `burn_time_left > 0.0` (lines 25-26).
-  - `signal burning_started` / `burning_ended` (lines 8-9). `ignite()` sets `burn_time_left =
-    Tuning.BURN_DURATION`, emitting `burning_started` only if not already burning (lines 42-46).
-  - Counted down in `_physics_process(delta)`; at or below `BURN_END_EPSILON` (1e-9, line 13) it is set
-    to 0.0 and `burning_ended` is emitted (lines 49-62, CHANGE-BRIEF revision "boundary exception"),
-    so it follows `Engine.time_scale` and stops when paused.
-  - On death: `died` is emitted and the node is `queue_free()`d (lines 70-74).
-- Constants: `BURN_DURATION := 4.0`, `BURN_DPS := 4.0` (godot/game/tuning.gd:22-23).
+### Effect B — Burning Embers: two GPUParticles2D, embers B1 + smoke B2 (CHANGE-BRIEF.md §3)
+- Condition owner: `godot/game/scarecrow.gd` (class `Scarecrow`, line 1). Signals `burning_started`,
+  `burning_ended`, `died` (lines 8-10); `var burn_time_left: float` (line 16); `is_burning()` is
+  `burn_time_left > 0.0` (lines 25-26).
+- `ignite()` sets `burn_time_left = Tuning.BURN_DURATION` and emits `burning_started` only when not
+  already burning (lines 42-46): a refresh emits nothing. Counted down in `_physics_process`; at
+  ≤ `BURN_END_EPSILON` (line 13) set to 0 and `burning_ended` emitted (lines 49-59). Death while
+  burning emits `died`, never `burning_ended` (lines 60, 70-74).
+- `BURN_DURATION := 4.0`, `BURN_DPS := 4.0` (godot/game/tuning.gd:26-27).
+- Appears in: every scarecrow. `godot/game/scarecrow.tscn` = root `Scarecrow` (Node2D) + child `Sprite`
+  (Sprite2D, local-to-scene ShaderMaterial on Rui's `burning_tint.gdshader`, driver `burning_tint.gd`)
+  (scarecrow.tscn:8-18); instanced by `Game.spawn_scarecrow()` into `World/Enemies` (main.gd:10, 51-57).
+  Game end sets `World.process_mode = PROCESS_MODE_DISABLED` (main.gd:95); `reset()` restores it (:47).
+- Not present yet: `godot/effects/`, its `textures/*.png` and `godot/tools/make_particle_textures.gd` (brief §3).
 
-### 3D object for the textured shader
-- Scene `godot/showcase/shield_room.tscn`. Nodes `ShieldA` (lines 49-52) and `ShieldB`
-  (lines 59-62), both MeshInstance3D with `mesh = res://showcase/shield_mesh.tres` (line 3).
-- Each node's `surface_material_override/0` is a ShaderMaterial file (lines 4-5):
-  `res://showcase/shield_new.tres` on ShieldA and `res://showcase/shield_burned.tres` on ShieldB,
-  both on Rui's `res://shaders/shield_wood.gdshader`. Their values and textures are listed in
-  `godot/MATERIALS.md`. The mesh resource itself declares no material
-  (godot/showcase/shield_mesh.tres:1-14).
-- Hint experiment: `godot/showcase/hint_experiment.tscn`, two unshaded quads with
-  `hint_source_color.tres` and `hint_raw.tres` on Rui's `res://shaders/hint_experiment.gdshader`.
-- Mesh source: `godot/tools/make_shield_mesh.gd` writes `res://showcase/shield_mesh.tres`
-  (line 7, 44); front face has planar UVs over 0..1 (line 3) and tangents are generated (line 41).
-- Lighting: DirectionalLight3D `Sun`, energy 1.2, shadows on (lines 35-38); Environment ambient 0.3,
-  `tonemap_mode = 0` (Linear) (lines 7-13); Camera3D at (0, 0.65, 2.3), fov 45 (lines 40-43).
-
-### Tests — always through scripts/run-test.sh
-`scripts/run-test.sh <test-file.gd> <fps>` runs
-`timeout 120 godot --headless --path godot --script res://tests/<file> --fixed-fps <fps>`, tees
-to `logs/<name>_<fps>fps.log`, and exits 1 if the log contains `SHADER ERROR` or `SCRIPT ERROR`
-(scripts/run-test.sh:1-9). It uses relative paths, so run it from the repository root.
+### Tests — always through scripts/run-test.sh, from the repository root
+`scripts/run-test.sh <test-file.gd> <fps|realtime> [timeout-seconds]` (scripts/run-test.sh:2) runs
+`godot --headless [--fixed-fps <fps>] --path godot --script res://tests/<file>` under `timeout`
+(default 120 s), tees to `logs/<name>_<fps>fps.log`, and exits 1 on a non-zero exit or a log line with
+`SHADER ERROR` / `SCRIPT ERROR` (lines 3-14). **Realtime mode:** `realtime` as the second argument
+drops `--fixed-fps` and logs to `logs/<name>_realtime.log` (lines 5-6, 10); it is still headless (line 11).
 
 ```bash
-godot --headless --path godot --import    # once after a fresh clone or a deleted godot/.godot (README.md:57)
-bash scripts/run-test.sh test_rules.gd 60
-bash scripts/run-test.sh test_input.gd 60
+godot --headless --path godot --import          # after a fresh clone or a deleted godot/.godot (README.md:57)
+bash scripts/run-test.sh test_rules.gd 60        # also test_input, test_materials, normal_map_check at 60
+bash scripts/run-test.sh test_burning_tint.gd 30 # and 60, 144; test_wall_targeting.gd the same
+bash scripts/run-test.sh <test>.gd realtime 180  # realtime mode, 180 s timeout
 ```
-Existing tests run at 60 fps; the new effect test at 30, 60 and 144 (CHANGE-BRIEF.md Rule 2).
-- `godot/tests/test_rules.gd`: game rules through the real main scene, one PASS/FAIL line per check,
-  exit 1 on failure (lines 1-4, 34-35); `test_input.gd`: real keys via `Input.parse_input_event` (1-4, 46-52).
-- Baseline: test_rules 23/0, test_input 14/0 at 60 fps through run-test.sh
-  (evidence/baseline/test_rules_60fps.log, evidence/baseline/test_input_60fps.log; commit 29ebc5b).
-- Added in Assignment 5: `test_burning_tint.gd` (the tint), `normal_map_check.gd` (curl check,
-  threshold from CHANGE-BRIEF revision C) and `test_materials.gd` (the material audit).
+- A6 baseline (commit 056bcc0, evidence/a6-baseline/): test_rules 23/0, test_input 14/0,
+  test_materials 132/0, normal_map_check 9/0 at 60; test_burning_tint 49/0, test_wall_targeting 10/0
+  at 30/60/144. One PASS/FAIL line per check, exit 1 on failure (godot/tests/test_rules.gd:2-4, 34-35);
+  real keys via `Input.parse_input_event` (godot/tests/test_input.gd:2, 51).
+- State tests drive real arrows and keys, never `hit()`, `ignite()` or an effect trigger directly; a
+  feedback test may set `burn_time_left` (CHANGE-BRIEF.md §6).
 
-### Headless facts (probed on this machine, Godot 4.7.2, 2026-10-26/27)
-- A headless run uses `DisplayServer` "headless" with an empty video adapter: a dummy renderer
-  that draws nothing. No headless test can judge how anything looks.
-- `Shader.get_shader_uniform_list()` reports each uniform's name, type and hint headlessly, but
-  not its default (null from the material and from RenderingServer): read defaults from source text.
-  A shader that fails to parse prints `SHADER ERROR` and reports an empty list.
-- `set_shader_parameter()` with an undeclared name raises no error and reads back the stored value.
-- `instance uniform`s are missing from `get_shader_uniform_list()` (CHANGE-BRIEF.md Rule 6).
-- Physics runs at 60 ticks/s whatever `--fixed-fps` says; `rendering/viewport/hdr_2d` is false.
-- `shield_mesh.tres` has UV and tangent arrays (surface format flags).
-- `godot` on PATH is a shim in `~/bin` (outside the repo) to the portable 4.7.2 console build.
+### Headless facts (probed on this machine, Godot 4.7.2)
+- Headless is a dummy renderer that draws nothing: no headless test can judge how a particle looks
+  or moves (CHANGE-BRIEF.md §6). Physics runs at 60 ticks/s whatever `--fixed-fps` says.
+- Probed 2026-11-05 (FRICTIONAL.md:554-561): GPUParticles2D has `amount_ratio`, `use_fixed_seed`,
+  `seed`, `finished`; CPUParticles2D has no `amount_ratio` and no turbulence. A `Curve` defaults to
+  0–1 and silently stores 1.2 as 1.0. `direction` defaults to (1, 0, 0), `particle_flag_disable_z` to false.
+  `godot` on PATH is a shim in `~/bin` (outside the repo) to the portable 4.7.2 console build.
 
 ## Current change
 
@@ -92,27 +72,48 @@ not created, modified, renamed, reformatted or deleted. If a shader looks wrong,
 `scripts/check-session.sh` verifies after each session that `godot/shaders/` and
 `scripts/run-test.sh` are unchanged (scripts/check-session.sh:29-33).
 
+Effect settings (every value in CHANGE-BRIEF.md §3) live in scene files in `godot/effects/`, with
+their ParticleProcessMaterial and CanvasItemMaterial as sub-resources, not in code. Driver scripts
+only toggle `emitting`, set `amount_ratio`, reparent and free.
+
+## Godot 4 names
+
+Use Godot 4.7.2 names, never Godot 3 ones: `Particles2D` → **GPUParticles2D**, `ParticlesMaterial` →
+**ParticleProcessMaterial**, `GradientTexture` → **GradientTexture1D**, `flag_disable_z` →
+**`particle_flag_disable_z`**, a single `initial_velocity` / `scale` / `damping` / `angle` → **`_min`/`_max`**.
+In 4.7.2 `initial_velocity` and `scale` still exist as editor-only Vector2 ranges that are not stored;
+a float assigned to them is silently ignored (FRICTIONAL.md:556-558).
+- Node: `amount`, `amount_ratio`, `emitting`, `one_shot`, `explosiveness`, `lifetime`, `preprocess`,
+  `local_coords`, `visibility_rect`, `texture`, `process_material`, `material`; signal `finished`.
+- ParticleProcessMaterial: `emission_shape` (`EMISSION_SHAPE_SPHERE`/`_BOX`), `emission_sphere_radius`,
+  `emission_box_extents`, `direction`, `spread`, `gravity` (Vector3), `initial_velocity_min/max`,
+  `damping_min/max`, `scale_min/max`, `angle_min/max`, `color_ramp`, `scale_curve` (CurveTexture),
+  `turbulence_enabled`, `turbulence_influence_min/max`, `particle_flag_disable_z`.
+- Blend: `CanvasItemMaterial.blend_mode` = `BLEND_MODE_ADD` / `BLEND_MODE_MIX`.
+- Only the facts cited above were probed; the rest is the 4.x API, unverified on 4.7.2. Read a property
+  back with `get_property_list()` before relying on it; if it is missing, report it, don't guess.
+
 ## Out of scope
 
-- Anything that alters gameplay: HP, burn duration or damage, the burn timer, movement,
-  targeting, firing, arrows and hit detection, collision, gate damage, spawning, win/loss,
-  pause/restart, input actions. Presentation code may only *read* `burn_time_left`,
-  `is_burning()` and the two signals; nothing may write back into game state.
-- Editing `godot/game/tuning.gd`, `main.gd`, `archer.gd`, `arrow.gd`, `godot/tests/test_rules.gd`,
-  `godot/tests/test_input.gd`, or `scripts/run-test.sh`. Changing or loosening any existing
-  test expectation.
-- Using `TIME` or a frame count to decide how long the tint lasts.
-- Using an `instance uniform` for `burn_mix`, or sharing one ShaderMaterial between scarecrows.
-- Tinting any object other than the scarecrow sprite (archer, arrows, Mimi, background, HUD).
-- Changing the shield room's light, environment, camera or mesh during the A/B material comparison.
-- GDD systems not in this change (gold, XP, level-ups, shop, other elements, bosses) (README.md:131-138).
+- Game rules: HP, damage, burn length or DPS, the burn timer, movement, targeting, fire rate, arrow
+  flight and hit detection, gate damage, spawning, win/loss, pause, restart, the input map. Effect
+  code reads `burn_time_left`, `is_burning()` and signals; it never writes game state.
+- In `scarecrow.gd`, anything beyond one `hit_taken` signal and its one emit, or reordering damage,
+  `ignite()` and `_check_death()`. In `main.tscn`, anything beyond the one `World/Effects` node.
+- Editing `tuning.gd`, `main.gd`, `archer.gd`, `arrow.gd`, `project.godot`, any existing test or
+  `scripts/run-test.sh`; loosening an existing test expectation.
+- Changing `amount` at runtime instead of `amount_ratio`; reusing one one-shot burst node; parenting a
+  burst to the scarecrow; CPUParticles2D for either effect.
+- The Assignment 5 work (burning tint, shield room, hint experiment) and every existing sprite and
+  texture. Particles on anything but the scarecrow and its hits.
+- GDD systems not in this change (gold, XP, level-ups, shop, other elements, bosses) (README.md:133-134).
 
 ## Unconfirmed
 
 - No `AGENTS.md` exists, so this file has no `@AGENTS.md` line.
-- Rui's shaders: `burning_tint.gdshader` (commit 6a2c298), `shield_wood.gdshader` (416e5f5;
-  `normal_strength` corrected after the audit, 822d27a), `hint_experiment.gdshader` (f76bb03).
-- The driver is not named in the brief; it is `godot/game/burning_tint.gd` on the Sprite (session 2).
-- (Now observed.) A `source_color` uniform is not linearised in a canvas_item shader with HDR 2D off:
-  at `burn_mix` 1.0 the pixels are exactly (255, 192, 32) (evidence/controlled_values/pixels.txt).
-- Shield UVs cover 0..1 on the front face only; back and rim differ (make_shield_mesh.gd:25, 38-40).
+- Whether `finished` fires headlessly, where no particle process runs (brief §6); Rule A5 relies on it.
+- Whether live particles survive reparenting on death (Rule B4) and whether a hidden emitter keeps
+  simulating (Rule B6): still predictions (FRICTIONAL.md:585-587).
+- The brief sets no frame rates for the new effect tests; its §7 strips are captured at 30 fps.
+- Names of the burst scene, the B emitter scene and their driver scripts are not in the brief.
+- `Curve.max_value` is the brief's name for the range; not yet read back on 4.7.2.
