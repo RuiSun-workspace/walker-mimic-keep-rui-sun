@@ -585,3 +585,33 @@ the empty-scene control), and the Revision Log entry dated 2026-11-05 without "(
 Still a prediction, to be measured: whether a GPUParticles2D keeps its live particles when it is
 reparented to `World/Effects` on death (Rule B4), and whether a hidden GPU emitter keeps simulating
 (Rule B6).
+
+## 2026-11-05 — Step 1: the CLAUDE.md draft and its review
+
+The course's `claude` shim pointed at a CLI folder (2.1.308) the desktop app had since removed, so
+the command failed before any session ran. Claude changed the shim in `~/bin` (outside the repo) to pick
+the newest bundled `claude.exe` at run time; 2.1.317 was logged in already. A6's prompts and transcripts
+go in `prompts/a6/` and `sessions/a6/`, because A5's `prompt-1.txt` and `session-1.jsonl` already exist.
+
+Session 1 ran `prompts/a6/prompt-1.txt` (verbatim) with the assignment's read-only allow list.
+`check-session.sh`: success, 37 of 40 turns, nothing under `godot/shaders/`, `run-test.sh` unchanged,
+only `CLAUDE.md` modified. Two permission denials, both compound Bash commands (reading
+`evidence/a6-baseline/`; `wc` + `awk` on CLAUDE.md); the draft's baseline numbers are still right,
+taken from commit 056bcc0's message. The draft (119 lines) was committed unedited as `a74efc8`.
+
+**Claude's check of the draft:** every cited line range (README, project.godot, scarecrow.gd, main.gd,
+main.tscn, scarecrow.tscn, both tests, check-session.sh, FRICTIONAL) was printed and says what the draft
+claims. Claude probed the assignment's three Headless facts lines on this machine
+(`evidence/a6-probes/`): the dummy renderer has an empty adapter name and an empty `capture_rect()`,
+and a 0.3 s one-shot still fires `finished` and drops `emitting` at 0.3 s, so node state is observable.
+The price line could not be confirmed: `Performance.TIME_PROCESS` read 0.0000 ms with 50 × 200 GPU
+particles and with none, so that monitor measures nothing here. That line waits for the Step 7 cost
+script, which must not use this monitor.
+
+**Review edits, proposed by Claude, approved by Rui ("都同意"):** Headless facts lines 1 and 3 with the
+probe as evidence; `finished` and `Curve.max_value` moved from "Unconfirmed" to facts; the draft's advice
+to trust `get_property_list()` replaced (that list contains the Godot 3 name `initial_velocity`, so it
+cannot catch one); file references for the 60-tick fact (the a5 brief, revision A) and the shim line
+removed (no file in the repo records it); "instance burst scenes" added to the driver's duties; the
+new tests' frame rates, citing `prompts/a6/prompt-2.txt` and `prompt-3.txt`, which were saved verbatim
+for that (`e5a4804`, not sent yet). Claude then shortened lines to stay at 119.
