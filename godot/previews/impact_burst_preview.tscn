@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://previews/impact_burst_preview.gd" id="1_preview"]
+[ext_resource type="Script" path="res://game/background.gd" id="2_bg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/scarecrow.png" id="3_scarecrow"]
+
+[node name="ImpactBurstPreview" type="Node2D"]
+script = ExtResource("1_preview")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("2_bg")
+
+[node name="Scarecrow" type="Sprite2D" parent="."]
+position = Vector2(640, 530)
+texture = ExtResource("3_scarecrow")
+
+[node name="Effects" type="Node2D" parent="."]
