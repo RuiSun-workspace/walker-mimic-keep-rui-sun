@@ -17,7 +17,11 @@ const ARROW_HIT_RADIUS := 26.0         # px from the scarecrow's centre, proto
 const SCARECROW_HP := 40.0             # proto
 const SCARECROW_SPEED := 45.0          # px/s down the screen, proto
 const SCARECROW_GATE_DPS := 5.0        # gate damage per scarecrow at the wall, proto
-const SCARECROW_STOP_Y := WALL_TOP - 30.0
+# Was WALL_TOP - 30 (570): level with the archer (y 572), so a scarecrow at the wall sat ~90 deg off
+# the fire cone and was only targeted within 3 px (Rui's playtest 2026-10-29). 500 fixed the aim but
+# looked too far from the wall; Rui chose 530 from 500/520/530/540: feet 30 px above the walkway, in
+# the cone within +-73 px of the archer.
+const SCARECROW_STOP_Y := WALL_TOP - 70.0
 
 const BURN_DURATION := 4.0             # s, GDD 6.3 "Burning: 4 dmg/s for 4 s"
 const BURN_DPS := 4.0                  # GDD 6.3
