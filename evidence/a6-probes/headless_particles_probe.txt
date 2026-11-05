@@ -1,0 +1,6 @@
+# godot --headless --fixed-fps 60 --path <scratch project> --script res://probe.gd   (Godot 4.7.2, 2026-11-05)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+adapter: '' driver:  display: headless
+Curve max_value default=1.0
+one_shot lifetime 0.3 s at 60 fps: emitting=false finished fired at frame 20 capture_rect=[P: (0.0, 0.0), S: (0.0, 0.0)]
+mean process time, 50 emitters x 200 GPU particles: 0.0000 ms; none: 0.0000 ms
