@@ -1,0 +1,31 @@
+You are working in my game repository (Godot 4, GDScript, project in
+godot/). Do not change any file except CLAUDE.md at the repository
+root.
+
+Read CLAUDE.md, AGENTS.md if it exists, README.md, CHANGE-BRIEF.md,
+godot/project.godot, scripts/run-test.sh, the scripts that own the
+events and conditions named in CHANGE-BRIEF.md, the scenes the effects
+will appear in, and the test scripts in godot/tests/.
+
+Revise CLAUDE.md, keeping it under 120 lines, in this order:
+1. If AGENTS.md exists, the first line stays exactly: @AGENTS.md
+2. "Project context": update it for this change. Give the exact Godot
+   version, the renderer, the node type for each effect named in the
+   brief, the scripts and signals that own each effect's event or
+   condition, the scenes the effects appear in, and the exact test
+   commands, all through scripts/run-test.sh, including its realtime
+   mode. Give a file reference for every fact. Do not guess.
+3. "Current change": unchanged. A heading followed by exactly this
+   line: @CHANGE-BRIEF.md
+4. "Ownership": keep the existing rule for godot/shaders/. Add: effect
+   settings live in scene files in godot/effects/, not in code.
+5. "Godot 4 names": use Godot 4 class and property names for the
+   pinned version, never Godot 3 names such as ParticlesMaterial. If
+   you are unsure a property exists in this version, say so instead of
+   guessing.
+6. "Out of scope": what this change must not touch, in your own words,
+   consistent with the brief.
+7. "Unconfirmed": anything you could not confirm from the files.
+
+Do not build an effect and do not edit any script. Stop after
+CLAUDE.md.
