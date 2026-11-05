@@ -520,3 +520,68 @@ five were not, and Claude fixed them after Rui's "修吧":
   Claude's suggestions Rui adopted; it does now, with the film's tools.
 - The film's records were not in the repository; they are now, without media.
 - This entry and the one above.
+
+# Assignment 6 — Particle effects
+
+## 2026-11-05 — Before the brief: the wall fix merged, the new wrapper, the baseline
+
+The wall-targeting fix from Rui's 2026-10-29 playtest (`SCARECROW_STOP_Y` 570 → 530, new
+`test_wall_targeting.gd`) had been kept off main because Assignment 5 forbade gameplay changes. A6
+forbids them too, so it had to land before the A6 baseline or wait until after A6. Rui chose "先合并吧".
+Claude merged `gameplay-fixes` with a merge commit (`48886bb`), so the history shows it arrived after
+the `a5` tag, which still points at `f71d358`. There were no conflicts; every suite passed on the merge.
+
+Claude then replaced `scripts/run-test.sh` with the assignment's wrapper, verbatim, in its own commit
+(`ddaaa53`), and took the baseline through it after `--import` (`056bcc0`, copies in
+`evidence/a6-baseline/`): test_rules 23/0, test_input 14/0, test_materials 132/0, normal_map_check
+9/0 at 60 fps; test_burning_tint 49/0 and test_wall_targeting 10/0 at 30, 60 and 144 fps. No log
+contains SHADER ERROR or SCRIPT ERROR. `check-session.sh` already diffs `godot/shaders/` and
+`run-test.sh` against HEAD, so it needed no change.
+
+Effect B: Claude listed four candidates (burning embers, gate smoke, meadow ambience, fire-arrow
+trail) with what each would show and where it would be hard. Rui chose burning embers.
+
+## 2026-11-05 — CHANGE-BRIEF: Rui's specification, Claude's review
+
+**Rui** wrote CHANGE-BRIEF.md: both jobs, the `hit_taken` boundary exception, both intent blocks, the
+settings for all four emitters, rules A1–A4 and B1–B7, boundaries, evidence split, both frame strips,
+nine predicted failures, the price predictions and budgets, and the six answers. Rui's text as saved is
+commit `b1d2e08`. The first "改完了" found the file unchanged on disk; Rui had not saved it yet.
+
+**What Claude checked.** Every file and line reference in the brief was correct (`scarecrow.gd:8/9/16/
+33-39/42-46`, `arrow.gd:22`, `main.gd:95`). Claude probed Godot 4.7.2 headless for the facts the
+settings depend on:
+- CPUParticles2D has no `amount_ratio` and no turbulence; GPUParticles2D has `amount_ratio`,
+  `use_fixed_seed`, `seed` and `finished`. The brief's node choice holds.
+- `ParticleProcessMaterial.initial_velocity` and `scale` still exist in 4.7.2, as editor-only `Vector2`
+  range properties that are not stored. Setting a float to them is ignored silently and min/max stay
+  0, which is what the brief's Failure 1 predicts. To be confirmed by the Step 2 mutation.
+- A `Curve` defaults to the range 0–1 and stores 1.2 as 1.0 without a warning. The brief's scale
+  curves peaked at 1.20 and 1.40.
+- `direction` defaults to (1, 0, 0), to the right, and `particle_flag_disable_z` to false. The brief
+  described "upward" emitters but did not set either.
+
+Claude also computed what the settings would produce: A2's spread of 150° would throw straw about
+95 px to each side, over three times the scarecrow's 56 px width the intent allowed; Effect B's first
+frame could hold at most one ember (explosiveness 0, 20 embers per second), not the "full density" the
+strip predicted; and arrows' different flight times let three A bursts overlap, not two. The reset in
+`main.gd:37-40` never clears a new `World/Effects` node, and no rule freed finished bursts. Claude
+measured the scarecrow's head at 23–25 px wide, so the flash's 21 px peak stays smaller than the head.
+
+**How the corrections went in.** Rui chose the Assignment 5 way ("按 A5 的办法"): the original stays at
+`b1d2e08`, the file is corrected in place before the first prompt, and the Revision Log lists the
+changes. Claude converted the file to Markdown and applied the factual corrections; a word-by-word
+comparison with `b1d2e08` showed no other wording changes. Claude proposed values for six items;
+Rui approved all six ("1–6 都同意"): curve points with `Curve.max_value = 1.5`, A2's colour-ramp stops,
+texture paths and sizes, A2 spread 150° → 40°, A2 angle 0–360, and the `World/Effects` node with a
+new Rule A5 (cleanup and reset).
+
+**What Rui wrote after the review:** the phase durations in both intent blocks, the emission
+rates, the Effect B frame 10 and 20 predictions, Rule A3 and answer 3 for three overlapping bursts
+(66 particles), Failure 2, the Effect B peak (ten effect sets, about 260 particles), new budgets
+(A 0.25 ms, B 0.60 ms, combined 0.85 ms GPU time), answer 4 (a headless run reports CPU time close to
+the empty-scene control), and the Revision Log entry dated 2026-11-05 without "(review)". Claude did not write these.
+
+Still a prediction, to be measured: whether a GPUParticles2D keeps its live particles when it is
+reparented to `World/Effects` on death (Rule B4), and whether a hidden GPU emitter keeps simulating
+(Rule B6).
