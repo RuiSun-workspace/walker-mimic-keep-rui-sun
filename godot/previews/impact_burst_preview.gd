@@ -8,14 +8,21 @@ extends Node2D
 ## Not gameplay: nothing here is wired to Scarecrow.hit().
 ## Frame n = the n-th _process call, counted from 0, which should be Movie Maker file n.
 ## Pass `-- --no-retrigger` on the command line to turn the second hit off.
+## Fixed seed (preview only, never in impact_burst.tscn): every burst instance gets
+## use_fixed_seed = true and seed = base_seed + 100 * hit + emitter index, so strip r<N> and
+## r<N+1> show the same random draw and only the tuned setting differs. The two hits get
+## different seeds so the overlapping bursts do not look identical.
 
 const BURST := preload("res://effects/impact_burst.tscn")
 
 @export var retrigger := true
 @export var first_frame := 10
 @export var retrigger_frame := 28
+@export var fixed_seed := true
+@export var base_seed := 7270
 
 var _frame := 0
+var _hit := 0
 
 @onready var _target: Node2D = $Scarecrow
 @onready var _effects: Node2D = $Effects
@@ -40,6 +47,14 @@ func _fire(at: Vector2) -> void:
 	burst.global_position = at
 	var straw := burst.get_node("Straw") as GPUParticles2D
 	straw.finished.connect(burst.queue_free)
+	var i := 0
 	for e in burst.get_children():
-		(e as GPUParticles2D).emitting = true
-	print("frame %d: burst at %s" % [_frame, at])
+		var p := e as GPUParticles2D
+		if fixed_seed:
+			p.use_fixed_seed = true
+			p.seed = base_seed + 100 * _hit + i
+		p.emitting = true
+		i += 1
+	print("frame %d: burst %d at %s, seeds %s" % [_frame, _hit, at,
+			"fixed from %d" % (base_seed + 100 * _hit) if fixed_seed else "random"])
+	_hit += 1
