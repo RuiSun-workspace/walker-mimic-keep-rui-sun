@@ -29,3 +29,31 @@ burn_mix 0.65) while its burst plays; the preview scarecrow is a plain sprite (#
 colour as the straw's first ramp stop #e8c46b). In-game draws are also unseeded and some
 scarecrows are walking. Until the fixture matches, a preview strip may judge the straw against
 the wrong body colour.
+
+## 2026-11-08 — Effect A, fixture check: r0 (untinted) vs r0-tinted
+
+Why: Rui's preview note and in-game note disagreed about the straw during the flash. Rui chose to
+give the preview scarecrow the in-game burning tint (`c154122`, burn_mix 0.65, body #f7c13a) and
+captured r0-tinted with the same settings and seeds. Rui did not write a separate note for this
+fixture check (not required: it changes no setting). No effect setting changed.
+
+Claude's reading (fixture captures, same particle positions in both strips because the seeds match;
+changed pixels counted against each strip's own frame 50, which shows no particles):
+
+| Frame | Changed px > 8 / > 40, r0 → r0-tinted | What differs |
+|---|---|---|
+| 10 | 93 / 61 → 139 / 58 | a few tan straw chips now show beside the white flash |
+| 12 | 812 / 543 → 816 / 443 | straw at the head slightly clearer; the flash stands out less from the yellower body |
+| 15 | 374 / 67 → 345 / 100 | straw chips over the body a little stronger |
+| 20 | 133 / 82 → 138 / 76 | about the same: the dark straw reads on both bodies |
+| 30 | 619 / 333 → 621 / 261 | second flash less contrasting on the tinted body |
+| 50 | 0 / 0 → 0 / 0 | nothing visible in either |
+
+Reading: the tint helps the straw only a little in the first frames and costs the flash some
+contrast over the body. It explains part of the difference between Rui's two notes, not all of it;
+in the game the draws are unseeded and some scarecrows walk, which this fixture does not show. The
+straw is still low-contrast in its first frames and still stays above the hit point. From here on,
+r0-tinted is the "before" strip for Effect A tuning.
+
+Strips: captures/impact_burst/r0/, captures/impact_burst/r0-tinted/
+Commits: c154122 (fixture), d719bf3 (strip)
