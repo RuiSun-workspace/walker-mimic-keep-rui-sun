@@ -627,8 +627,8 @@ agent could only have asked for the PNGs to be made by hand. The entry is limite
 path; it is disclosed in commit `2f5a871`'s message and here.
 
 `check-session.sh`: success, 26 of 60 turns, about 196 s, nothing under `godot/shaders/`,
-`run-test.sh` unchanged. Eight permission denials: four compound read commands (PowerShell and Bash
-`;`/`&&` chains), three runs of probe scripts in the agent's scratchpad, `bash scripts/run-test.sh`
+`run-test.sh` unchanged. Eight permission denials: three compound read commands (PowerShell and Bash
+`;` chains), three attempts to write or run a Curve probe script in its scratchpad, `bash scripts/run-test.sh`
 (the list allows `./scripts/run-test.sh` only), and a headless run of the preview. The agent then
 reran the config test as `./scripts/run-test.sh`, so the output in its report is a real run. The
 scene, config test, preview and texture tool were committed unedited as `2f5a871`.
