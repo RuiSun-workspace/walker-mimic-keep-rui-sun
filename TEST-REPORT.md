@@ -324,3 +324,22 @@ into gameplay until Step 3, so the preview stands in for "the game" here. Only t
 
 **Mutation 2** shows the test compares the scene with the brief, not with itself: one value changed
 in the scene and left alone in the brief fails exactly one check.
+
+## A6.2 Effect A visibility rects, editor check (2026-11-08, Rui)
+
+Rui opened `impact_burst.tscn` in the Godot 4.7.2 editor (Chinese UI), ran GPUParticles2D →
+Generate Visibility Rect (生成可见性矩形) on each emitter with a 1.0 s generation time, read the
+result, then undid it without saving (the scene's md5 is unchanged, `58389545…`). The first attempt
+showed the scene's own values because the generation had been undone before the screenshot; the
+second attempt is the one recorded. Crops of the inspector: `evidence/a6-visibility-rect/`.
+
+| Emitter | Generated (x, y, w, h) | In the scene | Margin left / right / top / bottom |
+|---|---|---|---|
+| Flash | (-51.1, -47.1, 94.8, 97.4) | (-64, -64, 128, 128) | 12.9 / 20.3 / 16.9 / 13.6 px |
+| Straw | (-57.1, -40.5, 97.3, 81.4) | (-96, -96, 192, 192) | 38.9 / 55.7 / 55.5 / 55.0 px |
+
+Both scene rects contain the generated ones, so neither emitter is culled while its particles are on
+screen. Limits: the effect scene has no fixed seed, so each generation is one random draw; the rect
+is generated from the r0 settings and must be checked again if Step 4 changes velocity, gravity,
+spread or lifetime. The generated rects cover the particles' whole life, faded ends included, so they
+are wider than what the r0 strip shows (largest measured Straw spread about 50 × 44 px).
