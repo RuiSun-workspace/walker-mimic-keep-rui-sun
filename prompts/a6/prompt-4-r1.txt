@@ -1,0 +1,17 @@
+Read CLAUDE.md first. Effect A's intent is in CHANGE-BRIEF.md.
+The current frame strip is in captures/impact_burst/r0-tinted/, and the frames
+to read are listed in the brief. What I saw in the running game: 命中时现有较亮的闪光出现，然后能看到有草屑飞出，在闪光结束后落下，我任务闪光开始时还是有一点亮，可能会阻碍观察到草屑飞出，可以试着调暗一点
+(English, translated by Claude: on a hit a fairly bright flash appears first, then I can see straw
+flying out, and it falls after the flash ends. I think the flash is still a bit bright when it
+starts, which may make it harder to see the straw flying out; it could be tried a little darker.)
+
+Read those frames and say how they compare to the intent, frame by
+frame. Then propose one change to one setting (a curve or colour ramp
+counts as one setting). Before editing, give the setting, its old and
+new value, and what each frame of the strip should look like
+afterward. Do not edit yet.
+
+After I approve, make only that change in the effect's scene file,
+update the configuration test's expected value to match, run the
+configuration test with ./scripts/run-test.sh at 60, and stop so I can
+recapture. Do not commit.
