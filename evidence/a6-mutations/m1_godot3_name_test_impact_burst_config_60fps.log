@@ -1,0 +1,131 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS scene loads
+PASS root is Node2D
+PASS root holds exactly two emitters
+PASS A1 Flash exists as GPUParticles2D
+PASS A1 Flash emitting = false
+PASS A1 Flash amount = 10
+PASS A1 Flash one_shot = true
+PASS A1 Flash explosiveness = 1.0
+PASS A1 Flash lifetime = 0.28
+PASS A1 Flash preprocess = 0.0
+PASS A1 Flash local_coords = false
+PASS A1 Flash visibility_rect = [P: (-64.0, -64.0), S: (128.0, 128.0)]
+PASS A1 Flash amount_ratio (not used by A) = 1.0
+PASS A1 Flash texture = res://effects/textures/soft_dot.png
+PASS A1 Flash texture size (16, 16)
+PASS A1 Flash material is CanvasItemMaterial
+PASS A1 Flash blend_mode = 1
+PASS A1 Flash process_material is ParticleProcessMaterial
+PASS A1 Flash particle_flag_disable_z is a stored property
+PASS A1 Flash emission_shape is a stored property
+PASS A1 Flash emission_sphere_radius is a stored property
+PASS A1 Flash direction is a stored property
+PASS A1 Flash spread is a stored property
+PASS A1 Flash gravity is a stored property
+PASS A1 Flash initial_velocity_min is a stored property
+PASS A1 Flash initial_velocity_max is a stored property
+PASS A1 Flash damping_min is a stored property
+PASS A1 Flash damping_max is a stored property
+PASS A1 Flash scale_min is a stored property
+PASS A1 Flash scale_max is a stored property
+PASS A1 Flash angle_min is a stored property
+PASS A1 Flash angle_max is a stored property
+PASS A1 Flash color_ramp is a stored property
+PASS A1 Flash scale_curve is a stored property
+PASS A1 Flash turbulence_enabled is a stored property
+PASS A1 Flash particle_flag_disable_z = true
+PASS A1 Flash emission_shape = SPHERE
+PASS A1 Flash emission_sphere_radius = 3.0
+PASS A1 Flash direction = (0, -1, 0)
+PASS A1 Flash spread = 180.0
+PASS A1 Flash gravity = (0.0, 100.0, 0.0)
+FAIL A1 Flash initial_velocity_min = 80.0  got 0.0
+PASS A1 Flash initial_velocity_max = 140.0
+PASS A1 Flash damping_min = 30.0
+PASS A1 Flash damping_max = 50.0
+PASS A1 Flash scale_min = 0.5
+PASS A1 Flash scale_max = 1.1
+PASS A1 Flash angle_min = 0.0
+PASS A1 Flash angle_max = 0.0
+PASS A1 Flash turbulence_enabled = false (not used by A)
+PASS A1 Flash color_ramp is GradientTexture1D
+PASS A1 Flash color ramp has 3 stops
+PASS A1 Flash ramp stop 0 offset = 0.0
+PASS A1 Flash ramp stop 0 colour (1.0, 1.0, 0.8, 1.0)
+PASS A1 Flash ramp stop 1 offset = 0.35
+PASS A1 Flash ramp stop 1 colour (1.0, 0.55, 0.08, 0.9)
+PASS A1 Flash ramp stop 2 offset = 1.0
+PASS A1 Flash ramp stop 2 colour (1.0, 0.25, 0.02, 0.0)
+PASS A1 Flash scale_curve is CurveTexture
+PASS A1 Flash Curve.max_value = 1.5
+PASS A1 Flash scale curve has 3 points
+PASS A1 Flash scale curve point 0 = (0.0, 0.35)
+PASS A1 Flash scale curve point 1 = (0.33, 1.2)
+PASS A1 Flash scale curve point 2 = (1.0, 0.0)
+PASS A2 Straw exists as GPUParticles2D
+PASS A2 Straw emitting = false
+PASS A2 Straw amount = 12
+PASS A2 Straw one_shot = true
+PASS A2 Straw explosiveness = 1.0
+PASS A2 Straw lifetime = 0.8
+PASS A2 Straw preprocess = 0.0
+PASS A2 Straw local_coords = false
+PASS A2 Straw visibility_rect = [P: (-96.0, -96.0), S: (192.0, 192.0)]
+PASS A2 Straw amount_ratio (not used by A) = 1.0
+PASS A2 Straw texture = res://effects/textures/straw_chip.png
+PASS A2 Straw texture size (4, 12)
+PASS A2 Straw material is CanvasItemMaterial
+PASS A2 Straw blend_mode = 0
+PASS A2 Straw process_material is ParticleProcessMaterial
+PASS A2 Straw particle_flag_disable_z is a stored property
+PASS A2 Straw emission_shape is a stored property
+PASS A2 Straw emission_sphere_radius is a stored property
+PASS A2 Straw direction is a stored property
+PASS A2 Straw spread is a stored property
+PASS A2 Straw gravity is a stored property
+PASS A2 Straw initial_velocity_min is a stored property
+PASS A2 Straw initial_velocity_max is a stored property
+PASS A2 Straw damping_min is a stored property
+PASS A2 Straw damping_max is a stored property
+PASS A2 Straw scale_min is a stored property
+PASS A2 Straw scale_max is a stored property
+PASS A2 Straw angle_min is a stored property
+PASS A2 Straw angle_max is a stored property
+PASS A2 Straw color_ramp is a stored property
+PASS A2 Straw scale_curve is a stored property
+PASS A2 Straw turbulence_enabled is a stored property
+PASS A2 Straw particle_flag_disable_z = true
+PASS A2 Straw emission_shape = SPHERE
+PASS A2 Straw emission_sphere_radius = 5.0
+PASS A2 Straw direction = (0, -1, 0)
+PASS A2 Straw spread = 40.0
+PASS A2 Straw gravity = (0.0, 260.0, 0.0)
+PASS A2 Straw initial_velocity_min = 70.0
+PASS A2 Straw initial_velocity_max = 130.0
+PASS A2 Straw damping_min = 5.0
+PASS A2 Straw damping_max = 15.0
+PASS A2 Straw scale_min = 0.4
+PASS A2 Straw scale_max = 0.9
+PASS A2 Straw angle_min = 0.0
+PASS A2 Straw angle_max = 360.0
+PASS A2 Straw turbulence_enabled = false (not used by A)
+PASS A2 Straw color_ramp is GradientTexture1D
+PASS A2 Straw color ramp has 3 stops
+PASS A2 Straw ramp stop 0 offset = 0.0
+PASS A2 Straw ramp stop 0 colour (0.91, 0.77, 0.42, 1.0)
+PASS A2 Straw ramp stop 1 offset = 0.5
+PASS A2 Straw ramp stop 1 colour (0.55, 0.36, 0.16, 0.9)
+PASS A2 Straw ramp stop 2 offset = 1.0
+PASS A2 Straw ramp stop 2 colour (0.3, 0.18, 0.08, 0.0)
+PASS A2 Straw scale_curve is CurveTexture
+PASS A2 Straw Curve.max_value = 1.0
+PASS A2 Straw scale curve has 3 points
+PASS A2 Straw scale curve point 0 = (0.0, 0.7)
+PASS A2 Straw scale curve point 1 = (0.15, 1.0)
+PASS A2 Straw scale curve point 2 = (1.0, 0.0)
+PASS A5 straw is the longest-lived emitter
+PASS Flash still not emitting after one frame
+PASS Straw still not emitting after one frame
+test_impact_burst_config: 127 passed, 1 failed

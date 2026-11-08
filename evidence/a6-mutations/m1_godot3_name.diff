@@ -1,0 +1,13 @@
+diff --git a/godot/effects/impact_burst.tscn b/godot/effects/impact_burst.tscn
+index 440fb89..9fb5ef1 100644
+--- a/godot/effects/impact_burst.tscn
++++ b/godot/effects/impact_burst.tscn
+@@ -27,7 +27,7 @@ emission_shape = 1
+ emission_sphere_radius = 3.0
+ direction = Vector3(0, -1, 0)
+ spread = 180.0
+-initial_velocity_min = 80.0
++initial_velocity = 80.0
+ initial_velocity_max = 140.0
+ gravity = Vector3(0, 100, 0)
+ damping_min = 30.0

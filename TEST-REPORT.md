@@ -284,3 +284,43 @@ Each started from an observation, not from a failing build:
 - The OS-screenshot differences at the archer and gate edges are unexplained.
 - The normal direction looks right to Rui but "the difference is subtle".
 - Both gameplay faults remain in this revision; the wall fix exists only on `gameplay-fixes`.
+
+---
+
+# Assignment 6 — Particle effects
+
+| | |
+|---|---|
+| Godot | 4.7.2.stable.official.ed1daf0bf, portable, Windows 11 |
+| Machine checks | `./scripts/run-test.sh <test> <fps>`, headless (dummy renderer: draws nothing) |
+| Windowed runs | Forward+, Vulkan 1.4.303, NVIDIA GeForce RTX 3070 Laptop GPU; preview captures are fixture captures |
+
+## A6.1 Effect A configuration test and its mutations (2026-11-08)
+
+`godot/tests/test_impact_burst_config.gd` at 60, on `godot/effects/impact_burst.tscn` as built in
+`2f5a871`: **128 passed, 0 failed, exit 0**, before and after the mutations
+(`evidence/a6-mutations/restored_test_impact_burst_config_60fps.log`).
+
+| Mutation (one line of the scene file; the brief untouched) | Test | Result | What caught it |
+|---|---|---|---|
+| 1. Godot 3 name: Flash `initial_velocity_min = 80.0` → `initial_velocity = 80.0` (scene line 30) | test_impact_burst_config @60 | exit 1, 127/1 | `FAIL A1 Flash initial_velocity_min = 80.0  got 0.0` |
+| 2. Value drift: Straw `spread = 40.0` → `55.0` (scene line 64) | test_impact_burst_config @60 | exit 1, 127/1 | `FAIL A2 Straw spread = 40.0  got 55.0` |
+
+Diffs and logs: `evidence/a6-mutations/m1_godot3_name.*`, `m2_value_drift.*`. After each run the
+scene was restored with `git checkout` and its md5 checked (`58389545…`, the committed file).
+
+**Mutation 1 is a silent failure in the engine, as the assignment predicts.** Godot 4.7.2 loads the
+scene with no warning and no error, headless or windowed. `initial_velocity` still exists in 4.7.2
+as an editor-only Vector2 range (not stored), so the old line is accepted and ignored: after loading,
+`initial_velocity` reads `(0.0, 140.0)`, `initial_velocity_min` 0.0 and `initial_velocity_max` 140.0.
+Godot does not translate the old name to `_min`. The effect still fires: the preview printed both
+bursts headless, and a windowed Movie Maker run of the mutated scene (run by Claude to a scratch
+folder, `--no-retrigger`, same seed 7270) still shows the flash at frame 12, slightly tighter
+because the slowest particles now start at 0 instead of 80
+(`evidence/a6-mutations/m1_still_fires_frame12.png`: r0 frame 12 left, mutated frame 12 right,
+fixture captures cropped to 120×120 around the scarecrow and enlarged 3×). Effect A is not wired
+into gameplay until Step 3, so the preview stands in for "the game" here. Only the read-back of
+`initial_velocity_min` against the brief's value catches this mutation.
+
+**Mutation 2** shows the test compares the scene with the brief, not with itself: one value changed
+in the scene and left alone in the brief fails exactly one check.
