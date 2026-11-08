@@ -1,0 +1,52 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS World/Effects exists, a Node2D after World/Archer
+PASS A1: scene load + 30 frames, no scarecrow: 0 bursts created
+PASS A1: scene load: World/Effects is empty
+PASS phase 1 finished: all scarecrows, arrows and bursts gone within 15 s
+INFO hit 1 on F at frame 65 (t=0.567 s) pos=(640.0, 26.25) lethal=false live_bursts=1
+INFO hit 2 on N at frame 69 (t=0.633 s) pos=(680.0, 530.0) lethal=false live_bursts=2
+INFO hit 3 on N at frame 105 (t=1.233 s) pos=(680.0, 530.0) lethal=false live_bursts=3
+INFO hit 4 on N at frame 141 (t=1.833 s) pos=(680.0, 530.0) lethal=false live_bursts=2
+INFO hit 5 on N at frame 177 (t=2.433 s) pos=(680.0, 530.0) lethal=true live_bursts=2
+INFO hit 6 on F at frame 236 (t=3.417 s) pos=(640.0, 154.5) lethal=false live_bursts=1
+INFO hit 7 on F at frame 270 (t=3.983 s) pos=(640.0, 180.0) lethal=true live_bursts=2
+INFO burst 1 created frame 65 freed frame 112 lifetime 47 frames
+INFO burst 2 created frame 69 freed frame 116 lifetime 47 frames
+INFO burst 3 created frame 105 freed frame 152 lifetime 47 frames
+INFO burst 4 created frame 141 freed frame 188 lifetime 47 frames
+INFO burst 5 created frame 177 freed frame 224 lifetime 47 frames
+INFO burst 6 created frame 236 freed frame 283 lifetime 47 frames
+INFO burst 7 created frame 270 freed frame 317 lifetime 47 frames
+PASS A1: bursts created == hit_taken count == arrows ended on a hit
+PASS A1: every fired arrow is accounted for
+PASS A1: each hit_taken created exactly one burst, in the same frame
+PASS A2: burst global_position == hit_taken position (+-1 px)
+PASS A2: hit_taken position == the scarecrow's global_position at the hit
+PASS A2/A4: every burst was added under World/Effects, none under a scarecrow
+PASS A3 setup: hits 1 and 2 land inside one burst lifetime (4 frames apart)
+PASS A3: three distinct bursts are alive at the third impact
+PASS A3: the first three hits made three different instances
+PASS A3: no hit cleared, freed or stopped an earlier live burst
+PASS A3/A5: every burst freed itself after 48 +-3 frames (no restart, no early clear)
+INFO lethal hit on N at frame 177: scarecrow left the tree at frame 177, its burst at frame 224
+INFO lethal hit on F at frame 270: scarecrow left the tree at frame 270, its burst at frame 317
+PASS A4 setup: at least one real arrow hit was lethal
+PASS A4: lethal hit: scarecrow freed that frame, its burst outlived it and ran its full lifetime
+PASS A5: World/Effects holds no finished bursts
+PASS A1 setup: the arrow left the screen without hitting
+PASS A1: an arrow leaving the screen creates no hit_taken and no burst
+INFO burn-out: hit at frame 368, burning_ended at frame 607 (239 frames), archer x=1240
+PASS burn-out setup: exactly one arrow fired and one hit on the scarecrow
+PASS burn-out setup: burning_ended fired with the scarecrow alive and outside the fire cone
+PASS A1: no burst created in the burning_ended frame
+PASS A1: no burst created while it burned on its own (burn ticks, movement) or 10 frames after
+INFO reset: run lost at frame 719, 1 bursts live
+PASS A5 setup: the run is lost with a live burst
+INFO reset: 30 frames after the loss (World disabled), 1 bursts still live
+PASS A1: every hit in this phase made exactly one burst
+PASS A5 setup: R restarts the run
+INFO reset: World/Effects empty 22 frames after R
+PASS A5: after R with a live burst, World/Effects is empty within 72 frames (1.20 s)
+PASS A1: the reset itself creates no burst
+test_impact_burst_state: 29 passed, 0 failed

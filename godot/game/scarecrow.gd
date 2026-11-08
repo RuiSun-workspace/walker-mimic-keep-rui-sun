@@ -9,6 +9,7 @@ signal burning_started
 signal burning_ended
 signal died
 signal attacking_gate(amount: float)
+signal hit_taken(position: Vector2)
 
 const BURN_END_EPSILON := 1e-9      # s; float residue below this counts as burnt out
 
@@ -36,6 +37,7 @@ func hit(damage: float, element: StringName) -> void:
 	hp -= damage
 	if element == &"fire":
 		ignite()
+	hit_taken.emit(global_position)
 	_check_death()
 
 

@@ -25,6 +25,8 @@ texture = ExtResource("3_mimi")
 [node name="Archer" parent="World" unique_id=1987375804 instance=ExtResource("4_archer")]
 position = Vector2(640, 572)
 
+[node name="Effects" type="Node2D" parent="World" unique_id=1170422385 groups=["effects"]]
+
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1889308963]
 script = ExtResource("5_hud")
 
