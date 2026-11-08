@@ -1,0 +1,46 @@
+Read CLAUDE.md first. This run continues your own plan from the previous
+run, saved in sessions/a6/session-3-plan.md. CHANGE-BRIEF.md is still
+the contract.
+
+I approve Step 1 (trigger code) and Step 2 (state test) of that plan, in
+that order, and both assumptions you asked about: the "effects" group on
+World/Effects counts as part of that one node, and the spawner lives in
+the scarecrow scene as the ImpactSpawner child. Implement one step, show
+its diff, then go on to the next.
+
+Three changes to the plan:
+1. Rule A1 also forbids a burst when Burning ends. In your scenario no
+   burning_ended ever fires: N dies while burning, and F keeps being
+   re-hit. Add a real burn-out: a scarecrow takes exactly one fire
+   arrow, then real move_left/move_right key events take the archer
+   away until that scarecrow is outside the fire cone, and the test
+   waits for its burning_ended. Assert that no burst is created in that
+   frame or while it burned on its own.
+2. In the spawner, add the burst to World/Effects first, then set its
+   global_position to the signal's position. Do not rely on World or
+   Effects sitting at the origin.
+3. If the arrow timing is flaky at 60, or three bursts are not alive at
+   the third impact, report it with the real output and stop. Do not
+   replace real arrows with calls to hit(), ignite() or the spawner, do
+   not write hp or burn_time_left, and do not loosen a tolerance to get
+   a pass.
+
+Every rule from prompts/a6/prompt-3.txt still applies. In particular:
+do not change Effect A's settings or impact_burst.tscn; do not edit any
+.gdshader file; in scarecrow.gd add only the one signal and its one
+emit; in main.tscn add only World/Effects; do not edit arrow.gd,
+archer.gd, main.gd, tuning.gd or any existing test; do not commit. Run
+every test with ./scripts/run-test.sh: test_rules, test_input,
+test_materials, normal_map_check and test_impact_burst_config at 60;
+test_burning_tint and test_wall_targeting at 30, 60 and 144; the new
+test at 60. Show the real output.
+
+Run commands from the repository root with no leading cd and no ; or
+&& chains: the permission allowlist only matches commands that begin
+with ./scripts/run-test.sh, godot --headless --path godot --import, git
+status, git diff, git log, ls or mkdir.
+
+Finish with: the files you changed, the summary line of every test run
+at each frame rate, the measured impact times and live-burst counts,
+exactly what the new test proves and cannot prove headlessly, and the
+human checks still needed.
