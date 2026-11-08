@@ -12,6 +12,11 @@ extends Node2D
 ## use_fixed_seed = true and seed = base_seed + 100 * hit + emitter index, so strip r<N> and
 ## r<N+1> show the same random draw and only the tuned setting differs. The two hits get
 ## different seeds so the overlapping bursts do not look identical.
+## Burning tint (added 2026-11-08, Rui's choice): every in-game hit is a fire arrow and ignite() runs
+## before hit_taken, so in the game the scarecrow is already tinted when its burst plays. The preview
+## sprite therefore uses Rui's burning_tint.gdshader (referenced, not edited) at burn_mix 0.65, the
+## driver's value right after a hit (burning_tint.gd BURN_MIX_MAX). `-- --no-tint` sets it to 0 for
+## a comparison with the untinted r0 fixture.
 
 const BURST := preload("res://effects/impact_burst.tscn")
 
@@ -31,8 +36,12 @@ var _hit := 0
 func _ready() -> void:
 	if "--no-retrigger" in OS.get_cmdline_user_args():
 		retrigger = false
-	print("impact_burst_preview: retrigger=%s, hits at frame %d%s" % [
-			retrigger, first_frame, (" and %d" % retrigger_frame) if retrigger else ""])
+	var tint := _target.material as ShaderMaterial
+	if "--no-tint" in OS.get_cmdline_user_args():
+		tint.set_shader_parameter("burn_mix", 0.0)
+	print("impact_burst_preview: retrigger=%s, hits at frame %d%s, burn_mix=%s" % [
+			retrigger, first_frame, (" and %d" % retrigger_frame) if retrigger else "",
+			tint.get_shader_parameter("burn_mix")])
 
 
 func _process(_delta: float) -> void:
