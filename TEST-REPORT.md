@@ -343,3 +343,36 @@ screen. Limits: the effect scene has no fixed seed, so each generation is one ra
 is generated from the r0 settings and must be checked again if Step 4 changes velocity, gravity,
 spread or lifetime. The generated rects cover the particles' whole life, faded ends included, so they
 are wider than what the r0 strip shows (largest measured Straw spread about 50 × 44 px).
+
+## A6.3 Effect A wired: state test and Rui's playtest (2026-11-08)
+
+`godot/tests/test_impact_burst_state.gd` (agent, `7296a1d`), rerun by Claude at 60:
+**29 passed, 0 failed, exit 0**. Every hit is a real auto-fired arrow; the archer moves only
+through real key events; the test never calls `hit()`, `ignite()` or the spawner and never writes
+`hp` or `burn_time_left`. Its setup spawns scarecrows with `spawn_scarecrow()`, and the miss case
+removes its target in flight as `test_wall_targeting.gd` does. All existing suites still pass:
+rules 23/0, input 14/0, materials 132/0, normal_map 9/0, impact_burst_config 128/0 at 60;
+burning_tint 49/0 and wall_targeting 10/0 at 30/60/144 (`logs/`).
+
+| Rule | Measured (60, physics frames) |
+|---|---|
+| A1 | 7 hits = 7 `hit_taken` = 7 bursts = 7 arrows ending on a hit; 0 on load, on the miss, during a 239-frame burn-out and in its `burning_ended` frame, and on R |
+| A2 | every burst at the signal position within 1 px; signal position = scarecrow centre; every parent `World/Effects` |
+| A3 | hits at 0.567, 0.633, 1.233 s (4 frames between the first two); **3 live bursts at the third impact**, 3 distinct instances; no earlier burst freed or stopped |
+| A4 | both lethal hits: scarecrow out of the tree in the hit frame, its burst freed 47 frames later |
+| A5 | every burst freed after 47 frames (expected 48 ± 3); 1 burst live at the loss, still there 30 frames later with World disabled; `World/Effects` empty 22 frames after R |
+
+The test relies on the spawner's `hit_taken` connection (made in `_ready`) running before its own.
+
+**Rui's playtest** (running game, windowed, 1280×720), in Rui's words:
+
+> Each hit has a burst, two bursts can be played at the same time, after death, grass will normally
+> float out, lose the screen immediately stop, you can see not finished grass.
+
+| Check | Result |
+|---|---|
+| A1 every hit shows a burst | seen |
+| A3 two bursts play at once | seen |
+| A4 straw keeps floating after the scarecrow dies | seen |
+| Game over freezes a live burst rather than removing it | seen: it stops at once and the unfinished straw stays on screen |
+| The frozen burst finishes after R | not reported; the state test measures it (22 frames), the look is unchecked |

@@ -669,3 +669,36 @@ r0 is kept, labelled as a fixture capture.
 own values, because the generation had been undone before the screenshot was taken. On the second try
 both generated rects fit inside the scene's rects. The editor also wrote `.uid` files for the agent's
 two new scripts; they are committed with that check.
+
+## 2026-11-08 — Step 3: Effect A wired, plan first
+
+Two invocations, as in Assignment 5. **Plan run** (`sessions/a6/session-3-plan.jsonl`/`.md`,
+`prompts/a6/prompt-3.txt` verbatim, read-only tools with Edit and Write disallowed; 4 turns, 0
+denials): a spawner node in `scarecrow.tscn`, `World/Effects` with an `"effects"` group, and a state
+test at 60. The plan asked whether the group counts as part of the one allowed `main.tscn` node and
+whether the spawner may live in the scarecrow scene.
+
+**Claude's review of the plan** recomputed its timing from the code: arrow 900 px/s from y 548,
+26 px hit radius, so the far scarecrow at y 0 is hit after about 0.57 s and the near one at the wall
+after about 0.02 s, which leaves three bursts alive at the third impact; the fourth arrow kills N
+at about 2.8 HP. Three gaps: no `burning_ended` would ever fire in its scenario (N dies burning, F
+keeps being re-hit), so one A1 clause was untested; the spawner set `position` before `add_child`
+and relied on `World/Effects` sitting at the origin; and nothing said what to do if the arrow timing
+was flaky. Rui: "批准，加三条补充". Claude drafted `prompts/a6/prompt-3b.txt` from that answer
+(`13fdb56`), accepting both assumptions and adding the three changes.
+
+**Implementation run** (`sessions/a6/session-3-implement.jsonl`/`.md`, the assignment's build allow
+list with no extra entries, 41 of 60 turns, 0 denials, shaders and `run-test.sh` unchanged):
+committed unedited as `7296a1d`. Claude read every changed line: `scarecrow.gd` gained only the
+signal and its emit, `main.tscn` only `World/Effects`, and the test contains no call to `hit()`,
+`ignite()` or the spawner and no write to `hp` or `burn_time_left`. The burn-out case holds up: 0.6 s
+after the hit the archer has moved to x ≈ 892, about 69° off vertical from the scarecrow, outside
+the 60° half-cone, so exactly one arrow lands. Claude reran all twelve suite runs through
+`run-test.sh` and got the agent's numbers (TEST-REPORT A6.3). The agent's own first two runs of the
+new test stopped on its parse errors, which it fixed.
+
+One side effect: the agent's edit left `scarecrow.gd`'s working copy with CRLF line endings. The
+committed file is LF and identical apart from the two added lines; Claude refreshed the working copy.
+
+**Rui's playtest** confirmed A1, A3, A4 and the freeze at game over (quoted in TEST-REPORT A6.3).
+Whether the frozen burst then finishes after R is measured headlessly but was not looked at.
