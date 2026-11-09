@@ -99,9 +99,14 @@ GPUParticles2D is used so that Step 6 can convert and inspect its generated part
 
 The color-ramp stops will be:
 
-- 0.0: `Color(1.0, 1.0, 0.80, 1.0)`
-- 0.35: `Color(1.0, 0.55, 0.08, 0.90)`
+- 0.0: `Color(1.0, 1.0, 0.80, 0.60)` (revision r1, 2026-11-08; was alpha 1.0)
+- 0.35: `Color(1.0, 0.55, 0.08, 0.55)` (revision r1, 2026-11-08; was alpha 0.90)
 - 1.0: `Color(1.0, 0.25, 0.02, 0.0)`
+
+**Revision r1 (2026-11-08):** the first two stops' alpha was lowered so the flash adds less light
+at its start. Rui saw in the running game that the flash's start was still a little bright and
+could hide the straw flying out; Rui approved the change and kept it after playing (TUNING.md,
+revision r1).
 
 #### A2 — Straw Fragments
 
@@ -607,3 +612,4 @@ Changes to the original prediction are recorded below with a date.
 
 - **2026-11-05 (review, before any prompt):** Rui's original text is commit b1d2e08. Claude converted it to Markdown and applied the corrections Rui approved (listed in FRICTIONAL.md, 2026-11-05): `direction`, `particle_flag_disable_z = true` and `Vector3` gravity on every emitter, 4.7.2 property names for emission shapes, turbulence and blend modes, the `hit_taken` emit position, real-arrow test driving and the headless-versus-strip split in Section 6, curve points with `Curve.max_value = 1.5` for A1 and B2, A2's colour-ramp stops, texture paths and sizes, A2 spread 150° → 40° and angle 0–360, the `World/Effects` node, and Rule A5. Added by Claude.
 - **2026-11-05:** Added phase durations, corrected the early Effect B frame predictions, and revised the peak counts and performance budgets using the expected maximum of three overlapping A bursts and ten active-or-fading B effect sets.
+- **2026-11-08 (tuning r1):** A1 Flash colour-ramp alpha at stops 0.0 and 0.35 lowered from 1.0 and 0.90 to 0.60 and 0.55, kept by Rui in the running game. Section 3 updated so the brief, `impact_burst.tscn` and `test_impact_burst_config.gd` agree. Written by Claude from Rui's verdict.
