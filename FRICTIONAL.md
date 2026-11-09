@@ -702,3 +702,32 @@ committed file is LF and identical apart from the two added lines; Claude refres
 
 **Rui's playtest** confirmed A1, A3, A4 and the freeze at game over (quoted in TEST-REPORT A6.3).
 Whether the frozen burst then finishes after R is measured headlessly but was not looked at.
+
+## 2026-11-08 — Step 4, round 1: the burning tint in the fixture, and auto mode
+
+**The fixture did not match the game.** Rui's preview note said the straw could not be seen during
+the flash; their in-game note said it could. Claude found one difference: every in-game hit is a fire
+arrow and `ignite()` runs before `hit_taken`, so the scarecrow is burning-tinted while its burst plays,
+but the preview sprite was plain and the same colour as the straw's first ramp stop. Rui chose "先加染色"
+(`c154122`, preview only, Rui's shader referenced and not edited). The r0-tinted strip showed the
+tint explains only part of the gap (TUNING.md). Rui asked which steps were required; Claude separated
+the assignment's requirements (a strip that matches the current fixture, an in-game observation for
+the loop) from its own optional check (a separate windowed look), and Rui did only the capture.
+
+**Round 1.** Rui first said nothing needed changing. Claude explained that at least one revision per
+effect is required and may end in "reverted", and that it needs a concrete observation, not a wish
+list. Rui watched the game and wrote one: the flash's start may hide the straw flying out; try it
+darker. Claude put it verbatim into the assignment's prompt (`946c797`). In Rui's interactive `claude`
+session the agent proposed one setting (Flash ramp alpha); Claude checked the values and the test line
+before Rui approved. The comparison found the change worked on grass but barely on the tinted body,
+and that the straw is drawn on top of the flash, so the flash never hid it. Claude checked two of its
+measurements independently. Rui: "保留"; Claude wrote the brief's dated revision (`765b0b4`).
+
+**Auto mode skipped the edit checkpoint.** Claude launched the interactive session without Edit in
+the allow list so every file change would ask Rui. Rui's `claude` defaults to auto permission mode:
+the agent changed both files with one compound `cd …; sed -i …` Bash command, which auto mode allowed
+without a prompt ("Allowed by auto mode"). The approval that matters, of the proposal, came before the
+edit, and Claude's diff showed exactly the two approved lines, nothing under `godot/shaders/`. Later
+interactive runs add `--permission-mode default`. The session transcript is copied into
+`sessions/a6/` when Step 4 ends; the first attempt to copy it was blocked by Claude's own permission
+classifier.
