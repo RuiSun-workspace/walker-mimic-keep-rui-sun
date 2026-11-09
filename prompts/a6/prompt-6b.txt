@@ -1,0 +1,36 @@
+Read CLAUDE.md first. This run continues your own plan from the previous
+run, saved in sessions/a6/session-6-plan.md. CHANGE-BRIEF.md is still
+the contract.
+
+I approve Step 1 (the driver and the BurningEmbers instance in
+scarecrow.tscn) and Step 2 (the state test) of that plan, in that order.
+Implement one step, show its diff, then go on to the next.
+
+One addition: the scenario timing depends on real arrows, burn damage
+and gate damage. If S1 dies before its burn-out scenario, the run is
+lost before scenario 10, the archer fires arrows the scenario did not
+plan, or the reparent inside `died` needs call_deferred, report it with
+the real output and stop. Do not write hp, gate_hp or any game value
+other than burn_time_left, do not replace real arrows with calls to
+hit() or ignite(), and do not loosen a tolerance to get a pass.
+
+Every rule from prompts/a6/prompt-6.txt still applies. In particular:
+do not change Effect B's settings or burning_embers.tscn; do not change
+Effect A's files; do not edit any .gdshader file, arrow.gd, archer.gd,
+main.gd, main.tscn, tuning.gd, scarecrow.gd or any existing test; do not
+commit. Run every test with ./scripts/run-test.sh: test_rules,
+test_input, test_materials, normal_map_check, test_impact_burst_config,
+test_impact_burst_state and test_burning_embers_config at 60;
+test_burning_tint and test_wall_targeting at 30, 60 and 144; the new
+test at 60. Show the real output. If test_impact_burst_state fails or
+its counts change, report it and do not change either test.
+
+Run commands from the repository root with no leading cd and no ; or
+&& chains: the permission allowlist only matches commands that begin
+with ./scripts/run-test.sh, godot --headless --path godot --import, git
+status, git diff, git log, ls or mkdir.
+
+Finish with: the files you changed, the summary line of every test run
+at each frame rate, the measured values per scenario, exactly what the
+new test proves and cannot prove headlessly, and the human checks still
+needed.
