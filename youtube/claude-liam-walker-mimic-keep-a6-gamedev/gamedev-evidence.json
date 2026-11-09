@@ -1,0 +1,883 @@
+{
+ "schema_version": 1,
+ "teaching_contract": "code-then-result-v1",
+ "source_revision": "3b99ea696b5cfdee0e1fb3549c4858e653fad690",
+ "build_id": "f2042f34a289af3c990420315e25932532075b3b5850db6aa29f688e7b95fff3",
+ "files": [
+  {
+   "path": "MATERIALS.md",
+   "sha256": "7d5cd619f7143c0384cdcd39c3490c7e56e2cb2cbf95e4abbe46f5949069902a",
+   "role": "documentation",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer.png",
+   "sha256": "1e64f5e3b10e13a288da08dcdfdfad6c1480a6a50a447a4c438f1e11af8e1917",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer.png.import",
+   "sha256": "4ff8b7d693f2f3709974f55c8b3b1f7c518703c4e86d5a2fc942cd6eafd06c9b",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/arrow.png",
+   "sha256": "d8203784ecfe61ba1e0838ad8aa05dd0700cb779b370ea8c5d106f4e4aaa0bce",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/arrow.png.import",
+   "sha256": "e4c0991df2b75aace5bd652de20c3d44d80ea290eee276f785252fb9f983514c",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/mimi.png",
+   "sha256": "0f45a24c8b227c1ad83569ea0dd7600a951c5dfb944d727d48c861600f28a9ff",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/mimi.png.import",
+   "sha256": "a1a789a60e9887e8202b59a0d26c1b7b82008003f55f2e4987f2f1bae8a9b18d",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/scarecrow.png",
+   "sha256": "11ac842023a31ea944b0e756f996a44e48152c9757850ce40b37d8d482a06199",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/scarecrow.png.import",
+   "sha256": "e3dc240367831cd65c6819a5cd4bbbaece7219a503444d7dae9a3be4beb7cf4a",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/hint_greys_3x1.png",
+   "sha256": "deb9df2a9689dd2297f2d37a3fa2759104f49dbb2eb3e33c00e1fa6292060ca6",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/hint_greys_3x1.png.import",
+   "sha256": "c412e714abedfc2f8473a7222eb197facc5cfc954796f9c59990af128c9d1267",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/shield_scorch_mask.png",
+   "sha256": "a6613bfda349135092ce21c6bbd2f4b01e6e9de7eac2eba2eb1864944fbb0ee9",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/shield_scorch_mask.png.import",
+   "sha256": "61b9bf146062a70e1ac02b6230ae5521d2617b51a96bbd200a82ebac4b9727f9",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/ATTRIBUTION.md",
+   "sha256": "37f77475dd0c04c8b21caeff1ea3e0dfa207c2c042f2234f4f39c95c7687cb57",
+   "role": "documentation",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_diff_1k.png",
+   "sha256": "2d079a0bea287e2b167eaec78360932aa822e970b4b9650c7c4f55bbdf36a91f",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_diff_1k.png.import",
+   "sha256": "aeb5b05b9255d87095ca12660d091a998849bfef2571307419e7b4f304367406",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_dx_1k.png",
+   "sha256": "d259de8ef9cfb3a0f3b8d917622734c45362142798ad7331895ba3c5f7076455",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_dx_1k.png.import",
+   "sha256": "2a489edf3df5307c42ec6939a7f906e3240680336fb709b28aa5c38200d4c9ed",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_gl_1k.png",
+   "sha256": "f0b8c0e78a28f0e4aa962921f508a232b42a1f787a9b10cdb37aa1050e6e845d",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_gl_1k.png.import",
+   "sha256": "981b56648dc93573c9ec7abf8ca5fc2fd6886204a16c656c94e8e4caa811bf3a",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_rough_1k.png",
+   "sha256": "f1eec48d61e647be0274012318137d9093ac94551d59b082414cb26c2f4da66d",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_rough_1k.png.import",
+   "sha256": "0442b7342eab62cadd100404ba9a5c7a0e0bb78ddebe0642e800b0913219e5f6",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/burning_embers.tscn",
+   "sha256": "2905e5159daf0fe14125a79a1f1370ceedcbc1fc113e43cb3b44613137ebdb2d",
+   "role": "scene",
+   "component_ids": [
+    "burning-embers"
+   ]
+  },
+  {
+   "path": "effects/burning_embers_driver.gd",
+   "sha256": "bd87f5d755f10e9fd46f2f2d602296759c18b966a861a9d75d10f035299f1c8b",
+   "role": "script",
+   "component_ids": [
+    "burning-embers"
+   ]
+  },
+  {
+   "path": "effects/impact_burst.tscn",
+   "sha256": "115dec820619c6526db5debd41df15a12549ed35bef5e37decdb305fd9f93d1e",
+   "role": "scene",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "effects/impact_spawner.gd",
+   "sha256": "ec21758afde8f08374541978e1a28c3e5ceebc00516c8ccf128f41f50267daaf",
+   "role": "script",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "effects/textures/ATTRIBUTION.md",
+   "sha256": "a7c27baf444d4776b7f2de8d7006a8df1c8dbfe14c744eff99a93493fb3ddde6",
+   "role": "documentation",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "effects/textures/smoke_dot.png",
+   "sha256": "01af7b005816f111f5276b02fe7a27d0250cdfc789e54e948baca591d00c7ab3",
+   "role": "texture",
+   "component_ids": [
+    "burning-embers"
+   ]
+  },
+  {
+   "path": "effects/textures/smoke_dot.png.import",
+   "sha256": "09aa4bef02b62b540f89571918edfeb131cda5285104a43597951ffc4f87c52b",
+   "role": "import settings",
+   "component_ids": [
+    "burning-embers"
+   ]
+  },
+  {
+   "path": "effects/textures/soft_dot.png",
+   "sha256": "3ff61b81435c722a50ac4d6c53511df34a1d6d83c6208cfa09203b4249f08e96",
+   "role": "texture",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "effects/textures/soft_dot.png.import",
+   "sha256": "9278001b71ebc141d2d640cbee3863e4da4653edd450d17d76ea79fbf813418a",
+   "role": "import settings",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "effects/textures/straw_chip.png",
+   "sha256": "faf208a39026f2e22f2636455e2b0cf8f62ce2e01d864335e87fc9f875e89583",
+   "role": "texture",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "effects/textures/straw_chip.png.import",
+   "sha256": "706aad3da787cff3eb6e203c057701c6ae8b3f510506c6ce66357eeb300e1014",
+   "role": "import settings",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "game/archer.gd",
+   "sha256": "e4826a73b3220be78ad574dde01c5ed4486676220f820ba6d6d9bc1e6ed7c0f7",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/archer.tscn",
+   "sha256": "34b5f18f914725f9a5a03bb41df1f588f58ea0fe32d9bf588ee64e61b9a3858b",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/arrow.gd",
+   "sha256": "e0ffe36c919e48bf24bd0955b908bd77408430eb81eb209e1e80b35ed3bea5d7",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/arrow.tscn",
+   "sha256": "d9895afbc5b48e43a9255873f5e35fb0df458ee7f7e3fb164fd388e8fe5d3d75",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/background.gd",
+   "sha256": "8a2ef444cb3dd34ab310afea85feff14a78c71d2b868b9bc121802d5052f3ca6",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/burning_tint.gd",
+   "sha256": "0144491071c9d08994784d440f98e5099b353b92a8b4592d088fa29a9c21d4cb",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/hud.gd",
+   "sha256": "a004ac19d60a73e04389a3c386e548fa64e9921b08f3405cf4ad8629d8368621",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/main.gd",
+   "sha256": "ccfc37e70794b19fe45c96eaa0c52b868b5e6f3ca038ce14ec2ef85cf607fe83",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/main.tscn",
+   "sha256": "f76d0e7f94006eb8262992f7ac6f8caabee469a772f7103b0d38b7de74d5a724",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/scarecrow.gd",
+   "sha256": "29ab66062c23c1c4afbd74552463f002498666667e09566c439877920defe6af",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/scarecrow.tscn",
+   "sha256": "baae9174970351129871187b16586d1dbb078d619d694325f69a89cdc14421cc",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/tuning.gd",
+   "sha256": "c82ddf5a69c60678f4e21b48454b50110258aa57142aaae39de142cff15dccd6",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "previews/burning_embers_preview.gd",
+   "sha256": "42f0ab07dabfaa1e96dcc07eeecf33300c72b5db9058f1abb47647d2e41776c3",
+   "role": "script",
+   "component_ids": [
+    "burning-embers"
+   ]
+  },
+  {
+   "path": "previews/burning_embers_preview.tscn",
+   "sha256": "ec24102d5ab4b12e644712089f6d3e6abcba104cb673b8e3f091494dd4c68939",
+   "role": "scene",
+   "component_ids": [
+    "burning-embers"
+   ]
+  },
+  {
+   "path": "previews/impact_burst_preview.gd",
+   "sha256": "7caceda881eb6e6754166817614fbae3c8ef5a273e769ff3c43413d32d419902",
+   "role": "script",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "previews/impact_burst_preview.tscn",
+   "sha256": "7dd01957bcf08299f0c2123ee8383cd6a2b8b2ba16deecb4a35607bce88f8656",
+   "role": "scene",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "project.godot",
+   "sha256": "2044219d37c49b8105408b60f929fd80bce3aaba57f2aab66ec508f67b6e1cef",
+   "role": "config",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/burning_tint.gdshader",
+   "sha256": "3a4373cc278f77b985b1fadf35834ba38a718608bdb6a5349257c234d413cb72",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/hint_experiment.gdshader",
+   "sha256": "dcca1deebc18ce694ea3f26964a614958b7313939d557c080108d63ea6ed0bdb",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/particles_generated.gdshader",
+   "sha256": "4e391cf95723069cbb9697b284ce37944d8e16c2407dc6f30dbaf5314fda42dd",
+   "role": "shader",
+   "component_ids": [
+    "generated-shader"
+   ]
+  },
+  {
+   "path": "shaders/shield_wood.gdshader",
+   "sha256": "acbee02dfff8f4fa36ff712c65ef7d1f62c981b9ffc9615b88143bda286b0625",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/standard_generated.gdshader",
+   "sha256": "ca1c191c44fb614ae64a258fce3efbc13b77fdc82f480e98ac4582e30805650d",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/hint_experiment.tscn",
+   "sha256": "13f642cee6f1abf6e4b36baf859b370e7f5e9d3b760a61dbd80802a19ab3c9d5",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/hint_raw.tres",
+   "sha256": "0bfba4cae5d56575232130b174df277bd1e38fadfd4b56b7b914f45da2fca7d7",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/hint_source_color.tres",
+   "sha256": "71bbd9af6fcec3b4152c9d104ebe7454498d79db1e4a0bb9e5921173e01601d6",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/shield_burned.tres",
+   "sha256": "1ee48e02199ccf1c70439ff669fbe812dfc9d3b9913d8fb5d0c15f996ef4bf6d",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/shield_mesh.tres",
+   "sha256": "8502daa39c4455b619fdc828bbebec8a62efdf21dd2fcac52dff5b6c4452febb",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/shield_new.tres",
+   "sha256": "d808a88a6218a18d30efda48bf8c44207356b31363b1148bcd687349c6445861",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/shield_room.tscn",
+   "sha256": "d1f5000b106866c0a6dc764cc29c1a04576696b3fadb12c59745180e1465a679",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/cost_effects.gd",
+   "sha256": "bb3c239cf2a4054e5eaab91bc022f0dbc254ab61f2bcfefeb81203c698b11e8d",
+   "role": "script",
+   "component_ids": [
+    "price"
+   ]
+  },
+  {
+   "path": "tests/normal_map_check.gd",
+   "sha256": "36ffb0b71f568690e3107726d90854e5a52cf9b909948618f2cec12803523b70",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_burning_embers_config.gd",
+   "sha256": "52f39d8b8f061d5b6eeb02c3f7b44c5ad578eec06526cfc72f9f40faa7046788",
+   "role": "script",
+   "component_ids": [
+    "burning-embers"
+   ]
+  },
+  {
+   "path": "tests/test_burning_embers_state.gd",
+   "sha256": "9ea0266243b2c944d78fbae7b28ec477ab46d56708515ccf3f65aeb13c7ba3cf",
+   "role": "script",
+   "component_ids": [
+    "burning-embers"
+   ]
+  },
+  {
+   "path": "tests/test_burning_tint.gd",
+   "sha256": "694f73a0228c160aeaa9f7f8fe666d66805c730c595b8e9f1d51783d7cb0090a",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_impact_burst_config.gd",
+   "sha256": "d0981493acdabf9689c3dd0a42c43a6ea997ba4850ef13ece7bea0aea4682c3e",
+   "role": "script",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "tests/test_impact_burst_state.gd",
+   "sha256": "55463e97766bc1e3483dfd70423c4d66c20baf03c2192c1e4bc2144f6d0e8ef0",
+   "role": "script",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "tests/test_input.gd",
+   "sha256": "dbe3b9fd20bf20b41cc31cb3a400dd9d0cffa77103f28590fa03efc6afc2fd7e",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_materials.gd",
+   "sha256": "4dc0590c3f174b1bff9498f9f8ca558b48b45b1969a5cf9354bd7b9ece57f3bc",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_rules.gd",
+   "sha256": "bed2ce16a2effe7cf45a30e5b76b583b77bb0537916621eee5d71c3ed02ae50e",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_wall_targeting.gd",
+   "sha256": "6a44fd8417ad5e6281817b1ddf610873cf379475457ff21df33e553df68bf3c5",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/balance_sim.gd",
+   "sha256": "53d78b15966b31aa5586bc8d6751cb53cccae442d5942b27e72038187c0628b8",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_burn_values.gd",
+   "sha256": "79c34c2779ac58430dbae041d0427336383fa518b8546064eb88391a96f59ba9",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_in_play.gd",
+   "sha256": "c86fc1de60d1473dcc06eb29e6252dae45894a721bf9bc8d3f4f790df5c85948",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_prototype.gd",
+   "sha256": "4f2ed0c8bf139c8b28d5deede84ff274d95ef386442301c25f33d5de8b35142b",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_shield_room.gd",
+   "sha256": "c83940411429c599555e8746374dbf4feb16b37a41576c6a1f431223f7547d7b",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/compare_os_screenshot.gd",
+   "sha256": "fa36b0dc589299619bae657c06616faa93a66b275c5eb31f7b88f00e2c66a1a4",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_hint_greys.gd",
+   "sha256": "c7a4cede6be1cb86f59642d2071fd0c13a907b1667c2b3e8e80f43ec63ef99f8",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_particle_textures.gd",
+   "sha256": "c41109a61ebba12b37028944dd4baf28dd941f5a0a32355f1dda0e1fdf9d9db4",
+   "role": "script",
+   "component_ids": [
+    "impact-burst"
+   ]
+  },
+  {
+   "path": "tools/make_scorch_mask.gd",
+   "sha256": "91927d866dad9e2fd09fdfe2500ff17264519a923e8755e69a40d103057d6efe",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_shield_mesh.gd",
+   "sha256": "ebcc668346759acc91eb9e5e205aff75beca6770d582f99d0b0112d2260b3f68",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_sprites.gd",
+   "sha256": "821d742d5976bede9ceacb0f945de483949d4be45820fbe571e35d01147cbc2d",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/os_screenshot.ps1",
+   "sha256": "ee97062c6d852b68028d01886905d6b1fa7df8f598d003dbaff3e56a9e1a1f83",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  }
+ ],
+ "components": [
+  {
+   "id": "game",
+   "explanation": "The Mimic Keep game the effects live in, and the earlier assignments' work kept unchanged: main.gd and the World tree (with the new World/Effects node), archer.gd, arrow.gd, scarecrow.gd (Burning, and the brief's one hit_taken signal), the A5 shaders, materials and showcase, sprites, tools and the earlier test suites.",
+   "beat_ids": [
+    "B02",
+    "B03"
+   ],
+   "files": [
+    "MATERIALS.md",
+    "assets/sprites/archer.png",
+    "assets/sprites/archer.png.import",
+    "assets/sprites/arrow.png",
+    "assets/sprites/arrow.png.import",
+    "assets/sprites/mimi.png",
+    "assets/sprites/mimi.png.import",
+    "assets/sprites/scarecrow.png",
+    "assets/sprites/scarecrow.png.import",
+    "assets/textures/hint_greys_3x1.png",
+    "assets/textures/hint_greys_3x1.png.import",
+    "assets/textures/shield_scorch_mask.png",
+    "assets/textures/shield_scorch_mask.png.import",
+    "assets/textures/wood_planks/ATTRIBUTION.md",
+    "assets/textures/wood_planks/wood_planks_diff_1k.png",
+    "assets/textures/wood_planks/wood_planks_diff_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_nor_dx_1k.png",
+    "assets/textures/wood_planks/wood_planks_nor_dx_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_nor_gl_1k.png",
+    "assets/textures/wood_planks/wood_planks_nor_gl_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_rough_1k.png",
+    "assets/textures/wood_planks/wood_planks_rough_1k.png.import",
+    "game/archer.gd",
+    "game/archer.tscn",
+    "game/arrow.gd",
+    "game/arrow.tscn",
+    "game/background.gd",
+    "game/burning_tint.gd",
+    "game/hud.gd",
+    "game/main.gd",
+    "game/main.tscn",
+    "game/scarecrow.gd",
+    "game/scarecrow.tscn",
+    "game/tuning.gd",
+    "project.godot",
+    "shaders/burning_tint.gdshader",
+    "shaders/hint_experiment.gdshader",
+    "shaders/shield_wood.gdshader",
+    "shaders/standard_generated.gdshader",
+    "showcase/hint_experiment.tscn",
+    "showcase/hint_raw.tres",
+    "showcase/hint_source_color.tres",
+    "showcase/shield_burned.tres",
+    "showcase/shield_mesh.tres",
+    "showcase/shield_new.tres",
+    "showcase/shield_room.tscn",
+    "tests/normal_map_check.gd",
+    "tests/test_burning_tint.gd",
+    "tests/test_input.gd",
+    "tests/test_materials.gd",
+    "tests/test_rules.gd",
+    "tests/test_wall_targeting.gd",
+    "tools/balance_sim.gd",
+    "tools/capture_burn_values.gd",
+    "tools/capture_in_play.gd",
+    "tools/capture_prototype.gd",
+    "tools/capture_shield_room.gd",
+    "tools/compare_os_screenshot.gd",
+    "tools/make_hint_greys.gd",
+    "tools/make_scorch_mask.gd",
+    "tools/make_shield_mesh.gd",
+    "tools/make_sprites.gd",
+    "tools/os_screenshot.ps1"
+   ]
+  },
+  {
+   "id": "impact-burst",
+   "explanation": "Effect A: impact_burst.tscn (Flash, additive, and Straw GPUParticles2D, one-shot) instanced per accepted hit by effects/impact_spawner.gd on Scarecrow.hit_taken, under World/Effects (overlap); configuration and state tests; the fixed-seed preview fixture; the code-generated textures and their credits.",
+   "beat_ids": [
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08"
+   ],
+   "files": [
+    "effects/impact_burst.tscn",
+    "effects/impact_spawner.gd",
+    "previews/impact_burst_preview.tscn",
+    "previews/impact_burst_preview.gd",
+    "tests/test_impact_burst_config.gd",
+    "tests/test_impact_burst_state.gd",
+    "tools/make_particle_textures.gd",
+    "effects/textures/soft_dot.png",
+    "effects/textures/soft_dot.png.import",
+    "effects/textures/straw_chip.png",
+    "effects/textures/straw_chip.png.import",
+    "effects/textures/ATTRIBUTION.md"
+   ]
+  },
+  {
+   "id": "burning-embers",
+   "explanation": "Effect B: burning_embers.tscn (Embers, additive, and Smoke with turbulence) on every scarecrow; effects/burning_embers_driver.gd maps burn_time_left to amount_ratio every frame and moves a dying scarecrow's emitters to World/Effects; configuration and state tests; the preview fixture; the smoke texture.",
+   "beat_ids": [
+    "B09",
+    "B10",
+    "B11",
+    "B12",
+    "B13"
+   ],
+   "files": [
+    "effects/burning_embers.tscn",
+    "effects/burning_embers_driver.gd",
+    "previews/burning_embers_preview.tscn",
+    "previews/burning_embers_preview.gd",
+    "tests/test_burning_embers_config.gd",
+    "tests/test_burning_embers_state.gd",
+    "effects/textures/smoke_dot.png",
+    "effects/textures/smoke_dot.png.import"
+   ]
+  },
+  {
+   "id": "generated-shader",
+   "explanation": "particles_generated.gdshader: Effect A Flash's ParticleProcessMaterial converted to code by Rui in the editor, unused by the game; lines 140, 316 and 329 tied to the brief's velocity and gravity.",
+   "beat_ids": [
+    "B14",
+    "B15"
+   ],
+   "files": [
+    "shaders/particles_generated.gdshader"
+   ]
+  },
+  {
+   "id": "price",
+   "explanation": "tests/cost_effects.gd: the headless CPU cost script (empty control, effects off, Effect A at its peak, Effect B at its peak); its numbers are shown beside Rui's Visual Profiler GPU reading.",
+   "beat_ids": [
+    "B15"
+   ],
+   "files": [
+    "tests/cost_effects.gd"
+   ]
+  }
+ ],
+ "excerpts": [
+  {
+   "beat_id": "B05",
+   "path": "effects/impact_burst.tscn",
+   "start_line": 77,
+   "end_line": 88,
+   "text": "[node name=\"Flash\" type=\"GPUParticles2D\" parent=\".\"]\nmaterial = SubResource(\"CanvasItemMaterial_flash\")\nemitting = false\namount = 10\ntexture = ExtResource(\"1_dot\")\nlifetime = 0.28\none_shot = true\npreprocess = 0.0\nexplosiveness = 1.0\nlocal_coords = false\nvisibility_rect = Rect2(-64, -64, 128, 128)\nprocess_material = SubResource(\"ParticleProcessMaterial_flash\")"
+  },
+  {
+   "beat_id": "B10",
+   "path": "effects/burning_embers_driver.gd",
+   "start_line": 27,
+   "end_line": 40,
+   "text": "func _process(delta: float) -> void:\n\tif _tail_left >= 0.0:\n\t\t_tail_left -= delta\n\t\tif _tail_left <= 0.0:\n\t\t\tqueue_free()\n\t\treturn\n\tif _scarecrow == null:\n\t\treturn\n\t_set_ratio(clampf(_scarecrow.burn_time_left / Tuning.BURN_DURATION, 0.0, 1.0))\n\n\nfunc _on_burning_started() -> void:\n\t_set_ratio(1.0)\n\t_set_emitting(true)"
+  },
+  {
+   "beat_id": "B14",
+   "path": "shaders/particles_generated.gdshader",
+   "start_line": 316,
+   "end_line": 329,
+   "text": "\t\tforce = gravity;\n\t\t// Apply linear acceleration.\n\t\tforce += length(USERDATA1.xyz) > 0.0 ? normalize(USERDATA1.xyz) * physics_params.linear_accel : vec3(0.0);\n\t\t// Apply radial acceleration.\n\t\tvec3 org = EMISSION_TRANSFORM[3].xyz;\n\t\tvec3 diff = pos - org;\n\t\tforce += length(diff) > 0.0 ? normalize(diff) * physics_params.radial_accel : vec3(0.0);\n\t\t// Apply tangential acceleration.\n\t\tfloat tangent_accel_val = physics_params.tangent_accel;\n\t\tforce += length(diff.yx) > 0.0 ? vec3(normalize(diff.yx * vec2(-1.0, 1.0)), 0.0) * tangent_accel_val : vec3(0.0);\n\t\tforce += ATTRACTOR_FORCE;\n\t\tforce.z = 0.0;\n\t\t// Apply attractor forces.\n\t\tUSERDATA1.xyz += force * DELTA;"
+  }
+ ],
+ "exclusions": [],
+ "code_result_pairs": [
+  {
+   "code_beat": "B05",
+   "result_beat": "B06",
+   "observation": "The settings on screen in the first fixture strip: a compact flash at frame 10, wider and saturated at 12, gone by 20; the straw flies out and darkens, still above the hit point.",
+   "media": {
+    "path": "media/B06.png",
+    "sha256": "d5a5b6a66358a1f8b9028229dbd7b446c9746379f78e0e0b9c7bc4bd4b2d88c4"
+   }
+  },
+  {
+   "code_beat": "B10",
+   "result_beat": "B11",
+   "observation": "The feedback loop in the fixture strip: embers about 1, 5, 10, 6, 4, 3 and 0 at frames 10-170 as amount_ratio follows the remaining burn time.",
+   "media": {
+    "path": "media/B11.png",
+    "sha256": "b05b6c6fe0c689f1c1465751f79c2bfaff77372b885e880e6be491f1716d1f0e"
+   }
+  },
+  {
+   "code_beat": "B14",
+   "result_beat": "B15",
+   "observation": "The process material's values read back by the configuration tests (128/0, 156/0); renaming initial_velocity_min to the Godot 3 name leaves line 140's minimum at 0 and fails them.",
+   "media": {
+    "path": "media/B15.png",
+    "sha256": "5ce26c801739e9dccc2ba3c94edd229bfb9b11c2b35d69b665ae3ec42dbe6daa"
+   }
+  }
+ ]
+}

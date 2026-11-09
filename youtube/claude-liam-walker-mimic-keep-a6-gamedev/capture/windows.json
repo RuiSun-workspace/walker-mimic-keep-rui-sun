@@ -1,0 +1,38 @@
+{
+ "B02": {
+  "media": "media/B02.mp4",
+  "audio_file": "mix/B02.wav",
+  "duration": 13.166666666666666,
+  "start_s": 2.0,
+  "end_s": 15.1667,
+  "frames": [
+   60,
+   455
+  ],
+  "take": "play"
+ },
+ "B08": {
+  "media": "media/B08.mp4",
+  "audio_file": "mix/B08.wav",
+  "duration": 12.033333333333333,
+  "start_s": 0.0,
+  "end_s": 12.0333,
+  "frames": [
+   0,
+   361
+  ],
+  "take": "play"
+ },
+ "B13": {
+  "media": "media/B13.mp4",
+  "audio_file": "mix/B13.wav",
+  "duration": 14.7,
+  "start_s": 0.5,
+  "end_s": 15.2,
+  "frames": [
+   15,
+   456
+  ],
+  "take": "burn"
+ }
+}

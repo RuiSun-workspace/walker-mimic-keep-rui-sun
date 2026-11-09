@@ -1,0 +1,51 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.303 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3070 Laptop GPU
+
+Movie Maker mode enabled, recording movie in 3840×2160 @ 30 FPS...
+f0000 t=  0.00s  middle burn_time_left 0.000, embers amount_ratio 0.000, emitting false
+f0000 t=  0.00s  Effects children 0
+f0015 t=  0.50s  middle burn_time_left 0.000, embers amount_ratio 0.000, emitting false
+f0030 t=  1.00s  middle hit with fire (hp 30.0, burn_time_left 4.000)
+f0030 t=  1.00s  middle burn_time_left 4.000, embers amount_ratio 1.000, emitting true
+f0030 t=  1.00s  Effects children 1
+f0045 t=  1.50s  middle burn_time_left 3.500, embers amount_ratio 0.883, emitting true
+f0060 t=  2.00s  middle burn_time_left 3.000, embers amount_ratio 0.758, emitting true
+f0060 t=  2.00s  Effects children 0
+f0075 t=  2.50s  middle burn_time_left 2.500, embers amount_ratio 0.633, emitting true
+f0090 t=  3.00s  middle hit with fire (hp 12.0, burn_time_left 4.000)
+f0090 t=  3.00s  middle burn_time_left 4.000, embers amount_ratio 0.508, emitting true
+f0090 t=  3.00s  Effects children 1
+f0105 t=  3.50s  middle burn_time_left 3.500, embers amount_ratio 0.883, emitting true
+f0120 t=  4.00s  middle burn_time_left 3.000, embers amount_ratio 0.758, emitting true
+f0120 t=  4.00s  Effects children 0
+f0121 t=  4.03s  Esc pressed: paused=true
+f0135 t=  4.50s  middle burn_time_left 3.000, embers amount_ratio 0.750, emitting true
+f0150 t=  5.00s  middle burn_time_left 3.000, embers amount_ratio 0.750, emitting true
+f0150 t=  5.00s  Effects children 0
+f0165 t=  5.50s  middle burn_time_left 3.000, embers amount_ratio 0.750, emitting true
+f0166 t=  5.53s  Esc pressed: paused=false
+f0180 t=  6.00s  middle burn_time_left 2.500, embers amount_ratio 0.633, emitting true
+f0180 t=  6.00s  Effects children 0
+f0195 t=  6.50s  middle burn_time_left 2.000, embers amount_ratio 0.508, emitting true
+f0210 t=  7.00s  middle burn_time_left 1.500, embers amount_ratio 0.383, emitting true
+f0210 t=  7.00s  Effects children 0
+f0225 t=  7.50s  middle burn_time_left 1.000, embers amount_ratio 0.258, emitting true
+f0240 t=  8.00s  left hit with fire (hp 30.0)
+f0240 t=  8.00s  Effects children 2
+f0249 t=  8.30s  left hit with fire (hp 18.8)
+f0258 t=  8.60s  left hit with fire (hp 7.6)
+f0267 t=  8.90s  left hit with fire (hp -3.6)
+f0270 t=  9.00s  Effects children 4
+f0300 t= 10.00s  Effects children 1
+f0330 t= 11.00s  Effects children 0
+f0360 t= 12.00s  Effects children 0
+f0390 t= 13.00s  Effects children 0
+f0420 t= 14.00s  Effects children 0
+f0450 t= 15.00s  Effects children 0
+--------------------------------------------------------------------------------
+Done recording movie at path: F:/7270/reels/claude-liam-walker-mimic-keep-a6-gamedev/_frames/burn/f.png
+481 frames at 30 FPS (movie length: 00:00:16:01), recorded in 00:03:19 (8% of real-time speed).
+CPU render time: 0.13 seconds (average: 0.27 ms/frame)
+GPU render time: 0.44 seconds (average: 0.92 ms/frame)
+Encoding time: 99.73 seconds (average: 207.33 ms/frame)
+--------------------------------------------------------------------------------

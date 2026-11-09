@@ -1,0 +1,1078 @@
+{
+  "metadata": {
+    "title": "Mimic Keep: The Strip Cannot See the Hit.",
+    "slug": "claude-liam-walker-mimic-keep-a6-gamedev",
+    "topic": "WALKER · MIMIC KEEP PARTICLES",
+    "kind": "gamedev",
+    "playlist": "Brutalist",
+    "brand": "claude-liam",
+    "audience": "CSYE 7270 reviewers and Walker readers",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "fit": "contain",
+    "captions": false,
+    "channel": "@NikBearBrown",
+    "channel_title": "@NikBearBrown",
+    "folderLabel": "@NikBearBrown",
+    "greeting": "Sawubona, Liam",
+    "greeting_note": "hello lexicon: Sawubona (isiZulu), not used by the A1-A5 reels (Kia ora, Zdravo, Kumusta, Mingalaba were).",
+    "persona": "Liam (in for Bear)",
+    "presenter": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "episode_id": "walker-mimic-keep-a6-gamedev",
+    "note": "godot-gamedev in walker mode over walker-mimic-keep-rui-sun (CSYE 7270 Assignment 6). Source commit 3b99ea696b5cfdee0e1fb3549c4858e653fad690, build_id f2042f34a289af3c990420315e25932532075b3b5850db6aa29f688e7b95fff3, Godot 4.7.2.stable.official.ed1daf0bf, Forward+. B02, B08 and B13 are native 3840x2160 Godot Movie Maker output from an isolated copy of that commit, driven by capture/capture_a6_film.gd (B02, B08: no input; B13: scripted hits, archer off). Stills compose the repository's fixture strips and recorded words; all labelled in frame.",
+    "build": {
+      "at": "2026-11-08T22:57:01",
+      "cut": "master",
+      "filled": 20,
+      "of": 20,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "role_note": "COLD OPEN LAW - Claude UI cold open. The prompt is an ILLUSTRATIVE RECONSTRUCTION of the walker ask, never a transcript.",
+      "narration_text": "Sawubona, this is Liam, in for Bear. The ask, reconstructed: in Mimic Keep, an archer on a castle wall shoots fire arrows at straw scarecrows. Add two particle effects: one says an arrow hit, one says a scarecrow is still burning, and how long it has left.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 19,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Sawubona, Liam",
+            "topic": "WALKER · MIMIC KEEP PARTICLES",
+            "segment": "walker-mimic-keep-rui-sun",
+            "command": "Please use Walker to add two GPU particle effects to Mimic Keep, my castle-defense game where an archer on the wall shoots fire arrows at straw scarecrows: a one-shot impact burst on every arrow hit, and burning embers whose density follows each scarecrow's remaining burn time. I write the brief, the predictions and every verdict; agents build, wire and test; I judge the look in the running game.",
+            "runningText": "reading CHANGE-BRIEF.md, CLAUDE.md; capture_rect() is empty headless…",
+            "output": [
+              "Effect A: impact_burst.tscn · hit_taken · overlap",
+              "Effect B: burning_embers.tscn · amount_ratio from burn_time_left",
+              "proof: headless node state, fixture strips, then Rui's eyes"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "Opus",
+            "durationSeconds": 14.36
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-11-09T03:27:50.521626+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.36,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 14.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "role_note": "What was built, with one real correction: the fixture strips cannot show the hit-on-burning overlap.",
+      "narration_text": "Two effects, specified by Rui, built and wired by agent sessions, and tuned twice by Rui's eyes. The tests can read every node, and see no particle. The fixture strips see particles, but no hit. So the overlap Rui found was only visible in the running game.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 19,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Mimic Keep:\nthe strip can\nsee the hit.",
+            "triggerWords": "can",
+            "replacementWords": "cannot",
+            "seed": "mimic-keep-a6-b01",
+            "face": "serif",
+            "fontSize": 190,
+            "lineSpacing": 1.7,
+            "align": "center",
+            "charMs": 26,
+            "jitter": 18,
+            "mistakeRate": 0,
+            "hesitateWithin": 0,
+            "hesitateBetween": 0,
+            "durationSeconds": 14.49
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-11-09T03:29:12.694282+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.49,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 14.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "GAME",
+      "role_note": "The game and both effects in play.",
+      "narration_text": "This is the game, running with nobody at the keys. The archer fires on its own. Every hit throws a flash and straw. Every fire hit sets a scarecrow burning for four seconds, and embers rise from it, thinning as the burn runs out.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "Scarecrows placed by the script · no keys pressed",
+        "clip_file": "media/B02.mp4",
+        "capture_window": {
+          "take": "play",
+          "start_s": 2.0,
+          "end_s": 15.1667,
+          "frames": [
+            60,
+            455
+          ],
+          "media_sha256": "eba89e6153c2a53e904315ebeefd3e14c285c4fd13671f2ef21bc4dcc80e62cd"
+        }
+      },
+      "actual_duration_s": 13.1667,
+      "audio_file": "mix/B02.wav",
+      "render_duration_s": 13.2,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Native 3840x2160 engine capture fills the frame by design.",
+        "contrast_regions": [
+          {
+            "label": "burned-in shot label",
+            "box": [
+              0.028,
+              0.85,
+              0.66,
+              0.945
+            ]
+          }
+        ],
+        "contrast_reason": "Engine footage of a flat green meadow by design; the text a viewer must read is the burned-in label, so contrast is measured there."
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "BRIEF",
+      "role_note": "The brief's two jobs, event and condition, before any code.",
+      "narration_text": "Rui wrote the brief first. Effect A answers an event: an accepted hit, through a new signal, hit taken, the one gameplay change the brief allows. Effect B answers a condition: burn time left, read every frame, because a second fire hit refreshes the burn without any signal.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 19,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "Two jobs, one event, one condition",
+            "section": "CHANGE-BRIEF.md §1 · The jobs",
+            "excerptLabel": "DOCUMENT EXCERPT",
+            "excerpt": "amount_ratio = clamp(burn_time_left / 4.0, 0.0, 1.0)",
+            "source": "CHANGE-BRIEF.md §1, §3, §5 · Rui's specification · @ 3b99ea6",
+            "status": "WRITTEN BY RUI BEFORE ANY BUILD · 2026-11-05",
+            "visualLabel": "What the brief fixed",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Effect A · event",
+                "text": "every accepted Scarecrow.hit() emits hit_taken(position) → one new burst"
+              },
+              {
+                "label": "Retrigger rule",
+                "text": "overlap: a new instance per hit, up to 3 alive, never reused"
+              },
+              {
+                "label": "Effect B · condition",
+                "text": "burn_time_left 4 → 0 s drives amount_ratio 1 → 0 on each scarecrow"
+              },
+              {
+                "label": "Node type",
+                "text": "GPUParticles2D for both: CPUParticles2D has no amount_ratio, no turbulence"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.21,
+                "card": 0
+              },
+              {
+                "at": 5.25,
+                "card": 1
+              },
+              {
+                "at": 9.29,
+                "card": 2
+              },
+              {
+                "at": 13.33,
+                "card": 3
+              }
+            ],
+            "durationSeconds": 15.15
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-11-09T03:30:43.326972+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 15.15,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 15.166666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "INTENT",
+      "role_note": "Effect A's intent block: timing, contrast, scale, change over life.",
+      "narration_text": "Effect A's intent block. A sharp yellow white flash at the hit point, about eight frames, smaller than the scarecrow's head. Straw fragments fly out, fall, darken and fade within point eight seconds, so they can overlap the next hit, but never a third.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "Effect A · Arrow Impact Burst",
+            "section": "CHANGE-BRIEF.md §2 · Intent",
+            "excerptLabel": "DOCUMENT EXCERPT",
+            "excerpt": "The flash communicates the exact moment of impact; the fragments provide a short visible aftermath.",
+            "source": "CHANGE-BRIEF.md §2 · Rui · @ 3b99ea6",
+            "status": "INTENT BEFORE BUILDING",
+            "visualLabel": "Intent",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Timing",
+                "text": "flash 0.28 s (≈ 8 frames at 30 fps) · straw 0.80 s"
+              },
+              {
+                "label": "Contrast",
+                "text": "bright flash on grass and gate · dark straw on wall and walkway"
+              },
+              {
+                "label": "Scale",
+                "text": "flash smaller than the head · straw about the scarecrow's width"
+              },
+              {
+                "label": "Change over life",
+                "text": "flash: small → wider → orange → gone · straw: out, fall, darken, fade"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.12,
+                "card": 0
+              },
+              {
+                "at": 4.84,
+                "card": 1
+              },
+              {
+                "at": 8.56,
+                "card": 2
+              },
+              {
+                "at": 12.28,
+                "card": 3
+              }
+            ],
+            "durationSeconds": 13.95
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": "2026-11-09T03:33:30.333047+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 13.95,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 13.966666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "MECHANISM",
+      "role_note": "The three parts of a particle system, each tied to a line of the effect's scene file.",
+      "narration_text": "Every particle system has three parts. The emitter decides how many particles and for how long. The process material moves each one: velocity, gravity, colour over life. The draw step decides what each particle looks like: here a soft dot, added as light.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 17,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "Three parts of a particle system.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/effects/impact_burst.tscn",
+            "source": "Verbatim project source at commit 3b99ea6 · Godot editor reconstruction (teaching view)",
+            "code": "[node name=\"Flash\" type=\"GPUParticles2D\" parent=\".\"]\nmaterial = SubResource(\"CanvasItemMaterial_flash\")\nemitting = false\namount = 10\ntexture = ExtResource(\"1_dot\")\nlifetime = 0.28\none_shot = true\npreprocess = 0.0\nexplosiveness = 1.0\nlocal_coords = false\nvisibility_rect = Rect2(-64, -64, 128, 128)\nprocess_material = SubResource(\"ParticleProcessMaterial_flash\")",
+            "startLine": 77,
+            "cues": [
+              {
+                "at": 1.13,
+                "line": 77,
+                "label": "the emitter: a GPUParticles2D node"
+              },
+              {
+                "at": 3.95,
+                "line": 78,
+                "label": "draw: additive CanvasItemMaterial"
+              },
+              {
+                "at": 6.78,
+                "line": 80,
+                "label": "emitter: how many, how long, one shot"
+              },
+              {
+                "at": 9.6,
+                "line": 81,
+                "label": "draw: the texture each particle shows"
+              },
+              {
+                "at": 12.43,
+                "line": 88,
+                "label": "process: the ParticleProcessMaterial"
+              }
+            ],
+            "codeFontSize": 26,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Emitter",
+                "value": "the node: amount 10, lifetime 0.28 s,\none_shot, explosiveness 1"
+              },
+              {
+                "label": "Process",
+                "value": "ParticleProcessMaterial: velocity 80–140,\ngravity (0, 100, 0), ramps — a GPU shader"
+              },
+              {
+                "label": "Draw",
+                "value": "soft_dot.png + blend_mode 1 (add):\nwhat each particle looks like"
+              }
+            ],
+            "durationSeconds": 14.12
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": "2026-11-09T03:32:07.761361+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.12,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 14.133333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B05.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "STRIP",
+      "role_note": "Effect A's first strip and Rui's first verdict.",
+      "narration_text": "The first strip, from a preview fixture with a fixed seed. Rui looked first, and wrote that during the flash the straw could not be seen. The strip agreed, and showed why: the straw's first colour equals the scarecrow's body.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Fixture capture · preview scene, fixed seed",
+        "evidence_media": "media/B06.png"
+      },
+      "image_file": "assets/b06.png",
+      "actual_duration_s": 11.95,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 11.966666666666667,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B06.png",
+        "filled_by": "still",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "TUNING",
+      "role_note": "Effect A revision r1: observation, prediction, before and after, verdict.",
+      "narration_text": "Revision one. In the running game Rui saw the flash start a little bright, and asked for it darker. The agent predicted a softer flash. The after strip dimmed it on the grass, but barely on the burning body, where added light was already clipped at full yellow. Rui kept it: in play, the straw read better.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 23,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Fixture captures · r0 tinted → r1"
+      },
+      "image_file": "assets/b07.png",
+      "actual_duration_s": 15.53,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 15.533333333333333,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B07.png",
+        "filled_by": "still",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "PLAY",
+      "role_note": "Effect A in play, including rapid repeats.",
+      "narration_text": "In play: hits from near and far land close together, so bursts overlap. The state test fired real arrows, measured three bursts alive at the third impact, and every one freed itself after its lifetime.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 14,
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "Scarecrows placed by the script · no keys pressed",
+        "clip_file": "media/B08.mp4",
+        "capture_window": {
+          "take": "play",
+          "start_s": 0.0,
+          "end_s": 12.0333,
+          "frames": [
+            0,
+            361
+          ],
+          "media_sha256": "fe42de39246ca2b5466ebe357733b932bb06f344aedd8cea267d32b0b097bf99"
+        }
+      },
+      "actual_duration_s": 12.0333,
+      "audio_file": "mix/B08.wav",
+      "render_duration_s": 12.033333333333333,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Native 3840x2160 engine capture fills the frame by design.",
+        "contrast_regions": [
+          {
+            "label": "burned-in shot label",
+            "box": [
+              0.028,
+              0.85,
+              0.66,
+              0.945
+            ]
+          }
+        ],
+        "contrast_reason": "Engine footage of a flat green meadow by design; the text a viewer must read is the burned-in label, so contrast is measured there."
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B08.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "INTENT",
+      "role_note": "Effect B's intent, the feature Effect A doesn't use, start/stop/pause behaviour.",
+      "narration_text": "Effect B's intent. Embers rise from the body, pale yellow to orange red, over faint smoke. It uses two things Effect A doesn't: amount ratio, so density follows the burn, and turbulence on the smoke. When the scarecrow dies, the embers move to the effects layer and fade.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 19,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "Effect B · Burning Embers",
+            "section": "CHANGE-BRIEF.md §2–§3 · Intent and feature",
+            "excerptLabel": "DOCUMENT EXCERPT",
+            "excerpt": "Smoke also uses mild turbulence so that it does not rise in identical straight lines.",
+            "source": "CHANGE-BRIEF.md §2, §3, §4 · Rui · @ 3b99ea6",
+            "status": "INTENT BEFORE BUILDING",
+            "visualLabel": "Intent and feature",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Timing",
+                "text": "0.5 s to the head · stream full after 0.9 s · tail ≤ 1.2 s"
+              },
+              {
+                "label": "Feature A lacks",
+                "text": "amount_ratio (feedback) · smoke turbulence 0.15–0.30"
+              },
+              {
+                "label": "Start / stop",
+                "text": "burning_started → on, ratio 1 · burning_ended → off, ratio 0"
+              },
+              {
+                "label": "Pause / death",
+                "text": "paused: frozen · died: stop, move to World/Effects, free after 1.2 s"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.23,
+                "card": 0
+              },
+              {
+                "at": 5.32,
+                "card": 1
+              },
+              {
+                "at": 9.41,
+                "card": 2
+              },
+              {
+                "at": 13.5,
+                "card": 3
+              }
+            ],
+            "durationSeconds": 15.34
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": "2026-11-09T03:35:00.054095+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 15.34,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 15.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B09.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "MECHANISM",
+      "role_note": "The feedback driver, verbatim.",
+      "narration_text": "The driver reads burn time left every frame and turns it into amount ratio, never amount. A refresh needs no signal: the next frame reads four seconds and the density jumps back to full.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 14,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "Game state in, density out.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/effects/burning_embers_driver.gd",
+            "source": "Verbatim project source at commit 3b99ea6 · Godot editor reconstruction (teaching view)",
+            "code": "func _process(delta: float) -> void:\n\tif _tail_left >= 0.0:\n\t\t_tail_left -= delta\n\t\tif _tail_left <= 0.0:\n\t\t\tqueue_free()\n\t\treturn\n\tif _scarecrow == null:\n\t\treturn\n\t_set_ratio(clampf(_scarecrow.burn_time_left / Tuning.BURN_DURATION, 0.0, 1.0))\n\n\nfunc _on_burning_started() -> void:\n\t_set_ratio(1.0)\n\t_set_emitting(true)",
+            "startLine": 27,
+            "cues": [
+              {
+                "at": 0.89,
+                "line": 35,
+                "label": "every frame: ratio from burn time left"
+              },
+              {
+                "at": 5.36,
+                "line": 38,
+                "label": "burning_started: on, at full density"
+              },
+              {
+                "at": 9.82,
+                "line": 40,
+                "label": "only the start and end signals touch emitting"
+              }
+            ],
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Feedback loop",
+                "value": "4 s → 1.00 · 3 s → 0.75\n2 s → 0.50 · 1 s → 0.25"
+              },
+              {
+                "label": "Never",
+                "value": "changes amount, or writes game state"
+              },
+              {
+                "label": "Measured",
+                "value": "test 54/0 at 60 fps · re-ignite: ratio 1.0\nthe next frame"
+              }
+            ],
+            "durationSeconds": 11.16
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": "2026-11-09T03:36:08.970518+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 11.16,
+      "audio_file": "mp3/beat-B10.mp3",
+      "render_duration_s": 11.166666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B10.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "STRIP",
+      "role_note": "Effect B's first strip and Rui's first verdict.",
+      "narration_text": "Effect B's first strip. Rui watched first: the weakening was hard to notice. The strip's counts follow the brief, ten, six, four, three, but most embers sit on the yellow burning body, where added light clips.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 14,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Fixture capture · preview scene, fixed seed",
+        "evidence_media": "media/B11.png"
+      },
+      "image_file": "assets/b11.png",
+      "actual_duration_s": 11.52,
+      "audio_file": "mp3/beat-B11.mp3",
+      "render_duration_s": 11.533333333333333,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B11.png",
+        "filled_by": "still",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "TUNING",
+      "role_note": "Effect B revision r1: observation, prediction, before and after, verdict.",
+      "narration_text": "Revision one for B came from the game: Rui saw the hit flash and the embers merge. The agent traced it to a shared texture, blend and colour, and made new embers fade in over the flash's time. The strip changed less than predicted, for the same clipping reason. Rui kept it: now the two read a little apart.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 24,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Fixture captures · r0 → r1"
+      },
+      "image_file": "assets/b12.png",
+      "actual_duration_s": 15.89,
+      "audio_file": "mp3/beat-B12.mp3",
+      "render_duration_s": 15.9,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B12.png",
+        "filled_by": "still",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "PLAY",
+      "role_note": "Effect B start, refresh, pause, burn-out and death.",
+      "narration_text": "Start, refresh, pause and death, scripted on the real game. A fire hit starts the embers. A second hit refreshes them to full. Escape freezes them. They thin as the burn runs down, and a scarecrow that dies while burning leaves its embers behind to fade.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "Scripted capture · hits called by a script, archer off",
+        "clip_file": "media/B13.mp4",
+        "capture_window": {
+          "take": "burn",
+          "start_s": 0.5,
+          "end_s": 15.2,
+          "frames": [
+            15,
+            456
+          ],
+          "media_sha256": "9a218912460e47ef8c240b8614c35dae1c47fc36c631a12584004a3f12d3b1f8"
+        }
+      },
+      "actual_duration_s": 14.7,
+      "audio_file": "mix/B13.wav",
+      "render_duration_s": 14.7,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Native 3840x2160 engine capture fills the frame by design.",
+        "contrast_regions": [
+          {
+            "label": "burned-in shot label",
+            "box": [
+              0.028,
+              0.85,
+              0.66,
+              0.945
+            ]
+          }
+        ],
+        "contrast_reason": "Engine footage of a flat green meadow by design; the text a viewer must read is the burned-in label, so contrast is measured there."
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B13.mp4",
+        "filled_by": "media",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "MECHANISM",
+      "role_note": "Two annotated lines of the generated process shader beside the brief's settings.",
+      "narration_text": "Rui converted the flash's process material into code. Line three sixteen starts the force as gravity, the brief's zero, one hundred. Line three twenty nine adds force times delta to the velocity. Texture and blend are not in here: they belong to drawing.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 17,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "The generated process shader, annotated.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/shaders/particles_generated.gdshader",
+            "source": "Verbatim project source at commit 3b99ea6 · Godot editor reconstruction (teaching view)",
+            "code": "\t\tforce = gravity;\n\t\t// Apply linear acceleration.\n\t\tforce += length(USERDATA1.xyz) > 0.0 ? normalize(USERDATA1.xyz) * physics_params.linear_accel : vec3(0.0);\n\t\t// Apply radial acceleration.\n\t\tvec3 org = EMISSION_TRANSFORM[3].xyz;\n\t\tvec3 diff = pos - org;\n\t\tforce += length(diff) > 0.0 ? normalize(diff) * physics_params.radial_accel : vec3(0.0);\n\t\t// Apply tangential acceleration.\n\t\tfloat tangent_accel_val = physics_params.tangent_accel;\n\t\tforce += length(diff.yx) > 0.0 ? vec3(normalize(diff.yx * vec2(-1.0, 1.0)), 0.0) * tangent_accel_val : vec3(0.0);\n\t\tforce += ATTRACTOR_FORCE;\n\t\tforce.z = 0.0;\n\t\t// Apply attractor forces.\n\t\tUSERDATA1.xyz += force * DELTA;",
+            "startLine": 316,
+            "cues": [
+              {
+                "at": 1.15,
+                "line": 316,
+                "label": "force starts as gravity ← brief A1: (0, 100, 0)"
+              },
+              {
+                "at": 12.64,
+                "line": 329,
+                "label": "velocity += force × DELTA, every step"
+              }
+            ],
+            "codeFontSize": 24,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Brief A1 gravity",
+                "value": "gravity = Vector3(0, 100, 0)\nflash dots sag as they fade"
+              },
+              {
+                "label": "Line 140",
+                "value": "mix(initial_linear_velocity_min, _max)\n= 80 … 140 px/s (brief A1)"
+              },
+              {
+                "label": "Not in here",
+                "value": "amount, lifetime, texture, blend:\nnode and draw step"
+              }
+            ],
+            "durationSeconds": 14.36
+          },
+          "rendered": {
+            "out": "media/B14.mp4",
+            "at": "2026-11-09T03:37:37.700169+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.36,
+      "audio_file": "mp3/beat-B14.mp3",
+      "render_duration_s": 14.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B14.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "PROOF",
+      "role_note": "Tests, mutations, both prices against budget, the headless limit.",
+      "narration_text": "What the tests proved: every setting read back, every trigger and condition driven by real arrows and keys. Four mutations failed them, including a silent Godot three name. A GPU effect's headless price is near zero by design: the dummy renderer runs no particle work. On the real GPU, both stayed far under budget.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 22,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Recorded output · test logs and cost script",
+        "evidence_media": "media/B15.png"
+      },
+      "actual_duration_s": 18.07,
+      "audio_file": "mp3/beat-B15.mp3",
+      "image_file": "assets/b15.png",
+      "render_duration_s": 18.1,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B15.png",
+        "filled_by": "still",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "MISTAKES",
+      "role_note": "Agent mistakes caught, Claude's readings overruled, what remains uncertain.",
+      "narration_text": "Mistakes caught. The agent's preview had no fixed seed, and its capture path was wrong twice. Claude's first rectangle check used swapped screenshots, and was withdrawn. Rui overruled one strip reading: the strip said the straw was no clearer, the game said it was. Still uncertain: a hidden emitter paused, against Rui's prediction.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "Caught, overruled, uncertain",
+            "section": "FRICTIONAL.md · TUNING.md · 2026-11-05 to 11-08",
+            "excerptLabel": "DOCUMENT EXCERPT",
+            "excerpt": "When Claude and Rui disagree about a strip, Rui's verdict in the running game decides.",
+            "source": "FRICTIONAL.md, TUNING.md @ 3b99ea6",
+            "status": "RECORDED, NOT HIDDEN",
+            "visualLabel": "Five points",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Agent",
+                "text": "no fixed seed in the preview · capture path wrong in two sessions"
+              },
+              {
+                "label": "Claude",
+                "text": "visibility rects compared with swapped screenshots · withdrawn"
+              },
+              {
+                "label": "Auto mode",
+                "text": "an edit ran without the planned prompt · diff checked line by line"
+              },
+              {
+                "label": "Overruled",
+                "text": "A r1: strip saw no clearer straw; Rui, in play, did"
+              },
+              {
+                "label": "Uncertain",
+                "text": "B6: hidden GPU particles paused in 4.7.2, not as predicted"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.4,
+                "card": 0
+              },
+              {
+                "at": 4.89,
+                "card": 1
+              },
+              {
+                "at": 8.39,
+                "card": 2
+              },
+              {
+                "at": 11.88,
+                "card": 3
+              },
+              {
+                "at": 15.37,
+                "card": 4
+              }
+            ],
+            "durationSeconds": 17.47
+          },
+          "rendered": {
+            "out": "media/B16.mp4",
+            "at": "2026-11-09T03:40:59.785135+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.47,
+      "audio_file": "mp3/beat-B16.mp3",
+      "render_duration_s": 17.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B16.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B17",
+      "act": "VERDICT",
+      "role_note": "Verdict: checked, uncertain, next step, contributions, texture sources, source revision.",
+      "narration_text": "The verdict. Shown working: both effects on their event and condition, overlap, feedback, pause and death. Uncertain: the smoke barely reads, and a hidden emitter pauses. Next: make the smoke readable. Rui wrote the brief, every observation and verdict, and the process shader references. Claude and the agents built, wired and tested.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "walker-mimic-keep-rui-sun @ 3b99ea6 · shown, checked, still open",
+            "artifactLines": [
+              "shown — burst per hit, 3 overlapping; embers follow burn time, refresh, freeze, fade after death.",
+              "checked — config 128/0, 156/0; state 29/0, 54/0; 4 mutations exit 1; GPU far under budget.",
+              "uncertain — smoke barely visible; hidden GPU emitter pauses (B6); profiler precision.",
+              "next — make the smoke readable over the burning body (Rui's playtest).",
+              "who — Rui: brief, observations, verdicts, captures, shader refs · Claude + agent sessions: the rest.",
+              "sources — particle textures generated by project code · source 3b99ea6 · Godot 4.7.2 Forward+."
+            ],
+            "durationSeconds": 17.73
+          },
+          "rendered": {
+            "out": "media/B17.mp4",
+            "at": "2026-11-09T03:42:39.065457+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.73,
+      "audio_file": "mp3/beat-B17.mp3",
+      "render_duration_s": 17.733333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B17.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B18",
+      "act": "HANDOFF",
+      "role_note": "Your Turn - a paste-ready Walker prompt; Liam signs off here, before the final card.",
+      "narration_text": "Your turn. Here is the paste ready prompt. Give one event and one condition an effect each. Write the intent and the predicted strip before the build. Let an agent build and test it, then watch it in the game yourself, because the strip can't see what play does. Liam, in for Bear.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "WALKER · MIMIC KEEP PARTICLES",
+            "segment": "your turn",
+            "command": "Use Walker. Pick one event and one condition in my game. I will write each effect's intent, settings and predicted frame strip before anything is built. Build each as a GPUParticles2D scene with a configuration test, wire it with a state test driven by real input, and give me a fixed-seed preview to capture. I judge every tuning change in the running game.",
+            "runningText": "reading the brief; amount_ratio from game state; capturing the fixture…",
+            "output": [
+              "intent and predicted strip, before the build",
+              "tests that fail on a Godot 3 name",
+              "a verdict made in the running game"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "Opus",
+            "durationSeconds": 14.23
+          },
+          "rendered": {
+            "out": "media/B18.mp4",
+            "at": "2026-11-09T03:43:56.880861+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.23,
+      "audio_file": "mp3/beat-B18.mp3",
+      "render_duration_s": 14.233333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B18.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-08T22:57:01"
+      }
+    },
+    {
+      "beat_id": "B19",
+      "act": "OUTRO",
+      "role_note": "OUTRO LOCK - ClaudeTitleOutro, exact title, @NikBearBrown, slug-seeded mascot/jingle.",
+      "narration_text": "",
+      "audio_file": "mix/B19-jingle.wav",
+      "jingle": {
+        "source": "brutalist.art logos/bear-brown/bear-brown-3.mp3 (stock @NikBearBrown jingle, unchanged except gain)",
+        "pick": "sha256(slug) mod 6 + 1 = 3 (OUTRO-LOCK: jingle seeded by the reel slug; the toolkit has no picker code)",
+        "gain_db": -8
+      },
+      "estimated_duration_s": 9.360979,
+      "actual_duration_s": 9.360979,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Mimic Keep: The Strip Cannot See the Hit.",
+            "slug": "claude-liam-walker-mimic-keep-a6-gamedev",
+            "durationSeconds": 9.360979
+          },
+          "rendered": {
+            "out": "media/B19.mp4",
+            "at": "2026-11-09T03:44:52.592013+00:00"
+          }
+        }
+      },
+      "render_duration_s": 9.366666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B19.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-11-08T22:57:01"
+      }
+    }
+  ]
+}
