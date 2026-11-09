@@ -115,3 +115,16 @@ What I saw (preview, windowed, 1280×720):
 noticeable.)
 
 Strip: captures/burning_embers/r0/ (fixture capture, seeds 7270 / 7271, tinted scarecrow)
+
+## 2026-11-08 — Effect B, r0 settings in the running game (after wiring)
+
+What I saw (running game, windowed, 1280×720):
+稻草人被火箭射中后，开始冒余烬和烟，随时间越来越稀，最后停止,重新射中后余烬变密，打死后余烬会慢慢散掉，停止是余烬会冻结在画面中
+(English, translated by Claude: after a fire arrow hits a scarecrow it gives off embers and smoke,
+which get sparser over time and finally stop; hit again, the embers get denser; killed, the embers
+slowly disperse; paused, the embers freeze on screen.)
+
+Note (Claude): in the game Rui saw the embers "get sparser over time", while in the preview they
+wrote that the gradual weakening was not very noticeable. Same settings; the preview shows one
+scarecrow standing still for one 4 s burn, the game shows several at once, re-ignited and moving.
+No setting changed.

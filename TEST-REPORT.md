@@ -423,3 +423,46 @@ Both generated rects reach 1–2 px below the scene's rect; the other sides have
 only when the whole rect is off screen, and a scarecrow stops at y = 530, so the bottom edge never
 leaves the 720 px screen. Rui chose to keep both rects as the brief gives them ("保持原样"). Limits: one
 unseeded draw each with the default time; recheck if Effect B tuning changes motion or size.
+
+## A6.6 Effect B wired: state test and Rui's playtest (2026-11-08)
+
+`godot/tests/test_burning_embers_state.gd` (agent, `e3fd90f`), rerun by Claude at 60:
+**54 passed, 0 failed, exit 0**. Every ignition and hit is a real arrow; movement, pause and restart
+are real keys. The test writes only `burn_time_left` (allowed by the brief for a feedback test) and
+Embers' `visible` (the hidden-node scenario). All other suites still pass at their committed counts
+(rules 23, input 14, materials 132, normal_map 9, impact_burst_config 128, impact_burst_state 29,
+burning_embers_config 154 at 60; burning_tint 49 and wall_targeting 10 at 30/60/144).
+
+| Rule | Measured (60, physics frames) |
+|---|---|
+| B1 | after spawn: emitting false, ratio 0, amount 18/8; in `burning_started`: emitting true, ratio 1.0; in `burning_ended` and 30 frames after: emitting false, ratio 0, scarecrow alive |
+| B2 | burn 4/3/2/1 s → ratio 0.9958/0.7458/0.4958/0.2458 one tick later (within one frame of 1.00/0.75/0.50/0.25); `amount` unchanged at every sample |
+| B3 | ratio lowered to 0.4958; a real arrow re-ignites; next frame burn 4.0, ratio 1.0, no second `burning_started`, same nodes, emitting throughout |
+| B4 | killed while burning (burn 4.0, no `burning_ended`): in `died` the emitters are already under `World/Effects` at the scarecrow's position, emitting false, ratio 0; freed 71 frames later (72 ± 2) |
+| B5 | paused 30 frames: burn, ratio and emitting frozen, `can_process()` false; resumes from the same state. Game over: T's values frozen for 30 frames with World disabled; after R `World/Effects` empty in 3 frames |
+| B6 | node state only: hidden 30 frames, still emitting, ratio follows the timer, same node when shown. Whether hidden particles keep ageing is still a prediction (windowed test) |
+| B7 | two scarecrows at 4.0 and 1.0 s: ratios 0.9958 and 0.2458, then swapped; four distinct emitters |
+
+**Effect A's state test after wiring B.** Still 29/0, but `World/Effects` now also holds B tails:
+hit 6's INFO line counts N's tail (`live_bursts` 1 → 2) and later frames shift by 24. No assertion
+changed. Claude ran a scratch copy that prints `World/Effects` at the loss: its only child was an
+`ImpactBurst`, so "the run is lost with a live burst" still holds on a real burst. `_live_bursts()`
+counts every child, so that check could pass on a B tail in some other run; noted, not changed.
+
+**Rui's playtest** (running game, windowed, 1280×720), in Rui's words:
+
+> 稻草人被火箭射中后，开始冒余烬和烟，随时间越来越稀，最后停止,重新射中后余烬变密，打死后余烬会慢慢散掉，停止是余烬会冻结在画面中
+
+(English, translated by Claude: after a fire arrow hits a scarecrow it starts giving off embers and
+smoke, which get sparser over time and finally stop; hit again, the embers get denser; after it is
+killed the embers slowly disperse; when paused [Rui wrote 停止, "stopped"], the embers freeze on
+screen.)
+
+| Check | Result |
+|---|---|
+| B1 start on ignition, stop at burn-out | seen |
+| B2 density falls with the remaining burn time | seen ("越来越稀") |
+| B3 re-ignition makes the embers denser | seen |
+| B4 embers fade after death instead of vanishing | seen |
+| B5 pause freezes the embers | seen |
+| B5 game-over freeze; B6 hidden emitter | not checked in play |

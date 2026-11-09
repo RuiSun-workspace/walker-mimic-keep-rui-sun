@@ -766,3 +766,33 @@ set it to 1 before generating. No generation-time dialog appeared, so Claude's i
 corrected it; Claude's first comparison was made with the wrong pairing ("12 px below, left edge
 touching") and was withdrawn once Rui corrected it. With the right pairing both rects reach 1–2 px
 below the scene's rects, which cannot cause culling here; Rui kept the brief's values ("保持原样").
+
+## 2026-11-08 — Step 5, Effect B wired, plan first
+
+`prompts/a6/prompt-6.txt` is prompt-3 with "Effect B" and the four replacement test rules Step 5
+gives, plus one sentence of Claude's (do not change Effect A's files). **Plan run**
+(`sessions/a6/session-6-plan.*`, read-only, 19 turns, 0 denials): a driver on a `BurningEmbers`
+instance in `scarecrow.tscn`, reparenting to `World/Effects` on `died`, and a ten-scenario test.
+
+**Claude's review** found the plan covered B1–B7 and named its own risks (a reparent inside `died`;
+Effect A's test counting B tails). Claude added one: the scenario timing rests on real arrows, burn
+damage and 10 gate damage per second from two wall scarecrows, so S1 could burn to death before its
+burn-out scenario or the run could be lost early. Rui: "批准，加补充"; Claude drafted
+`prompts/a6/prompt-6b.txt` (`2acb30d`) with a report-and-stop rule and no writes but `burn_time_left`.
+
+**Implementation run** (`sessions/a6/session-6-implement.*`, build allow list, no extra entries, 47
+of 60 turns, 1 denial for a piped `run-test.sh`): committed unedited as `e3fd90f`. No stop condition
+came up (S1 burnt out with 12.2 HP; the gate had 38.6 HP before scenario 10; the reparent worked
+without `call_deferred`). The agent fixed a `SCRIPT ERROR` in its own helper after a 54/0 run,
+changing no assertion. Claude read the driver (reads only signals and `burn_time_left`, never
+`amount`) and grepped the test for writes; reran every suite (TEST-REPORT A6.6).
+
+**Effect A's test, as predicted.** The agent reported, without changing either test, that A's INFO
+counts moved: N's B tail is a child of `World/Effects` at hit 6. Claude checked the one assertion at
+risk with a scratch copy of A's test (outside the repo) that prints `World/Effects` at the loss: the
+child was an `ImpactBurst`, so the assertion still holds on a real burst. The counting stays fragile
+and is recorded, not changed.
+
+**Rui's playtest** confirmed B1, B2, B3, B4 and the pause freeze (TEST-REPORT A6.6). In the game Rui
+saw the density fall, unlike their preview note; that difference is logged in TUNING.md for Effect B's
+tuning round.
