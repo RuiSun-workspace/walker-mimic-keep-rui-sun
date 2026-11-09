@@ -106,3 +106,12 @@ body easier to follow. Rui's verdict in the running game decides.
 
 Strips: captures/impact_burst/r0-tinted/, captures/impact_burst/r1/ (fixture captures)
 Commits: 946c797 (prompt), a88d821 (scene + test), f6bdbef (r1 strip), 765b0b4 (brief revision)
+
+## 2026-11-08 — Effect B, first look at r0 (before Claude reads anything)
+
+What I saw (preview, windowed, 1280×720):
+我看了燃烧过程了，然绕逐渐变弱的过程不太明显
+(English, translated by Claude: I watched the burning; the gradual weakening is not very
+noticeable.)
+
+Strip: captures/burning_embers/r0/ (fixture capture, seeds 7270 / 7271, tinted scarecrow)
