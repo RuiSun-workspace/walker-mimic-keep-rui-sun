@@ -466,3 +466,109 @@ screen.)
 | B4 embers fade after death instead of vanishing | seen |
 | B5 pause freezes the embers | seen |
 | B5 game-over freeze; B6 hidden emitter | not checked in play |
+
+## A6.7 Use It — results (2026-11-08)
+
+| | |
+|---|---|
+| Source revision tested | `34d1e1d` (main; both effects wired, Effect A r1 and Effect B r1 kept) |
+| Godot | 4.7.2.stable.official.ed1daf0bf, portable, Windows 11 |
+| Renderer / GPU | Forward+, Vulkan 1.4.303, NVIDIA GeForce RTX 3070 Laptop GPU |
+| Window | 1280×720 |
+| Human checks | Rui, in the editor's windowed run, 2026-11-08 |
+
+| Check | Result |
+|---|---|
+| Baseline | Before (`056bcc0`, `evidence/a6-baseline/`) and after (`logs/`, rerun by Claude after every agent session): test_rules 23/0, test_input 14/0, test_materials 132/0, normal_map_check 9/0 at 60; test_burning_tint 49/0 and test_wall_targeting 10/0 at 30/60/144. Unchanged. |
+| Configuration | test_impact_burst_config 128/0, test_burning_embers_config 156/0 (after B r1) at 60. All four mutations exit 1 (A6.1, A6.4). |
+| State | test_impact_burst_state 29/0 and test_burning_embers_state 54/0, fixed 60 (no audio, so no realtime). Effect A's two events in one lifetime: hits 4 frames apart, three live bursts at the third impact (A6.3). |
+| Frame strips (fixture) | `captures/impact_burst/r0`, `r0-tinted`, `r1`; `captures/burning_embers/r0`, `r1`: all fixture captures from the preview scenes, run by Rui in windowed Movie Maker. |
+| Claude against Rui | Effect A r1: the strip comparison found the straw no easier to see on the body; Rui, in the game, found the straw flying out more noticeable. **Disagreement**; Rui's verdict decided (TUNING.md). Effect B r1: both saw a small change. Earlier the agent described r0-tinted frame 12 as "nearly white"; its own comparison corrected that to saturated yellow. |
+| Headless CPU price | `godot/tests/cost_effects.gd` (Step 7), frame-time means: empty control 5.8 / 6.2 µs, game with both effects off 56.9 / 64.2, Effect A at 2–3 live bursts 76.8 / 89.0, Effect B at 260 particles 105.6 / 106.8 (agent run / Claude rerun, `evidence/a6-cost/`). A adds about 20–25 µs and B about 43–49 µs over "off": the CPU share only (driver scripts, burst instancing, extra nodes). The brief predicted "close to the empty-scene control"; it is not, because the game scene itself costs about 50 µs more than the empty one. `Performance.TIME_PROCESS` read 0.0000 in every case and prices nothing. |
+
+### In play, background, edge, scene load (HUMAN CHECKS, Rui's words)
+
+> **b. Repeated hits.** I observed several consecutive hits. A new flash and straw burst appeared for
+> every visible hit, and I did not notice a missing burst. New hits did not remove fragments that were
+> still present from an earlier hit.
+>
+> **c. Effect size.** The impact burst stayed close to the point of impact and did not cover the whole
+> scarecrow. The embers and smoke remained close to the scarecrow's body, although some particles rose
+> above its head. Both effects were appropriately sized relative to the character.
+>
+> **d. Background readability.** The yellow flash and bright embers were easy to see against the
+> grass, dark gate and lighter stone areas. The orange-brown straw fragments remained visible against
+> the gray wall and pale walkway. Smoke was the least noticeable part of the effect, especially against
+> darker areas, but the embers still made the Burning state clear.
+>
+> **e. Screen edges.** I did not observe the embers suddenly disappearing when a burning scarecrow
+> approached the left or right side of the screen. The configured visibility rectangle appeared large
+> enough for the tested positions.
+>
+> **f. First frames after loading.** No unwanted embers or smoke appeared during the first frames
+> after the scene loaded. The continuous emitters only became visible after a scarecrow started
+> Burning.
+
+Effect B starting, stopping and pausing in play: A6.6. Boundaries: no file outside the brief's
+boundary changed (`git diff` per session; `godot/shaders/` untouched by every agent session).
+
+### Rule B6 — hidden emitter, measured (HUMAN CHECK, windowed)
+
+> **g. Hidden emitter — Rule B6.** I hid the Embers emitter during Burning and showed it again after
+> a controlled interval. No embers were drawn while it was hidden. The GPU particle simulation paused
+> while hidden, and the existing particles resumed from their previous state when the emitter was shown
+> again. They did not restart from the beginning, but their ages also did not continue advancing while
+> hidden. The driver continued updating amount_ratio from the burn timer during the hidden interval.
+> Therefore, the resumed effect used the current, lower emission ratio. This result differs from the
+> original prediction that particle ages would continue advancing while hidden.
+
+Method: during a windowed run from the editor, Rui toggled `Visible` on a burning scarecrow's
+`BurningEmbers/Embers` in the Remote scene tree. **Rui's brief predicted the simulation would continue
+while hidden; in Godot 4.7.2 it paused**, recorded here as Rule B6 asks. This is a visual judgment,
+not an instrumented age measurement. The headless state test confirms the node-state half (still
+emitting, ratio following the timer, same node when shown).
+
+### GPU price (HUMAN CHECK)
+
+> **a. GPU time.** I used an NVIDIA GeForce RTX 3070 Laptop GPU. The Visual Profiler reported
+> approximately 0.06–0.07 ms before any visible particle effects appeared. With several burning
+> scarecrows and impact bursts active, it still reported approximately 0.06–0.07 ms. Any difference
+> was smaller than the profiler's displayed precision, and the result remained well below the GPU
+> budget in the brief.
+
+| Effect | Brief prediction | Brief budget (GPU) | Measured (Visual Profiler, windowed, RTX 3070 Laptop) |
+|---|---|---|---|
+| A | below 0.15 ms | 0.25 ms | frame GPU time 0.06–0.07 ms with and without effects; the effect's share is below the display precision |
+| B | below 0.35 ms | 0.60 ms | the same reading, with several scarecrows burning |
+| Combined | below 0.50 ms | 0.85 ms | well under budget |
+
+Limits: one whole-frame reading with effects off and on, not a per-effect isolation at the brief's
+exact peak (66 / 260 particles). No FPS comparison was made, so the game has no vsync debug key.
+
+### The process shader
+
+`godot/shaders/particles_generated.gdshader` (384 lines), generated by Rui from Effect A Flash's
+ParticleProcessMaterial (`34d1e1d`). The line references are Rui's; Claude printed each line and
+confirmed it says what Rui wrote.
+
+| Item | Line | Code at that line |
+|---|---|---|
+| `shader_type particles;` | 3 | `shader_type particles;` |
+| `start()` | 230 | `void start() {` |
+| `process()` | 282 | `void process() {` |
+| initial velocity from min/max | 140 | `params.initial_velocity_multiplier = mix(initial_linear_velocity_min, initial_linear_velocity_max, rand_from_seed(alt_seed));` |
+| initial velocity applied | 269 | `USERDATA1.xyz = get_random_direction_from_spread(alt_seed, spread) * dynamic_params.initial_velocity_multiplier;` |
+| gravity read | 316 | `force = gravity;` |
+| gravity changes velocity | 329 | `USERDATA1.xyz += force * DELTA;` |
+| scale over life | 161 | `parameters.scale *= texture(scale_curve, vec2(lifetime)).rgb;` |
+| colour over life | 162 | `parameters.color *= texture(color_ramp, vec2(lifetime));` |
+| tied to a brief setting | 140 | Flash `initial_velocity_min = 80`, `initial_velocity_max = 140` px/s (brief §3, A1) |
+
+Rui's answer, in their words:
+
+> The generated shader contains the behaviour that originally belonged to the
+> ParticleProcessMaterial, including direction, spread, initial velocity, gravity, the colour ramp and
+> the scale curve. Settings belonging to the GPUParticles2D node—such as amount, lifetime, one-shot
+> mode, explosiveness, preprocess and the visibility rectangle—are not part of this shader. The particle
+> texture and additive blend mode belong to the drawing stage, so they are also not implemented in the
+> generated particle-processing shader.
