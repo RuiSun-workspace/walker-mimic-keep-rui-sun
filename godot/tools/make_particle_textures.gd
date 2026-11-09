@@ -4,6 +4,8 @@ extends SceneTree
 ##   godot --headless --path godot --script res://tools/make_particle_textures.gd
 ##   godot --headless --path godot --import          # then import the new PNGs
 ## Effect A (CHANGE-BRIEF.md §3): soft_dot.png 16x16 (A1 flash, later reused by B1), straw_chip.png 4x12 (A2).
+## Effect B (CHANGE-BRIEF.md §3): smoke_dot.png 32x32 (B2 smoke); B1 embers reuse soft_dot.png.
+## Re-running rewrites all three from the same code, so the Effect A files come out identical.
 
 const OUT_DIR := "res://effects/textures/"
 
@@ -12,6 +14,7 @@ func _init() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT_DIR))
 	_save(_soft_dot(16), "soft_dot.png")
 	_save(_straw_chip(), "straw_chip.png")
+	_save(_smoke_dot(32), "smoke_dot.png")
 	quit(0)
 
 
@@ -29,6 +32,21 @@ func _soft_dot(size: int) -> Image:
 		for x in size:
 			var d := Vector2(x - c, y - c).length() / r
 			var a := 1.0 - smoothstep(0.0, 1.0, d)
+			img.set_pixel(x, y, Color(1, 1, 1, a))
+	return img
+
+
+## Soft white puff for smoke: a wider, lower-contrast falloff than _soft_dot. Alpha peaks at 0.8 at the
+## centre and eases to 0 at the edge (squared falloff), so a smoke particle has no visible rim and
+## overlapping puffs blend into haze. The colour ramp's alpha (0.35 at most) scales it further.
+func _smoke_dot(size: int) -> Image:
+	var img := Image.create(size, size, false, Image.FORMAT_RGBA8)
+	var c := (size - 1) / 2.0
+	var r := size / 2.0
+	for y in size:
+		for x in size:
+			var d := clampf(Vector2(x - c, y - c).length() / r, 0.0, 1.0)
+			var a := 0.8 * pow(1.0 - d * d, 2.0)
 			img.set_pixel(x, y, Color(1, 1, 1, a))
 	return img
 

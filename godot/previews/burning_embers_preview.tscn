@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://previews/burning_embers_preview.gd" id="1_preview"]
+[ext_resource type="Script" path="res://game/background.gd" id="2_bg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/scarecrow.png" id="3_scarecrow"]
+[ext_resource type="Shader" path="res://shaders/burning_tint.gdshader" id="4_tint"]
+[ext_resource type="PackedScene" path="res://effects/burning_embers.tscn" id="5_fx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_burning"]
+shader = ExtResource("4_tint")
+shader_parameter/burn_mix = 0.0
+
+[node name="BurningEmbersPreview" type="Node2D"]
+script = ExtResource("1_preview")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("2_bg")
+
+[node name="Scarecrow" type="Node2D" parent="."]
+position = Vector2(640, 530)
+
+[node name="Sprite" type="Sprite2D" parent="Scarecrow"]
+material = SubResource("ShaderMaterial_burning")
+texture = ExtResource("3_scarecrow")
+
+[node name="BurningEmbers" parent="Scarecrow" instance=ExtResource("5_fx")]
