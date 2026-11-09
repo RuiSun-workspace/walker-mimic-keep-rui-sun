@@ -9,7 +9,7 @@ INFO hit 2 on N at frame 69 (t=0.633 s) pos=(680.0, 530.0) lethal=false live_bur
 INFO hit 3 on N at frame 105 (t=1.233 s) pos=(680.0, 530.0) lethal=false live_bursts=3
 INFO hit 4 on N at frame 141 (t=1.833 s) pos=(680.0, 530.0) lethal=false live_bursts=2
 INFO hit 5 on N at frame 177 (t=2.433 s) pos=(680.0, 530.0) lethal=true live_bursts=2
-INFO hit 6 on F at frame 236 (t=3.417 s) pos=(640.0, 154.5) lethal=false live_bursts=1
+INFO hit 6 on F at frame 236 (t=3.417 s) pos=(640.0, 154.5) lethal=false live_bursts=2
 INFO hit 7 on F at frame 270 (t=3.983 s) pos=(640.0, 180.0) lethal=true live_bursts=2
 INFO burst 1 created frame 65 freed frame 112 lifetime 47 frames
 INFO burst 2 created frame 69 freed frame 116 lifetime 47 frames
@@ -36,12 +36,12 @@ PASS A4: lethal hit: scarecrow freed that frame, its burst outlived it and ran i
 PASS A5: World/Effects holds no finished bursts
 PASS A1 setup: the arrow left the screen without hitting
 PASS A1: an arrow leaving the screen creates no hit_taken and no burst
-INFO burn-out: hit at frame 368, burning_ended at frame 607 (239 frames), archer x=1240
+INFO burn-out: hit at frame 392, burning_ended at frame 631 (239 frames), archer x=1240
 PASS burn-out setup: exactly one arrow fired and one hit on the scarecrow
 PASS burn-out setup: burning_ended fired with the scarecrow alive and outside the fire cone
 PASS A1: no burst created in the burning_ended frame
 PASS A1: no burst created while it burned on its own (burn ticks, movement) or 10 frames after
-INFO reset: run lost at frame 719, 1 bursts live
+INFO reset: run lost at frame 743, 1 bursts live
 PASS A5 setup: the run is lost with a live burst
 INFO reset: 30 frames after the loss (World disabled), 1 bursts still live
 PASS A1: every hit in this phase made exactly one burst

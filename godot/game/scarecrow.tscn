@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" path="res://game/scarecrow.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/sprites/scarecrow.png" id="2_tex"]
 [ext_resource type="Shader" path="res://shaders/burning_tint.gdshader" id="3_shader"]
 [ext_resource type="Script" path="res://game/burning_tint.gd" id="4_tint"]
 [ext_resource type="Script" path="res://effects/impact_spawner.gd" id="5_spawner"]
+[ext_resource type="PackedScene" path="res://effects/burning_embers.tscn" id="6_embers"]
+[ext_resource type="Script" path="res://effects/burning_embers_driver.gd" id="7_embers_driver"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_burn"]
 resource_local_to_scene = true
@@ -20,3 +22,6 @@ script = ExtResource("4_tint")
 
 [node name="ImpactSpawner" type="Node" parent="."]
 script = ExtResource("5_spawner")
+
+[node name="BurningEmbers" parent="." instance=ExtResource("6_embers")]
+script = ExtResource("7_embers_driver")
