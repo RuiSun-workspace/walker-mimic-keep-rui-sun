@@ -376,3 +376,28 @@ The test relies on the spawner's `hit_taken` connection (made in `_ready`) runni
 | A4 straw keeps floating after the scarecrow dies | seen |
 | Game over freezes a live burst rather than removing it | seen: it stops at once and the unfinished straw stays on screen |
 | The frozen burst finishes after R | not reported; the state test measures it (22 frames), the look is unchecked |
+
+## A6.4 Effect B configuration test and its mutations (2026-11-08)
+
+`godot/tests/test_burning_embers_config.gd` at 60, on `godot/effects/burning_embers.tscn` as built
+in `df6937c`: **154 passed, 0 failed, exit 0**, before and after the mutations
+(`evidence/a6-mutations/b_restored_test_burning_embers_config_60fps.log`). It includes the brief's
+process feature, smoke turbulence (enabled, influence 0.15–0.30), and `amount_ratio = 0.0` as the
+stored initial state, as Step 5 requires.
+
+| Mutation (one line of the scene file; the brief untouched) | Test | Result | What caught it |
+|---|---|---|---|
+| 1. Godot 3 name: Embers `initial_velocity_min = 25.0` → `initial_velocity = 25.0` (scene line 29) | test_burning_embers_config @60 | exit 1, 153/1 | `FAIL B1 Embers initial_velocity_min = 25.0  got 0.0` |
+| 2. Value drift: Smoke `turbulence_influence_max = 0.3` → `0.5` (scene line 74) | test_burning_embers_config @60 | exit 1, 153/1 | `FAIL B2 Smoke turbulence_influence_max = 0.3  got 0.5` |
+
+Diffs and logs: `evidence/a6-mutations/b_m1_godot3_name.*`, `b_m2_value_drift.*`. The scene was
+restored with `git checkout` after each run and its md5 checked (`3389136b…`).
+
+Mutation 1 behaves as it did for Effect A: no warning on load, the old line is ignored and
+`initial_velocity_min` stays 0. The effect still runs: the preview ignited at frame 10 headless, and
+a windowed Movie Maker run of the mutated scene by Claude (scratch folder, same seeds) still shows
+embers at frame 40, some lower because the slowest now start at 0
+(`evidence/a6-mutations/b_m1_still_fires_frame40.png`: r0 frame 40 left, mutated right; fixture
+captures cropped to 160×180 and enlarged 2×). Effect B is not wired into gameplay yet, so the preview
+stands in for the game. Mutation 2 changes the brief's named process feature; only the read-back
+against the brief's value catches it.

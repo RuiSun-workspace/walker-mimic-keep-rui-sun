@@ -1,0 +1,13 @@
+diff --git a/godot/effects/burning_embers.tscn b/godot/effects/burning_embers.tscn
+index 8cc4f46..c849c1a 100644
+--- a/godot/effects/burning_embers.tscn
++++ b/godot/effects/burning_embers.tscn
+@@ -26,7 +26,7 @@ emission_shape = 3
+ emission_box_extents = Vector3(18, 30, 0)
+ direction = Vector3(0, -1, 0)
+ spread = 25.0
+-initial_velocity_min = 25.0
++initial_velocity = 25.0
+ initial_velocity_max = 45.0
+ gravity = Vector3(0, -20, 0)
+ damping_min = 5.0

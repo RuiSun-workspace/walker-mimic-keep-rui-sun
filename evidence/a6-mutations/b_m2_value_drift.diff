@@ -1,0 +1,13 @@
+diff --git a/godot/effects/burning_embers.tscn b/godot/effects/burning_embers.tscn
+index 8cc4f46..ddca696 100644
+--- a/godot/effects/burning_embers.tscn
++++ b/godot/effects/burning_embers.tscn
+@@ -71,7 +71,7 @@ scale_curve = SubResource("CurveTexture_smoke")
+ color_ramp = SubResource("GradientTexture1D_smoke")
+ turbulence_enabled = true
+ turbulence_influence_min = 0.15
+-turbulence_influence_max = 0.3
++turbulence_influence_max = 0.5
+ 
+ [node name="BurningEmbers" type="Node2D"]
+ 
