@@ -183,9 +183,15 @@ The driver changes `amount_ratio`, not `amount`. Changing `amount` would restart
 
 Color-ramp stops:
 
-- 0.0: `Color(1.0, 0.95, 0.63, 1.0)`
+- 0.0: `Color(1.0, 0.95, 0.63, 0.0)` (Effect B revision r1, 2026-11-08; was alpha 1.0)
+- 0.30: `Color(1.0, 0.95, 0.63, 1.0)` (Effect B revision r1, 2026-11-08; new stop, the old first colour)
 - 0.45: `Color(1.0, 0.54, 0.12, 0.90)`
 - 1.0: `Color(0.85, 0.29, 0.07, 0.0)`
+
+**Effect B revision r1 (2026-11-08):** new embers fade in over the first 0.27 s of their 0.90 s life,
+about the flash's 0.28 s, so they do not merge with Effect A's flash on a hit. Rui saw in the running
+game that the hit flash and the burning effect overlap; Rui approved the change and kept it after
+playing (TUNING.md, Effect B revision r1).
 
 #### B2 — Smoke
 
@@ -613,3 +619,4 @@ Changes to the original prediction are recorded below with a date.
 - **2026-11-05 (review, before any prompt):** Rui's original text is commit b1d2e08. Claude converted it to Markdown and applied the corrections Rui approved (listed in FRICTIONAL.md, 2026-11-05): `direction`, `particle_flag_disable_z = true` and `Vector3` gravity on every emitter, 4.7.2 property names for emission shapes, turbulence and blend modes, the `hit_taken` emit position, real-arrow test driving and the headless-versus-strip split in Section 6, curve points with `Curve.max_value = 1.5` for A1 and B2, A2's colour-ramp stops, texture paths and sizes, A2 spread 150° → 40° and angle 0–360, the `World/Effects` node, and Rule A5. Added by Claude.
 - **2026-11-05:** Added phase durations, corrected the early Effect B frame predictions, and revised the peak counts and performance budgets using the expected maximum of three overlapping A bursts and ten active-or-fading B effect sets.
 - **2026-11-08 (tuning r1):** A1 Flash colour-ramp alpha at stops 0.0 and 0.35 lowered from 1.0 and 0.90 to 0.60 and 0.55, kept by Rui in the running game. Section 3 updated so the brief, `impact_burst.tscn` and `test_impact_burst_config.gd` agree. Written by Claude from Rui's verdict.
+- **2026-11-08 (Effect B tuning r1):** B1 Embers colour ramp gains a transparent first stop (alpha 0 at 0.0, the old first colour moved to 0.30), kept by Rui in the running game. Section 3 updated so the brief, `burning_embers.tscn` and `test_burning_embers_config.gd` agree. Written by Claude from Rui's verdict.
