@@ -147,7 +147,15 @@ tested by agent sessions that Claude Code reviewed. Tuning verdicts are Rui's, f
 
 ## Film
 
-*Mimic Keep: The Test Cannot See the Fire* — Brutalist godot-gamedev explainer (walker), 4K, 6:13.
+**Assignment 6:** *Mimic Keep: The Strip Cannot See the Hit.* — Brutalist godot-gamedev explainer (walker), 4K, 4:45.
+
+- File: `claude-liam-walker-mimic-keep-a6-gamedev.mp4`
+- SHA-256: `388222786f85f8aa6113a4cd187f5b441b3d755cbfce02315720b5bc1262c81f`
+- **[▶ Watch the film](https://northeastern-my.sharepoint.com/:v:/g/personal/sun_r3_northeastern_edu/IQAJ0UjoQFYBSJ3DWpWLl6KNAVwJJhedRseP5MhIfsFeqXw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=hiUXoZ)** — Northeastern OneDrive (the MP4 is not in this repository)
+- Game source shown: commit `3b99ea6`. Beat sheet, script, capture driver and evidence ledger:
+  `youtube/claude-liam-walker-mimic-keep-a6-gamedev/`.
+
+**Assignment 5:** *Mimic Keep: The Test Cannot See the Fire* — Brutalist godot-gamedev explainer (walker), 4K, 6:13.
 
 - File: `claude-liam-walker-mimic-keep-a5-gamedev.mp4`
 - SHA-256: `10a99c22d53e31b330393846d9a1ecddd5d1f360e6f78dcf417baa45601d0ec3`

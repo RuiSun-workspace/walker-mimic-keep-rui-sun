@@ -829,3 +829,20 @@ A6.7 around Rui's quoted words.
 A long shell heredoc for that section failed to parse and wrote nothing; Claude checked the file,
 then appended the same text from a file instead. Earlier, a commit (`d4c2f3f`) went in with Effect A's
 verdict reason still blank after an edit failed; `a78fddd` completed it.
+
+## 2026-11-08 — The A6 film
+
+Claude built the film on the A5 reel's scripts, locally (Kokoro, Remotion, Godot Movie Maker), and Rui watched
+the final export ("没有什么问题") and uploaded it. What went wrong on the way, all fixed before the master:
+- The first in-play take (spawning on, no input) was unusable: every scarecrow died at the top edge under the HUD.
+  Claude replaced it with a take that places scarecrows by script, as the state tests do, while the archer fires
+  real arrows; the label says so. The dropped take's log also had a closure bug (wrong frame numbers).
+- The first burn take was 12 s, shorter than its 14.7 s narration; it was re-recorded at 16 s rather than retimed.
+- Fact-checking the narration against the take logs changed three lines (the middle scarecrow dies while
+  burning instead of burning out; "one gameplay change", not "line"; the swapped screenshots).
+- `verify_gamedev.py` requires each code beat to be followed directly by a result beat with media, which the
+  first beat order broke twice; Claude swapped two rendered beats and turned B15 into a still of verbatim log
+  lines. The compiler then used B15's stale render until it was moved aside, which Claude found in the compile
+  log before anyone watched.
+- The toolkit's Gate F blocked the first compile until FACTCHECK, SHOTLIST and PROMPTS were written.
+Records: `youtube/claude-liam-walker-mimic-keep-a6-gamedev/` (BUILD-PROMPT.md lists every deviation).
