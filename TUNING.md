@@ -57,3 +57,43 @@ r0-tinted is the "before" strip for Effect A tuning.
 
 Strips: captures/impact_burst/r0/, captures/impact_burst/r0-tinted/
 Commits: c154122 (fixture), d719bf3 (strip)
+
+## 2026-11-08 — Effect A, revision r1
+
+What I saw (running game, 1280×720):
+命中时现有较亮的闪光出现，然后能看到有草屑飞出，在闪光结束后落下，我任务闪光开始时还是有一点亮，可能会阻碍观察到草屑飞出，可以试着调暗一点
+(English, translated by Claude: on a hit a fairly bright flash appears first, then I can see straw
+flying out, and it falls after the flash ends. I think the flash is still a bit bright when it
+starts, which may make it harder to see the straw flying out; it could be tried a little darker.)
+
+Claude's reading of r0-tinted (interactive agent session; summary): frame 10 matches (small ring,
+chips weak, tan on tan); frame 12 only partly: the flash is a large blob as wide as the body with
+no orange edge, and the straw on the face is washed out — "the frame you described"; frame 15
+mostly matches; frame 20 matches apart from "falling" (straw still at or above the hit point);
+frame 30 flash matches but the first burst's straw is barely visible, so the overlap barely shows;
+frame 50 shows nothing where the brief expects faint straw.
+
+Change: A1 Flash colour ramp (Gradient_flash) stop 0.0 alpha 1.0 → 0.60, stop 0.35 alpha 0.90 →
+0.55; colours, offsets and every other setting unchanged. Approved by me before the edit.
+
+Claude's prediction for r1: same particle positions (fixed seeds); frame 10 same-size ring with a
+weaker glow and slightly clearer chips; frame 12 same size, softer yellow, fainter halo on the grass,
+maybe orange edges, chips less washed out; frame 15 leftover flash dots fainter; frames 20 and 50
+identical; frame 30 dimmed like frame 12. Risk it named: the straw's first colour (#e8c46b) is close
+to the tinted body (#f7c13a), so the straw may still not stand out from the body.
+
+Claude's comparison of r1 with its prediction (measured pixel by pixel against each strip's own
+frame 50): frames 10 and 15 match; frames 20 and 50 are pixel-identical to r0-tinted; frames 12 and
+30 match only partly: on the grass the added light fell about 21–40 %, but on the body only about
+13–17 %, and the blob stays saturated yellow, because the tinted body (about 247, 193, 58) leaves
+little headroom and most of the cut removed light that was already clipped at 255. The straw is
+drawn on top of the flash (Straw follows Flash in the scene, mix blending), so the flash never
+covered it; what hides the straw in frame 12 is tan on a similar body colour, the risk named before
+the change. The agent also corrected its r0-tinted reading: frame 12 was saturated yellow, not
+"nearly white". Claude (main session) checked frames 20/50 (0 pixels differ) and the clipped body
+pixel (255, 255, 76) in r1 frame 12.
+
+My verdict (running game, 1280×720): kept, because
+
+Strips: captures/impact_burst/r0-tinted/, captures/impact_burst/r1/ (fixture captures)
+Commits: 946c797 (prompt), a88d821 (scene + test), f6bdbef (r1 strip), 765b0b4 (brief revision)
