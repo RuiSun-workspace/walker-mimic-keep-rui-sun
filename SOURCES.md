@@ -73,3 +73,22 @@ Remotion scenes, narration by Kokoro v1.0 voice `am_onyx` (local, no paid servic
 stills are this repository's own `evidence/`. One local, disclosed change to the toolkit (an optional
 label on `GodotDesignBoard.tsx`). Plan approved and final cut watched by Rui. Records:
 `youtube/claude-liam-walker-mimic-keep-a5-gamedev/` (SOURCES.md, CAPTURE.md, BUILD-PROMPT.md there).
+
+## Assignment 6 — particle effects
+
+| Files | Who | Record |
+|---|---|---|
+| `CHANGE-BRIEF.md` (raw `b1d2e08`), every TUNING.md observation and verdict, the editor checks (visibility rects), the playtests | Rui | Claude converted the brief to Markdown and applied review fixes Rui approved (`0d731e9`); later changes are dated revisions, written by Claude from Rui's verdicts |
+| `CLAUDE.md` draft | session 1 (`prompts/a6/prompt-1.txt`) | `a74efc8`, review `bb9abc0` |
+| `godot/effects/impact_burst.tscn`, `godot/tests/test_impact_burst_config.gd`, `godot/previews/impact_burst_preview.*`, `godot/tools/make_particle_textures.gd` | session 2 (`prompt-2.txt`) | `2f5a871`; preview fixed seed `f872239` and tint `c154122` by Claude, approved by Rui |
+| `godot/effects/impact_spawner.gd`, `hit_taken` in `scarecrow.gd`, `World/Effects` in `main.tscn`, `godot/tests/test_impact_burst_state.gd` | session 3 (`prompt-3.txt` plan, `prompt-3b.txt` approval) | `7296a1d` |
+| Effect A revision r1 (Flash ramp alpha) | interactive session 4 (`prompt-4-r1.txt`), approved and kept by Rui | `a88d821`, brief `765b0b4` |
+| `godot/effects/burning_embers.tscn`, `godot/tests/test_burning_embers_config.gd`, `godot/previews/burning_embers_preview.*`, `smoke_dot.png` | session 5 (`prompt-5.txt`) | `df6937c` |
+| `godot/effects/burning_embers_driver.gd`, the `BurningEmbers` instance in `scarecrow.tscn`, `godot/tests/test_burning_embers_state.gd` | session 6 (`prompt-6.txt` plan, `prompt-6b.txt` approval) | `e3fd90f` |
+| `godot/tests/cost_effects.gd` | session 7 (`prompt-7.txt`) | `6ed0e75` |
+| `scripts/run-test.sh` | the assignment's wrapper, verbatim | `ddaaa53` |
+| Particle textures | code, see `godot/effects/textures/ATTRIBUTION.md` | — |
+
+Claude (main session) reviewed every agent result, reran the tests, made the mutations, read the
+strips, and wrote TEST-REPORT.md, FRICTIONAL.md and the prompts' approval texts. Frame strips under
+`captures/` are fixture captures that Rui ran in windowed Movie Maker.
