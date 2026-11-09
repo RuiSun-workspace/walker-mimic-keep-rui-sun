@@ -1,0 +1,16 @@
+Read CLAUDE.md first. Effect B's intent is in CHANGE-BRIEF.md.
+The current frame strip is in captures/burning_embers/r0/, and the frames
+to read are listed in the brief. What I saw in the running game: 我认为命中光效与燃烧特效有点重叠，可能需要修改一下
+(English, translated by Claude: I think the hit flash and the burning effect overlap a bit; it may
+need changing.)
+
+Read those frames and say how they compare to the intent, frame by
+frame. Then propose one change to one setting (a curve or colour ramp
+counts as one setting). Before editing, give the setting, its old and
+new value, and what each frame of the strip should look like
+afterward. Do not edit yet.
+
+After I approve, make only that change in the effect's scene file,
+update the configuration test's expected value to match, run the
+configuration test with ./scripts/run-test.sh at 60, and stop so I can
+recapture. Do not commit.
