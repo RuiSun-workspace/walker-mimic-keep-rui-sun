@@ -401,3 +401,25 @@ embers at frame 40, some lower because the slowest now start at 0
 captures cropped to 160×180 and enlarged 2×). Effect B is not wired into gameplay yet, so the preview
 stands in for the game. Mutation 2 changes the brief's named process feature; only the read-back
 against the brief's value catches it.
+
+## A6.5 Effect B visibility rects, editor check (2026-11-08, Rui)
+
+Rui opened `burning_embers.tscn` in the editor, set each emitter's Amount Ratio to 1 (the scene
+stores 0, so nothing would be emitted), ran GPUParticles2D → Generate Visibility Rect, read the
+result, then closed without saving (scene md5 unchanged, `3389136b…`). No generation-time dialog
+appeared in this 4.7.2 editor, so the default time was used. Rui first labelled the two screenshots
+the other way round and corrected it; the sizes agree with the correction (Smoke's 32 px texture
+gives the larger rect). A third screenshot, taken with Amount Ratio left at 0, matched the earlier
+Smoke result to three decimals, so it was most likely the earlier value still showing, not a new
+generation; it is not used. Crops: `evidence/a6-visibility-rect/embers_generated.png`,
+`smoke_generated.png`.
+
+| Emitter | Generated (x, y, w, h) | In the scene | Margin left / right / top / bottom |
+|---|---|---|---|
+| Embers | (-33.2, -40.5, 66.8, 81.5) | (-48, -80, 96, 120) | 14.8 / 14.4 / 39.5 / **-1.0** px |
+| Smoke | (-48.0, -57.4, 92.6, 109.4) | (-64, -100, 128, 150) | 16.0 / 19.4 / 42.6 / **-2.1** px |
+
+Both generated rects reach 1–2 px below the scene's rect; the other sides have room. Culling happens
+only when the whole rect is off screen, and a scarecrow stops at y = 530, so the bottom edge never
+leaves the 720 px screen. Rui chose to keep both rects as the brief gives them ("保持原样"). Limits: one
+unseeded draw each with the default time; recheck if Effect B tuning changes motion or size.

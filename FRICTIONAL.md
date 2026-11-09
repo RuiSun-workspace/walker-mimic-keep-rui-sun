@@ -731,3 +731,38 @@ edit, and Claude's diff showed exactly the two approved lines, nothing under `go
 interactive runs add `--permission-mode default`. The session transcript is copied into
 `sessions/a6/` when Step 4 ends; the first attempt to copy it was blocked by Claude's own permission
 classifier.
+
+## 2026-11-08 — Step 5, Effect B: build, first look, mutations, visibility rects
+
+`prompts/a6/prompt-5.txt` is prompt-2 with the two substitutions Step 5 names ("Effect B"; the
+preview starts the condition at frame 10 and ends it at the brief's frame). Claude added a short
+block, disclosed in `1a31d26`: the brief's process feature (turbulence) and `amount_ratio` in the
+config test, `smoke_dot.png` from the texture tool, a fixed seed on the preview instance only (the
+gap Step 2 left in Effect A's preview), and a burning-tinted preview scarecrow plus a re-ignite
+export, so the fixture matches the game and the brief's second strip.
+
+Session 5 used the same allow list as session 2, including the one extra entry for the texture tool
+script. `check-session.sh`: success, 39 of 60 turns, nothing under `godot/shaders/`, `run-test.sh`
+unchanged; 9 denials (compound commands, PowerShell runs of the texture tool, `bash
+scripts/run-test.sh`, a python edit, headless preview runs). It ran the tool and the test in allowed
+forms. Committed unedited as `df6937c`. Claude compared every scene value with the brief's §3 (all
+match), reran the config test (154/0) and ran the preview headless: ignite at frame 10, end at 130;
+with `--reignite`, again at 100 and end at 220. Two things the agent chose or got wrong: the draw
+order (Smoke first, so the additive embers sit on top; the brief does not say), and the capture path
+again (`../evidence/a6-strips/...`); Rui used `captures/burning_embers/r0/` with `$(pwd -W)`.
+
+**First look, in order.** Rui watched the preview windowed and wrote that the gradual weakening is not
+very noticeable; Claude committed it (`6a4375e`) before reading the strip (`afb5c4b`). Claude's
+reading agrees: the ember counts follow the brief (about 1, 5, 10, 6, 4, 3, 0), but most embers spawn
+over the burning-tinted body, where additive yellow clips as Effect A's flash did, and the smoke is
+very faint; the fading tint is the strongest cue. Held for Effect B's tuning round.
+
+**Mutations** (TEST-REPORT A6.4, `3ca359b`): the Godot 3 name and a turbulence drift both fail the
+config test (153/1); the first again loads silently and the effect still runs.
+
+**Visibility rects** (TEST-REPORT A6.5). The scene stores `amount_ratio = 0`, so Claude told Rui to
+set it to 1 before generating. No generation-time dialog appeared, so Claude's instruction to set
+2.0 s could not be followed and the default was used. Rui swapped the two screenshots at first and
+corrected it; Claude's first comparison was made with the wrong pairing ("12 px below, left edge
+touching") and was withdrawn once Rui corrected it. With the right pairing both rects reach 1–2 px
+below the scene's rects, which cannot cause culling here; Rui kept the brief's values ("保持原样").
