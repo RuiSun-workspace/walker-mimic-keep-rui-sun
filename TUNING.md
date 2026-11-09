@@ -128,3 +128,44 @@ Note (Claude): in the game Rui saw the embers "get sparser over time", while in 
 wrote that the gradual weakening was not very noticeable. Same settings; the preview shows one
 scarecrow standing still for one 4 s burn, the game shows several at once, re-ignited and moving.
 No setting changed.
+
+## 2026-11-08 — Effect B, revision r1
+
+What I saw (running game, 1280×720):
+我认为命中光效与燃烧特效有点重叠，可能需要修改一下
+(English, translated by Claude: I think the hit flash and the burning effect overlap a bit; it may
+need changing.)
+
+Claude's reading of r0 (agent session, summary): the ember counts follow the brief (10 matches; 20 a
+little sparse; 40 strong with three above the hat; 70, 100, 130 thinning; 170 clean); the smoke (B2)
+cannot be seen in any frame. The strip has no arrow, so it cannot show the overlap; the agent traced
+it to the settings: embers use the flash's texture, additive blend and nearly its first colour (1,
+0.95, 0.63 against 1, 1, 0.80), and are born across the whole body box that the flash spreads into,
+so on every fire hit a new flash merges with a full ember stream.
+
+Change: B1 Embers colour ramp (Gradient_embers): a new transparent first stop Color(1.0, 0.95, 0.63,
+0.0) at 0.0, the old first colour moved to 0.30 (0.27 s of the 0.90 s life, about the flash's 0.28 s);
+stops 0.45 and 1.0 unchanged. Approved by me before the edit.
+
+Claude's prediction for r1: frame 10 nothing visible; 20 only 1–2 fully bright, the rest faint; 40
+about a third fewer bright dots, the stream starting higher; 70/100 the same at lower density; 130
+almost identical; 170 identical. Risks it named: the first quarter second looks emptier, the stream
+may look thinner, and only the game can show whether the overlap is fixed.
+
+Claude's comparison of r1 with its prediction: frames 10, 130 and 170 match (10 is dimmer, not
+invisible; 170 byte-identical); 20–100 look almost the same as r0, so "a third fewer bright dots"
+did not happen. Its explanation: a linear fade is past half brightness by 0.135 s, so only embers
+under about 0.1 s old are faint (about 2 at a time), and additive light clips on the tinted body, so
+a half-faded ember looks nearly as bright as a full one — the same headroom effect as Effect A r1.
+Claude (main session) measured r0 vs r1: 20 / 235 / 159 / 104 / 85 / 39 / 0 pixels differ at frames
+10 / 20 / 40 / 70 / 100 / 130 / 170, and only 0–25 per frame by more than 20 levels.
+
+My verdict (running game, 1280×720): kept, because 闪光和余烬现在有了一点区分度了
+(English, translated by Claude: the flash and the embers are now somewhat distinguishable.)
+
+Claude and Rui agree on the size of the effect: the strip shows a small change and Rui sees "a
+little" (一点) more separation in the game. The fixture has no hit, so only the game can show the
+overlap Rui reported.
+
+Strips: captures/burning_embers/r0/, captures/burning_embers/r1/ (fixture captures)
+Commits: 1b0a429 (prompt), bcab840 (proposal), 46fc59a (scene + test), 53002d1 (r1 strip), becb508 (brief revision)
