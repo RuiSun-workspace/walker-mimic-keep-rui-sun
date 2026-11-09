@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+cost_effects: Godot 4.7.2-stable (official), display 'headless', adapter '', --fixed-fps physics ticks/s 60
+warmup 60 frames, 5 runs x 100 frames per case
+
+case   frame us: mean      sd   median     min      max | run means sd | TIME_PROCESS ms mean | TIME_PHYSICS ms mean | particles alloc (min-max), emitting nodes | bursts live | scarecrows alive
+empty               5.8     1.7      6.0       5       40 |          0.3 |               0.0000 |               0.0000 |     0-0    ,  0-0  | - | -
+off                56.9    14.1     53.0      33      170 |          2.5 |               0.0000 |               0.0000 |     0-0    ,  0-0  | - | 10/10
+A                  76.8    19.4     71.0      37      200 |          0.7 |               0.0000 |               0.0000 |    44-66   ,  2-6  | 2-3 | 10/10
+B                 105.6    17.2    102.0      57      259 |          1.1 |               0.0000 |               0.0000 |   260-260  , 20-20 | - | 10/10
+run means us empty  6.3, 5.8, 5.6, 5.6, 5.6
+run means us off    54.7, 58.7, 54.3, 56.4, 60.2
+run means us A      77.3, 76.3, 76.5, 76.2, 77.8
+run means us B      106.7, 104.3, 104.6, 106.3, 106.1
+
+compare empty -> off   frame mean diff    +51.1 us (noise 2 x run sd = 5.1 us): DIFFERENT
+compare off   -> A     frame mean diff    +19.9 us (noise 2 x run sd = 5.1 us): DIFFERENT
+compare off   -> B     frame mean diff    +48.7 us (noise 2 x run sd = 5.1 us): DIFFERENT
+compare A     -> B     frame mean diff    +28.8 us (noise 2 x run sd = 2.2 us): DIFFERENT
+compare empty -> off   TIME_PROCESS identical (0.0000 ms): this monitor does not separate the cases
+compare off   -> A     TIME_PROCESS identical (0.0000 ms): this monitor does not separate the cases
+compare off   -> B     TIME_PROCESS identical (0.0000 ms): this monitor does not separate the cases
