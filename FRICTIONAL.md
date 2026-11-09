@@ -796,3 +796,36 @@ and is recorded, not changed.
 **Rui's playtest** confirmed B1, B2, B3, B4 and the pause freeze (TEST-REPORT A6.6). In the game Rui
 saw the density fall, unlike their preview note; that difference is logged in TUNING.md for Effect B's
 tuning round.
+
+## 2026-11-08 — Steps 6–7, Effect B tuning, Use It: the deadline evening
+
+Rui said the submission was due that night and asked Claude to stop asking for anything the assignment
+does not require of them. From then on Claude asked only for what must be Rui's: one in-game
+observation, the approval, the capture, the verdict and its reason, the human checks, and Step 6.
+
+**Step 7** (`prompts/a6/prompt-7.txt`, verbatim; session 7, 26 turns, 1 denial): the chapter's
+Example 09 is not in the repository or the course folders, and the agent said so instead of claiming
+to adapt it. Its script separates the cases (empty 6 µs, off 57–64, A 77–89, B 106 per frame) and
+shows `TIME_PROCESS` reading 0.0000 throughout. It starts the effects with `ignite()` and `hit_taken`
+directly, which a cost script may do. Claude reran it (`evidence/a6-cost/`).
+
+**Effect B round 1.** Rui's in-game observation: the hit flash and the burning effect overlap. Claude
+ran the loop as `claude -p` invocations instead of an interactive session, which the assignment allows:
+a read-only proposal (`bcab840`), Rui's "批准", a `--resume` that made the edit, Rui's capture of r1,
+and a read-only `--resume` for the comparison. The agent traced the overlap to shared texture, blend
+and colour, and proposed a fade-in on the Embers ramp. Its comparison admitted the change was much
+smaller than predicted, for the same clipping reason found in Effect A r1; it could not run pixel
+measurements under the read-only list, so Claude measured them. Rui kept the change ("闪光和余烬现在有了
+一点区分度了"). Claude wrote the brief's dated revision (`becb508`).
+
+**Use It and Step 6, by Rui.** Rui ran the human checks in the editor and sent them in one message:
+GPU time 0.06–0.07 ms with and without effects on the RTX 3070 Laptop GPU; every hit burst present;
+sizes, backgrounds, screen edges and scene load fine; smoke the least visible part. Rule B6 came out
+against Rui's prediction: the hidden emitter paused rather than kept simulating, and Rui wrote that
+down as a difference. Rui generated `particles_generated.gdshader` (`34d1e1d`, committed alone) and
+gave nine line references; Claude printed each line and all nine were right. Claude wrote TEST-REPORT
+A6.7 around Rui's quoted words.
+
+A long shell heredoc for that section failed to parse and wrote nothing; Claude checked the file,
+then appended the same text from a file instead. Earlier, a commit (`d4c2f3f`) went in with Effect A's
+verdict reason still blank after an edit failed; `a78fddd` completed it.
