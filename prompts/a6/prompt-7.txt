@@ -1,0 +1,10 @@
+Read CLAUDE.md first. Adapt the chapter's cost script from Example 09
+into godot/tests/cost_effects.gd for the effects in CHANGE-BRIEF.md.
+At a fixed rate, it measures the CPU time of: an empty scene; the game
+scene with both effects off; Effect A at the most bursts the brief says
+can be alive at once; and Effect B in its heaviest state. Report each
+case's mean and spread. If two cases that should differ report the
+same value, say so: the script may be measuring itself. Do not change
+any effect or gameplay file. Run it with
+./scripts/run-test.sh cost_effects.gd 60 300 and show the real output.
+Do not commit.
