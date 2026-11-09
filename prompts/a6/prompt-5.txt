@@ -1,0 +1,39 @@
+Read CLAUDE.md first. Effect B's intent and settings are in
+CHANGE-BRIEF.md.
+
+Build Effect B as a scene file in godot/effects/, using Godot 4 class
+and property names for the version CLAUDE.md pins. If you are unsure a
+property exists in this version, say so instead of guessing. Configure
+it in the scene file, not in code. If the brief layers several
+emitters, put them under one root node.
+
+Then add:
+- a configuration test, godot/tests/test_<effect>_config.gd, that
+  loads the scene and reads back every setting the brief names from the
+  loaded resources, using the brief's values as the expected values;
+- a preview scene, godot/previews/<effect>_preview.tscn, that holds the
+  effect at in-game camera scale over the background the brief names,
+  starts the condition at frame 10, and ends it at the frame the brief
+  gives.
+
+Run the configuration test with ./scripts/run-test.sh at 60 and show
+the real output. Then give me the capture command for the preview, and
+stop. Do not wire the effect into gameplay, do not edit any .gdshader
+file, and do not commit.
+
+Additions for this effect:
+- The process feature the brief names for Effect B (turbulence on the
+  smoke, with its influence range) and the amount_ratio initial state
+  must be in the configuration test.
+- The brief says smoke_dot.png comes from
+  godot/tools/make_particle_textures.gd; extend that script and run it.
+- The preview is a fixture, like Effect A's
+  (godot/previews/impact_burst_preview.gd): turn use_fixed_seed on for
+  the preview's instance only, never in the effect scene. It counts
+  burn time down from 4.0 s from frame 10 and sets both emitters'
+  amount_ratio to clamp(burn_time_left / 4.0, 0, 1), and stops
+  emission when it reaches zero. Its scarecrow sprite uses
+  res://shaders/burning_tint.gdshader with burn_mix = 0.65 * the same
+  ratio, as the game's burning_tint.gd does (reference the shader; do
+  not edit it). An export, off by default, re-ignites (burn time back
+  to 4.0 s) at the frame the brief gives for the second strip.
