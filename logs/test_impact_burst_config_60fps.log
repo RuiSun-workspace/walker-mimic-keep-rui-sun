@@ -53,9 +53,9 @@ PASS A1 Flash turbulence_enabled = false (not used by A)
 PASS A1 Flash color_ramp is GradientTexture1D
 PASS A1 Flash color ramp has 3 stops
 PASS A1 Flash ramp stop 0 offset = 0.0
-PASS A1 Flash ramp stop 0 colour (1.0, 1.0, 0.8, 1.0)
+PASS A1 Flash ramp stop 0 colour (1.0, 1.0, 0.8, 0.6)
 PASS A1 Flash ramp stop 1 offset = 0.35
-PASS A1 Flash ramp stop 1 colour (1.0, 0.55, 0.08, 0.9)
+PASS A1 Flash ramp stop 1 colour (1.0, 0.55, 0.08, 0.55)
 PASS A1 Flash ramp stop 2 offset = 1.0
 PASS A1 Flash ramp stop 2 colour (1.0, 0.25, 0.02, 0.0)
 PASS A1 Flash scale_curve is CurveTexture

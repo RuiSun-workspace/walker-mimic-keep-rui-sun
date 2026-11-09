@@ -8,7 +8,7 @@ blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_flash"]
 offsets = PackedFloat32Array(0, 0.35, 1)
-colors = PackedColorArray(1, 1, 0.8, 1, 1, 0.55, 0.08, 0.9, 1, 0.25, 0.02, 0)
+colors = PackedColorArray(1, 1, 0.8, 0.6, 1, 0.55, 0.08, 0.55, 1, 0.25, 0.02, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_flash"]
 gradient = SubResource("Gradient_flash")

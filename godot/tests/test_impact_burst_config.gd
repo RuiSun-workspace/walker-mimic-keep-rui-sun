@@ -40,7 +40,7 @@ func _run() -> void:
 		"damping": [30.0, 50.0], "scale": [0.5, 1.1],
 		"angle": [0.0, 0.0],
 		"ramp_offsets": [0.0, 0.35, 1.0],
-		"ramp_colors": [Color(1.0, 1.0, 0.80, 1.0), Color(1.0, 0.55, 0.08, 0.90), Color(1.0, 0.25, 0.02, 0.0)],
+		"ramp_colors": [Color(1.0, 1.0, 0.80, 0.60), Color(1.0, 0.55, 0.08, 0.55), Color(1.0, 0.25, 0.02, 0.0)],
 		"curve_points": [Vector2(0, 0.35), Vector2(0.33, 1.20), Vector2(1, 0)],
 		"curve_max": 1.5,
 		"texture": "res://effects/textures/soft_dot.png", "tex_size": Vector2i(16, 16),
