@@ -1,0 +1,18 @@
+A7 baseline, 2026-11-19, source 1f3fad7 (= tag a6 + A7 run-test.sh), Godot 4.7.2.stable.official.ed1daf0bf, headless, Windows 11
+Every suite through scripts/run-test.sh in its pinned mode. No log contains SHADER ERROR, SCRIPT ERROR or Failed loading resource.
+All 14 logs/ files are byte-identical to the committed A6 ones (git status clean).
+
+test_rules.gd @60 exit=0 pass=23 fail=0 errlines=0
+test_input.gd @60 exit=0 pass=14 fail=0 errlines=0
+test_materials.gd @60 exit=0 pass=132 fail=0 errlines=0
+normal_map_check.gd @60 exit=0 pass=9 fail=0 errlines=0
+test_impact_burst_config.gd @60 exit=0 pass=128 fail=0 errlines=0
+test_burning_embers_config.gd @60 exit=0 pass=156 fail=0 errlines=0
+test_impact_burst_state.gd @60 exit=0 pass=29 fail=0 errlines=0
+test_burning_embers_state.gd @60 exit=0 pass=54 fail=0 errlines=0
+test_burning_tint.gd @30 exit=0 pass=49 fail=0 errlines=0
+test_burning_tint.gd @60 exit=0 pass=49 fail=0 errlines=0
+test_burning_tint.gd @144 exit=0 pass=49 fail=0 errlines=0
+test_wall_targeting.gd @30 exit=0 pass=10 fail=0 errlines=0
+test_wall_targeting.gd @60 exit=0 pass=10 fail=0 errlines=0
+test_wall_targeting.gd @144 exit=0 pass=10 fail=0 errlines=0
