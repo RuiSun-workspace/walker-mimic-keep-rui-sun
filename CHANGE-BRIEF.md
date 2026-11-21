@@ -367,4 +367,28 @@ moved to "Known before prompt-1" in §6, because a probe or a calculation had al
 
 ## Revisions
 
-(none yet)
+### Revision 1 — 2026-11-21 (from the Step 1 CLAUDE.md review; Rui approved "全部同意")
+
+The agent's CLAUDE.md draft (`266593f`) listed these as unconfirmed because the original brief did
+not settle them. The original text above is unchanged; these rules are added.
+
+1. **Restart reaches the archer through `main.gd`.** The only restart path is `Game.reset()`
+   (`godot/game/main.gd:36-48`), and the archer cannot otherwise tell that a restart happened.
+   `reset()` gains one line that calls a new `Archer.cancel_shot()`. That method clears `shot_armed`
+   and the locked target and calls `playback.start("idle")`; it does not write `release_window`
+   (§5.4). A direct call works even while the archer is disabled, as `test_input.gd:111-118` has it
+   during its restart. This one line is the only change to `main.gd`; §9 is amended to allow it.
+2. **A disabled archer is treated like pause.** Tests set the archer's `process_mode` to
+   `PROCESS_MODE_DISABLED` (`test_rules.gd:62`, `test_input.gd:111`). Its AnimationTree inherits
+   that, so the shot freezes on its current frame and resumes from it when the archer is
+   re-enabled, as in the pause row of §5.5.
+3. **The rig is keyed on rotation, position and scale.** The string stretches, which needs `scale`.
+   §1's "Keyed on rotation and position" becomes "rotation, position and scale".
+4. **Node names.** These names are fixed so the agent does not invent its own:
+   - Scarecrow: `Scarecrow/AnimationPlayer` holds `walk` and `hold`. The presentation node is
+     `Scarecrow/WalkPresenter`, with the script `godot/game/scarecrow_walk_presenter.gd`.
+   - Archer: the single `Sprite` is removed. In its place go the rig parts `Archer/Rig/Body`,
+     `Archer/Rig/BowPivot/Bow` and `Archer/Rig/BowPivot/String`, plus `Archer/AnimationPlayer`
+     and `Archer/AnimationTree`. `BowPivot` sits at the grip.
+   - The part images are new files written by `godot/tools/make_sprites.gd`. The existing
+     `archer.png` is neither changed nor deleted.
