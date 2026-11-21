@@ -877,7 +877,7 @@ before any setup prompt as `0734c5c`.
   y offsets only as designed.
 - The new sheet became a new file, because A6 previews load `scarecrow.png`.
 - A `hold` clip replaced a script writing `frame`, which would have been a second writer.
-- The startup-only cancel rule was widened to every phase.
+- Interrupt rules were written for every phase, not only for target loss in startup.
 
 **Probes that changed the design** (`prompts/a7/probes/`, Godot 4.7.2):
 1. Only one transition per from → to pair is allowed. Rui's plan of a second shoot → idle transition for
