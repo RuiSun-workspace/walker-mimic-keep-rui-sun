@@ -1,0 +1,70 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract for this change.
+This step pins what the game does NOW, before any clip exists. Do not
+change any game file, scene, sheet or existing test.
+
+Inspect first: godot/game/archer.gd, godot/game/main.gd,
+godot/game/scarecrow.gd, godot/game/arrow.gd, godot/game/hud.gd,
+godot/game/tuning.gd, and how godot/tests/test_input.gd and
+godot/tests/test_impact_burst_state.gd drive the game. Tell me, with line
+references, what decides when the archer fires, which target it takes,
+when the cooldown resets, and what freezes on pause, on game end and on
+restart.
+
+Then write ONE new file, godot/tests/test_pins_a7.gd: a headless
+SceneTree script that pins the CURRENT behaviour the brief's change must
+not break, and the gameplay fact the shot will later be read against.
+Rules:
+- Instantiate res://game/main.tscn with spawning_enabled = false and
+  place scarecrows with Game.spawn_scarecrow(), as the existing state
+  tests do. Drive the player only with keyboard events sent through
+  Input.parse_input_event (A/D move, P pause, R and Enter restart).
+  Input.action_press never reaches _input or _unhandled_input, so do not
+  use it. Never call _fire_at(), nearest_target(), hit(), reset() or any
+  archer method, and never assign to archer or scarecrow variables.
+- The project runs 60 physics ticks per second and the test runs with
+  --fixed-fps 60, so one frame is one physics tick is 1/60 s. Step one
+  frame at a time with `await physics_frame`, and count frames from the
+  start of each scenario.
+- Every frame, print ONE log line beginning with the engine's process
+  frame number (Engine.get_process_frames()), so that a Movie Maker
+  replay's frame N can be matched to its log line. Record: game.state,
+  get_tree().paused, archer position.x and fire_cooldown, the number of
+  live arrows, every `fired` emission this frame (and its target), and
+  for each scarecrow its position.y, at_wall, hp and is_burning().
+
+Scenarios:
+(a) one scarecrow placed inside the cone with the cooldown at 0: the
+    first shots, until it dies;
+(b) two scarecrows in the cone: which one is targeted, and the cadence;
+(c) a target that leaves the cone because the archer moves away with D
+    held, and comes back with A held;
+(d) P pressed mid-cooldown and pressed again some frames later;
+(e) a scarecrow that walks down to the wall from above the cone, and
+    stops there;
+(f) a loss with the archer still firing, then R, then Enter, then the
+    first shot of the new run.
+
+Print PASS/FAIL lines in two labelled groups.
+TIMING (numbers the brief changes on purpose; measured now, re-pinned in
+Step 6): the frame of each `fired` relative to the frame its target
+entered the cone or the cooldown reached 0; the frames between
+consecutive shots; how far each shot is shifted by the pause in (d); the
+frame the scarecrow in (e) reaches the wall; the frame of the first shot
+after the restart in (f).
+INVARIANT (must survive the change): no shot without a target in the
+cone; never two shots closer than FIRE_INTERVAL; exactly one arrow per
+`fired`; no shot and no cooldown change while paused or after the game
+has ended; the nearest target in the cone is the one taken; the run
+states go PLAYING -> LOST -> PLAYING only through the restart key; a
+scarecrow at the wall stops moving; the archer moves while the cooldown
+runs.
+
+Measure first (a temporary print-only run is fine; tell me about any
+file you create), then write the measured numbers into the test as named
+constants with the comment "measured on baseline 2026-11-21". If a
+measurement contradicts what the code or the brief suggests, keep the
+measured value and list it under a heading ANOMALIES in your final
+message; do not fix it. End the test with a RESULT line and quit(1) on
+any failure. Run it from the repository root with:
+./scripts/run-test.sh test_pins_a7.gd 60
+and paste the real output, with the pass and fail counts. Do not commit.
