@@ -3,66 +3,51 @@
 ## Project context
 
 - **Engine:** Godot 4.7.2 stable, `4.7.2.stable.official.ed1daf0bf` (README.md:18); `config/features`
-  lists `"4.7"`, `"Forward Plus"` (godot/project.godot:16). **Renderer:** Forward+, the default, so
-  `rendering_method` is absent (README.md:19-20); no HDR 2D key (godot/project.godot:51-53); 1280×720,
-  stretch `canvas_items` (:20-22); main scene `res://game/main.tscn` (:15).
+  `"4.7"`, `"Forward Plus"` (godot/project.godot:16). **Renderer:** Forward+, the default, so
+  `rendering_method` is absent (README.md:19-20). 1280×720 (godot/project.godot:20-22); main scene
+  `res://game/main.tscn` (:15); physics 60/s, no `physics_ticks_per_second` key (whole file).
 
-### Effect A — Arrow Impact Burst: two GPUParticles2D, flash A1 + straw A2 (CHANGE-BRIEF.md §3)
-- Event owner: `Scarecrow.hit(damage, element)` (godot/game/scarecrow.gd:33-39), called only from
-  godot/game/arrow.gd:22 when an arrow is within `ARROW_HIT_RADIUS` 26 px (godot/game/tuning.gd:15).
-- `signal hit_taken(position: Vector2)` **does not exist yet**; the brief allows adding it and emitting
-  `global_position` between scarecrow.gd:38 (`ignite()`) and :39 (`_check_death()`) (CHANGE-BRIEF.md §5).
-- A lethal hit: `_check_death()` removes the group, emits `died`, `queue_free()`s (scarecrow.gd:70-74).
-  Fire interval 0.6 s (tuning.gd:10). Appears in: one new burst scene per hit under a new Node2D
-  `World/Effects` after `World/Archer` (CHANGE-BRIEF.md §5). Today `World` holds `Enemies`, `Arrows`,
-  `Archer` (godot/game/main.tscn:19-26); `reset()` frees only Enemies and Arrows children (main.gd:36-40).
+### Clip 1 — scarecrow walk (cycle): Sprite2D + AnimationPlayer frame track (CHANGE-BRIEF.md §1-3)
+- Node: `Scarecrow/Sprite`, a Sprite2D whose texture today is the single-cell `scarecrow.png`, with a
+  local-to-scene ShaderMaterial and the `burning_tint.gd` script (godot/game/scarecrow.tscn:11-21).
+- New sheet `godot/assets/sprites/scarecrow_walk.png`, 4×1 cells of 64×80, from
+  `godot/tools/make_sprites.gd` (brief §2; today's 56×72 scarecrow is make_sprites.gd:42-43).
+- Clips `walk` (4 keys, step 0.125, 0.5 s, LOOP_LINEAR, discrete) and `hold` (frame 0); chosen by a
+  new presentation child of `Scarecrow` from `at_wall` (godot/game/scarecrow.gd:18, set at :23, :69).
+- Scene: `godot/game/scarecrow.tscn`, instanced into `World/Enemies` by `Game.spawn_scarecrow()`
+  (godot/game/main.gd:51-57). A dead scarecrow is `queue_free()`d at once (scarecrow.gd:72-76).
 
-### Effect B — Burning Embers: two GPUParticles2D, embers B1 + smoke B2 (CHANGE-BRIEF.md §3)
-- Condition owner: `Scarecrow` (godot/game/scarecrow.gd:1): signals `burning_started`, `burning_ended`,
-  `died` (lines 8-10); `burn_time_left` (16); `is_burning()` is `burn_time_left > 0.0` (25-26). `ignite()`
-  emits `burning_started` only when not already burning, so a refresh emits nothing (42-46). The
-  countdown in `_physics_process` ends at ≤ `BURN_END_EPSILON` (13) with `burning_ended` (49-59); death
-  while burning emits `died`, never `burning_ended` (60, 70-74). `BURN_DURATION := 4.0`,
-  `BURN_DPS := 4.0` (godot/game/tuning.gd:26-27).
-- Appears in: every scarecrow. `godot/game/scarecrow.tscn` = root `Scarecrow` (Node2D) + child `Sprite`
-  (Sprite2D, local-to-scene ShaderMaterial on Rui's `burning_tint.gdshader`, driver `burning_tint.gd`)
-  (scarecrow.tscn:8-18); instanced by `Game.spawn_scarecrow()` into `World/Enemies` (main.gd:10, 51-57).
-  Game end sets `World.process_mode = PROCESS_MODE_DISABLED` (main.gd:95); `reset()` restores it (:47).
-- Not present yet: `godot/effects/`, its `textures/*.png` and `godot/tools/make_particle_textures.gd` (brief §3).
+### Clip 2 — archer shot (committing): 2D cutout rig keyed as resource text (CHANGE-BRIEF.md §1, §4, §6)
+- Node today: root `Archer` (Node2D, `archer.gd`) + one `Sprite` Sprite2D with `archer.png`
+  (godot/game/archer.tscn:6-10). The rig (body, bow pivoting at the grip, string), an
+  `AnimationPlayer` and an `AnimationTree` (AnimationNodeStateMachine: `idle`, `shoot`) are added
+  under `Archer` (brief §1, §6). Scene `archer.tscn`, instanced as `World/Archer` (main.tscn:25-26).
+- **Owner of the player's state machine:** `godot/game/archer.gd`. Today it has no states: it moves
+  and fires in one `_physics_process` (archer.gd:14-24) and fires when `fire_cooldown` hits 0
+  (:18-24). The brief makes it push the tree with `travel("shoot")` / `playback.start("idle")`,
+  own `shot_armed` and the locked target, and read `release_window` (brief §5-6).
+- Run state (PLAYING/WON/LOST) is `main.gd` (godot/game/main.gd:8): game end disables `World`
+  (:94-96), restart only after the end (:81-83), `reset()` (:36-48). Pause toggles
+  `get_tree().paused` in `godot/game/hud.gd:17-21`.
 
 ### Tests — always through scripts/run-test.sh, from the repository root
 `scripts/run-test.sh <test-file.gd> <fps|realtime> [timeout-seconds]` (scripts/run-test.sh:2) runs
-`godot --headless [--fixed-fps <fps>] --path godot --script res://tests/<file>` under `timeout` (default
-120 s), tees to `logs/<name>_<fps>fps.log`, and exits 1 on a non-zero exit or a `SHADER ERROR` /
-`SCRIPT ERROR` log line (lines 3-14). **Realtime mode:** `realtime` drops `--fixed-fps` and logs to
-`logs/<name>_realtime.log` (lines 5-6, 10); it is still headless (line 11).
+`godot --headless [--fixed-fps <fps>] --path godot --script res://tests/<file>` under `timeout`
+(default 120 s) (:11), tees to `logs/<name>_<fps>fps.log` (:10), and exits 1 on a non-zero exit or a
+`SHADER ERROR` / `SCRIPT ERROR` / `Failed loading resource` line (:12-14). **Realtime mode:**
+`realtime` drops `--fixed-fps` and logs to `logs/<name>_realtime.log` (:5-6, :10); still headless (:11).
 
 ```bash
-godot --headless --path godot --import          # after a fresh clone or a deleted godot/.godot (README.md:57)
-bash scripts/run-test.sh test_rules.gd 60        # also test_input, test_materials, normal_map_check at 60
-bash scripts/run-test.sh test_burning_tint.gd 30 # and 60, 144; test_wall_targeting.gd the same
-bash scripts/run-test.sh <test>.gd realtime 180  # realtime mode, 180 s timeout
+godot --headless --path godot --import                    # fresh clone / emptied godot/.godot (README.md:60)
+bash scripts/run-test.sh test_rules.gd 60                  # also test_input, test_materials, normal_map_check
+bash scripts/run-test.sh test_burning_tint.gd 30           # and 60, 144; test_wall_targeting.gd the same
+bash scripts/run-test.sh test_impact_burst_config.gd 60    # also _state, embers _config/_state (README.md:61-71)
+bash scripts/run-test.sh <new_test>.gd realtime 180        # realtime mode, 180 s timeout
 ```
-- A6 baseline (commit 056bcc0, evidence/a6-baseline/): test_rules 23/0, test_input 14/0, test_materials
-  132/0, normal_map_check 9/0 at 60; test_burning_tint 49/0, test_wall_targeting 10/0 at 30/60/144. One
-  PASS/FAIL line per check, exit 1 on failure (godot/tests/test_rules.gd:2-4, 34-35); real keys via
-  `Input.parse_input_event` (godot/tests/test_input.gd:2, 51).
-- State tests drive real arrows and keys, never `hit()`, `ignite()` or an effect trigger directly; a
-  feedback test may set `burn_time_left` (CHANGE-BRIEF.md §6).
-- New effect tests: configuration at 60 (prompts/a6/prompt-2.txt:19); state at 60, or realtime if it
-  waits on audio (prompts/a6/prompt-3.txt:24-26).
-
-### Headless facts (probed on this machine, Godot 4.7.2)
-- A headless run uses a dummy renderer: it draws no particles and runs no GPU particle
-  process. Node state (emitting, one_shot, amount_ratio, visibility, instance counts) is
-  observable; the look is not. Probe (evidence/a6-probes/headless_particles_probe.txt): empty adapter
-  name, display `headless`, empty `capture_rect()`; a 0.3 s one-shot fires `finished` at 0.3 s.
-- Frame strips come from a windowed Movie Maker run, which I start.
-- `Performance.TIME_PROCESS` read 0.0000 ms with and without 50 × 200 GPU particles: it prices nothing.
-- Physics runs at 60 ticks/s whatever `--fixed-fps` says (CHANGE-BRIEF.md at tag a5, revision A).
-- GPUParticles2D has `amount_ratio`, `use_fixed_seed`, `seed`, `finished`; CPUParticles2D has no
-  `amount_ratio` and no turbulence; `Curve.max_value` defaults to 1.0 (1.2 is stored as 1.0); `direction`
-  defaults to (1, 0, 0), `particle_flag_disable_z` to false (FRICTIONAL.md:554-561; probe file).
+- Tests that depend on the shot's timing: they count `Archer.fired` (test_burning_tint.gd:114,
+  test_impact_burst_state.gd:142, test_burning_embers_state.gd:184), set `fire_cooldown`
+  (test_wall_targeting.gd:52), or disable the archer (test_rules.gd:62, test_input.gd:111-118).
+  Re-pin only what brief §5.6 allows. Headless shows node state, not the look; strips are Rui's runs.
 
 ## Current change
 
@@ -70,50 +55,65 @@ bash scripts/run-test.sh <test>.gd realtime 180  # realtime mode, 180 s timeout
 
 ## Ownership
 
-Files in `godot/shaders/` are hand-written by the human (Rui) and are never edited by an agent —
-not created, modified, renamed, reformatted or deleted. If a shader looks wrong, report it and stop.
-`scripts/check-session.sh` verifies after each session that `godot/shaders/` and
-`scripts/run-test.sh` are unchanged (scripts/check-session.sh:29-33).
+- Files in `godot/shaders/` are hand-written by Rui and never edited by an agent — not created,
+  modified, renamed, reformatted or deleted. If a shader looks wrong, report it and stop.
+  `scripts/check-session.sh` checks `godot/shaders/` and `scripts/run-test.sh` are unchanged (:29-33).
+- Clips (`walk`, `hold`, `idle`, `shoot`), their AnimationLibrary and the state machine live as
+  resources: `.tres` in `godot/animations/` or sub-resources of the owning scene (`scarecrow.tscn`,
+  `archer.tscn`). Never built in code at runtime (no `Animation.new()`, `add_track()`,
+  `track_insert_key()`, `add_transition()` in game or preview scripts); tests only read them back.
 
-Effect settings (every value in CHANGE-BRIEF.md §3) live in scene files in `godot/effects/`, with
-their ParticleProcessMaterial and CanvasItemMaterial as sub-resources, not in code. Driver scripts
-only instance burst scenes, toggle `emitting`, set `amount_ratio`, reparent and free.
+## One authority
+
+Exactly one node writes each animated property. Never add a second writer to one that has one.
+- `Scarecrow/Sprite.frame`: the scarecrow's own AnimationPlayer (`walk`, `hold`). The new presentation
+  child only calls `play()`; `burning_tint.gd` writes only the material's `burn_mix` (burning_tint.gd:13).
+- `Scarecrow.position`: `scarecrow.gd` (:68). No clip keys it; the hop is drawn in the sheet's pixels.
+- Archer rig parts (rotation / position of body, bow, string): the archer's AnimationTree, through
+  the clips its AnimationPlayer holds. Nothing calls `play()` on that player; `autoplay` stays empty.
+- `Archer.release_window`: the AnimationTree (keyed in `shoot` and `idle`). `archer.gd` only reads it.
+- `Archer.position`: `archer.gd` (:16) and `main.gd` `reset()` (:45), as today. No clip keys the root.
+- The state machine's current state: only `archer.gd` (`travel`, `start`); a preview script only in its preview.
 
 ## Godot 4 names
 
-Use Godot 4.7.2 names, never Godot 3 ones: `Particles2D` → **GPUParticles2D**, `ParticlesMaterial` →
-**ParticleProcessMaterial**, `GradientTexture` → **GradientTexture1D**, `flag_disable_z` →
-**`particle_flag_disable_z`**, a single `initial_velocity` / `scale` / `damping` / `angle` → **`_min`/`_max`**.
-In 4.7.2 `initial_velocity` and `scale` still exist as editor-only Vector2 ranges that are not stored;
-a float assigned to them is silently ignored (FRICTIONAL.md:556-558).
-- Node: `amount`, `amount_ratio`, `emitting`, `one_shot`, `explosiveness`, `lifetime`, `preprocess`,
-  `local_coords`, `visibility_rect`, `texture`, `process_material`, `material`; signal `finished`.
-- ParticleProcessMaterial: `emission_shape` (`EMISSION_SHAPE_SPHERE`/`_BOX`), `emission_sphere_radius`,
-  `emission_box_extents`, `direction`, `spread`, `gravity` (Vector3), `initial_velocity_min/max`,
-  `damping_min/max`, `scale_min/max`, `angle_min/max`, `color_ramp`, `scale_curve` (CurveTexture),
-  `turbulence_enabled`, `turbulence_influence_min/max`, `particle_flag_disable_z`.
-- Blend: `CanvasItemMaterial.blend_mode` = `BLEND_MODE_ADD` / `BLEND_MODE_MIX`.
-- The rest is the 4.x API, unverified on 4.7.2. `get_property_list()` is no proof (it lists `initial_velocity`):
-  check for `PROPERTY_USAGE_STORAGE`, or set the value and read it back. If unsure, report it, don't guess.
+Godot 4.7.2 only; never Godot 3 names. No boolean `loop` → `Animation.loop_mode` = `LOOP_NONE` /
+`LOOP_LINEAR` / `LOOP_PINGPONG`. No `playback_speed` → `speed_scale`. No `AnimatedSprite` (and none of
+`AnimatedSprite2D` here, brief §7). No `playback_process_mode` → `callback_mode_process` =
+`ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS` / `_IDLE` / `_MANUAL` (on AnimationMixer, shared by
+AnimationPlayer and AnimationTree). Animations live in an `AnimationLibrary` on the player.
+- Animation: `length`, `step`, `loop_mode`, `track_set_path`, `value_track_set_update_mode` with
+  `UPDATE_CONTINUOUS` / `UPDATE_DISCRETE` / `UPDATE_CAPTURE`, `track_get_key_time`, `track_get_key_value`.
+- Sprite2D: `hframes`, `vframes`, `frame`. AnimationTree: `anim_player`, `tree_root`, `active`,
+  `advance_expression_base_node`; playback via `get("parameters/playback")` →
+  AnimationNodeStateMachinePlayback `travel()`, `start()`, `get_current_node()`.
+- AnimationNodeStateMachineTransition: `advance_mode` (`ADVANCE_MODE_DISABLED` / `_ENABLED` / `_AUTO`),
+  `switch_mode` (`SWITCH_MODE_IMMEDIATE` / `_SYNC` / `_AT_END`), `xfade_time`. States hold
+  `AnimationNodeAnimation` (`animation`). One transition per from → to pair (brief §6, probed).
+- Not verified on 4.7.2 by me: `get_current_play_position()`, AnimationTree `deterministic`,
+  AnimationNodeAnimation `use_custom_timeline`, and the exact `.tscn` text keys for an
+  AnimationLibrary sub-resource. Check by setting and reading back, or report; don't guess.
 
 ## Out of scope
 
-- Game rules: HP, damage, burn length or DPS, the burn timer, movement, targeting, fire rate, arrow
-  flight and hit detection, gate damage, spawning, win/loss, pause, restart, the input map. Effect
-  code reads `burn_time_left`, `is_burning()` and signals; it never writes game state.
-- In `scarecrow.gd`, anything beyond one `hit_taken` signal and its one emit, or reordering damage,
-  `ignite()` and `_check_death()`. In `main.tscn`, anything beyond the one `World/Effects` node.
-- Editing `tuning.gd`, `main.gd`, `archer.gd`, `arrow.gd`, `project.godot`, any existing test or
-  `scripts/run-test.sh`; loosening an existing test expectation.
-- Changing `amount` at runtime instead of `amount_ratio`; reusing one one-shot burst node; parenting a
-  burst to the scarecrow; CPUParticles2D for either effect.
-- The Assignment 5 work (burning tint, shield room, hint experiment), every existing sprite and texture,
-  particles on anything but scarecrows and their hits, and GDD systems not built yet (README.md:133-134).
+- Any game rule except brief §5 (release on the active frame, draw from `fire_cooldown` ≤ 0.3 s,
+  `shot_armed` guard, cancel/restart behaviour). Not HP, damage, burn, speed, cone, `FIRE_INTERVAL`,
+  arrow flight and hit radius, gate damage, spawning, win/loss, pause, the input map, collision.
+- Editing `scarecrow.gd`, `scarecrow.png`, `tuning.gd`, `arrow.gd`, `hud.gd`, `project.godot`,
+  `scripts/run-test.sh`, anything in `godot/shaders/`, the A6 effects and their scenes/drivers, or
+  any other object. Changing the walk sheet after it is committed.
+- Loosening a test expectation, or re-pinning one beyond what §5 forces, or outside its own step.
+- Writing `frame`, rig transforms or `release_window` from a script; method tracks for gameplay;
+  an AnimatedSprite2D / SpriteFrames route; an imported 3D rig; GDD systems (README.md:187-194).
 
 ## Unconfirmed
 
-- No `AGENTS.md` exists, so this file has no `@AGENTS.md` line.
-- Whether live particles survive reparenting on death (Rule B4) and whether a hidden emitter keeps
-  simulating (Rule B6): still predictions (FRICTIONAL.md:585-587).
-- Names of the burst scene, the B emitter scene and their driver scripts are not in the brief.
-- Whether a GPU effect's headless CPU price is near zero: to be measured by the Step 7 cost script.
+- No `AGENTS.md` exists, so there is no `@AGENTS.md` line. `godot/animations/` does not exist yet.
+- How `archer.gd` learns of a restart to clear `shot_armed` and call `start("idle")`: the only
+  restart path is `main.gd` `reset()` (:36-48), and the brief does not say main.gd may change.
+- Node names for the scarecrow's AnimationPlayer and presentation child, the rig parts, and whether
+  the archer's `Sprite` / `archer.png` is replaced or kept: not in the brief.
+- Whether disabling the archer (test_rules.gd:62, test_input.gd:111) leaves its AnimationTree
+  in the state the brief expects when it is re-enabled; the brief does not cover this case.
+- Brief §11 strip frames are still "Fill after Step 2 pin". The tick-order facts (18 ticks,
+  parent before child) come from `prompts/a7/probes/`; I did not re-run them.
