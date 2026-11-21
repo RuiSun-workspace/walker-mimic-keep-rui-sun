@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+  [A] tick 9 start: node=Start pos=0.0000 rw=false
+  [A] tick 10 start: node=Start pos=0.0000 rw=false
+  [A] tick 11 start: node=shoot pos=0.0000 rw=false
+  [A] tick 12 start: node=shoot pos=0.0000 rw=false
+  [A] tick 13 start: node=shoot pos=0.0167 rw=false
+  [A] tick 26 start: node=shoot pos=0.2333 rw=false
+  [A] tick 27 start: node=shoot pos=0.2500 rw=false
+  [A] release_window -> true written during tick 27 (after reader ran: true)
+  [B] release_window -> true written during tick 27 (after reader ran: true)
+  [A] tick 28 start: node=shoot pos=0.2667 rw=true
+  [A] tick 29 start: node=shoot pos=0.2833 rw=true
+  [A] release_window -> false written during tick 29 (after reader ran: true)
+  [B] release_window -> false written during tick 29 (after reader ran: true)
+  [A] tick 40 start: node=shoot pos=0.4667 rw=false
+  [A] tick 41 start: node=shoot pos=0.4833 rw=false
+  [A] tick 42 start: node=idle pos=0.0000 rw=false
+  [A] tick 43 start: node=idle pos=0.0000 rw=false
+  [A] tick 44 start: node=idle pos=0.0167 rw=false
+  [A] tick 45 start: node=idle pos=0.0333 rw=false
+  [A] tick 46 start: node=idle pos=0.0500 rw=false
+  [A] tick 69 start: node=idle pos=0.1000 rw=false
+  [A] tick 70 start: node=idle pos=0.1000 rw=false
+  [A] tick 71 start: node=shoot pos=0.0000 rw=false
+  [A] tick 72 start: node=shoot pos=0.0000 rw=false
+  [A] tick 73 start: node=shoot pos=0.0167 rw=false
+  [A] tick 74 start: node=shoot pos=0.0333 rw=false
+  [A] tick 75 start: node=shoot pos=0.0500 rw=false
+  [A] tick 76 start: node=idle pos=0.0000 rw=false
+  [A] tick 77 start: node=idle pos=0.0167 rw=false
+  [A] tick 78 start: node=idle pos=0.0333 rw=false
+default order: travel at tick 10, first true read at tick 28 (delta 18 ticks; key 8/30 s = 16 ticks)
+tree priority -10: travel at tick 10, first true read at tick 28 (delta 18 ticks)
