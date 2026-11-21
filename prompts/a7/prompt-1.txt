@@ -1,0 +1,34 @@
+You are working in my game repository (Godot 4, GDScript, project in
+godot/). Do not change any file except CLAUDE.md at the repository
+root.
+
+Read CLAUDE.md, AGENTS.md if it exists, README.md, CHANGE-BRIEF.md,
+godot/project.godot, scripts/run-test.sh, the scripts that own the
+player's state machine, the scenes and nodes the two clips will play
+on, and the test scripts in godot/tests/.
+
+Revise CLAUDE.md, keeping it under 120 lines, in this order:
+1. If AGENTS.md exists, the first line stays exactly: @AGENTS.md
+2. "Project context": update it for this change. Give the exact Godot
+   version, the renderer, the route and node for each clip named in
+   the brief, the script that owns the player's state machine, the
+   scenes the clips appear in, and the exact test commands, all
+   through scripts/run-test.sh, including its realtime mode. Give a
+   file reference for every fact. Do not guess.
+3. "Current change": unchanged. A heading followed by exactly this
+   line: @CHANGE-BRIEF.md
+4. "Ownership": keep the existing rule for godot/shaders/. Add: clips
+   live as resources in godot/animations/ or in the scene that owns
+   them, and are never built in code at runtime.
+5. "One authority": exactly one node writes to each animated node. Say
+   which, for each. Never add a second writer to a node that already
+   has one.
+6. "Godot 4 names": use Godot 4 class and property names for the
+   pinned version, never Godot 3 names such as a boolean loop,
+   playback_speed, or AnimatedSprite. If you are unsure a property
+   exists in this version, say so instead of guessing.
+7. "Out of scope": what this change must not touch, in your own words,
+   consistent with the brief.
+8. "Unconfirmed": anything you could not confirm from the files.
+
+Do not set up a clip and do not edit any script. Stop after CLAUDE.md.
