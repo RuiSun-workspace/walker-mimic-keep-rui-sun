@@ -846,3 +846,79 @@ the final export ("没有什么问题") and uploaded it. What went wrong on the 
   log before anyone watched.
 - The toolkit's Gate F blocked the first compile until FACTCHECK, SHOTLIST and PROMPTS were written.
 Records: `youtube/claude-liam-walker-mimic-keep-a6-gamedev/` (BUILD-PROMPT.md lists every deviation).
+
+# Assignment 7 — Doing animation
+
+## 2026-11-19 — Before the brief: the new wrapper and the baseline
+
+The A7 `scripts/run-test.sh` replaced A6's verbatim and was committed alone (`1f3fad7`); it adds
+`Failed loading resource` to the lines that fail a run. The 14 earlier suite runs went through it unchanged
+(`292fe05`, `evidence/a7-baseline/`): the same pass counts as at the A6 tag, no error lines. Rui chose the two
+clips (scarecrow walk as the cycle, archer shot as the committing action), a code-generated sheet, the arrow
+waiting for the active frame, and an AnimationTree state machine. Claude had recommended a script state
+machine for easier frame-exact edge tests; Rui chose the AnimationTree because A8 builds on it.
+
+## 2026-11-19 — CHANGE-BRIEF: Rui's answers, Claude's translation, three probes
+
+**How it was written.** Rui asked Claude to write the brief. Claude declined, because the assignment has the
+student write the brief, the phase table, the cycle spec, the predictions and the answers, and lets AI only
+organize notes. Instead Claude wrote:
+- an English structure with verified file references (`prompts/a7/brief-skeleton.md`);
+- a Chinese questionnaire with choices and recommendations (`prompts/a7/brief-questions-zh.md`);
+- for the starred items (Rui's own words), concept notes without answers (`prompts/a7/brief-star-hints-zh.md`).
+
+Rui answered in Chinese. Claude reviewed twice, Rui accepted the changes listed at the end of the
+questionnaire, and Claude translated the answers into the English brief. Rui then wrote the last seven items
+directly in English from suggestions Claude gave in chat (archived at the end of the hints file). Committed
+before any setup prompt as `0734c5c`.
+
+**What the reviews changed.**
+- 56×72 cells could not hold the hop and lean. Rui made them 64×80, with the pole foot's x fixed and
+  y offsets only as designed.
+- The new sheet became a new file, because A6 previews load `scarecrow.png`.
+- A `hold` clip replaced a script writing `frame`, which would have been a second writer.
+- The startup-only cancel rule was widened to every phase.
+
+**Probes that changed the design** (`prompts/a7/probes/`, Godot 4.7.2):
+1. Only one transition per from → to pair is allowed. Rui's plan of a second shoot → idle transition for
+   cancelling was impossible, and `travel("idle")` would wait for At End, so a cancel uses
+   `playback.start("idle")`.
+2. `travel("shoot")` to the archer reading the 8/30 s key is 18 physics ticks, not 16. The entered state
+   stays at position 0 for one update, and the parent `_physics_process` runs before its child
+   AnimationTree in the same tick; the tree's process priority did not change that. With the planned
+   0.2667 s draw threshold the cadence would have become 0.633 s. Rui set the threshold to 0.3 s.
+3. A Start → idle transition left on Enabled keeps the machine in `Start`.
+
+**Claude's mistake.** Claude's concept note for answer 5 said a tree and a reader on the same PHYSICS clock
+differ by 0. Probe 2 showed 1 tick. The note carries a dated correction; the original text is kept.
+
+**Predictions kept honest.** Two of Rui's predictions were answered before prompt-1: one by a probe, and one
+because Claude computed that the cooldown error goes downward. Both were moved to "Known before prompt-1",
+leaving four genuine predictions. The predicted test changes in §5 were written before the latency probe
+and are kept as written.
+
+## 2026-11-21 — Step 1: the CLAUDE.md draft and its review
+
+Session 1 ran `prompts/a7/prompt-1.txt` (verbatim, `4d3918a`) with Assignment 5's read-only command;
+the transcript is `sessions/a7/session-1.jsonl`. `check-session.sh`:
+- result success, 40 turns;
+- one permission denial, a compound `wc` + `awk` Bash command;
+- `godot/shaders/` and `run-test.sh` unchanged, only CLAUDE.md modified (119 lines).
+
+The draft was committed unedited as `266593f`. Every file reference was printed and compared with its claim,
+and all were exact.
+
+**Found in review** (Rui approved all; Claude edited, `524aa7e`):
+1. The draft dropped A6's "Headless facts" block. The four lines the assignment asks for were confirmed on this
+   machine first (`evidence/a7-probes/`), and two needed a qualifier:
+   - Key times are doubles in memory and become float32 only when saved to `.tres`. A re-run of the latency
+     probe with a saved clip still gave 18 ticks.
+   - `value_track_get_update_mode` on a non-value track prints an `ERROR:` line that `run-test.sh` does not
+     catch, and returns 0.
+   - Headless Movie Maker crashes with signal 11, which is why strips need a windowed run.
+2. The four names the draft marked "not verified" exist in 4.7.2 (probe). The same probe showed both mixers
+   default to the IDLE callback, so the archer's tree must set PHYSICS explicitly. This is now in CLAUDE.md.
+3. Three "Unconfirmed" items were gaps in the brief, now settled by brief revision 1 (`a4bd8df`):
+   - Restart reaches the archer only through `main.gd` `reset()`. It gets one `cancel_shot()` call.
+   - The string's stretch needs `scale` keys.
+   - The nodes are named, and a disabled archer freezes like pause.
