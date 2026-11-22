@@ -1,0 +1,23 @@
+diff --git a/godot/tests/test_burning_tint.gd b/godot/tests/test_burning_tint.gd
+index 9f084a1..5b68991 100644
+--- a/godot/tests/test_burning_tint.gd
++++ b/godot/tests/test_burning_tint.gd
+@@ -179,6 +179,7 @@ func _spawn_watched(points: Array[Vector2]) -> Array[int]:
+ ## no arrow was fired.
+ func _steer_one_arrow() -> bool:
+ 	var start: int = rec.fired
++	var x_start := game.archer.position.x
+ 	_key(KEY_D, true)
+ 	var n := 0
+ 	while rec.fired == start and n < MAX_FRAMES:
+@@ -187,9 +188,8 @@ func _steer_one_arrow() -> bool:
+ 	_key(KEY_D, false)
+ 	if rec.fired == start:
+ 		return false
+-	var x_fire := game.archer.position.x
+ 	_key(KEY_A, true)
+-	while game.archer.position.x > x_fire - STEER_BACK and n < MAX_FRAMES:
++	while game.archer.position.x > x_start and n < MAX_FRAMES:
+ 		await physics_frame
+ 		n += 1
+ 	_key(KEY_A, false)

@@ -1,0 +1,31 @@
+diff --git a/godot/tests/test_burning_tint.gd b/godot/tests/test_burning_tint.gd
+index 9f084a1..3c4fa6a 100644
+--- a/godot/tests/test_burning_tint.gd
++++ b/godot/tests/test_burning_tint.gd
+@@ -174,17 +174,22 @@ func _spawn_watched(points: Array[Vector2]) -> Array[int]:
+ 	return ids
+ 
+ 
+-## One real arrow: hold D until the archer's own auto-fire looses one, then hold A until the
+-## archer is STEER_BACK px back. Keys go in at the start of a physics tick. Returns false if
+-## no arrow was fired.
++## One real arrow: hold D until the archer's own auto-fire starts a draw (the first tick
++## game.archer.shot_armed is true), release D there so the archer stops where the arrow used to
++## leave, wait with no key held until the arrow is fired, then hold A until the archer is
++## STEER_BACK px back. Keys go in at the start of a physics tick. Returns false if no arrow was
++## fired. (CHANGE-BRIEF.md Revision 2, item 4.)
+ func _steer_one_arrow() -> bool:
+ 	var start: int = rec.fired
+ 	_key(KEY_D, true)
+ 	var n := 0
+-	while rec.fired == start and n < MAX_FRAMES:
++	while not game.archer.shot_armed and rec.fired == start and n < MAX_FRAMES:
+ 		await physics_frame
+ 		n += 1
+ 	_key(KEY_D, false)
++	while rec.fired == start and n < MAX_FRAMES:
++		await physics_frame
++		n += 1
+ 	if rec.fired == start:
+ 		return false
+ 	var x_fire := game.archer.position.x

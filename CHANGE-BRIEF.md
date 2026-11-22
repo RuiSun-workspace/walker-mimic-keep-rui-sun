@@ -416,3 +416,19 @@ predictions, is unchanged; this records how each one is handled. None loosens an
    releases D when the draw starts (`shot_armed` turns true) and steers back after `fired`, so the archer
    stops where the arrow used to leave. §9's "existing test expectations unchanged" is amended to allow this
    one change to an input script; every expected value in the test stays as it was.
+
+### Revision 3 — 2026-11-21 (corrects Revision 2 item 4; drafted by Claude, Rui approved "按新方案改")
+
+Revision 2 item 4 was wrong. Releasing D when the draw starts leaves the archer at the very edge of the
+cone. The test's scarecrow keeps walking down during the 18-tick draw and leaves the cone, so §5.5 cancels
+the draw, and with no key held no new draw starts. No arrow was fired at all: 11 passed, 6 failed at 30, 60
+and 144 (`evidence/a7-repin/tint_revision2_item4*`). That change was never committed.
+
+Instead, `_steer_one_arrow()` keeps its first half as it was: hold D until `fired`. Its second half holds A
+until the archer is back at the x where the helper started, not STEER_BACK px from the firing point. Any
+draw that starts on the way back is cancelled by §5.5 when the target leaves the cone, so the test still
+sees exactly one arrow. Checked in a scratch worktree before this revision: 49 passed, 0 failed at 30, 60
+and 144 (`evidence/a7-repin/tint_return_to_start_candidate*`).
+
+As in Revision 2, this changes only the helper's input script. No expected value in the test changes.
+`STEER_BACK` stays in the file, unused.
