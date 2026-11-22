@@ -2,7 +2,7 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 PASS B1: spawned scarecrows: Embers and Smoke emitting=false, amount_ratio=0
 PASS B7: each scarecrow owns its own BurningEmbers, a child of the scarecrow
-INFO sc2 after ignition, fires [S1@2(x=640), S2@38(x=892)]: frame 91 gate_hp=85.17 S1 hp=24.20 burn=2.550 S2 hp=26.73 burn=3.183
+INFO sc2 after ignition, fires [S1@21(x=640), S2@75(x=1018)]: frame 110 gate_hp=82.00 S1 hp=24.20 burn=2.550 S2 hp=27.93 burn=3.483
 PASS sc2 setup: exactly one arrow fired at S1 and one at S2, both hit
 PASS sc2 setup: archer at x=1240 is outside both fire cones
 PASS B1: S1 burning_started: both emitters emitting=true, amount_ratio=1.0 in the signal
@@ -28,7 +28,7 @@ PASS B7: S1 4.0 s and S2 1.0 s -> ratios 1.00 and 0.25
 INFO sc4 S1=1.0 S2=4.0 -> S1 ratios 0.2458/0.2458, S2 ratios 0.9958/0.9958
 PASS B7: S1 1.0 s and S2 4.0 s -> ratios 0.25 and 1.00
 PASS B7: the four emitters are four distinct instances
-INFO sc5 before pause: frame 98 gate_hp=84.00 S1 hp=23.73 burn=3.983 S2 hp=26.27 burn=3.967
+INFO sc5 before pause: frame 117 gate_hp=80.83 S1 hp=23.73 burn=3.983 S2 hp=27.47 burn=3.967
 PASS B5 setup: P paused the tree
 INFO sc5 paused 30 frames: S1 burn 3.9833 -> 3.9833, S2 burn 3.9667 -> 3.9667, S1 ratio 0.9958 -> 0.9958
 PASS B5: while paused no emitter can process
@@ -41,9 +41,9 @@ PASS B6: hidden Embers: not visible in tree, still emitting, ratio follows the t
 PASS B6: shown again: same instance, visible, emitting, no new burning_started
 INFO sc7 S2 lowered: burn 1.9833, ratios 0.4958/0.4958
 PASS B3 setup: S2's ratios lowered to 0.50 within one frame
-INFO sc7 hit on S2 at frame 205 (read at frame 206, archer x=1002): burn 4.0000, ratios 1.0000/1.0000, hp 11.13
+INFO sc7 hit on S2 at frame 241 (read at frame 242, archer x=883): burn 4.0000, ratios 1.0000/1.0000, hp 11.20
 PASS B3: one frame after the re-igniting hit both ratios are 1.0
-INFO sc7 end, fires [S2@201(x=1030)]: frame 242 gate_hp=65.17 S1 hp=16.20 burn=2.100 S2 hp=8.73 burn=3.400
+INFO sc7 end, fires [S2@238(x=904)]: frame 295 gate_hp=56.33 S1 hp=13.93 burn=1.533 S2 hp=7.67 burn=3.117
 PASS sc7 setup: exactly one arrow fired (at S2) and one hit on S2; S2 alive and burning
 PASS B3: no second burning_started on re-ignition
 PASS B3: emitting stayed true on both emitters in every frame (no stop/restart)
@@ -53,9 +53,9 @@ INFO sc8 S1 burning_ended 60 frames after burn_time_left=1.0
 PASS B1: S1 burning_ended: both emitters amount_ratio=0 and emitting=false in the signal
 PASS B1/B2: 30 frames after burn-out: S1 alive, not burning, emitting=false, ratio 0.00 on both
 PASS sc8 setup: no arrow fired during S1's burn-out
-INFO sc8 end: frame 332 gate_hp=50.17 S1 hp=12.20 burn=0.000 S2 hp=2.73 burn=1.900
+INFO sc8 end: frame 385 gate_hp=41.33 S1 hp=9.93 burn=0.000 S2 hp=1.67 burn=1.617
 PASS sc9 setup: S2 alive and burning
-INFO sc9 S2 died at frame 365 (by arrow), fires [S2@361(x=1030)]; died snap { "e_emit": false, "s_emit": false, "e_ratio": 0.0, "s_ratio": 0.0, "e_amount": 18, "s_amount": 8, "burning": true, "btl": 4.0, "ended": 0, "parent_effects": true, "fx_pos": (960.0, 530.0), "s_pos": (960.0, 530.0) }; BurningEmbers freed at frame 436 (71 frames)
+INFO sc9 S2 died at frame 410 (by burn tick), fires []; died snap { "e_emit": false, "s_emit": false, "e_ratio": 0.0, "s_ratio": 0.0, "e_amount": 18, "s_amount": 8, "burning": true, "btl": 1.18333333333334, "ended": 0, "parent_effects": true, "fx_pos": (960.0, 530.0), "s_pos": (960.0, 530.0) }; BurningEmbers freed at frame 481 (71 frames)
 PASS sc9 setup: S2 died; no arrow fired at S1
 PASS B4: S2 died while burning, without burning_ended
 PASS B4: in died: BurningEmbers is under World/Effects
@@ -64,15 +64,15 @@ PASS B4: in died: both emitters emitting=false, amount_ratio=0
 PASS B4: emitting stayed false and ratio 0 on both in every frame until freed
 PASS B4: BurningEmbers outlived S2 and freed itself after 72 +-2 frames (Smoke lifetime 1.20 s)
 PASS B4: World/Effects holds no B tail after it finished
-INFO sc9 end: frame 437 gate_hp=38.58 S1 hp=12.20 burn=0.000 S2 gone
-PASS sc10 setup: the run is still playing before scenario 10 (gate_hp 38.58)
-INFO sc10 run lost at frame 485, fires [T@437(x=960)], T hits 1, T burn 3.2500 hp 27.00, World/Effects children 1
+INFO sc9 end: frame 482 gate_hp=31.17 S1 hp=9.93 burn=0.000 S2 gone
+PASS sc10 setup: the run is still playing before scenario 10 (gate_hp 31.17)
+INFO sc10 run lost at frame 535, fires [T@500(x=960)], T hits 1, T burn 3.4667 hp 27.87, World/Effects children 1
 PASS sc10 setup: the run is lost with T alive and burning, hit by exactly one arrow (the only one fired)
 PASS B5: game over sets World to PROCESS_MODE_DISABLED
-INFO sc10 30 frames after the loss: T burn 3.2500 -> 3.2500, ratios 0.8167 -> 0.8167, emitting true
+INFO sc10 30 frames after the loss: T burn 3.4667 -> 3.4667, ratios 0.8708 -> 0.8708, emitting true
 PASS B5: after the loss T's emitters cannot process
 PASS B5: 30 frames after the loss: T's burn_time_left, ratios and emitting unchanged
 PASS sc10 setup: R restarts the run
-INFO sc10 World/Effects had 1 children at R, empty 3 frames after R
+INFO sc10 World/Effects had 1 children at R, empty 16 frames after R
 PASS A5: after R, World/Effects is empty within 72 frames (1.20 s)
 test_burning_embers_state: 54 passed, 0 failed

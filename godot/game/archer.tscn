@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://game/archer.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bdpmivghjplrl" path="res://assets/sprites/archer_body.png" id="2_body"]
@@ -141,6 +141,34 @@ _data = {
 &"shoot": SubResource("Animation_shoot")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_idle"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_shoot"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="Transition_start_idle"]
+xfade_time = 0.0
+switch_mode = 0
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="Transition_idle_shoot"]
+xfade_time = 0.0
+switch_mode = 0
+advance_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="Transition_shoot_idle"]
+xfade_time = 0.0
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_archer"]
+states/idle/node = SubResource("AnimationNodeAnimation_idle")
+states/idle/position = Vector2(300, 100)
+states/shoot/node = SubResource("AnimationNodeAnimation_shoot")
+states/shoot/position = Vector2(500, 100)
+transitions = ["Start", "idle", SubResource("Transition_start_idle"), "idle", "shoot", SubResource("Transition_idle_shoot"), "shoot", "idle", SubResource("Transition_shoot_idle")]
+
 [node name="Archer" type="Node2D"]
 script = ExtResource("1_script")
 
@@ -161,3 +189,9 @@ texture = ExtResource("4_string")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries/ = SubResource("AnimationLibrary_archer")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+callback_mode_process = 0
+tree_root = SubResource("AnimationNodeStateMachine_archer")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")

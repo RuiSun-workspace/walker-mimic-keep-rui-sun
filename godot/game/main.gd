@@ -44,6 +44,7 @@ func reset() -> void:
 	spawn_timer = 1.0
 	archer.position = ARCHER_START
 	archer.fire_cooldown = 0.0
+	archer.cancel_shot()
 	world.process_mode = Node.PROCESS_MODE_INHERIT
 	_set_state(State.PLAYING)
 

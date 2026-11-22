@@ -1,0 +1,908 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS §6 Archer/AnimationTree tree_root is an AnimationNodeStateMachine
+PASS §6 states are exactly ["idle", "shoot"] (got ["idle", "shoot"])
+PASS §6 state idle plays clip idle, which the tree's library holds
+PASS §6 state shoot plays clip shoot, which the tree's library holds
+PASS archer.gd requests travel(shoot) and start(idle) (found ["start(idle)", "travel(shoot)"])
+PASS state requested by archer.gd start(idle) exists in the state machine
+PASS state requested by archer.gd travel(shoot) exists in the state machine
+PASS §6 exactly 3 transitions (got 3)
+PASS §6 exactly one transition Start->idle (got 1)
+PASS §6 Start->idle advance_mode 2 (got 2)
+PASS §6 Start->idle switch_mode 0 (got 0)
+PASS §6 Start->idle xfade_time 0 (got 0.0)
+PASS §6 exactly one transition idle->shoot (got 1)
+PASS §6 idle->shoot advance_mode 1 (got 1)
+PASS §6 idle->shoot switch_mode 0 (got 0)
+PASS §6 idle->shoot xfade_time 0 (got 0.0)
+PASS §6 exactly one transition shoot->idle (got 1)
+PASS §6 shoot->idle advance_mode 2 (got 2)
+PASS §6 shoot->idle switch_mode 2 (got 2)
+PASS §6 shoot->idle xfade_time 0 (got 0.0)
+PASS §6 no transition outside the table (extra [])
+PASS §6 advance_expression_base_node is ".." (got "..")
+PASS §6 advance_expression_base_node resolves to Archer
+PASS §6 anim_player resolves to Archer/AnimationPlayer (got "../AnimationPlayer")
+PASS §7 tree callback_mode_process is PHYSICS (got 0)
+PASS §6 the tree is active
+PASS §8 Archer/AnimationPlayer autoplay is empty (got "")
+PASS rev. 1.4 Scarecrow/WalkPresenter exists with res://game/scarecrow_walk_presenter.gd
+PASS the presenter requests exactly hold and walk (found ["hold", "walk"])
+PASS clip requested by the presenter hold exists on Scarecrow/AnimationPlayer
+PASS clip requested by the presenter walk exists on Scarecrow/AnimationPlayer
+---- scenario boot ----
+boot f=1 | node=Start pos=0.0000 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+FAIL §6 Start -> idle: the tree is in idle after the first tick (got Start)  
+boot f=2 | node=idle pos=0.0000 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+boot f=3 | node=idle pos=0.0167 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+boot f=4 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+---- scenario cadence ----
+cadence f=1 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=2 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=3 | node=shoot pos=0.0167 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=4 | node=shoot pos=0.0333 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=5 | node=shoot pos=0.0500 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=6 | node=shoot pos=0.0667 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=7 | node=shoot pos=0.0833 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=8 | node=shoot pos=0.1000 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=9 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=10 | node=shoot pos=0.1333 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=11 | node=shoot pos=0.1500 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=12 | node=shoot pos=0.1667 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=13 | node=shoot pos=0.1833 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=14 | node=shoot pos=0.2000 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=15 | node=shoot pos=0.2167 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=16 | node=shoot pos=0.2333 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=17 | node=shoot pos=0.2500 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=18 | node=shoot pos=0.2667 armed=true rw=true cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=19 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 state=PLAYING | fired=1
+cadence f=20 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 state=PLAYING | fired=0
+cadence f=21 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 state=PLAYING | fired=0
+cadence f=22 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 state=PLAYING | fired=0
+cadence f=23 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 state=PLAYING | fired=0
+cadence f=24 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 state=PLAYING | fired=0
+cadence f=25 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 state=PLAYING | fired=0
+cadence f=26 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 state=PLAYING | fired=0
+cadence f=27 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 state=PLAYING | fired=0
+cadence f=28 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 state=PLAYING | fired=0
+cadence f=29 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 state=PLAYING | fired=0
+cadence f=30 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 state=PLAYING | fired=0
+cadence f=31 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 state=PLAYING | fired=0
+cadence f=32 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 state=PLAYING | fired=0
+cadence f=33 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 state=PLAYING | fired=0
+cadence f=34 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 state=PLAYING | fired=0
+cadence f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 state=PLAYING | fired=0
+cadence f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 state=PLAYING | fired=0
+cadence f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 state=PLAYING | fired=0
+cadence f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 state=PLAYING | fired=0
+cadence f=39 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 state=PLAYING | fired=0
+cadence f=40 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 state=PLAYING | fired=0
+cadence f=41 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 state=PLAYING | fired=0
+cadence f=42 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 state=PLAYING | fired=0
+cadence f=43 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 state=PLAYING | fired=0
+cadence f=44 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 state=PLAYING | fired=0
+cadence f=45 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 state=PLAYING | fired=0
+cadence f=46 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 state=PLAYING | fired=0
+cadence f=47 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 state=PLAYING | fired=0
+cadence f=48 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 state=PLAYING | fired=0
+cadence f=49 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 state=PLAYING | fired=0
+cadence f=50 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 state=PLAYING | fired=0
+cadence f=51 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 state=PLAYING | fired=0
+cadence f=52 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 state=PLAYING | fired=0
+cadence f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 state=PLAYING | fired=0
+cadence f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 state=PLAYING | fired=0
+cadence f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 state=PLAYING | fired=1
+cadence f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 state=PLAYING | fired=0
+cadence f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 state=PLAYING | fired=0
+cadence f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 state=PLAYING | fired=0
+cadence f=59 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 state=PLAYING | fired=0
+cadence f=60 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 state=PLAYING | fired=0
+cadence f=61 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 state=PLAYING | fired=0
+cadence f=62 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 state=PLAYING | fired=0
+cadence f=63 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 state=PLAYING | fired=0
+cadence f=64 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 state=PLAYING | fired=0
+cadence f=65 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 state=PLAYING | fired=0
+cadence f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 state=PLAYING | fired=0
+cadence f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 state=PLAYING | fired=0
+cadence f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 state=PLAYING | fired=0
+cadence f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 state=PLAYING | fired=0
+cadence f=70 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 state=PLAYING | fired=0
+cadence f=71 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 state=PLAYING | fired=0
+cadence f=72 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 state=PLAYING | fired=0
+cadence f=73 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 state=PLAYING | fired=0
+cadence f=74 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 state=PLAYING | fired=0
+cadence f=75 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 state=PLAYING | fired=0
+cadence f=76 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 state=PLAYING | fired=0
+cadence f=77 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 state=PLAYING | fired=0
+cadence f=78 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 state=PLAYING | fired=0
+cadence f=79 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 state=PLAYING | fired=0
+cadence f=80 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 state=PLAYING | fired=0
+cadence f=81 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 state=PLAYING | fired=0
+cadence f=82 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 state=PLAYING | fired=0
+cadence f=83 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 state=PLAYING | fired=0
+cadence f=84 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 state=PLAYING | fired=0
+cadence f=85 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 state=PLAYING | fired=0
+cadence f=86 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 state=PLAYING | fired=0
+cadence f=87 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 state=PLAYING | fired=0
+cadence f=88 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 state=PLAYING | fired=0
+cadence f=89 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 state=PLAYING | fired=0
+cadence f=90 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 state=PLAYING | fired=0
+cadence f=91 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 state=PLAYING | fired=1
+cadence f=92 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 state=PLAYING | fired=0
+cadence f=93 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 state=PLAYING | fired=0
+cadence f=94 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 state=PLAYING | fired=0
+cadence f=95 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 state=PLAYING | fired=0
+cadence f=96 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 state=PLAYING | fired=0
+cadence f=97 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 state=PLAYING | fired=0
+cadence f=98 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 state=PLAYING | fired=0
+cadence f=99 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 state=PLAYING | fired=0
+cadence f=100 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 state=PLAYING | fired=0
+cadence f=101 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 state=PLAYING | fired=0
+cadence f=102 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 state=PLAYING | fired=0
+cadence f=103 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 state=PLAYING | fired=0
+cadence f=104 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 state=PLAYING | fired=0
+cadence f=105 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 state=PLAYING | fired=0
+cadence f=106 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 state=PLAYING | fired=0
+cadence f=107 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 state=PLAYING | fired=0
+cadence f=108 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 state=PLAYING | fired=0
+cadence f=109 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 state=PLAYING | fired=0
+cadence f=110 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 state=PLAYING | fired=0
+cadence f=111 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 state=PLAYING | fired=0
+cadence f=112 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 state=PLAYING | fired=0
+cadence f=113 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 state=PLAYING | fired=0
+cadence f=114 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 state=PLAYING | fired=0
+cadence f=115 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 state=PLAYING | fired=0
+cadence f=116 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 state=PLAYING | fired=0
+cadence f=117 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 state=PLAYING | fired=0
+cadence f=118 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 state=PLAYING | fired=0
+cadence f=119 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 state=PLAYING | fired=0
+cadence f=120 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 state=PLAYING | fired=0
+cadence f=121 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 state=PLAYING | fired=0
+cadence f=122 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 state=PLAYING | fired=0
+cadence f=123 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 state=PLAYING | fired=0
+cadence f=124 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 state=PLAYING | fired=0
+cadence f=125 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 state=PLAYING | fired=0
+cadence f=126 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 state=PLAYING | fired=0
+cadence f=127 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 state=PLAYING | fired=1
+cadence f=128 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 state=PLAYING | fired=0
+cadence f=129 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 state=PLAYING | fired=0
+cadence f=130 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 state=PLAYING | fired=0
+cadence f=131 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 state=PLAYING | fired=0
+cadence f=132 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 state=PLAYING | fired=0
+cadence f=133 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 state=PLAYING | fired=0
+cadence f=134 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 state=PLAYING | fired=0
+cadence f=135 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 state=PLAYING | fired=0
+cadence f=136 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 state=PLAYING | fired=0
+PASS (cadence) shot fired at f 19, draw at f 1: travel("shoot") -> arrow is 18 ticks (got 18)
+PASS (cadence) shot fired at f 19, draw at f 1: idle on the tick before the draw, shoot on the draw tick
+PASS (cadence) shot fired at f 19, draw at f 1: release_window false 2 ticks before, true 1 tick before (the tree keyed it; archer reads it on f 19)
+PASS (cadence) shot fired at f 19, draw at f 1: the tree was at the active key (pos >= 8/30 s) when fired
+PASS (cadence) shot fired at f 19, draw at f 1: one arrow, shot_armed cleared, no second arrow on the next tick (stale release_window ignored)
+PASS (cadence) shot fired at f 19, draw at f 1: cooldown already 0: the draw starts on the first tick a target is in the cone (none after f 0)
+PASS (cadence) shot fired at f 55, draw at f 37: travel("shoot") -> arrow is 18 ticks (got 18)
+PASS (cadence) shot fired at f 55, draw at f 37: idle on the tick before the draw, shoot on the draw tick
+PASS (cadence) shot fired at f 55, draw at f 37: release_window false 2 ticks before, true 1 tick before (the tree keyed it; archer reads it on f 55)
+PASS (cadence) shot fired at f 55, draw at f 37: the tree was at the active key (pos >= 8/30 s) when fired
+PASS (cadence) shot fired at f 55, draw at f 37: one arrow, shot_armed cleared, no second arrow on the next tick (stale release_window ignored)
+PASS (cadence) shot fired at f 55, draw at f 37: threshold: cooldown > 0.3 on the tick before (0.31666666666666643), <= 0.3 on the draw tick (0.29999999999999977)
+PASS (cadence) shot fired at f 55, draw at f 37: threshold: still one draw on the tick after (armed, shoot)
+PASS (cadence) shot fired at f 91, draw at f 73: travel("shoot") -> arrow is 18 ticks (got 18)
+PASS (cadence) shot fired at f 91, draw at f 73: idle on the tick before the draw, shoot on the draw tick
+PASS (cadence) shot fired at f 91, draw at f 73: release_window false 2 ticks before, true 1 tick before (the tree keyed it; archer reads it on f 91)
+PASS (cadence) shot fired at f 91, draw at f 73: the tree was at the active key (pos >= 8/30 s) when fired
+PASS (cadence) shot fired at f 91, draw at f 73: one arrow, shot_armed cleared, no second arrow on the next tick (stale release_window ignored)
+PASS (cadence) shot fired at f 91, draw at f 73: threshold: cooldown > 0.3 on the tick before (0.31666666666666643), <= 0.3 on the draw tick (0.29999999999999977)
+PASS (cadence) shot fired at f 91, draw at f 73: threshold: still one draw on the tick after (armed, shoot)
+PASS (cadence) shot fired at f 127, draw at f 109: travel("shoot") -> arrow is 18 ticks (got 18)
+PASS (cadence) shot fired at f 127, draw at f 109: idle on the tick before the draw, shoot on the draw tick
+PASS (cadence) shot fired at f 127, draw at f 109: release_window false 2 ticks before, true 1 tick before (the tree keyed it; archer reads it on f 127)
+PASS (cadence) shot fired at f 127, draw at f 109: the tree was at the active key (pos >= 8/30 s) when fired
+PASS (cadence) shot fired at f 127, draw at f 109: one arrow, shot_armed cleared, no second arrow on the next tick (stale release_window ignored)
+PASS (cadence) shot fired at f 127, draw at f 109: threshold: cooldown > 0.3 on the tick before (0.31666666666666643), <= 0.3 on the draw tick (0.29999999999999977)
+PASS (cadence) shot fired at f 127, draw at f 109: threshold: still one draw on the tick after (armed, shoot)
+MEASURED cadence: fired at f [19, 55, 91, 127], gaps [36, 36, 36]
+PASS §5.2 back-to-back releases are exactly 36 ticks apart (gaps [36, 36, 36])
+cadence f=137 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 state=PLAYING | fired=0
+cadence f=138 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 state=PLAYING | fired=0
+cadence f=139 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 state=PLAYING | fired=0
+cadence f=140 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 state=PLAYING | fired=0
+cadence f=141 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 state=PLAYING | fired=0
+cadence f=142 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 state=PLAYING | fired=0
+cadence f=143 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 state=PLAYING | fired=0
+cadence f=144 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 state=PLAYING | fired=0
+cadence f=145 | node=idle pos=0.0333 armed=false rw=false cd=0.300000 x=640.0 state=PLAYING | fired=0
+cadence f=146 | node=idle pos=0.0333 armed=false rw=false cd=0.283333 x=640.0 state=PLAYING | fired=0
+cadence f=147 | node=idle pos=0.0333 armed=false rw=false cd=0.266667 x=640.0 state=PLAYING | fired=0
+cadence f=148 | node=idle pos=0.0333 armed=false rw=false cd=0.250000 x=640.0 state=PLAYING | fired=0
+cadence f=149 | node=idle pos=0.0333 armed=false rw=false cd=0.233333 x=640.0 state=PLAYING | fired=0
+cadence f=150 | node=idle pos=0.0333 armed=false rw=false cd=0.216667 x=640.0 state=PLAYING | fired=0
+cadence f=151 | node=idle pos=0.0333 armed=false rw=false cd=0.200000 x=640.0 state=PLAYING | fired=0
+cadence f=152 | node=idle pos=0.0333 armed=false rw=false cd=0.183333 x=640.0 state=PLAYING | fired=0
+cadence f=153 | node=idle pos=0.0333 armed=false rw=false cd=0.166667 x=640.0 state=PLAYING | fired=0
+cadence f=154 | node=idle pos=0.0333 armed=false rw=false cd=0.150000 x=640.0 state=PLAYING | fired=0
+cadence f=155 | node=idle pos=0.0333 armed=false rw=false cd=0.133333 x=640.0 state=PLAYING | fired=0
+cadence f=156 | node=idle pos=0.0333 armed=false rw=false cd=0.116667 x=640.0 state=PLAYING | fired=0
+cadence f=157 | node=idle pos=0.0333 armed=false rw=false cd=0.100000 x=640.0 state=PLAYING | fired=0
+cadence f=158 | node=idle pos=0.0333 armed=false rw=false cd=0.083333 x=640.0 state=PLAYING | fired=0
+cadence f=159 | node=idle pos=0.0333 armed=false rw=false cd=0.066667 x=640.0 state=PLAYING | fired=0
+cadence f=160 | node=idle pos=0.0333 armed=false rw=false cd=0.050000 x=640.0 state=PLAYING | fired=0
+cadence f=161 | node=idle pos=0.0333 armed=false rw=false cd=0.033333 x=640.0 state=PLAYING | fired=0
+cadence f=162 | node=idle pos=0.0333 armed=false rw=false cd=0.016667 x=640.0 state=PLAYING | fired=0
+cadence f=163 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=164 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=165 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cadence f=166 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+---- scenario cancel ----
+cancel f=1 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+PASS (cancel) setup: the draw starts on tick 1 (armed, shoot)
+cancel f=2 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=647.0 state=PLAYING | fired=0
+cancel f=3 | node=shoot pos=0.0167 armed=true rw=false cd=0.000000 x=654.0 state=PLAYING | fired=0
+cancel f=4 | node=shoot pos=0.0333 armed=true rw=false cd=0.000000 x=661.0 state=PLAYING | fired=0
+cancel f=5 | node=shoot pos=0.0500 armed=true rw=false cd=0.000000 x=668.0 state=PLAYING | fired=0
+cancel f=6 | node=shoot pos=0.0667 armed=true rw=false cd=0.000000 x=675.0 state=PLAYING | fired=0
+cancel f=7 | node=shoot pos=0.0833 armed=true rw=false cd=0.000000 x=682.0 state=PLAYING | fired=0
+cancel f=8 | node=shoot pos=0.1000 armed=true rw=false cd=0.000000 x=689.0 state=PLAYING | fired=0
+cancel f=9 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=696.0 state=PLAYING | fired=0
+cancel f=10 | node=shoot pos=0.1333 armed=true rw=false cd=0.000000 x=703.0 state=PLAYING | fired=0
+cancel f=11 | node=shoot pos=0.1500 armed=true rw=false cd=0.000000 x=710.0 state=PLAYING | fired=0
+cancel f=12 | node=idle pos=0.0000 armed=false rw=false cd=0.000000 x=717.0 state=PLAYING | fired=0
+cancel f=13 | node=idle pos=0.0167 armed=false rw=false cd=0.000000 x=724.0 state=PLAYING | fired=0
+cancel f=14 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=731.0 state=PLAYING | fired=0
+cancel f=15 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=738.0 state=PLAYING | fired=0
+cancel f=16 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=745.0 state=PLAYING | fired=0
+cancel f=17 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=752.0 state=PLAYING | fired=0
+cancel f=18 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=759.0 state=PLAYING | fired=0
+cancel f=19 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=766.0 state=PLAYING | fired=0
+cancel f=20 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=773.0 state=PLAYING | fired=0
+cancel f=21 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=780.0 state=PLAYING | fired=0
+cancel f=22 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=787.0 state=PLAYING | fired=0
+MEASURED cancel: draw f 1, cancelled at f 12, held D for ticks 2..22
+PASS (cancel) §5.5 the shot is cancelled during startup (f 12, before the release at f 19)
+PASS (cancel) it is cancelled on the tick the target leaves the cone
+PASS (cancel) §6 back in idle on the cancel tick, target cleared (node idle, target false)
+PASS (cancel) §5.5 the cooldown continues as normal across the cancel
+PASS (cancel) no new draw while the target is outside the cone
+PASS (cancel) no arrow from the cancelled shot
+PASS (cancel) §5.5 movement: the archer moves 7 px every tick D is held, through startup and the cancel
+cancel f=23 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=780.0 state=PLAYING | fired=0
+cancel f=24 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=773.0 state=PLAYING | fired=0
+cancel f=25 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=766.0 state=PLAYING | fired=0
+cancel f=26 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=759.0 state=PLAYING | fired=0
+cancel f=27 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=752.0 state=PLAYING | fired=0
+cancel f=28 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=745.0 state=PLAYING | fired=0
+cancel f=29 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=738.0 state=PLAYING | fired=0
+cancel f=30 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=731.0 state=PLAYING | fired=0
+cancel f=31 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=724.0 state=PLAYING | fired=0
+cancel f=32 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=717.0 state=PLAYING | fired=0
+cancel f=33 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=710.0 state=PLAYING | fired=0
+cancel f=34 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=703.0 state=PLAYING | fired=0
+cancel f=35 | node=shoot pos=0.0167 armed=true rw=false cd=0.000000 x=696.0 state=PLAYING | fired=0
+cancel f=36 | node=shoot pos=0.0333 armed=true rw=false cd=0.000000 x=689.0 state=PLAYING | fired=0
+cancel f=37 | node=shoot pos=0.0500 armed=true rw=false cd=0.000000 x=682.0 state=PLAYING | fired=0
+cancel f=38 | node=shoot pos=0.0667 armed=true rw=false cd=0.000000 x=675.0 state=PLAYING | fired=0
+cancel f=39 | node=shoot pos=0.0833 armed=true rw=false cd=0.000000 x=668.0 state=PLAYING | fired=0
+cancel f=40 | node=shoot pos=0.1000 armed=true rw=false cd=0.000000 x=661.0 state=PLAYING | fired=0
+cancel f=41 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=654.0 state=PLAYING | fired=0
+cancel f=42 | node=shoot pos=0.1333 armed=true rw=false cd=0.000000 x=647.0 state=PLAYING | fired=0
+cancel f=43 | node=shoot pos=0.1500 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=44 | node=shoot pos=0.1667 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=45 | node=shoot pos=0.1833 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=46 | node=shoot pos=0.2000 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=47 | node=shoot pos=0.2167 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=48 | node=shoot pos=0.2333 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=49 | node=shoot pos=0.2500 armed=true rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=50 | node=shoot pos=0.2667 armed=true rw=true cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=51 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 state=PLAYING | fired=1
+cancel f=52 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 state=PLAYING | fired=0
+cancel f=53 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 state=PLAYING | fired=0
+cancel f=54 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 state=PLAYING | fired=0
+cancel f=55 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 state=PLAYING | fired=0
+cancel f=56 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 state=PLAYING | fired=0
+cancel f=57 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 state=PLAYING | fired=0
+cancel f=58 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 state=PLAYING | fired=0
+cancel f=59 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 state=PLAYING | fired=0
+cancel f=60 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 state=PLAYING | fired=0
+cancel f=61 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 state=PLAYING | fired=0
+cancel f=62 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 state=PLAYING | fired=0
+cancel f=63 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 state=PLAYING | fired=0
+cancel f=64 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 state=PLAYING | fired=0
+cancel f=65 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 state=PLAYING | fired=0
+cancel f=66 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 state=PLAYING | fired=0
+cancel f=67 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 state=PLAYING | fired=0
+cancel f=68 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 state=PLAYING | fired=0
+cancel f=69 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 state=PLAYING | fired=0
+cancel f=70 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 state=PLAYING | fired=0
+cancel f=71 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 state=PLAYING | fired=0
+cancel f=72 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 state=PLAYING | fired=0
+cancel f=73 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 state=PLAYING | fired=0
+cancel f=74 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 state=PLAYING | fired=0
+cancel f=75 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 state=PLAYING | fired=0
+cancel f=76 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 state=PLAYING | fired=0
+cancel f=77 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 state=PLAYING | fired=0
+cancel f=78 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 state=PLAYING | fired=0
+cancel f=79 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 state=PLAYING | fired=0
+cancel f=80 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 state=PLAYING | fired=0
+cancel f=81 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 state=PLAYING | fired=0
+cancel f=82 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 state=PLAYING | fired=0
+cancel f=83 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 state=PLAYING | fired=0
+cancel f=84 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 state=PLAYING | fired=0
+cancel f=85 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 state=PLAYING | fired=0
+cancel f=86 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 state=PLAYING | fired=0
+cancel f=87 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 state=PLAYING | fired=1
+cancel f=88 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 state=PLAYING | fired=0
+cancel f=89 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 state=PLAYING | fired=0
+cancel f=90 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 state=PLAYING | fired=0
+cancel f=91 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 state=PLAYING | fired=0
+cancel f=92 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 state=PLAYING | fired=0
+cancel f=93 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 state=PLAYING | fired=0
+cancel f=94 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 state=PLAYING | fired=0
+cancel f=95 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 state=PLAYING | fired=0
+cancel f=96 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 state=PLAYING | fired=0
+cancel f=97 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 state=PLAYING | fired=0
+cancel f=98 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 state=PLAYING | fired=0
+cancel f=99 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 state=PLAYING | fired=0
+cancel f=100 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 state=PLAYING | fired=0
+cancel f=101 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 state=PLAYING | fired=0
+cancel f=102 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 state=PLAYING | fired=0
+cancel f=103 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 state=PLAYING | fired=0
+cancel f=104 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 state=PLAYING | fired=0
+cancel f=105 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 state=PLAYING | fired=0
+cancel f=106 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 state=PLAYING | fired=0
+cancel f=107 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 state=PLAYING | fired=0
+cancel f=108 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 state=PLAYING | fired=0
+cancel f=109 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 state=PLAYING | fired=0
+cancel f=110 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 state=PLAYING | fired=0
+cancel f=111 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 state=PLAYING | fired=0
+cancel f=112 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 state=PLAYING | fired=0
+cancel f=113 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 state=PLAYING | fired=0
+cancel f=114 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 state=PLAYING | fired=0
+cancel f=115 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 state=PLAYING | fired=0
+cancel f=116 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 state=PLAYING | fired=0
+cancel f=117 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 state=PLAYING | fired=0
+cancel f=118 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 state=PLAYING | fired=0
+cancel f=119 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 state=PLAYING | fired=0
+cancel f=120 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 state=PLAYING | fired=0
+cancel f=121 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 state=PLAYING | fired=0
+cancel f=122 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 state=PLAYING | fired=0
+cancel f=123 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 state=PLAYING | fired=1
+cancel f=124 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 state=PLAYING | fired=0
+cancel f=125 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 state=PLAYING | fired=0
+cancel f=126 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 state=PLAYING | fired=0
+cancel f=127 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 state=PLAYING | fired=0
+cancel f=128 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 state=PLAYING | fired=0
+cancel f=129 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 state=PLAYING | fired=0
+cancel f=130 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 state=PLAYING | fired=0
+cancel f=131 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 state=PLAYING | fired=0
+cancel f=132 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 state=PLAYING | fired=0
+cancel f=133 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 state=PLAYING | fired=0
+cancel f=134 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 state=PLAYING | fired=0
+cancel f=135 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 state=PLAYING | fired=0
+cancel f=136 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 state=PLAYING | fired=0
+cancel f=137 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 state=PLAYING | fired=0
+cancel f=138 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 state=PLAYING | fired=0
+cancel f=139 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 state=PLAYING | fired=0
+cancel f=140 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 state=PLAYING | fired=0
+cancel f=141 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 state=PLAYING | fired=0
+cancel f=142 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 state=PLAYING | fired=0
+cancel f=143 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 state=PLAYING | fired=0
+cancel f=144 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 state=PLAYING | fired=0
+cancel f=145 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 state=PLAYING | fired=0
+cancel f=146 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 state=PLAYING | fired=0
+cancel f=147 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 state=PLAYING | fired=0
+cancel f=148 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 state=PLAYING | fired=0
+cancel f=149 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 state=PLAYING | fired=0
+cancel f=150 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 state=PLAYING | fired=0
+cancel f=151 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 state=PLAYING | fired=0
+cancel f=152 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 state=PLAYING | fired=0
+cancel f=153 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 state=PLAYING | fired=0
+cancel f=154 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 state=PLAYING | fired=0
+cancel f=155 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 state=PLAYING | fired=0
+cancel f=156 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 state=PLAYING | fired=0
+cancel f=157 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 state=PLAYING | fired=0
+cancel f=158 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 state=PLAYING | fired=0
+cancel f=159 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 state=PLAYING | fired=1
+cancel f=160 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 state=PLAYING | fired=0
+PASS (cancel) shot fired at f 51, draw at f 33: travel("shoot") -> arrow is 18 ticks (got 18)
+PASS (cancel) shot fired at f 51, draw at f 33: idle on the tick before the draw, shoot on the draw tick
+PASS (cancel) shot fired at f 51, draw at f 33: release_window false 2 ticks before, true 1 tick before (the tree keyed it; archer reads it on f 51)
+PASS (cancel) shot fired at f 51, draw at f 33: the tree was at the active key (pos >= 8/30 s) when fired
+PASS (cancel) shot fired at f 51, draw at f 33: one arrow, shot_armed cleared, no second arrow on the next tick (stale release_window ignored)
+PASS (cancel) shot fired at f 51, draw at f 33: cooldown already 0: the draw starts on the first tick a target is in the cone (none after f 32)
+PASS (cancel) shot fired at f 87, draw at f 69: travel("shoot") -> arrow is 18 ticks (got 18)
+PASS (cancel) shot fired at f 87, draw at f 69: idle on the tick before the draw, shoot on the draw tick
+PASS (cancel) shot fired at f 87, draw at f 69: release_window false 2 ticks before, true 1 tick before (the tree keyed it; archer reads it on f 87)
+PASS (cancel) shot fired at f 87, draw at f 69: the tree was at the active key (pos >= 8/30 s) when fired
+PASS (cancel) shot fired at f 87, draw at f 69: one arrow, shot_armed cleared, no second arrow on the next tick (stale release_window ignored)
+PASS (cancel) shot fired at f 87, draw at f 69: threshold: cooldown > 0.3 on the tick before (0.31666666666666643), <= 0.3 on the draw tick (0.29999999999999977)
+PASS (cancel) shot fired at f 87, draw at f 69: threshold: still one draw on the tick after (armed, shoot)
+PASS (cancel) shot fired at f 123, draw at f 105: travel("shoot") -> arrow is 18 ticks (got 18)
+PASS (cancel) shot fired at f 123, draw at f 105: idle on the tick before the draw, shoot on the draw tick
+PASS (cancel) shot fired at f 123, draw at f 105: release_window false 2 ticks before, true 1 tick before (the tree keyed it; archer reads it on f 123)
+PASS (cancel) shot fired at f 123, draw at f 105: the tree was at the active key (pos >= 8/30 s) when fired
+PASS (cancel) shot fired at f 123, draw at f 105: one arrow, shot_armed cleared, no second arrow on the next tick (stale release_window ignored)
+PASS (cancel) shot fired at f 123, draw at f 105: threshold: cooldown > 0.3 on the tick before (0.31666666666666643), <= 0.3 on the draw tick (0.29999999999999977)
+PASS (cancel) shot fired at f 123, draw at f 105: threshold: still one draw on the tick after (armed, shoot)
+PASS (cancel) shot fired at f 159, draw at f 141: travel("shoot") -> arrow is 18 ticks (got 18)
+PASS (cancel) shot fired at f 159, draw at f 141: idle on the tick before the draw, shoot on the draw tick
+PASS (cancel) shot fired at f 159, draw at f 141: release_window false 2 ticks before, true 1 tick before (the tree keyed it; archer reads it on f 159)
+PASS (cancel) shot fired at f 159, draw at f 141: the tree was at the active key (pos >= 8/30 s) when fired
+PASS (cancel) shot fired at f 159, draw at f 141: one arrow, shot_armed cleared, no second arrow on the next tick (stale release_window ignored)
+PASS (cancel) shot fired at f 159, draw at f 141: threshold: cooldown > 0.3 on the tick before (0.31666666666666643), <= 0.3 on the draw tick (0.29999999999999977)
+PASS (cancel) shot fired at f 159, draw at f 141: threshold: still one draw on the tick after (armed, shoot)
+PASS (cancel) after it comes back into the cone the archer draws again and fires
+cancel f=161 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 state=PLAYING | fired=0
+cancel f=162 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 state=PLAYING | fired=0
+cancel f=163 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 state=PLAYING | fired=0
+cancel f=164 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 state=PLAYING | fired=0
+cancel f=165 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 state=PLAYING | fired=0
+cancel f=166 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 state=PLAYING | fired=0
+cancel f=167 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 state=PLAYING | fired=0
+cancel f=168 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 state=PLAYING | fired=0
+cancel f=169 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 state=PLAYING | fired=0
+cancel f=170 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 state=PLAYING | fired=0
+cancel f=171 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 state=PLAYING | fired=0
+cancel f=172 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 state=PLAYING | fired=0
+cancel f=173 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 state=PLAYING | fired=0
+cancel f=174 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 state=PLAYING | fired=0
+cancel f=175 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 state=PLAYING | fired=0
+cancel f=176 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 state=PLAYING | fired=0
+cancel f=177 | node=idle pos=0.0333 armed=false rw=false cd=0.300000 x=640.0 state=PLAYING | fired=0
+cancel f=178 | node=idle pos=0.0333 armed=false rw=false cd=0.283333 x=640.0 state=PLAYING | fired=0
+cancel f=179 | node=idle pos=0.0333 armed=false rw=false cd=0.266667 x=640.0 state=PLAYING | fired=0
+cancel f=180 | node=idle pos=0.0333 armed=false rw=false cd=0.250000 x=640.0 state=PLAYING | fired=0
+cancel f=181 | node=idle pos=0.0333 armed=false rw=false cd=0.233333 x=640.0 state=PLAYING | fired=0
+cancel f=182 | node=idle pos=0.0333 armed=false rw=false cd=0.216667 x=640.0 state=PLAYING | fired=0
+cancel f=183 | node=idle pos=0.0333 armed=false rw=false cd=0.200000 x=640.0 state=PLAYING | fired=0
+cancel f=184 | node=idle pos=0.0333 armed=false rw=false cd=0.183333 x=640.0 state=PLAYING | fired=0
+cancel f=185 | node=idle pos=0.0333 armed=false rw=false cd=0.166667 x=640.0 state=PLAYING | fired=0
+cancel f=186 | node=idle pos=0.0333 armed=false rw=false cd=0.150000 x=640.0 state=PLAYING | fired=0
+cancel f=187 | node=idle pos=0.0333 armed=false rw=false cd=0.133333 x=640.0 state=PLAYING | fired=0
+cancel f=188 | node=idle pos=0.0333 armed=false rw=false cd=0.116667 x=640.0 state=PLAYING | fired=0
+cancel f=189 | node=idle pos=0.0333 armed=false rw=false cd=0.100000 x=640.0 state=PLAYING | fired=0
+cancel f=190 | node=idle pos=0.0333 armed=false rw=false cd=0.083333 x=640.0 state=PLAYING | fired=0
+cancel f=191 | node=idle pos=0.0333 armed=false rw=false cd=0.066667 x=640.0 state=PLAYING | fired=0
+cancel f=192 | node=idle pos=0.0333 armed=false rw=false cd=0.050000 x=640.0 state=PLAYING | fired=0
+cancel f=193 | node=idle pos=0.0333 armed=false rw=false cd=0.033333 x=640.0 state=PLAYING | fired=0
+cancel f=194 | node=idle pos=0.0333 armed=false rw=false cd=0.016667 x=640.0 state=PLAYING | fired=0
+cancel f=195 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=196 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=197 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+cancel f=198 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+---- scenario walk-setup ----
+walk-setup f=1 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=647.0 state=PLAYING | fired=0
+walk-setup f=2 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=654.0 state=PLAYING | fired=0
+walk-setup f=3 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=661.0 state=PLAYING | fired=0
+walk-setup f=4 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=668.0 state=PLAYING | fired=0
+walk-setup f=5 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=675.0 state=PLAYING | fired=0
+walk-setup f=6 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=682.0 state=PLAYING | fired=0
+walk-setup f=7 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=689.0 state=PLAYING | fired=0
+walk-setup f=8 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=696.0 state=PLAYING | fired=0
+walk-setup f=9 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=703.0 state=PLAYING | fired=0
+walk-setup f=10 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=710.0 state=PLAYING | fired=0
+walk-setup f=11 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=717.0 state=PLAYING | fired=0
+walk-setup f=12 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=724.0 state=PLAYING | fired=0
+walk-setup f=13 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=731.0 state=PLAYING | fired=0
+walk-setup f=14 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=738.0 state=PLAYING | fired=0
+walk-setup f=15 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=745.0 state=PLAYING | fired=0
+walk-setup f=16 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=752.0 state=PLAYING | fired=0
+walk-setup f=17 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=759.0 state=PLAYING | fired=0
+walk-setup f=18 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=766.0 state=PLAYING | fired=0
+walk-setup f=19 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=773.0 state=PLAYING | fired=0
+walk-setup f=20 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=780.0 state=PLAYING | fired=0
+walk-setup f=21 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=787.0 state=PLAYING | fired=0
+walk-setup f=22 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=794.0 state=PLAYING | fired=0
+walk-setup f=23 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=801.0 state=PLAYING | fired=0
+walk-setup f=24 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=808.0 state=PLAYING | fired=0
+walk-setup f=25 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=815.0 state=PLAYING | fired=0
+walk-setup f=26 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=822.0 state=PLAYING | fired=0
+walk-setup f=27 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=829.0 state=PLAYING | fired=0
+walk-setup f=28 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=836.0 state=PLAYING | fired=0
+walk-setup f=29 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=843.0 state=PLAYING | fired=0
+walk-setup f=30 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=850.0 state=PLAYING | fired=0
+walk-setup f=31 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=857.0 state=PLAYING | fired=0
+walk-setup f=32 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=864.0 state=PLAYING | fired=0
+walk-setup f=33 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=871.0 state=PLAYING | fired=0
+walk-setup f=34 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=878.0 state=PLAYING | fired=0
+walk-setup f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=885.0 state=PLAYING | fired=0
+walk-setup f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=892.0 state=PLAYING | fired=0
+walk-setup f=37 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=899.0 state=PLAYING | fired=0
+walk-setup f=38 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=906.0 state=PLAYING | fired=0
+walk-setup f=39 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=913.0 state=PLAYING | fired=0
+walk-setup f=40 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=920.0 state=PLAYING | fired=0
+walk-setup f=41 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=927.0 state=PLAYING | fired=0
+walk-setup f=42 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=934.0 state=PLAYING | fired=0
+walk-setup f=43 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=941.0 state=PLAYING | fired=0
+walk-setup f=44 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=948.0 state=PLAYING | fired=0
+walk-setup f=45 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=955.0 state=PLAYING | fired=0
+walk-setup f=46 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=962.0 state=PLAYING | fired=0
+walk-setup f=47 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=969.0 state=PLAYING | fired=0
+walk-setup f=48 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=976.0 state=PLAYING | fired=0
+walk-setup f=49 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=983.0 state=PLAYING | fired=0
+walk-setup f=50 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=990.0 state=PLAYING | fired=0
+walk-setup f=51 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=997.0 state=PLAYING | fired=0
+walk-setup f=52 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1004.0 state=PLAYING | fired=0
+walk-setup f=53 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1011.0 state=PLAYING | fired=0
+walk-setup f=54 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1018.0 state=PLAYING | fired=0
+walk-setup f=55 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1025.0 state=PLAYING | fired=0
+walk-setup f=56 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1032.0 state=PLAYING | fired=0
+walk-setup f=57 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1039.0 state=PLAYING | fired=0
+walk-setup f=58 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1046.0 state=PLAYING | fired=0
+walk-setup f=59 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1053.0 state=PLAYING | fired=0
+walk-setup f=60 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1060.0 state=PLAYING | fired=0
+walk-setup f=61 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1067.0 state=PLAYING | fired=0
+walk-setup f=62 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1074.0 state=PLAYING | fired=0
+walk-setup f=63 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1081.0 state=PLAYING | fired=0
+walk-setup f=64 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1088.0 state=PLAYING | fired=0
+walk-setup f=65 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1095.0 state=PLAYING | fired=0
+walk-setup f=66 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1102.0 state=PLAYING | fired=0
+walk-setup f=67 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1109.0 state=PLAYING | fired=0
+walk-setup f=68 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1116.0 state=PLAYING | fired=0
+walk-setup f=69 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1123.0 state=PLAYING | fired=0
+walk-setup f=70 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1130.0 state=PLAYING | fired=0
+walk-setup f=71 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1137.0 state=PLAYING | fired=0
+walk-setup f=72 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1144.0 state=PLAYING | fired=0
+walk-setup f=73 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1151.0 state=PLAYING | fired=0
+walk-setup f=74 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1158.0 state=PLAYING | fired=0
+walk-setup f=75 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1165.0 state=PLAYING | fired=0
+walk-setup f=76 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1172.0 state=PLAYING | fired=0
+walk-setup f=77 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1179.0 state=PLAYING | fired=0
+walk-setup f=78 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1186.0 state=PLAYING | fired=0
+walk-setup f=79 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1193.0 state=PLAYING | fired=0
+walk-setup f=80 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1200.0 state=PLAYING | fired=0
+walk-setup f=81 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1207.0 state=PLAYING | fired=0
+walk-setup f=82 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1214.0 state=PLAYING | fired=0
+walk-setup f=83 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1221.0 state=PLAYING | fired=0
+walk-setup f=84 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1228.0 state=PLAYING | fired=0
+walk-setup f=85 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1235.0 state=PLAYING | fired=0
+walk-setup f=86 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk-setup f=87 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+---- scenario walk ----
+walk f=1 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=2 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=3 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=4 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=5 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=6 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=7 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=8 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=9 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=10 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=11 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=12 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=13 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=14 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=15 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=16 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=17 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=18 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=19 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=20 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=21 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=22 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=23 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=24 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=25 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=26 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=27 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=28 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=29 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=30 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=31 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=32 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=33 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=34 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=37 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=38 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=39 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=40 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=41 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=42 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=43 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=44 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=45 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=46 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=47 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=48 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=49 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=50 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=51 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=52 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=53 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=54 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=55 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=56 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=57 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=58 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=59 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=60 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=61 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=62 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=63 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=64 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=65 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=66 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=67 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=68 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=69 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=70 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=71 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=72 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=73 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=74 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=75 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=76 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=77 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=78 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=79 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=80 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=81 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=82 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=83 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=84 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=85 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=86 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=87 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=88 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=89 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=90 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=91 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=92 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=93 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=94 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=95 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=96 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=97 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=98 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=99 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=100 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=101 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=102 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=103 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=104 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=105 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=106 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=107 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=108 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=109 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=110 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=111 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=112 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=113 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=114 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=115 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=116 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=117 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=118 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=119 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=120 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=121 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=122 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=123 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=124 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=125 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=126 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=127 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=128 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=129 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=130 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=131 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=132 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=133 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=134 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=135 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=136 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=137 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=138 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=139 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=140 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=141 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=142 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=143 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=144 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=145 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=146 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=147 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=148 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=149 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=150 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=151 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=152 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=153 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=154 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=155 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=156 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=157 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=158 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=159 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=160 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=161 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=162 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=163 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=164 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=165 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=166 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=167 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=168 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=169 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=170 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=171 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=172 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=173 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=174 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=175 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=176 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=177 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=178 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=179 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=180 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=181 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=182 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=183 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=184 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=185 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=186 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=187 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=188 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=189 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=190 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=191 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=192 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=193 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+walk f=194 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+MEASURED walk: at_wall at f 174, current_animation hold first at f 174, frames seen while walking [0, 1, 2, 3], after 20 ticks: current "" assigned "hold" frame 0
+PASS (walk) setup: the scarecrow stays outside the cone and no arrow is fired
+PASS §1 current_animation is walk on every tick before the wall (173 ticks)
+PASS §1 the walk shows all four cells 0..3 (got [0, 1, 2, 3])
+PASS §1 current_animation becomes hold on the tick at_wall turns true (wall f 174, hold f 174)
+PASS §1 20 ticks later hold is still the assigned clip and the sprite shows frame 0
+---- scenario restart ----
+restart f=1 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=2 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=3 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=4 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=5 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=6 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=7 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=8 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=9 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=10 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=11 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=12 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=13 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=14 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=15 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=16 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=17 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=18 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=19 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=20 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=21 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=22 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=23 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=24 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=25 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=26 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=27 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=28 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=29 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=30 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=31 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=32 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=33 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=34 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=37 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=38 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=39 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=40 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=41 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=42 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=43 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=44 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=45 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=46 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=47 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=48 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=49 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=50 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=51 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=52 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=53 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=54 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=55 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=56 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=57 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=58 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=59 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=60 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=61 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=62 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=63 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=64 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=65 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=66 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=67 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=68 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=69 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=70 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=71 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=72 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=73 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=74 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=75 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=76 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=77 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=78 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=79 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=80 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=81 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=82 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=83 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=84 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=85 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=86 | node=shoot pos=0.0167 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=87 | node=shoot pos=0.0333 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=88 | node=shoot pos=0.0500 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=89 | node=shoot pos=0.0667 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=90 | node=shoot pos=0.0833 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=91 | node=shoot pos=0.1000 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=92 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=1240.0 state=PLAYING | fired=0
+restart f=93 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=1240.0 state=LOST | fired=0
+MEASURED restart: target spawned at f 83, LOST at f 93, node shoot pos 0.1167 armed true
+PASS (restart) setup: the run is lost mid-startup (armed, shoot, pos < 8/30 s, no arrow yet)
+restart f=94 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=1240.0 state=LOST | fired=0
+restart f=95 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=1240.0 state=LOST | fired=0
+restart f=96 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=1240.0 state=LOST | fired=0
+restart f=97 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=1240.0 state=LOST | fired=0
+restart f=98 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=1240.0 state=LOST | fired=0
+PASS (restart) rev. 1.1 R restarts and cancel_shot() cleared shot_armed and the target at once
+restart f=99 | node=idle pos=0.0000 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+PASS (restart) §5.5 the tree is back in idle on the first tick of the new run (got idle)
+restart f=100 | node=idle pos=0.0167 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=101 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=102 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=103 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=104 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=105 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=106 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=107 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=108 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=109 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=110 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=111 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=112 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=113 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=114 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=115 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=116 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=117 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=118 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=119 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=120 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=121 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=122 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=123 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=124 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=125 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=126 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=127 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=128 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=129 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=130 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=131 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=132 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=133 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=134 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=135 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=136 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=137 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=138 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+restart f=139 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 state=PLAYING | fired=0
+PASS (restart) §5.5 no late arrow and no draw in the 41 ticks after R
+PASS §6/§7 fired is never emitted while the tree is not in shoot (8 shots)
+PASS §8 Archer/AnimationPlayer never plays on its own: current_animation "" and not playing on every tick
+RESULT test_archer_state_machine: 106 passed, 1 failed
