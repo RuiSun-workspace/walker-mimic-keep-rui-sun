@@ -1007,3 +1007,36 @@ two prompts, both approved by Rui (`f846546`):
   before wiring.
 - Two of the four denials were the agent reaching for PowerShell after `bash scripts/run-test.sh` was refused.
   The allow list held, and `./scripts/run-test.sh` was the allowed form.
+
+## 2026-11-21 — Step 4: the archer's part images and the shot clip
+
+As in Step 3, the assignment's prompt assumes the rig exists, and ours had to be cut out of one image first.
+So Step 4 ran as two prompts, both approved by Rui (`d954846`):
+- `prompt-4a.txt`, written by Claude: the part images only.
+- `prompt-4b.txt`: the template with its placeholders filled, plus project specifics.
+
+**4a, the parts** (`sessions/a7/session-4a.jsonl`; success, 13 turns, 1 denial for a compound command).
+- `make_sprites.gd` writes `archer_body.png`, `archer_bow.png` and `archer_string.png`, and records their
+  rest placements and the grip at (34.5, 26).
+- The five existing PNGs are byte-identical.
+- `test_archer_parts.gd` passes 13/0.
+- Composited at rest, the parts differ from `archer.png` in 56 of 2640 pixels, all from each part carrying its
+  own outline:
+  - a dark line between the stave and the string;
+  - the bow's outline over the cloak.
+- Rui looked at a 6× comparison (`captures/archer_parts_rest_x6.png`) and accepted it (`f7076ff`).
+
+**4b, the rig and clips** (`sessions/a7/session-4b.jsonl`; success, 25 turns, 1 denial).
+- The single `Sprite` became `Rig/Body`, `Rig/BowPivot/{Bow,String}` plus an `AnimationPlayer`. Claude
+  checked the arithmetic of each rest position against the recorded placements.
+- `shoot` keys every transform track at frames 0, 8, 9 and 15. The key transitions ease in toward the release
+  and ease out through the recovery. `release_window` is discrete: false, true, false.
+- `archer.gd` gained only `var release_window := false`.
+- **The brief gave timing but no pose amounts.** The agent proposed them and labelled them as proposals for
+  Rui to judge in the strip:
+  - bow −8°, pulled 1 px left and 3 px down;
+  - string +3 px and stretched to 110 %;
+  - a +2° kick on release.
+- `test_archer_shot_readback.gd` passes 165/0, and Claude counted 165 PASS lines.
+- The pins, rules and input suites are unchanged. Claude re-ran every other baseline suite, and all their
+  logs came out byte-identical, so the rig changed nothing the tests cover before wiring.
