@@ -1,0 +1,27 @@
+Read CLAUDE.md first. The current capture is in captures/shoot/r0/
+and its per-frame log is in logs/. What I saw playing at normal speed
+and at --time-scale 0.25: the draw's movement feels a bit small; at
+normal speed the three phases are hard to tell apart. The moment the
+arrow comes out is fine.
+
+Read the frames at each phase boundary in CHANGE-BRIEF.md, with the
+log lines for the same frames, and say where the motion and the table
+disagree. Then propose one change, to the phase table or to one key's
+transition. Before editing, say what the capture should show
+afterward. After I approve, make only that change, update the
+read-back test's expected values, and stop so I can recapture and
+play. Do not commit.
+
+Project specifics:
+- The strip is a fixture capture from godot/previews/shoot_preview.tscn
+  at --fixed-fps 30. Strip frame 10+k shows clip frame k; capture file
+  frameN.png matches the log line whose first field is N. Only frames
+  9, 10, 18, 19 and 25 were kept (see TUNING.md); the clip is in
+  godot/game/archer.tscn.
+- The pose amounts at clip frame 8 (bow -8 deg, pivot pulled 1 px left
+  and 3 px down, string +3 px and 110 %) and the +2 deg release kick
+  were your proposals from Step 4, for Rui to judge in the strip. A
+  change to the values of one track's frame-8 key counts as one change
+  here, as does one key's transition. Do not change the phase table's
+  timing: Rui says the arrow's moment is fine.
+- This first pass is a proposal only: do not edit any file yet.
