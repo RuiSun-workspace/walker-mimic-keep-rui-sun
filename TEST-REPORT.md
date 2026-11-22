@@ -572,3 +572,94 @@ Rui's answer, in their words:
 > mode, explosiveness, preprocess and the visibility rectangle—are not part of this shader. The particle
 > texture and additive blend mode belong to the drawing stage, so they are also not implemented in the
 > generated particle-processing shader.
+
+# Assignment 7 — Animation
+
+The scarecrow walk (Sprite2D + AnimationPlayer frame track) and the archer shot (keyed cutout rig driven by
+an AnimationTree). Brief: `CHANGE-BRIEF.md` with revisions 1–3. Every count below was run by Claude
+through `./scripts/run-test.sh` at `520f72d`; every run exited 0 and no log contains `SHADER ERROR`,
+`SCRIPT ERROR` or `Failed loading resource`.
+
+## A7.1 Suites after Step 6
+
+| Suite | Fps | Result | Baseline (`292fe05`) | What it covers |
+|---|---|---|---|---|
+| `test_rules.gd` | 60 | 23/0 | 23/0 | game rules |
+| `test_input.gd` | 60 | 14/0 | 14/0 | keys, pause, restart |
+| `test_materials.gd` | 60 | 132/0 | 132/0 | A5 materials |
+| `normal_map_check.gd` | 60 | 9/0 | 9/0 | A5 normal maps |
+| `test_impact_burst_config.gd` / `_state.gd` | 60 | 128/0, 29/0 | 128/0, 29/0 | A6 effect A |
+| `test_burning_embers_config.gd` / `_state.gd` | 60 | 156/0, 54/0 | 156/0, 54/0 | A6 effect B |
+| `test_burning_tint.gd` | 30, 60, 144 | 49/0 each | 49/0 each | input script changed, revision 3 |
+| `test_wall_targeting.gd` | 30, 60, 144 | 10/0 each | 10/0 each | wall targeting |
+| `test_pins_a7.gd` | 60 | 38/0 | 38/0 at `d6d8596` | re-pinned, revision 2 |
+| `test_scarecrow_sheet.gd` | 60 | 36 PASS, 0 failures | new | sheet pixels, registration |
+| `test_scarecrow_walk_readback.gd` | 60 | 68 PASS, 0 failures | new | walk/hold read-back |
+| `test_archer_parts.gd` | 60 | 13/0 | new | rig part images |
+| `test_archer_shot_readback.gd` | 60 | 165/0 | new | idle/shoot read-back |
+| `test_archer_state_machine.gd` | 60 | 107/0 | new | structure + wiring |
+| `test_archer_edges.gd` | 60 | 325/0 | new | every boundary × every interrupt |
+
+## A7.2 Pins: what changed after wiring, and why
+
+Before the change: 38/0 (`d6d8596`). After Step 5: 26/12. After the re-pin (`7eb30c5`): 38/0.
+
+| Pin | Before | After | Predicted? |
+|---|---|---|---|
+| (a)(b)(c)(f) first fired frame | 1 | 19 | Yes, brief §5.2 (18 ticks from travel to release) |
+| (c) fired − re-entry | 0 | 18 | Yes, §5.2 |
+| (a) death | 118 | 136 | Yes, follows from §5.2 |
+| (c) cooldown at 0 | 37 | 55 | Yes, follows from §5.2 |
+| (d) pause scenario | pause at f 15, shots 1/67 | pause at f 28, shots 19/85, shift 30 | No: the f 15 pause fell mid-draw; the scenario's intent was kept (revision 2.2) |
+| (f) loss | 104 | 103 | No: kills come later, so the gate takes more damage (revision 2.3) |
+| Cadence (36 ticks), every INVARIANT | — | unchanged | — |
+
+The other unpredicted change was `test_burning_tint` (28/15 after Step 5, with only 43 checks run). Its
+steering helper assumed an instant release. Claude's first fix (revision 2.4) fired no arrow at all
+(11/6, `evidence/a7-repin/`). The fix in revision 3 restores 49/0 at all three rates, and every expected
+value is unchanged.
+
+## A7.3 Edges (`test_archer_edges.gd`, 325/0)
+
+The boundaries were measured on a back-to-back shot, relative to the travel tick T:
+- startup T;
+- active T+18;
+- recovery T+19;
+- end T+31.
+
+Each interrupt was sent at B−1, B and B+1 of every boundary, and every one landed on its exact tick
+("NOT AT THE EXACT TICK: none"):
+- the locked target leaves the cone;
+- a move key is held;
+- a 10-tick pause;
+- the gate falls, then R;
+- the target dies, timed by scanning its start height.
+
+Results:
+- Startup cancels as §5.5 says, with the cooldown untouched and no new target on the cancel tick.
+- Active and recovery ignore target loss; a target lost on the release tick still gets its arrow.
+- A pause shifts every later boundary by exactly 10.
+
+INFO: a target present on the very first tick after a mid-shot restart is drawn on R+2. Real play cannot
+produce this, because `reset()` clears every scarecrow.
+
+## A7.4 Mutations (`../a7-mutate` worktree, removed after; `evidence/a7-mutations/`)
+
+| # | Mutation | Test | Exit | What caught it |
+|---|---|---|---|---|
+| 1a | walk track `Sprite:frame` → `Sprite:frames` | walk read-back | 1 | property `frames` does not exist on Sprite2D (2 failures) |
+| 1b | shoot track `String:scale` → `String:scal` (shoot only) | shot read-back | 1 | property missing; idle and shoot no longer key the same properties (153/2) |
+| 2 | walk `loop_mode` 1 → 0 | walk read-back | 1 | `walk loop_mode == 1 (got 0)` |
+| 3 | walk key 3: frame 3 → 4 (= hframes × vframes) | walk read-back | 1 | frame 4 outside the sheet (0..3) |
+| 4 | `godot/.godot` deleted, `--import`, four read-backs | all four | **0** | nothing to catch: the clips and rig are keyed in `.tscn` text, not imported, so a re-import cannot change their loop mode. It does confirm that the scenes load from an empty cache and the sheet and part images re-import cleanly |
+
+Mutation 1b's first attempt also renamed the idle clip's track. It was redone on the shoot clip only, as the
+assignment specifies.
+
+## A7.5 What no headless run can show
+
+- Whether startup, active and recovery read as distinct motions, and whether the agent's pose amounts are
+  right (Step 7 frame strip and play).
+- Whether the walk loops without a visible catch. The jagged eyes in the leaning cells were accepted for now.
+- The §11 strip frame numbers. They are filled in after the windowed capture.
+- `--debug-collisions` draws nothing in this project: hits are by distance (`arrow.gd:21`).
