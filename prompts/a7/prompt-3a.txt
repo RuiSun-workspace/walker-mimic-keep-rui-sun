@@ -1,0 +1,47 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract for this change;
+its §2 (and revision 1) specify the scarecrow walk sheet: source, cell
+size, grid, frame order, offsets, lean, registration and file name.
+
+This step makes the SHEET only. Do not set up a clip, do not touch any
+scene, and do not change any existing image.
+
+1. Add a function to godot/tools/make_sprites.gd that draws
+   godot/assets/sprites/scarecrow_walk.png exactly as brief §2 says:
+   - 4 columns x 1 row of 64x80 cells, 256x80 in all;
+   - the scarecrow drawn with the same parts, colours and outline as
+     today's _scarecrow() (godot/tools/make_sprites.gd:42-57), its
+     original centre at the centre of each cell;
+   - frame 0 upright, y offset 0; frame 1 leaning left, y offset -3;
+     frame 2 upright, y offset +1; frame 3 leaning right, y offset -3;
+   - the lean is a 5 degree rotation about the pole foot, so the pole
+     foot does not move sideways.
+   Call it from _init() after the existing four images. Reuse the
+   existing helpers and colours; keep the file deterministic. Draw each
+   pose in code; never load, sample or edit an image from disk.
+2. Run the generator:
+   godot --headless --path godot --script res://tools/make_sprites.gd
+   then godot --headless --path godot --import
+   Check with git status and git diff that scarecrow.png, archer.png,
+   arrow.png and mimi.png are byte-for-byte unchanged. If any changed,
+   report it and stop.
+3. Write ONE new test, godot/tests/test_scarecrow_sheet.gd, that loads
+   the PNG with Image.load_from_file (not through the importer) and
+   asserts, with PASS/FAIL lines and a RESULT line, quit(1) on failure:
+   - the image is 256x80;
+   - in each 64x80 cell, the pole foot (state in a comment how the test
+     finds it from opaque pixels) has the same x in all four cells, and
+     its y equals frame 0's y plus 0, -3, +1, -3;
+   - no opaque pixel touches any cell's outer row or column, so nothing
+     is clipped;
+   - every cell contains the scarecrow's colours (STRAW, BURLAP, POLE,
+     HAT, OUTLINE from make_sprites.gd).
+   Run it with ./scripts/run-test.sh test_scarecrow_sheet.gd 60 and
+   paste the real output.
+4. Add one row to the "Art and meshes written by code" table in
+   SOURCES.md for scarecrow_walk.png, made by
+   godot/tools/make_sprites.gd, following the existing rows. Change
+   nothing else in SOURCES.md.
+
+If the brief's numbers cannot all be met (for example the lean clips
+the cell), do not change them: report the conflict with the measured
+pixels and stop. List any file you create or change. Do not commit.
