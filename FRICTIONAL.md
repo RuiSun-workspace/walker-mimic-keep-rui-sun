@@ -1096,3 +1096,34 @@ tick. The test sampled at the `physics_frame` signal, before any node runs, so i
 Claude's first edit (`1a2959d`) read that sample before it existed and crashed the test. Its commit message
 claimed 107/0, written before the run had finished. `8ca7982` fixes both, and the test now passes 107/0.
 From here on Claude runs the test before writing the commit message.
+
+## 2026-11-21 — Step 6: edges, re-pins, mutations, and a fix of Claude's that fired nothing
+
+**Edges.** Claude wrote `prompt-6a.txt`, which Rui approved. The session (`sessions/a7/session-6a.*`; 43
+turns, 3 denials) produced `test_archer_edges.gd`, committed unedited (`d34dccc`).
+- It measured the boundaries first: active at T+18, recovery at T+19, end at T+31.
+- It then landed every interrupt on B−1, B and B+1 of every boundary.
+- Target death was timed through real play, by scanning the target's start height in 5 px steps until its
+  death fell on each tick.
+- 325/0. Claude re-ran it and checked the file for forbidden calls and writes; it has none.
+
+**Mutations** (Claude, in `../a7-mutate`, removed after; `evidence/a7-mutations/`).
+- Mutations 1a, 1b, 2 and 3 each made their read-back exit 1.
+- Mutation 4 (empty import cache) passed, as expected for a keyed rig.
+- Claude's first 1b also renamed the idle clip's track. It was redone on the shoot clip only.
+
+**Re-pins.** Claude drafted brief revision 2 from the review Rui had approved (`aae895b`). The agent applied
+it (`sessions/a7/session-6b.*`; 46 turns, 6 denials).
+- The pins changed only the listed constants and went from 26/12 to 38/0 (`7eb30c5`).
+- **Revision 2 item 4 was Claude's idea, and it was wrong.** "Release D when the draw starts" stopped the
+  archer at the cone's edge. The test's scarecrow walked out of the cone during the draw, §5.5 cancelled it,
+  and with no key held no arrow ever came: `test_burning_tint` 11/6 at every rate. The agent reported this
+  as a finding instead of improvising, as the prompt told it to. Its diagnosis was geometric, not traced.
+- Claude saved that change as evidence and reverted it. Before proposing anything again, Claude tried an
+  alternative in a scratch worktree: steer back to the helper's starting x instead of 40 px from the firing
+  point. It gave 49/0 at 30, 60 and 144.
+- Rui approved it ("按新方案改"). It is brief revision 3 (`192173d`) and the test change (`520f72d`), run on
+  all three rates before the commit.
+
+**Full suite at the end of Step 6:** all 21 runs pass and every log is byte-identical to the committed
+one (TEST-REPORT A7.1).
