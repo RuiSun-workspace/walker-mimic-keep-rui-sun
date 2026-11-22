@@ -1087,3 +1087,12 @@ Results, re-run by Claude:
 - **Unchanged:** rules, input, `impact_burst_state` (Rui predicted it would need re-pinning; it did not),
   `burning_embers_state` (including the 120-tick movement scenario he flagged), `wall_targeting`, and both
   read-backs.
+
+**Start → idle, followed up (Rui asked for the cause first).** A Claude probe
+(`evidence/a7-probes/probe_start_tick.*`) showed the tree is in `idle` after its first update in the first
+tick. The test sampled at the `physics_frame` signal, before any node runs, so its first sample still read
+`Start`. Rui approved Claude moving the check to the first sample after that update.
+
+Claude's first edit (`1a2959d`) read that sample before it existed and crashed the test. Its commit message
+claimed 107/0, written before the run had finished. `8ca7982` fixes both, and the test now passes 107/0.
+The lesson is the A6 one again: verify, then write the message.
