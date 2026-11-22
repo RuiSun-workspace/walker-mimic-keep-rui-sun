@@ -25,28 +25,28 @@ const FIRE_INTERVAL_TICKS := 36            # Tuning.FIRE_INTERVAL (0.6 s) at 60 
 # ---- scenario design (chosen, not measured) ----------------------------------------------------
 const C_HOLD_D_TICKS := 40                 # (c) D held for ticks 1..40, then A for ticks 41..80
 const C_HOLD_A_TICKS := 40
-const D_PAUSE_AT_F := 15                   # (d) P pressed after tick 15 ...
+const D_PAUSE_AT_F := 28                   # (d) P pressed after tick 28 (first release f 19, next draw starts tick 37); moved 2026-11-21: CHANGE-BRIEF.md Revision 2, item 2 ...
 const D_PAUSE_TICKS := 30                  # ... and again 30 ticks later
 const E_WALL_HOLD_TICKS := 30              # (e) ticks watched after the scarecrow reaches the wall
 const F_FROZEN_TICKS := 30                 # (f) ticks watched after the loss before R
 
 # ---- TIMING: measured on baseline 2026-11-21 ----------------------------------------------------
-const A_FIRST_SHOT_F := 1                  # measured on baseline 2026-11-21: (a) spawn (in the cone, cooldown 0) at f 0 -> first fired
+const A_FIRST_SHOT_F := 19                 # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 1
 const A_SHOT_GAPS := [36, 36, 36]          # measured on baseline 2026-11-21: (a) shots at f 1, 37, 73, 109
-const A_DEATH_F := 118                     # measured on baseline 2026-11-21: (a) the 4th arrow kills it
-const B_FIRST_SHOT_F := 1                  # measured on baseline 2026-11-21
+const A_DEATH_F := 136                     # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 1
+const B_FIRST_SHOT_F := 19                 # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 1
 const B_SHOT_GAPS := [36, 36, 36, 36, 36, 36, 36]   # measured on baseline 2026-11-21: 4 on B_near, 4 on B_far
-const C_FIRST_SHOT_F := 1                  # measured on baseline 2026-11-21
+const C_FIRST_SHOT_F := 19                 # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 1
 const C_EXIT_F := 26                       # measured on baseline 2026-11-21: first frame the target is outside the cone
-const C_CD_ZERO_F := 37                    # measured on baseline 2026-11-21: first frame the cooldown is 0 while it is outside
+const C_CD_ZERO_F := 55                    # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 1
 const C_REENTRY_F := 62                    # measured on baseline 2026-11-21: first frame it is back inside the cone
-const C_REENTRY_SHOT_DELAY := 0            # measured on baseline 2026-11-21: fired on the re-entry frame itself
-const D_SHOT1_F := 1                       # measured on baseline 2026-11-21
-const D_SHOT2_F := 67                      # measured on baseline 2026-11-21: 1 + 36 + 30 paused frames
+const C_REENTRY_SHOT_DELAY := 18           # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 1
+const D_SHOT1_F := 19                      # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 2
+const D_SHOT2_F := 85                      # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 2
 const D_PAUSE_SHIFT := 30                  # measured on baseline 2026-11-21: (shot2 - shot1) - unpaused cadence
 const E_WALL_F := 174                      # measured on baseline 2026-11-21: 130 px at 0.75 px/tick, rounded up
-const F_LOSS_F := 104                      # measured on baseline 2026-11-21: frame the run is LOST
-const F_RESTART_SHOT_DELAY := 1            # measured on baseline 2026-11-21: new run, spawn at f_s -> fired at f_s + 1
+const F_LOSS_F := 103                      # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 3
+const F_RESTART_SHOT_DELAY := 19           # re-pinned 2026-11-21 after the approved change: CHANGE-BRIEF.md Revision 2, item 1
 
 var game: Game
 var timing: Array[String] = []

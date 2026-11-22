@@ -692,49 +692,49 @@ MEASURED c: shots at f [19, 80, 116, 152], exit f 26, cooldown 0 at f 55, re-ent
 683 | d f=13 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=259.75 wall=false hp=40.00 burn=false cone=true
 684 | d f=14 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=260.50 wall=false hp=40.00 burn=false cone=true
 685 | d f=15 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-686 | d f=16 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-687 | d f=17 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-688 | d f=18 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-689 | d f=19 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-690 | d f=20 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-691 | d f=21 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-692 | d f=22 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-693 | d f=23 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-694 | d f=24 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-695 | d f=25 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-696 | d f=26 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-697 | d f=27 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-698 | d f=28 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-699 | d f=29 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-700 | d f=30 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-701 | d f=31 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-702 | d f=32 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-703 | d f=33 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-704 | d f=34 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-705 | d f=35 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-706 | d f=36 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-707 | d f=37 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-708 | d f=38 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-709 | d f=39 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-710 | d f=40 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-711 | d f=41 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-712 | d f=42 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-713 | d f=43 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-714 | d f=44 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-715 | d f=45 | state=PLAYING paused=true x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=261.25 wall=false hp=40.00 burn=false cone=true
-716 | d f=46 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=262.00 wall=false hp=40.00 burn=false cone=true
-717 | d f=47 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=262.75 wall=false hp=40.00 burn=false cone=true
-718 | d f=48 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=263.50 wall=false hp=40.00 burn=false cone=true
-719 | d f=49 | state=PLAYING paused=false x=640.00 cd=0.600000 arrows=1 | fired=[D1(nearest D1, pf 718)] | D1 y=264.25 wall=false hp=40.00 burn=false cone=true
-720 | d f=50 | state=PLAYING paused=false x=640.00 cd=0.583333 arrows=1 | fired=[] | D1 y=265.00 wall=false hp=40.00 burn=false cone=true
-721 | d f=51 | state=PLAYING paused=false x=640.00 cd=0.566667 arrows=1 | fired=[] | D1 y=265.75 wall=false hp=40.00 burn=false cone=true
-722 | d f=52 | state=PLAYING paused=false x=640.00 cd=0.550000 arrows=1 | fired=[] | D1 y=266.50 wall=false hp=40.00 burn=false cone=true
-723 | d f=53 | state=PLAYING paused=false x=640.00 cd=0.533333 arrows=1 | fired=[] | D1 y=267.25 wall=false hp=40.00 burn=false cone=true
-724 | d f=54 | state=PLAYING paused=false x=640.00 cd=0.516667 arrows=1 | fired=[] | D1 y=268.00 wall=false hp=40.00 burn=false cone=true
-725 | d f=55 | state=PLAYING paused=false x=640.00 cd=0.500000 arrows=1 | fired=[] | D1 y=268.75 wall=false hp=40.00 burn=false cone=true
-726 | d f=56 | state=PLAYING paused=false x=640.00 cd=0.483333 arrows=1 | fired=[] | D1 y=269.50 wall=false hp=40.00 burn=false cone=true
-727 | d f=57 | state=PLAYING paused=false x=640.00 cd=0.466667 arrows=1 | fired=[] | D1 y=270.25 wall=false hp=40.00 burn=false cone=true
-728 | d f=58 | state=PLAYING paused=false x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+686 | d f=16 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=262.00 wall=false hp=40.00 burn=false cone=true
+687 | d f=17 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=262.75 wall=false hp=40.00 burn=false cone=true
+688 | d f=18 | state=PLAYING paused=false x=640.00 cd=0.000000 arrows=0 | fired=[] | D1 y=263.50 wall=false hp=40.00 burn=false cone=true
+689 | d f=19 | state=PLAYING paused=false x=640.00 cd=0.600000 arrows=1 | fired=[D1(nearest D1, pf 688)] | D1 y=264.25 wall=false hp=40.00 burn=false cone=true
+690 | d f=20 | state=PLAYING paused=false x=640.00 cd=0.583333 arrows=1 | fired=[] | D1 y=265.00 wall=false hp=40.00 burn=false cone=true
+691 | d f=21 | state=PLAYING paused=false x=640.00 cd=0.566667 arrows=1 | fired=[] | D1 y=265.75 wall=false hp=40.00 burn=false cone=true
+692 | d f=22 | state=PLAYING paused=false x=640.00 cd=0.550000 arrows=1 | fired=[] | D1 y=266.50 wall=false hp=40.00 burn=false cone=true
+693 | d f=23 | state=PLAYING paused=false x=640.00 cd=0.533333 arrows=1 | fired=[] | D1 y=267.25 wall=false hp=40.00 burn=false cone=true
+694 | d f=24 | state=PLAYING paused=false x=640.00 cd=0.516667 arrows=1 | fired=[] | D1 y=268.00 wall=false hp=40.00 burn=false cone=true
+695 | d f=25 | state=PLAYING paused=false x=640.00 cd=0.500000 arrows=1 | fired=[] | D1 y=268.75 wall=false hp=40.00 burn=false cone=true
+696 | d f=26 | state=PLAYING paused=false x=640.00 cd=0.483333 arrows=1 | fired=[] | D1 y=269.50 wall=false hp=40.00 burn=false cone=true
+697 | d f=27 | state=PLAYING paused=false x=640.00 cd=0.466667 arrows=1 | fired=[] | D1 y=270.25 wall=false hp=40.00 burn=false cone=true
+698 | d f=28 | state=PLAYING paused=false x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+699 | d f=29 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+700 | d f=30 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+701 | d f=31 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+702 | d f=32 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+703 | d f=33 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+704 | d f=34 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+705 | d f=35 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+706 | d f=36 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+707 | d f=37 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+708 | d f=38 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+709 | d f=39 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+710 | d f=40 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+711 | d f=41 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+712 | d f=42 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+713 | d f=43 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+714 | d f=44 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+715 | d f=45 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+716 | d f=46 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+717 | d f=47 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+718 | d f=48 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+719 | d f=49 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+720 | d f=50 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+721 | d f=51 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+722 | d f=52 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+723 | d f=53 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+724 | d f=54 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+725 | d f=55 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+726 | d f=56 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+727 | d f=57 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
+728 | d f=58 | state=PLAYING paused=true x=640.00 cd=0.450000 arrows=1 | fired=[] | D1 y=271.00 wall=false hp=40.00 burn=false cone=true
 729 | d f=59 | state=PLAYING paused=false x=640.00 cd=0.433333 arrows=1 | fired=[] | D1 y=271.75 wall=false hp=40.00 burn=false cone=true
 730 | d f=60 | state=PLAYING paused=false x=640.00 cd=0.416667 arrows=1 | fired=[] | D1 y=272.50 wall=false hp=40.00 burn=false cone=true
 731 | d f=61 | state=PLAYING paused=false x=640.00 cd=0.400000 arrows=1 | fired=[] | D1 y=273.25 wall=false hp=40.00 burn=false cone=true
@@ -846,7 +846,7 @@ MEASURED c: shots at f [19, 80, 116, 152], exit f 26, cooldown 0 at f 55, re-ent
 837 | d f=167 | state=PLAYING paused=false x=640.00 cd=0.433333 arrows=1 | fired=[] | D1 y=352.75 wall=false hp=3.27 burn=true cone=true
 838 | d f=168 | state=PLAYING paused=false x=640.00 cd=0.416667 arrows=1 | fired=[] | D1 y=353.50 wall=false hp=3.20 burn=true cone=true
 839 | d f=169 | state=PLAYING paused=false x=640.00 cd=0.400000 arrows=0 | fired=[] | 
-MEASURED d: shots at f [49, 85, 121, 157], gaps [36, 36, 36], cd at pause 0.000000, cd after 30 paused ticks 0.000000, died f 169
+MEASURED d: shots at f [19, 85, 121, 157], gaps [66, 36, 36], cd at pause 0.450000, cd after 30 paused ticks 0.450000, died f 169
 840 | d f=170 | state=PLAYING paused=false x=640.00 cd=0.383333 arrows=0 | fired=[] | 
 841 | d f=171 | state=PLAYING paused=false x=640.00 cd=0.366667 arrows=0 | fired=[] | 
 842 | d f=172 | state=PLAYING paused=false x=640.00 cd=0.350000 arrows=0 | fired=[] | 
@@ -1338,22 +1338,22 @@ MEASURED f: new run: G1 spawned at f 143, first fired at f 162
 INFO (f) transitions: ["LOST@f103 key=82 age=-1", "PLAYING@f133 key=82 age=0"]
 INFO 24 shots in total; smallest gap in archer-active frames within a run: 36
 == TIMING (changed on purpose by brief §5; re-pinned in Step 6) ==
-FAIL (a) first fired frame after a spawn in the cone (spawn = f 0) = 1  measured 19
+PASS (a) first fired frame after a spawn in the cone (spawn = f 0) = 19
 PASS (a) frames between consecutive shots = [36, 36, 36]
-FAIL (a) frame the scarecrow dies = 118  measured 136
-FAIL (b) first fired frame after the spawn = 1  measured 19
+PASS (a) frame the scarecrow dies = 136
+PASS (b) first fired frame after the spawn = 19
 PASS (b) frames between consecutive shots = [36, 36, 36, 36, 36, 36, 36]
-FAIL (c) first fired frame after the spawn = 1  measured 19
+PASS (c) first fired frame after the spawn = 19
 PASS (c) frame the target leaves the cone = 26
-FAIL (c) frame the cooldown reaches 0 while it is outside = 37  measured 55
+PASS (c) frame the cooldown reaches 0 while it is outside = 55
 PASS (c) frame the target is back in the cone = 62
-FAIL (c) fired frame - re-entry frame = 0  measured 18
-FAIL (d) first fired frame = 1  measured 49
-FAIL (d) second fired frame (after the pause) = 67  measured 85
-FAIL (d) shift of the second shot by the 30-frame pause = 30  measured 0
+PASS (c) fired frame - re-entry frame = 18
+PASS (d) first fired frame = 19
+PASS (d) second fired frame (after the pause) = 85
+PASS (d) shift of the second shot by the 30-frame pause = 30
 PASS (e) frame the scarecrow reaches the wall (spawn at y 400 = f 0) = 174
-FAIL (f) frame the run is LOST = 104  measured 103
-FAIL (f) new run: fired frame - spawn frame = 1  measured 19
+PASS (f) frame the run is LOST = 103
+PASS (f) new run: fired frame - spawn frame = 19
 == INVARIANT (must survive the change) ==
 PASS (a) setup: cooldown 0 and the scarecrow inside the cone at spawn
 PASS (b) setup: both scarecrows inside the cone at spawn
@@ -1361,7 +1361,7 @@ PASS (b) the first shot takes the nearer scarecrow (B_near)
 PASS (b) every shot takes B_near while it lives, then B_far
 PASS (c) no shot while the target is outside the cone, though the cooldown is 0
 PASS the archer moves 7 px per tick while the cooldown runs (35 ticks checked)
-FAIL (d) P pauses mid-cooldown and P again resumes  paused true resumed true cd 0.0000
+PASS (d) P pauses mid-cooldown and P again resumes
 PASS (d) while paused: no shot, the cooldown and the scarecrow do not change
 PASS (d) shots after the pause keep the unpaused cadence (36)
 PASS (e) setup: the scarecrow never enters the cone, no shot
@@ -1377,4 +1377,4 @@ PASS exactly one arrow under World/Arrows per fired, in the same frame
 PASS no shot and no cooldown change on a frame the archer is paused or the game has ended
 PASS every shot takes the nearest scarecrow in the cone
 PASS a scarecrow at the wall never moves
-RESULT test_pins_a7: 26 passed, 12 failed
+RESULT test_pins_a7: 38 passed, 0 failed
