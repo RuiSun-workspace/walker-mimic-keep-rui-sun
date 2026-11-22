@@ -1,0 +1,34 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract for this change;
+its Revision 2 says exactly what this re-pin may change. Re-pin
+(assignment Step 6): re-run the Step 2 pins; everything passes except
+what the brief said would change. Do not change any game file, scene,
+clip or .gdshader file.
+
+Make exactly these changes, nothing else:
+1. godot/tests/test_pins_a7.gd, Revision 2 items 1-3:
+   - re-measure and re-pin the TIMING constants that changed: (a), (b),
+     (c), (f) first fired frame; (c) fired - re-entry; (a) death;
+     (c) cooldown at 0; (f) frame the run is LOST. Change each
+     constant's comment to "re-pinned 2026-11-21 after the approved
+     change: CHANGE-BRIEF.md Revision 2, item N";
+   - scenario (d): move the first P press to a frame after the first
+     release and before the next draw starts (measure both), keep the
+     30-frame pause, and re-pin (d)'s numbers. The invariant "P pauses
+     mid-cooldown and P again resumes" and "shift of the next shot by
+     the 30-frame pause = 30" must then pass unchanged;
+   - change no INVARIANT check and no other constant.
+2. godot/tests/test_burning_tint.gd, Revision 2 item 4: in
+   _steer_one_arrow(), release D on the first tick game.archer.shot_armed
+   is true (the draw has started), then wait for `fired` without any
+   key held, then steer back STEER_BACK px with A as before. Update the
+   helper's doc comment. Change no expected value, constant or other
+   function in that file.
+
+Then run, through ./scripts/run-test.sh exactly as written (not bash
+scripts/..., not PowerShell): test_pins_a7.gd 60; test_burning_tint.gd
+at 30, 60 and 144; and test_archer_state_machine.gd,
+test_archer_edges.gd, test_rules.gd, test_input.gd,
+test_impact_burst_state.gd, test_burning_embers_state.gd at 60;
+test_wall_targeting.gd at 30, 60 and 144. Paste each count. If a pin
+still fails for a reason Revision 2 does not give, do not change it:
+report it as a finding. Show the diff of both files. Do not commit.
