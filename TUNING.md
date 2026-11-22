@@ -196,3 +196,72 @@ there is a +2° kick.
   other 85 frames were moved to `F:\7270\a7-captures\shoot-r0\`.
 - Log: `logs/shoot_preview_r0.log`.
 - Enlarged crop of the archer at those frames: `captures/shoot/sheets/r0_boundaries_x4.png`.
+
+## 2026-11-22 — Claude's reading of r0 and the change for r1
+
+Claude's reading of r0 (agent session `sessions/a7/session-7b-propose.md`, read-only; summary): the bow's tip is
+23 px from the pivot, so −8° moves it only about 3 px, roughly one stave width at 1:1. The draw eases in
+(transition 2.0), so clip frames 1–4 move the tip by less than 1 px and the 8-frame draw looks like 4 frames.
+On release the bow goes from −8° to +2° in one frame, a 10° snap. The 6 recovery frames then settle a 2° kick
+(under 1 px), which looks the same as idle at 1:1. So, at normal speed: a faint draw, a small lean, one snap,
+then idle. That matches Rui's note.
+
+The one change it proposed and Rui approved ("批准 −16°"): set the `Rig/BowPivot:rotation` key at clip frame 8
+(t = 0.26666668) to −16° (`-0.27925268`, was `-0.13962634`). Times, transitions, the +2° kick, the string, the
+pivot position and `release_window` are unchanged. Its reason for stopping at −16°: past that, the stave would
+cut into the hood by more than the 2–3 px it already overlaps at −16°. It said in advance that recovery would
+still look like idle, and that the first 1–3 draw frames would still move under 1 px.
+
+Its prediction, written before the edit:
+- Log: `pivot_rot_deg` on clip frames 1–8 = −0.25, −1.00, −2.25, −4.00, −6.25, −9.00, −12.25, −16.00; every
+  other column the same as r0.
+- Strip: frames 9, 10 and 25 pixel-identical to r0. Frame 18 shows a clear lean, the stave top about 6 px left
+  and over the hood's right edge. Frame 19 is reached by an 18° snap back, with the arrow out.
+
+Applied by the agent (session `sessions/a7/session-7c.md`, `0726ae3`, unedited), with one new read-back check
+pinning frame 8 at `deg_to_rad(-16.0)`. Claude re-ran the tests: read-back 166/0, state machine 107/0, pins
+38/0, edges 325/0, burning_tint passing at 30/60/144. Mutation m5 (the key put back to −8°) fails only the new
+check (165/1, `evidence/a7-mutations/m5*`).
+
+## 2026-11-22 — r1 compared with the prediction (Claude measured)
+
+- **Log** (`logs/shoot_preview_r1.log` vs `logs/shoot_preview_r0.log`): only `pivot_rot_deg` changed, and only on
+  clip frames 1–8 of each shot (lines for strip frames 11–18 and the repeat at 57–64). The values are exactly
+  the predicted ones. Every other column is identical, including `fired` on tick 38 and the arrow count.
+- **Pixels** (whole 1280×720 frame, any channel more than 8/255 apart):
+
+  | Frame | Predicted | Measured |
+  |---|---|---|
+  | 9 | identical | 0 px differ |
+  | 10 | identical | 0 px differ |
+  | 18 | bow leans more | 339 px differ, all inside (643, 547)–(663, 593), the bow and string |
+  | 19 | identical pose (+2° kick in both) | 0 px differ |
+  | 25 | identical | **220 px differ**, all inside (633, 429)–(658, 470), on the hit scarecrow, none on the archer |
+
+- **The one miss, frame 25.** The differences are the impact burst's smoke and the embers on the scarecrow
+  hit at frame 19. `shoot_preview.gd` does not fix particle seeds (only the effect previews set
+  `use_fixed_seed`), so these effects differ on every run whatever the clip says. The archer in frame 25 is
+  identical. The prediction should have said "the archer is identical". The whole frame cannot be identical
+  between two runs of this preview.
+- **Looking at the enlarged crops** (Claude's look, a claim): in frame 18 the stave clearly leans, and its upper
+  end overlaps the right edge of the hood by about 2–3 px, as predicted. Frame 19 is upright again with the
+  arrow above the head.
+
+Strip: `captures/shoot/r1/` (fixture capture, kept frames 9, 10, 18, 19, 25; the other 85 frames and the wav
+were moved to `F:\7270\a7-captures\shoot-r1\`). Log: `logs/shoot_preview_r1.log`. Enlarged crop:
+`captures/shoot/sheets/r1_boundaries_x4.png`.
+
+## 2026-11-22 — Rui's verdict on r1
+
+Rui's words:
+
+> 录完了，先这样吧，如果不调整攻速的话很难完全区分三个阶段了，压到边缘我认为可以接受
+
+Translation (Claude, faithful): "Recorded. Let's leave it here. Without changing the attack speed it's hard to
+fully separate the three phases. The bow overlapping the edge is acceptable, I think."
+
+**r1 is kept. Tuning of the shot stops here.** Claude's arithmetic behind Rui's point (a claim): the archer
+fires every 0.6 s (`FIRE_INTERVAL`, a pinned gameplay number this change does not touch), and the shoot clip
+lasts 0.5 s. So while a target is held, idle shows for about 0.1 s (3 movie frames at 30 fps) between shots.
+The draw, the release and the recovery follow one another with almost no rest between them. Changing the fire
+rate is outside this change: CHANGE-BRIEF.md §5 keeps back-to-back shots on the 0.6 s cadence.
