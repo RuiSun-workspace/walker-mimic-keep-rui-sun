@@ -1,0 +1,13 @@
+after add_child (_ready ran): Start
+tick 2 physics_frame signal (test resumes here): Start
+  tick 2 late _physics_process (after the tree): idle
+  frame 1 process_frame: idle
+tick 3 physics_frame signal (test resumes here): idle
+  tick 3 late _physics_process (after the tree): idle
+  frame 2 process_frame: idle
+tick 4 physics_frame signal (test resumes here): idle
+  tick 4 late _physics_process (after the tree): idle
+  frame 3 process_frame: idle
+tick 5 physics_frame signal (test resumes here): idle
+  tick 5 late _physics_process (after the tree): idle
+  frame 4 process_frame: idle
