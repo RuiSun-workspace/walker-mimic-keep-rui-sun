@@ -32,6 +32,9 @@ func _init() -> void:
 	_save(_arrow(), "arrow.png")
 	_save(_mimi(), "mimi.png")
 	_save(_scarecrow_walk(), "scarecrow_walk.png")
+	_save(_archer_body(), "archer_body.png")
+	_save(_archer_bow(), "archer_bow.png")
+	_save(_archer_string(), "archer_string.png")
 	quit(0)
 
 
@@ -116,6 +119,46 @@ func _archer() -> Image:
 	_rect(img, 18, 24, 8, 4, SKIN)             # neck
 	_rect(img, 33, 4, 3, 44, BOW)              # bow stave
 	_rect(img, 36, 6, 1, 40, WHITE)            # bowstring
+	return _outlined(img)
+
+
+# Cutout-rig parts (CHANGE-BRIEF.md §1, revision 1.4): today's archer split into three PNGs,
+# drawn with the same rectangles as _archer() above, each outlined on its own. archer.png
+# itself is unchanged. All coordinates below are pixels of today's 44x60 archer.png; "placed
+# at" is where the part image's top-left pixel (0, 0) sits when the rig is at rest.
+#   archer_body.png    44x60  placed at (0, 0)   everything except the stave and the string
+#   archer_bow.png      5x46  placed at (32, 3)  the stave (33..35, 4..47) plus its outline
+#   archer_string.png   3x42  placed at (35, 5)  the string (36, 6..45) plus its outline
+# Grip (the bow's pivot): the centre of the stave, the continuous point (34.5, 26.0) in
+# archer.png, which is (2.5, 23.0) in archer_bow.png and (-0.5, 21.0) in archer_string.png.
+# Stacking order at rest: body, then bow, then string (a string drawn under the bow would be
+# hidden by the stave's right outline at x = 36).
+const ARCHER_BODY_AT := Vector2i(0, 0)
+const ARCHER_BOW_AT := Vector2i(32, 3)
+const ARCHER_STRING_AT := Vector2i(35, 5)
+const ARCHER_GRIP := Vector2(34.5, 26.0)
+
+
+func _archer_body() -> Image:
+	var img := _blank(44, 60)
+	_rect(img, 14, 46, 6, 12, LEATHER)         # legs
+	_rect(img, 24, 46, 6, 12, LEATHER)
+	_ellipse(img, 22, 36, 12, 13, HOOD)        # cloak
+	_rect(img, 10, 40, 24, 3, LEATHER)         # belt
+	_ellipse(img, 22, 16, 10, 11, HOOD)        # hood
+	_rect(img, 18, 24, 8, 4, SKIN)             # neck
+	return _outlined(img)
+
+
+func _archer_bow() -> Image:
+	var img := _blank(5, 46)
+	_rect(img, 33 - ARCHER_BOW_AT.x, 4 - ARCHER_BOW_AT.y, 3, 44, BOW)          # bow stave
+	return _outlined(img)
+
+
+func _archer_string() -> Image:
+	var img := _blank(3, 42)
+	_rect(img, 36 - ARCHER_STRING_AT.x, 6 - ARCHER_STRING_AT.y, 1, 40, WHITE)  # bowstring
 	return _outlined(img)
 
 
