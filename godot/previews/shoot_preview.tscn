@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://previews/shoot_preview.gd" id="1_preview"]
+[ext_resource type="Script" path="res://game/background.gd" id="2_bg"]
+[ext_resource type="PackedScene" path="res://game/archer.tscn" id="3_archer"]
+
+[node name="ShootPreview" type="Node2D"]
+script = ExtResource("1_preview")
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("2_bg")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="World"]
+
+[node name="Arrows" type="Node2D" parent="World"]
+
+[node name="Archer" parent="World" instance=ExtResource("3_archer")]
+position = Vector2(640, 572)
