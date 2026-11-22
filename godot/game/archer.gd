@@ -9,6 +9,7 @@ const ARROW_SCENE := preload("res://game/arrow.tscn")
 
 var arrows_parent: Node
 var fire_cooldown := 0.0
+var release_window := false
 
 
 func _physics_process(delta: float) -> void:
