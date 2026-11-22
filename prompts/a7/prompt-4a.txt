@@ -1,0 +1,41 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract for this change;
+§1 and revision 1 say the archer becomes a cutout rig: Body (steady),
+Bow (rotates about the grip and pulls back) and String (stretches), with
+new part images written by godot/tools/make_sprites.gd, and archer.png
+kept unchanged.
+
+This step makes the PART IMAGES only. Do not touch any scene, do not
+set up a clip, and do not change any existing image.
+
+1. Today's archer is one 44x60 image, _archer() in
+   godot/tools/make_sprites.gd:108-119; the bow stave and bowstring are
+   drawn into it. Add functions that write three new PNGs to
+   godot/assets/sprites/: archer_body.png (everything except the stave
+   and the string), archer_bow.png (the stave) and archer_string.png
+   (the string), each with the same colours and 1-px outline style.
+   Call them from _init() after the existing images. Reuse the existing
+   helpers and colours, keep the file deterministic, draw in code only.
+   Size each part image as you see fit, and record in a comment, for
+   each part, the pixel in today's 44x60 archer.png where the part's
+   image is placed at rest, and the grip point the bow will pivot about.
+2. Run godot --headless --path godot --script res://tools/make_sprites.gd
+   and godot --headless --path godot --import. Check with git status and
+   git diff that scarecrow.png, scarecrow_walk.png, archer.png,
+   arrow.png and mimi.png are byte-for-byte unchanged. If any changed,
+   report it and stop.
+3. Write ONE new test, godot/tests/test_archer_parts.gd, that loads the
+   three PNGs with Image.load_from_file and asserts, with PASS/FAIL
+   lines and a RESULT line with pass and fail counts, quit(1) on
+   failure: each file exists with the size the generator wrote; Body
+   holds HOOD, LEATHER and SKIN and no BOW or WHITE pixel; Bow holds BOW;
+   String holds WHITE. Then composite the three parts at their rest
+   placements over a transparent 44x60 image and compare it with
+   archer.png pixel by pixel. Print the number of differing pixels as an
+   INFO line, not a failure: separate outlines make some difference
+   where parts touch. Run it with ./scripts/run-test.sh
+   test_archer_parts.gd 60 and paste the real output.
+4. Add one row to SOURCES.md's "Art and meshes written by code" table
+   for the three part images, made by godot/tools/make_sprites.gd.
+   Change nothing else in SOURCES.md.
+
+List any file you create or change. Do not commit.

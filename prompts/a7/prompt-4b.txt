@@ -1,0 +1,64 @@
+Read CLAUDE.md first. The rig is godot/game/archer.tscn, and its route is keyed
+cutout. The phase table or cycle spec for shoot is in
+CHANGE-BRIEF.md, in frames at 30 fps.
+
+For a keyed cutout rig: write the shoot clip for the AnimationPlayer
+in godot/game/archer.tscn, using Godot 4 Animation properties for the version in
+CLAUDE.md (loop_mode, not loop). Put a key at every phase boundary in
+the table, and list each key's time beside the frame it comes from.
+
+For an imported rig: do not edit the clip in the scene. Set loop mode
+and any retiming in the importer's per-animation settings, and show
+the change to the .import file.
+
+Either way, add a read-back test that asserts every track resolves to
+a real node and property, bone or blend shape; that the key times or
+clip length match the brief, compared with a tolerance; and that the
+loop mode is as stated. Branch the track check on track type: a 3D
+position, rotation or scale track names a bone, and a blend-shape
+track names a blend shape. For an imported rig, run it from an empty
+import cache, as in A5.
+
+Run it through ./scripts/run-test.sh and show the real output. Do not
+wire the clip into the state machine yet. Do not commit.
+
+Project specifics (from CHANGE-BRIEF.md §1, §4, §6, §7 and revision 1):
+- Build the rig in archer.tscn from the part images made by
+  make_sprites.gd (archer_body.png, archer_bow.png, archer_string.png)
+  and the rest placements recorded in its comments: replace the single
+  Sprite with Archer/Rig/Body, Archer/Rig/BowPivot (a Node2D at the
+  grip) with children Bow and String, and add Archer/AnimationPlayer.
+  At rest the rig must sit where today's archer.png sits (the old
+  Sprite was centred on the Archer's origin). Do not add an
+  AnimationTree yet: that is Step 5.
+- The clips live in an AnimationLibrary on Archer/AnimationPlayer, as
+  sub-resources of archer.tscn:
+  idle: one key per animated property at 0 s, the rest pose, and
+  release_window false; LOOP_NONE.
+  shoot: length 15 frames = 0.5 s, step 1/30, LOOP_NONE. Phase
+  boundaries at frames 0 (startup), 8 (active), 9 (recovery) and 15
+  (end), so key times 0, 8/30, 9/30 and 15/30 s on every transform
+  track. Key rotation, position and scale only. Use key transitions so
+  the startup accelerates into frame 8 and the recovery settles into
+  frame 15. A value track on .:release_window with discrete updates:
+  false at 0, true at 8/30, false at 9/30.
+- The brief gives the timing, not the pose amounts. Choose the bow's
+  angle and pull-back and the string's stretch at full draw (frame 8)
+  and say they are proposals for Rui to judge in the frame strip.
+  Print them in a table: frame, time, and each track's value.
+- release_window does not exist yet. Add only this declaration to
+  godot/game/archer.gd, nothing else: var release_window := false
+  (a property the clips key; archer.gd will read it in Step 5).
+- Name the test godot/tests/test_archer_shot_readback.gd. Besides the
+  template's checks, assert: step is 1/30 for shoot; every transform
+  track of shoot has keys at frames 0, 8, 9 and 15 within half a frame
+  period (1/60 s); release_window's track is discrete with the three
+  keys above; idle's keys equal shoot's frame-0 and frame-15 values (so
+  a shot starts and ends at rest); autoplay is empty; no track is a 3D
+  or blend-shape track. Print a RESULT line with pass and fail counts.
+  Run it at 60.
+- Then re-run test_pins_a7.gd 60, test_rules.gd 60 and test_input.gd 60
+  and report their counts; they must be unchanged (38/0, 23/0, 14/0),
+  because nothing plays the clips yet.
+- Use ./scripts/run-test.sh exactly as written; bash scripts/... and
+  PowerShell are not allowed.
