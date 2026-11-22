@@ -169,3 +169,30 @@ overlap Rui reported.
 
 Strips: captures/burning_embers/r0/, captures/burning_embers/r1/ (fixture captures)
 Commits: 1b0a429 (prompt), bcab840 (proposal), 46fc59a (scene + test), 53002d1 (r1 strip), becb508 (brief revision)
+
+# Assignment 7 — the archer shot
+
+Every strip below is a **fixture capture** from `godot/previews/shoot_preview.tscn`: the real background and
+the real `archer.tscn`, with one scarecrow placed on a fixed tick so that `archer.gd`'s own rule starts the
+draw on strip frame 10 (`--fixed-fps 30`, physics at 60). Strip frame 10+k shows clip frame k. Each strip's
+per-frame log is `logs/shoot_preview_r<N>.log`, and capture file N matches the log line whose first field is
+N. Verdicts are Rui's, made watching the preview windowed at 1280×720. Claude's readings are claims.
+
+## 2026-11-22 — first look at r0 (before Claude reads anything)
+
+What I saw (preview, windowed, at normal speed and at `--time-scale 0.25`), in Rui's words:
+
+> 感觉拉弓的幅度有点小，在正常状态下难以看清三个阶段，箭出来的时机没问题
+
+Translation (Claude, faithful): "The draw's movement feels a bit small; at normal speed the three phases are
+hard to tell apart. The moment the arrow comes out is fine."
+
+The keys under test are the agent's proposals from Step 4: at full draw (clip frame 8) the bow is at −8°,
+pulled 1 px left and 3 px down, and the string is moved 3 px and stretched to 110 %; on release (clip frame 9)
+there is a +2° kick.
+
+- Strip: `captures/shoot/r0/` (fixture capture). Kept frames: 9 (idle, before the trigger), 10 (trigger,
+  clip 0), 18 (full draw, clip 8, `release_window` true), 19 (arrow out, clip 9) and 25 (idle again). The
+  other 85 frames were moved to `F:\7270\a7-captures\shoot-r0\`.
+- Log: `logs/shoot_preview_r0.log`.
+- Enlarged crop of the archer at those frames: `captures/shoot/sheets/r0_boundaries_x4.png`.
