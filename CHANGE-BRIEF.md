@@ -432,3 +432,32 @@ and 144 (`evidence/a7-repin/tint_return_to_start_candidate*`).
 
 As in Revision 2, this changes only the helper's input script. No expected value in the test changes.
 `STEER_BACK` stays in the file, unused.
+
+### Revision 4 — 2026-11-22 (§11 strip numbers and what the strip shows, after Step 7; drafted by Claude, Rui approved "可以，提交")
+
+The §11 table above is unchanged; this fills its strip numbers and corrects what it said each frame would
+show. Sources: the preview built in Step 7 (`godot/previews/shoot_preview.tscn`, `--fixed-fps 30`, target
+placed on physics tick 20), its per-frame logs `logs/shoot_preview_r0.log` and `logs/shoot_preview_r1.log`,
+and Claude's pixel counts of the archer crop (590, 520, 100×90) against idle strip frame 9, in both r0 and r1.
+
+1. **Strip numbers.** Clip frame 0 is strip frame 10, 8 is 18, 9 is 19, and 15 (first idle frame) is 25.
+   Strip frame 10+k shows clip frame k. §11 planned to take these from the Step 2 pin, but the pins count
+   game ticks and the strip needs movie frames, so they come from the preview's log instead.
+2. **Clip frame 8 was wrong by one frame.** Strip 18 shows full draw with `release_window` true and no arrow.
+   The arrow first appears on strip 19: the log's `fired` is on tick 38, the first tick the archer reads the
+   key true after the tree has set it (§5, CLAUDE.md "Headless facts"). Rui watched it and judged the arrow's
+   moment fine ("箭出来的时机没问题"), so the clip is not changed. The row now reads: strip 18, full draw,
+   `release_window` true, no arrow; strip 19, arrow out, bow kicked forward, `release_window` false.
+3. **Clip frame 0 was wrong about clip frame 1.** The draw eases in (transition 2.0), so the archer's pixels
+   are unchanged from idle on strips 10, 11 and 12. They first change on strip 13 (clip frame 3).
+4. **Clip frame 15 holds.** Strip 25's archer is pixel-identical to idle. The archer is already
+   pixel-identical to idle on strips 22–24 (clip frames 12–14), so the last three recovery frames cannot be
+   seen at 1:1. Strips 19–21 are the visible recovery.
+5. **§10, "Startup, active and recovery read as distinct".** In the strip, yes: full draw (18), release (19)
+   and rest (25) are three different pictures. In play at normal speed, Rui found them hard to tell fully
+   apart even after the Step 7 tuning, and kept r1 anyway (TUNING.md, 2026-11-22): "如果不调整攻速的话很难
+   完全区分三个阶段了". The shot lasts 0.5 s inside the 0.6 s cadence §5 keeps, and items 3 and 4 leave
+   6 of its 15 frames (clip frames 0–2 and 12–14) looking like idle. This is recorded as a known limit, not
+   fixed.
+6. **Pose amounts.** The brief never fixed them. Step 7 changed the bow's frame-8 key from −8° to −16°
+   (`0726ae3`, TUNING.md). No brief text changes for that.

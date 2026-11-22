@@ -1174,7 +1174,7 @@ denials).
 **Rui stopped after r1** ("先这样吧…压到边缘我认为可以接受").
 - **Claude's measurement behind that verdict.** The archer's pixels match idle on clip frames 0–2 and 12–14.
   So 6 of the shot's 15 frames look like idle, and the shot is 0.5 s of a 0.6 s cadence.
-- **Draft Revision 4.** Claude drafted it for Rui to confirm. It fills §11's strip numbers (10/18/19/25),
+- **Revision 4.** Claude drafted it and Rui approved it. It fills §11's strip numbers (10/18/19/25),
   corrects the clip-frame-0 and clip-frame-8 rows, and records §10's "phases read as distinct" as met in the
   strip but only partly in play.
 
