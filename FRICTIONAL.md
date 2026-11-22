@@ -973,3 +973,37 @@ Kept in the repository are those 14 frames, the log and the sheets. The rest of 
 
 `--debug-collisions` drew nothing. The game has no collision shapes: an arrow hits by distance
 (`arrow.gd:21`, `ARROW_HIT_RADIUS`). So the flag shows nothing about hits in this project.
+
+## 2026-11-21 — Step 3: the walk sheet and the walk clip
+
+The assignment's Step 3 prompt assumes the sheet already exists; ours is drawn by code. So Step 3 ran as
+two prompts, both approved by Rui (`f846546`):
+- `prompt-3a.txt`, written by Claude: the sheet only.
+- `prompt-3b.txt`: the assignment's template with the placeholders filled, plus a block of project specifics.
+
+**3a, the sheet** (`sessions/a7/session-3a.jsonl`; success, 15 turns, 2 denials for compound commands).
+- `make_sprites.gd` moved the old scarecrow drawing unchanged into a shared function and added
+  `scarecrow_walk.png`. The four existing PNGs are byte-identical, which proves the move changed nothing.
+- `test_scarecrow_sheet.gd` reads the PNG directly and checks four things:
+  - the pole foot's x is the same in every cell (31.5);
+  - its y is 73/70/74/70, i.e. offsets 0/−3/+1/−3;
+  - nothing touches a cell's border;
+  - every cell holds the scarecrow's colours.
+- 36 PASS, re-run by Claude.
+- Rui looked at a 4× preview (`captures/scarecrow_walk_sheet_x4.png`). The 5° lean is a nearest-pixel
+  rotation, so in frames 1 and 3 one eye breaks or bends and the hat brim is jagged. Rui accepted it, to be
+  judged in play after Step 5. Committed unedited as `8597ff5`.
+
+**3b, the clips** (`sessions/a7/session-3b.jsonl`; success, 25 turns, 4 denials).
+- `scarecrow.tscn` gets the sheet (`hframes` 4) and a new `Scarecrow/AnimationPlayer` with a scene-embedded
+  library:
+  - `walk` matches brief §3 exactly;
+  - `hold` is one key on frame 0, `LOOP_NONE`. The brief gave `hold` no length; the agent chose 0.125 s and
+    said so.
+- No autoplay, and nothing plays the clips yet.
+- `test_scarecrow_walk_readback.gd` passes: 68 PASS, 0 failures. The agent's summary said 72; Claude counted
+  the PASS lines in the log.
+- The pins (38/0), `test_burning_tint` (49/0) and `test_impact_burst_state` (29/0) are unchanged, as expected
+  before wiring.
+- Two of the four denials were the agent reaching for PowerShell after `bash scripts/run-test.sh` was refused.
+  The allow list held, and `./scripts/run-test.sh` was the allowed form.
