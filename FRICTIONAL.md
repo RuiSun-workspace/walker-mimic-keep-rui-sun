@@ -1040,3 +1040,50 @@ So Step 4 ran as two prompts, both approved by Rui (`d954846`):
 - `test_archer_shot_readback.gd` passes 165/0, and Claude counted 165 PASS lines.
 - The pins, rules and input suites are unchanged. Claude re-ran every other baseline suite, and all their
   logs came out byte-identical, so the rig changed nothing the tests cover before wiring.
+
+## 2026-11-21 — Step 5: wiring, plan first
+
+**The plan.** `prompt-5.txt` is the assignment's template plus every rule from brief §5–§7 and revision 1.
+The plan run was read-only (`sessions/a7/session-5-plan.*`; 9 turns; one denial, a Python call). It found
+no authority conflict and proposed four steps:
+- A: the AnimationTree;
+- B: `archer.gd` plus one line in `main.gd`;
+- C: the WalkPresenter;
+- D: a structure test.
+
+**Claude's review** found one ordering bug: while armed, the plan checked "target lost → cancel" before
+"`release_window` → release". A target lost on the release tick would then cancel a shot that brief §5.5
+says is already away. Rui approved the plan with four changes (`prompt-5b.txt`, "全部按建议"):
+- release first, with a freed target aimed at its last recorded position;
+- the agent's reading of "no new target taken";
+- phase-by-phase edges left to Step 6;
+- A to D in one run.
+
+**The implement run** resumed the plan session (`sessions/a7/session-5-implement.*`; 58 turns; 4 denials,
+all compound commands). It was committed unedited as `7d326bb`. Claude read every diff:
+- `main.gd` gained exactly one line.
+- `archer.gd` never writes `release_window`.
+- The presenter only calls `play()`.
+
+Results, re-run by Claude:
+- **`test_archer_state_machine`: 106/1.**
+  - Passing: 18 ticks from `travel("shoot")` to the arrow on all nine shots; releases exactly 36 ticks
+    apart; the draw starts on the tick the cooldown reads 0.29999999999999977 (0.31666666666666643 the tick
+    before); `fired` never comes outside `shoot`; the AnimationPlayer never plays on its own; the scarecrow
+    switches from `walk` to `hold` on the tick `at_wall` turns true.
+  - The one FAIL: the tree reports `Start` on the first tick of a fresh scene and `idle` only from the
+    second. The brief gives no tick for "on start".
+- **Pins: 26/12.**
+  - Predicted by brief §5.2: first shots 18 ticks later, and what follows from them.
+  - Not predicted:
+    - scenario (d)'s pause now lands mid-draw, so it delays shot 1, not shot 2;
+    - the loss comes one frame earlier (f 103), because kills are later.
+- **`test_burning_tint`: 28/15, and only 43 checks ran (49 at baseline).** This is the clearest finding.
+  The test's steering helper holds D until `fired`, then steers back a fixed 40 px. That assumes the arrow
+  leaves the instant the archer decides to shoot. During the new 18-tick draw the archer keeps moving
+  (brief §5.5), about 126 px, so 40 px back leaves the target in the cone and a second arrow follows.
+  Rui's §5.6 prediction ("its conclusion should not change") was wrong here. The test encodes the old fire
+  timing in its input script, not in a pinned number.
+- **Unchanged:** rules, input, `impact_burst_state` (Rui predicted it would need re-pinning; it did not),
+  `burning_embers_state` (including the 120-tick movement scenario he flagged), `wall_targeting`, and both
+  read-backs.
