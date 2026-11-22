@@ -922,3 +922,54 @@ and all were exact.
    - Restart reaches the archer only through `main.gd` `reset()`. It gets one `cancel_shot()` call.
    - The string's stretch needs `scale` keys.
    - The nodes are named, and a disabled archer freezes like pause.
+
+## 2026-11-21 — Step 2: the pins, and watching them
+
+**The prompt.** The assignment gives requirements for Step 2 but no prompt. Claude drafted
+`prompts/a7/prompt-2.txt` from Chapter 10's "pin what exists" prompt: one new file, real keys through
+`Input.parse_input_event`, no direct method calls or state writes, one log line per frame, a TIMING group
+(numbers the brief changes) and an INVARIANT group, and anomalies reported, not fixed. Rui approved it
+unchanged (`b5d4c10`).
+
+**The session** (`sessions/a7/session-2.jsonl`, A6's build allow list):
+- success, 39 turns;
+- two permission denials, both `run-test.sh` with a `> /dev/null` redirect;
+- shaders, `run-test.sh` and every game file unchanged.
+
+The agent's test, `godot/tests/test_pins_a7.gd`, was committed unedited (`d6d8596`). Result:
+- 38 passed, 0 failed (16 TIMING, 22 INVARIANT). Claude re-ran it twice; the output was identical line for
+  line. The log is in `evidence/a7-pins/`.
+- No anomalies. Pinned today:
+  - the first shot comes 1 frame after a target appears in the cone with the cooldown at 0;
+  - back-to-back shots are 36 ticks apart;
+  - a 30-frame pause shifts the next shot by 30;
+  - a scarecrow reaches the wall at f 174;
+  - the loss is at f 104, and the archer is already frozen on that tick (tick order Main → scarecrows →
+    arrows → archer).
+
+The agent also noted two choices in the test:
+- Scenario (e) parks the archer at the right edge, because a scarecrow walking down above it is shot dead
+  first.
+- Enter-restarts-a-loss stays covered only by `test_input`.
+
+**Watching the pins.** Rui ran the windowed replay: Movie Maker, `--debug-collisions`, 60 fps, 1231 frames,
+log in `captures/pins/r0/run.log`. The replay log matches the headless log line for line, and it also passes
+38/0.
+
+**Claude's reading of the frames (a claim, not a proof).** Capture frame N shows the state of log line N+1,
+because a line is printed at the start of a frame and describes the tick before it. Checked at four
+boundaries, with `godot/tools/contact_sheet.gd` (written by Claude) cropping and tiling the frames into
+`captures/pins/sheets/`:
+
+| Moment | Capture frames | Log lines |
+|---|---|---|
+| Scarecrow and arrow first appear | 3 | 4 |
+| "Paused" shown | 631–660 | 632–661, `paused=true` |
+| "The gate fell" banner, gate 1 → 0 | 1188 | 1189, `LOST` |
+| Gate 100, field cleared, archer back at centre | 1219 | 1220, `PLAYING` |
+
+Kept in the repository are those 14 frames, the log and the sheets. The rest of the capture was moved to
+`F:\7270\a7-captures\pins-r0\`.
+
+`--debug-collisions` drew nothing. The game has no collision shapes: an arrow hits by distance
+(`arrow.gd:21`, `ARROW_HIT_RADIUS`). So the flag shows nothing about hits in this project.
