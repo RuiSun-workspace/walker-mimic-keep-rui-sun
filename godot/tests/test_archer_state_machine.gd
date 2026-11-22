@@ -76,13 +76,13 @@ func _run() -> void:
 
 	_begin("boot")
 	await _step()
+	for i in 3:
+		await _step()
 	# rec[1] is sampled when SceneTree.physics_frame fires, before any node runs in that tick, so it
 	# still shows Start; the tree leaves Start in its first update (evidence/a7-probes/probe_start_tick.log).
 	# rec[2] is the first sample taken after that update. (Claude, approved by Rui 2026-11-21.)
 	_check("§6 Start -> idle: the tree is in idle after its first update (got %s)" % rec[2]["node"],
 		rec[2]["node"] == "idle")
-	for i in 3:
-		await _step()
 
 	await _scen_cadence()
 	await _scen_cancel()
