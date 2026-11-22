@@ -663,3 +663,103 @@ assignment specifies.
 - Whether the walk loops without a visible catch. The jagged eyes in the leaning cells were accepted for now.
 - The §11 strip frame numbers. They are filled in after the windowed capture.
 - `--debug-collisions` draws nothing in this project: hits are by distance (`arrow.gd:21`).
+
+## A7.6 Use It — results (2026-11-22)
+
+| | |
+|---|---|
+| Source revision tested | `4d2e0a8` (main; game files as of `0726ae3`, shot tuned to r1). Later commits add evidence only |
+| Godot | 4.7.2.stable.official.ed1daf0bf, portable, Windows 11 |
+| Renderer / GPU | Forward+, Vulkan 1.4.303, NVIDIA GeForce RTX 3070 Laptop GPU |
+| Window | 1280×720 |
+| Human checks | Rui, in the editor's windowed run (F5), 2026-11-22 |
+
+| Check | Result |
+|---|---|
+| Baseline | Before: A6 baseline `292fe05` (A7.1). After: all 21 runs rerun by Claude at `4d2e0a8`, every exit 0. test_rules 23/0, test_input 14/0, test_materials 132/0, normal_map_check 9/0, impact_burst config/state 128/0 and 29/0, burning_embers config/state 156/0 and 54/0 at 60; test_burning_tint 49/0 and test_wall_targeting 10/0 at 30/60/144. Every log is byte-identical to the committed one, and none contains SCRIPT ERROR, SHADER ERROR or Failed loading resource. |
+| Pins | `test_pins_a7.gd` 38/0 before the change (`d6d8596`) and after the re-pin (`7eb30c5`). It was still 38/0 at `4d2e0a8`. What changed and why: A7.2. |
+| Read-back | `test_scarecrow_walk_readback.gd` (68 checks, all pass) and `test_archer_shot_readback.gd` (166/0). Named assertions: every track `resolves`; `length` (walk 0.5 s, shoot 15 frames); `step` (walk 1/8, shoot 1/30); `loop_mode` (walk LOOP_LINEAR, hold/idle/shoot LOOP_NONE); walk track 0 `update mode is UPDATE_DISCRETE`; `release_window` discrete; key times at every phase boundary (frames 0, 8, 9, 15); `hframes == 4` and every keyed frame inside the sheet (0..3); the seam (last key → length gap equals the key interval). The shoot read-back gained one check after the kept tuning: frame 8 bow = `deg_to_rad(-16.0)` (`0726ae3`, TUNING.md r1). |
+| Mutations | 1a, 1b, 2 and 3 exit 1, each in `../a7-mutate`. 4 (fresh cache) exits 0, as expected for a keyed rig (A7.4). Extra mutation m5 (bow key back to −8°) fails only the new pin, 165/1. |
+| Fresh cache | Mutation 4: `godot/.godot` deleted, `--import`, all four read-backs pass. The rig and clips are keyed `.tscn` text, not an imported rig, so there is no imported loop mode to lose (A7.4). |
+| State machine | `test_archer_state_machine.gd` 107/0. It checks the structure against the saved resource (Start→idle Auto; idle→shoot Enabled; shoot→idle Auto + At End; xfade 0; callback PHYSICS). It drives real input through `Input.parse_input_event` and never calls `travel()`, `start()`, `cancel_shot()` or `play()`. |
+| Edges | `test_archer_edges.gd` 325/0. Every boundary (T, T+18, T+19, T+31) × every interrupt at B−1, B and B+1 (A7.3). |
+| Frame strips (fixture) | `captures/shoot/r0/` and `captures/shoot/r1/`: fixture captures from `godot/previews/shoot_preview.tscn`, run by Rui in windowed Movie Maker at `--fixed-fps 30`. Their logs are `logs/shoot_preview_r0.log` and `_r1.log`, and the enlarged crops are in `captures/shoot/sheets/`. The walk-cycle strip: **pending** (see Registration). |
+| Two clocks | Walk: `AnimationPlayer` on IDLE (process); no gameplay reads it. Shot: `AnimationTree` on PHYSICS, read by `archer.gd` in `_physics_process`. Measured in the preview log: `release_window` true from tick 37 (strip 18), `fired@tick38` (strip 19). **Largest disagreement: 1 physics tick = 1/60 s ≈ 0.0167 s**, from tick order (the parent archer runs before its child tree). It is the same in r0 and r1, and the 0.3 s draw lead already includes it. |
+
+### Human checks (Rui's words, 2026-11-22)
+
+**The cycle seam.**
+> a没问题
+
+("No problem": the walk was watched for at least five wraps at normal speed, as the checklist asked.)
+
+**The action in play.**
+> b走开，让目标离开射击扇区。按设计，拉弓会被取消，不出箭，这点没看到，箭还是会打空，没有取消射箭，暂停和恢复后动画接得上，能明显看出拉弓和射箭后回正还有弓不动三个阶段
+
+Translation: "b: walk away so the target leaves the cone. By design the draw should be cancelled with no
+arrow. I didn't see that: the arrow still flew and missed, and the shot wasn't cancelled. After pause and
+resume the animation continues correctly. The draw, the return to upright after the shot, and the still bow
+are clearly three separate phases." The first two sentences repeat Claude's checklist instruction. The
+observation starts at "这点没看到".
+
+What Claude found (`evidence/a7-probes/probe_walkaway.*`, `56cff4e`):
+- **Why it didn't cancel.** In the 0.3 s draw the archer can move at most 126 px. A target leaves the 120°
+  cone only if its height above the archer is under 126 / tan 60° ≈ 73 px, so only a scarecrow at or near
+  the wall can be walked out of the cone. Far targets stay in the cone and the shot goes ahead, as §5.5
+  says.
+- **Why the arrow missed.** A far target near the cone's edge is missed with or without walking. Standing
+  still at x 766, the arrow misses the same target, because arrows fly straight at the target's position at
+  release and do not lead. This predates A7.
+- **The checklist was wrong.** Claude's instruction should have said this cancel only works on a target near
+  the wall.
+
+Rui's retry in play:
+> 试不出来，稻草人走到墙的时候别的稻草人已经出来了，射箭不会取消
+
+Translation: "Couldn't reproduce it. By the time a scarecrow reaches the wall, other scarecrows have already
+come out, so the shot isn't cancelled." After a cancel the archer draws on the next target in the cone, so
+in normal play the cancel is hidden by the next draw.
+
+Rui watched Claude's windowed fixture (`evidence/a7-probes/probe_cancel_windowed.gd`, one scarecrow at the
+wall; the probe only presses move_right). It was run at `--time-scale 0.25` and again at `0.1`, and the log
+shows CANCELLED with 0 arrows both times:
+> 什么都没看到，感觉弓根本就没动，不管这个了，进行下一步吧
+
+Translation: "I saw nothing at all. It felt like the bow didn't move. Leave it, let's go on." This agrees
+with the measurements: the run starts at a −4° lean and the cancel comes at about −7°, while the archer's
+pixels match idle for clip frames 0–2 (CHANGE-BRIEF Revision 4).
+
+**Result:**
+- A startup cancel was **not seen by a human**, in play or in the fixture. It is established only by
+  `test_archer_edges.gd` and the probes' logs.
+- Pause and resume were seen to continue the animation correctly. Rui did not say which phase P was
+  pressed in.
+- The active frame (one frame, 1/30 s) cannot be hit by hand.
+- On distinct phases, Rui's in-game words ("能明显看出…三个阶段") differ from Rui's note on the r1 preview
+  ("如果不调整攻速的话很难完全区分三个阶段了"). Both are recorded as said.
+
+**Registration.** Pending: no walk-cycle strip exists yet. The sheet itself passes `test_scarecrow_sheet.gd`,
+which checks that the pole-foot x is the same in every cell and that y follows 0/−3/+1/−3.
+
+**Against the background.**
+> c背景对比没问题
+
+("No problem.") The checklist asked for:
+- the archer over the dark gate (centre) and over the light stone and walkway (sides);
+- the scarecrow on the meadow and tufts, and stopped on the pale walkway.
+
+**The walk sheet's jagged eyes** (left open in Step 3).
+> d眼睛的锯齿不仔细注意的话看不出来，可以接受
+
+("Unless you look closely you can't see the jagged eyes; acceptable.")
+
+### Claude against Rui
+
+| Reading (whose, when) | Rui's verdict | Agree? |
+|---|---|---|
+| Agent, Step 4: the shot's pose amounts (bow −8°, pivot 1 px left / 3 px down, string +3 px / 110 %, +2° kick) would read in the strip | r0: "拉弓的幅度有点小，在正常状态下难以看清三个阶段" | **No**, the amount was too small. Changed to −16° in r1 |
+| Agent, Step 7 (r0 reading): at normal speed the shot reads as a faint draw, a lean, a snap, then idle; recovery is indistinguishable from idle | r0 note agreed; in play (above): "能明显看出拉弓和射箭后回正还有弓不动三个阶段" | Agreed on the preview; **not** in play |
+| Agent, Step 7 prediction for r1: the stave top overlaps the hood's right edge by 2–3 px at full draw | "压到边缘我认为可以接受" | Yes, with Rui's judgement that it is acceptable |
+| Agent, Step 7 prediction for r1: frame 25 pixel-identical to r0 | Not Rui's call; Claude measured 220 px different (unseeded particles) | The prediction was **wrong** (TUNING.md) |
+| Claude, Step 3: the walk sheet's leaning cells have jagged eyes and brim from nearest rotation, to be judged in play | "不仔细注意的话看不出来，可以接受" | Yes |
+| Claude, Use It checklist: walking away cancels the draw | Rui did not see it in play | **No**: Claude's checklist was wrong for far targets (above) |
