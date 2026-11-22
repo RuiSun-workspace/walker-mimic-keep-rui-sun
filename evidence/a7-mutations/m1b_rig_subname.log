@@ -1,0 +1,166 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS res://game/archer.tscn loads
+PASS no AnimatedSprite2D in the scene
+PASS route is a keyed cutout: no skeleton in the scene
+PASS the single Archer/Sprite is gone
+PASS Archer/Rig is a Node2D
+PASS Archer/Rig/BowPivot is a Node2D
+PASS BowPivot sits at the grip (12.5, -4.0) (got (12.5, -4.0))
+PASS Archer/Rig/Body is a Sprite2D
+PASS Rig/Body texture is (44.0, 60.0) (got (44.0, 60.0))
+PASS Rig/Body top-left at rest is (-22.0, -30.0), where make_sprites.gd places it (got (-22.0, -30.0))
+PASS Archer/Rig/BowPivot/Bow is a Sprite2D
+PASS Rig/BowPivot/Bow texture is (5.0, 46.0) (got (5.0, 46.0))
+PASS Rig/BowPivot/Bow top-left at rest is (10.0, -27.0), where make_sprites.gd places it (got (10.0, -27.0))
+PASS Archer/Rig/BowPivot/String is a Sprite2D
+PASS Rig/BowPivot/String texture is (3.0, 42.0) (got (3.0, 42.0))
+PASS Rig/BowPivot/String top-left at rest is (13.0, -25.0), where make_sprites.gd places it (got (13.0, -25.0))
+PASS draw order is body, bow, string (make_sprites.gd:134)
+PASS Archer/AnimationPlayer is an AnimationPlayer
+PASS autoplay is empty (got "")
+PASS nothing is playing after instancing
+PASS one AnimationLibrary, the default "" (got [&""])
+PASS the library is a sub-resource of archer.tscn (path "res://game/archer.tscn::AnimationLibrary_archer")
+PASS clips are exactly idle, shoot (got ["idle", "shoot"])
+PASS AnimationPlayer root_node resolves to Archer
+PASS idle and shoot exist
+INFO idle: length 0.03333333 step 0.03333334 loop_mode 0 tracks 5
+PASS idle step == 1/30 (got 0.03333334)
+PASS idle loop_mode == LOOP_NONE (got 0)
+INFO shoot: length 0.50000000 step 0.03333334 loop_mode 0 tracks 5
+PASS shoot step == 1/30 (got 0.03333334)
+PASS shoot loop_mode == LOOP_NONE (got 0)
+PASS shoot length == 15 frames == 0.5000 s (got 0.50000000)
+PASS shoot length is 15 frame periods (got 15.0000)
+PASS idle track 0 node "Rig/BowPivot" resolves (Node2D)
+PASS idle track 0 property "rotation" exists on Node2D
+PASS idle Rig/BowPivot:rotation key 0 value type 3 matches the property's 3
+PASS idle track Rig/BowPivot:rotation does not key the Archer root (archer.gd owns its position)
+PASS idle track Rig/BowPivot:rotation keys rotation/position/scale of a rig part
+PASS idle track 1 node "Rig/BowPivot" resolves (Node2D)
+PASS idle track 1 property "position" exists on Node2D
+PASS idle Rig/BowPivot:position key 0 value type 5 matches the property's 5
+PASS idle track Rig/BowPivot:position does not key the Archer root (archer.gd owns its position)
+PASS idle track Rig/BowPivot:position keys rotation/position/scale of a rig part
+PASS idle track 2 node "Rig/BowPivot/String" resolves (Sprite2D)
+PASS idle track 2 property "position" exists on Sprite2D
+PASS idle Rig/BowPivot/String:position key 0 value type 5 matches the property's 5
+PASS idle track Rig/BowPivot/String:position does not key the Archer root (archer.gd owns its position)
+PASS idle track Rig/BowPivot/String:position keys rotation/position/scale of a rig part
+PASS idle track 3 node "Rig/BowPivot/String" resolves (Sprite2D)
+PASS idle track 3 property "scale" exists on Sprite2D
+PASS idle Rig/BowPivot/String:scale key 0 value type 5 matches the property's 5
+PASS idle track Rig/BowPivot/String:scale does not key the Archer root (archer.gd owns its position)
+PASS idle track Rig/BowPivot/String:scale keys rotation/position/scale of a rig part
+PASS idle track 4 node "." resolves (Node2D)
+PASS idle track 4 property "release_window" exists on Node2D
+PASS idle .:release_window key 0 value type 1 matches the property's 1
+PASS idle release_window track keys the Archer itself
+PASS shoot track 0 node "Rig/BowPivot" resolves (Node2D)
+PASS shoot track 0 property "rotation" exists on Node2D
+PASS shoot Rig/BowPivot:rotation key 0 value type 3 matches the property's 3
+PASS shoot Rig/BowPivot:rotation key 1 value type 3 matches the property's 3
+PASS shoot Rig/BowPivot:rotation key 2 value type 3 matches the property's 3
+PASS shoot Rig/BowPivot:rotation key 3 value type 3 matches the property's 3
+PASS shoot track Rig/BowPivot:rotation does not key the Archer root (archer.gd owns its position)
+PASS shoot track Rig/BowPivot:rotation keys rotation/position/scale of a rig part
+PASS shoot track 1 node "Rig/BowPivot" resolves (Node2D)
+PASS shoot track 1 property "position" exists on Node2D
+PASS shoot Rig/BowPivot:position key 0 value type 5 matches the property's 5
+PASS shoot Rig/BowPivot:position key 1 value type 5 matches the property's 5
+PASS shoot Rig/BowPivot:position key 2 value type 5 matches the property's 5
+PASS shoot Rig/BowPivot:position key 3 value type 5 matches the property's 5
+PASS shoot track Rig/BowPivot:position does not key the Archer root (archer.gd owns its position)
+PASS shoot track Rig/BowPivot:position keys rotation/position/scale of a rig part
+PASS shoot track 2 node "Rig/BowPivot/String" resolves (Sprite2D)
+PASS shoot track 2 property "position" exists on Sprite2D
+PASS shoot Rig/BowPivot/String:position key 0 value type 5 matches the property's 5
+PASS shoot Rig/BowPivot/String:position key 1 value type 5 matches the property's 5
+PASS shoot Rig/BowPivot/String:position key 2 value type 5 matches the property's 5
+PASS shoot Rig/BowPivot/String:position key 3 value type 5 matches the property's 5
+PASS shoot track Rig/BowPivot/String:position does not key the Archer root (archer.gd owns its position)
+PASS shoot track Rig/BowPivot/String:position keys rotation/position/scale of a rig part
+PASS shoot track 3 node "Rig/BowPivot/String" resolves (Sprite2D)
+FAIL shoot track 3 property "scal" exists on Sprite2D
+PASS shoot track 4 node "." resolves (Node2D)
+PASS shoot track 4 property "release_window" exists on Node2D
+PASS shoot .:release_window key 0 value type 1 matches the property's 1
+PASS shoot .:release_window key 1 value type 1 matches the property's 1
+PASS shoot .:release_window key 2 value type 1 matches the property's 1
+PASS shoot release_window track keys the Archer itself
+FAIL idle and shoot key the same properties ([".:release_window", "Rig/BowPivot/String:position", "Rig/BowPivot/String:scale", "Rig/BowPivot:position", "Rig/BowPivot:rotation"] / [".:release_window", "Rig/BowPivot/String:position", "Rig/BowPivot/String:scal", "Rig/BowPivot:position", "Rig/BowPivot:rotation"])
+PASS shoot keys .:release_window
+PASS shoot keys at least one rig transform (got 5 tracks)
+PASS shoot Rig/BowPivot:rotation is UPDATE_CONTINUOUS (got 0)
+PASS shoot Rig/BowPivot:rotation has 4 keys (got 4)
+PASS shoot Rig/BowPivot:rotation key 0 at frame 0: 0.00000000 within 1/60 of 0.00000000
+PASS shoot Rig/BowPivot:rotation key 1 at frame 8: 0.26666668 within 1/60 of 0.26666667
+PASS shoot Rig/BowPivot:rotation key 2 at frame 9: 0.30000001 within 1/60 of 0.30000000
+PASS shoot Rig/BowPivot:rotation key 3 at frame 15: 0.50000000 within 1/60 of 0.50000000
+PASS shoot Rig/BowPivot:rotation: frame 0 -> 8 eases in (transition 2.000 > 1)
+PASS shoot Rig/BowPivot:rotation: frame 9 -> 15 eases out (transition 0.500 in 0..1)
+PASS shoot Rig/BowPivot:rotation: frame 8 differs from rest
+PASS shoot Rig/BowPivot:position is UPDATE_CONTINUOUS (got 0)
+PASS shoot Rig/BowPivot:position has 4 keys (got 4)
+PASS shoot Rig/BowPivot:position key 0 at frame 0: 0.00000000 within 1/60 of 0.00000000
+PASS shoot Rig/BowPivot:position key 1 at frame 8: 0.26666668 within 1/60 of 0.26666667
+PASS shoot Rig/BowPivot:position key 2 at frame 9: 0.30000001 within 1/60 of 0.30000000
+PASS shoot Rig/BowPivot:position key 3 at frame 15: 0.50000000 within 1/60 of 0.50000000
+PASS shoot Rig/BowPivot:position: frame 0 -> 8 eases in (transition 2.000 > 1)
+PASS shoot Rig/BowPivot:position: frame 9 -> 15 eases out (transition 0.500 in 0..1)
+PASS shoot Rig/BowPivot:position: frame 8 differs from rest
+PASS shoot Rig/BowPivot/String:position is UPDATE_CONTINUOUS (got 0)
+PASS shoot Rig/BowPivot/String:position has 4 keys (got 4)
+PASS shoot Rig/BowPivot/String:position key 0 at frame 0: 0.00000000 within 1/60 of 0.00000000
+PASS shoot Rig/BowPivot/String:position key 1 at frame 8: 0.26666668 within 1/60 of 0.26666667
+PASS shoot Rig/BowPivot/String:position key 2 at frame 9: 0.30000001 within 1/60 of 0.30000000
+PASS shoot Rig/BowPivot/String:position key 3 at frame 15: 0.50000000 within 1/60 of 0.50000000
+PASS shoot Rig/BowPivot/String:position: frame 0 -> 8 eases in (transition 2.000 > 1)
+PASS shoot Rig/BowPivot/String:position: frame 9 -> 15 eases out (transition 0.500 in 0..1)
+PASS shoot Rig/BowPivot/String:position: frame 8 differs from rest
+PASS shoot Rig/BowPivot/String:scal is UPDATE_CONTINUOUS (got 0)
+PASS shoot Rig/BowPivot/String:scal has 4 keys (got 4)
+PASS shoot Rig/BowPivot/String:scal key 0 at frame 0: 0.00000000 within 1/60 of 0.00000000
+PASS shoot Rig/BowPivot/String:scal key 1 at frame 8: 0.26666668 within 1/60 of 0.26666667
+PASS shoot Rig/BowPivot/String:scal key 2 at frame 9: 0.30000001 within 1/60 of 0.30000000
+PASS shoot Rig/BowPivot/String:scal key 3 at frame 15: 0.50000000 within 1/60 of 0.50000000
+PASS shoot Rig/BowPivot/String:scal: frame 0 -> 8 eases in (transition 2.000 > 1)
+PASS shoot Rig/BowPivot/String:scal: frame 9 -> 15 eases out (transition 0.500 in 0..1)
+PASS shoot Rig/BowPivot/String:scal: frame 8 differs from rest
+PASS shoot has a value track on .:release_window
+PASS release_window track is UPDATE_DISCRETE (got 1)
+PASS release_window has 3 keys (got 3)
+PASS release_window key 0 at frame 0: 0.00000000 within 1/60 of 0.00000000
+PASS release_window key 0 == false (got false)
+PASS release_window key 1 at frame 8: 0.26666668 within 1/60 of 0.26666667
+PASS release_window key 1 == true (got true)
+PASS release_window key 2 at frame 9: 0.30000001 within 1/60 of 0.30000000
+PASS release_window key 2 == false (got false)
+PASS idle Rig/BowPivot:rotation has one key at 0 s
+PASS idle Rig/BowPivot:rotation == shoot frame 0 (0.0 / 0.0)
+PASS shoot Rig/BowPivot:rotation last key is at the clip end
+PASS idle Rig/BowPivot:rotation == shoot frame 15 (0.0 / 0.0)
+PASS scene rest Rig/BowPivot:rotation == idle (0.0 / 0.0)
+PASS idle Rig/BowPivot:position has one key at 0 s
+PASS idle Rig/BowPivot:position == shoot frame 0 ((12.5, -4.0) / (12.5, -4.0))
+PASS shoot Rig/BowPivot:position last key is at the clip end
+PASS idle Rig/BowPivot:position == shoot frame 15 ((12.5, -4.0) / (12.5, -4.0))
+PASS scene rest Rig/BowPivot:position == idle ((12.5, -4.0) / (12.5, -4.0))
+PASS idle Rig/BowPivot/String:position has one key at 0 s
+PASS idle Rig/BowPivot/String:position == shoot frame 0 ((2.0, 0.0) / (2.0, 0.0))
+PASS shoot Rig/BowPivot/String:position last key is at the clip end
+PASS idle Rig/BowPivot/String:position == shoot frame 15 ((2.0, 0.0) / (2.0, 0.0))
+PASS scene rest Rig/BowPivot/String:position == idle ((2.0, 0.0) / (2.0, 0.0))
+PASS idle Rig/BowPivot/String:scale has one key at 0 s
+PASS idle .:release_window has one key at 0 s
+PASS idle .:release_window == shoot frame 0 (false / false)
+PASS idle release_window is UPDATE_DISCRETE
+PASS idle keys release_window false (got false)
+INFO shoot pose table (keys as stored; rotation also in degrees)
+INFO | frame | time (s)     | Rig/BowPivot:rotation | Rig/BowPivot:position | Rig/BowPivot/String:position | Rig/BowPivot/String:scal | .:release_window
+INFO |     0 | 0.00000000 | 0.000000 rad (0.0 deg), trans 2.00 | (12.5, -4.0), trans 2.00 | (2.0, 0.0), trans 2.00 | (1.0, 1.0), trans 2.00 | false
+INFO |     8 | 0.26666667 | -0.139626 rad (-8.0 deg), trans 1.00 | (11.5, -1.0), trans 1.00 | (5.0, 0.0), trans 1.00 | (1.0, 1.1), trans 1.00 | true
+INFO |     9 | 0.30000000 | 0.034907 rad (2.0 deg), trans 0.50 | (12.5, -5.0), trans 0.50 | (1.0, 0.0), trans 0.50 | (1.0, 1.0), trans 0.50 | false
+INFO |    15 | 0.50000000 | 0.000000 rad (0.0 deg), trans 1.00 | (12.5, -4.0), trans 1.00 | (2.0, 0.0), trans 1.00 | (1.0, 1.0), trans 1.00 | (held)
+RESULT FAIL: 153 passed, 2 failed

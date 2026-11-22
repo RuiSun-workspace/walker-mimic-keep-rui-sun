@@ -1,0 +1,78 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS res://game/scarecrow.tscn loads
+PASS route is Sprite2D + AnimationPlayer: no AnimatedSprite2D in the scene
+PASS Scarecrow/Sprite is a Sprite2D
+PASS Scarecrow/AnimationPlayer is an AnimationPlayer
+PASS Sprite texture is res://assets/sprites/scarecrow_walk.png (got res://assets/sprites/scarecrow_walk.png)
+PASS texture is 256x80 (got 256x80)
+PASS hframes == 4 (got 4)
+PASS vframes == 1 (got 1)
+PASS Sprite.frame starts at 0 (got 0)
+PASS Sprite keeps its local-to-scene ShaderMaterial
+PASS Sprite keeps burning_tint.gd
+PASS autoplay is empty (got "")
+PASS nothing is playing after instancing
+PASS callback_mode_process is IDLE (brief §7; got 1)
+PASS one AnimationLibrary, the default "" (got [&""])
+PASS the library is a sub-resource of scarecrow.tscn (path "res://game/scarecrow.tscn::AnimationLibrary_scarecrow")
+PASS clips are exactly hold, walk (got ["hold", "walk"])
+PASS AnimationPlayer root_node resolves to Scarecrow
+PASS walk exists
+walk: length 0.500000 step 0.125000 loop_mode 1 tracks 1
+PASS walk step == 1/8 = 0.125000 (got 0.125000)
+PASS walk length == 0.500 (got 0.500000)
+PASS walk loop_mode == 1 (got 1)
+PASS walk has exactly one track (got 1)
+PASS walk track 0 is a value track
+PASS walk track 0 path is Sprite:frame (got Sprite:frame)
+PASS walk track node "Sprite" resolves (Sprite:<Sprite2D#30769415633>)
+PASS walk track property "frame" exists on Sprite2D
+PASS walk track 0 update mode is UPDATE_DISCRETE (got 1)
+PASS walk has 4 keys (got 4)
+walk key 0: t=0.00000000 frame=0
+PASS walk key 0 time 0.000000 within 0.0625 of 0.000
+PASS walk key 0 value is an int (type 2)
+PASS walk key 0 frame == 0 (got 0)
+PASS walk key 0 frame 0 inside the sheet (0..3)
+PASS walk key 0 time 0.000000 is before the clip end
+walk key 1: t=0.12500000 frame=1
+PASS walk key 1 time 0.125000 within 0.0625 of 0.125
+PASS walk key 1 value is an int (type 2)
+PASS walk key 1 frame == 1 (got 1)
+PASS walk key 1 frame 1 inside the sheet (0..3)
+PASS walk key 1 time 0.125000 is before the clip end
+walk key 2: t=0.25000000 frame=2
+PASS walk key 2 time 0.250000 within 0.0625 of 0.250
+PASS walk key 2 value is an int (type 2)
+PASS walk key 2 frame == 2 (got 2)
+PASS walk key 2 frame 2 inside the sheet (0..3)
+PASS walk key 2 time 0.250000 is before the clip end
+walk key 3: t=0.37500000 frame=3
+PASS walk key 3 time 0.375000 within 0.0625 of 0.375
+PASS walk key 3 value is an int (type 2)
+PASS walk key 3 frame == 3 (got 3)
+PASS walk key 3 frame 3 inside the sheet (0..3)
+PASS walk key 3 time 0.375000 is before the clip end
+PASS hold exists
+hold: length 0.125000 step 0.125000 loop_mode 0 tracks 1
+PASS hold step == 1/8 = 0.125000 (got 0.125000)
+PASS hold loop_mode == 0 (got 0)
+PASS hold has exactly one track (got 1)
+PASS hold track 0 is a value track
+PASS hold track 0 path is Sprite:frame (got Sprite:frame)
+PASS hold track node "Sprite" resolves (Sprite:<Sprite2D#30769415633>)
+PASS hold track property "frame" exists on Sprite2D
+PASS hold track 0 update mode is UPDATE_DISCRETE (got 1)
+PASS hold has 1 keys (got 1)
+hold key 0: t=0.00000000 frame=0
+PASS hold key 0 time 0.000000 within 0.0625 of 0.000
+PASS hold key 0 value is an int (type 2)
+PASS hold key 0 frame == 0 (got 0)
+PASS hold key 0 frame 0 inside the sheet (0..3)
+PASS seam: last key 0.375000 -> length 0.500000 gap 0.125000 equals key interval 0.125000
+PASS walk key interval 0->1 is 0.125000
+PASS walk key interval 1->2 is 0.125000
+PASS walk key interval 2->3 is 0.125000
+PASS seam: the last key is not frame 0 again
+RESULT PASS (0 failures)

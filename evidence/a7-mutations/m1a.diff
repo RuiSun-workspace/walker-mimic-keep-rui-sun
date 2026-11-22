@@ -1,0 +1,2 @@
+-tracks/0/path = NodePath("Sprite:frame")
++tracks/0/path = NodePath("Sprite:frames")

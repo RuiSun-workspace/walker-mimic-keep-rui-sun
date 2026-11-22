@@ -1,0 +1,2 @@
+-tracks/3/path = NodePath("Rig/BowPivot/String:scale")
++tracks/3/path = NodePath("Rig/BowPivot/String:scal")
