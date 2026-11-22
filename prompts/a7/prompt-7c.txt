@@ -1,0 +1,22 @@
+Approved: your one change, bow frame-8 key -8 deg -> -16 deg.
+
+Make exactly these changes, nothing else:
+1. godot/game/archer.tscn, the shoot clip: the Rig/BowPivot:rotation
+   key at frame 8 (t = 0.26666668) becomes -0.27925268 (-16 deg). Do
+   not change its time, its transition, any other key or track, the
+   idle clip, the tree, or any other node.
+2. godot/tests/test_archer_shot_readback.gd: add one check that the
+   shoot clip's Rig/BowPivot:rotation value at frame 8 equals
+   deg_to_rad(-16.0) within VALUE_TOL, with a comment saying it pins
+   the Step 7 tuning (TUNING.md, A7 r1). Change no other check or
+   constant.
+
+Then run, exactly as written (not bash scripts/..., not PowerShell):
+./scripts/run-test.sh test_archer_shot_readback.gd 60
+./scripts/run-test.sh test_archer_state_machine.gd 60
+./scripts/run-test.sh test_pins_a7.gd 60
+and paste each count. Then run the preview headless:
+godot --headless --path godot res://previews/shoot_preview.tscn --fixed-fps 30 --quit-after 30
+and paste the lines for frames 9-25 next to your predicted
+pivot_rot_deg values. Show git diff of both files. Do not commit, and
+stop there so Rui can recapture and play.
