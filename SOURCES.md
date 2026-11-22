@@ -56,6 +56,7 @@ repository:
 | Asset | Made by |
 |---|---|
 | `godot/assets/sprites/{scarecrow,archer,arrow,mimi}.png` | `godot/tools/make_sprites.gd` (flat colours, 1-px outline) |
+| `godot/assets/sprites/scarecrow_walk.png` | `godot/tools/make_sprites.gd` (4×1 walk sheet of 64×80 cells; the scarecrow's flat colours, hopped and leaned 5° about the pole foot, 1-px outline) |
 | `godot/showcase/shield_mesh.tres` | `godot/tools/make_shield_mesh.gd` (heater shield, planar UVs, tangents) |
 | `godot/assets/textures/shield_scorch_mask.png` | `godot/tools/make_scorch_mask.gd` (seeded FastNoiseLite FBM plus an edge ramp; 512×512 grayscale data) |
 | meadow, wall and gate | drawn at runtime by `godot/game/background.gd` |

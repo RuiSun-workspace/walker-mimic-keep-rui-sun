@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS sheet is 256x80 (got 256x80)
+cell 0: pole foot x2=63 (x=31.5) y=73
+cell 1: pole foot x2=63 (x=31.5) y=70
+cell 2: pole foot x2=63 (x=31.5) y=74
+cell 3: pole foot x2=63 (x=31.5) y=70
+PASS cell 0 has POLE pixels
+PASS cell 1 has POLE pixels
+PASS cell 2 has POLE pixels
+PASS cell 3 has POLE pixels
+PASS cell 1 pole-foot x 31.5 equals cell 0's 31.5
+PASS cell 2 pole-foot x 31.5 equals cell 0's 31.5
+PASS cell 3 pole-foot x 31.5 equals cell 0's 31.5
+PASS cell 0 pole-foot y 73 equals cell 0's 73 +0 = 73
+PASS cell 1 pole-foot y 70 equals cell 0's 73 -3 = 70
+PASS cell 2 pole-foot y 74 equals cell 0's 73 +1 = 74
+PASS cell 3 pole-foot y 70 equals cell 0's 73 -3 = 70
+PASS cell 0: no opaque pixel on its outer row or column (found 0)
+PASS cell 1: no opaque pixel on its outer row or column (found 0)
+PASS cell 2: no opaque pixel on its outer row or column (found 0)
+PASS cell 3: no opaque pixel on its outer row or column (found 0)
+PASS cell 0 contains STRAW
+PASS cell 0 contains BURLAP
+PASS cell 0 contains POLE
+PASS cell 0 contains HAT
+PASS cell 0 contains OUTLINE
+PASS cell 1 contains STRAW
+PASS cell 1 contains BURLAP
+PASS cell 1 contains POLE
+PASS cell 1 contains HAT
+PASS cell 1 contains OUTLINE
+PASS cell 2 contains STRAW
+PASS cell 2 contains BURLAP
+PASS cell 2 contains POLE
+PASS cell 2 contains HAT
+PASS cell 2 contains OUTLINE
+PASS cell 3 contains STRAW
+PASS cell 3 contains BURLAP
+PASS cell 3 contains POLE
+PASS cell 3 contains HAT
+PASS cell 3 contains OUTLINE
+RESULT PASS (0 failures)

@@ -31,6 +31,7 @@ func _init() -> void:
 	_save(_archer(), "archer.png")
 	_save(_arrow(), "arrow.png")
 	_save(_mimi(), "mimi.png")
+	_save(_scarecrow_walk(), "scarecrow_walk.png")
 	quit(0)
 
 
@@ -41,20 +42,67 @@ func _save(img: Image, file: String) -> void:
 
 func _scarecrow() -> Image:
 	var img := _blank(56, 72)
-	_rect(img, 26, 30, 4, 40, POLE)            # pole
-	_rect(img, 4, 30, 48, 4, POLE)             # cross-stick arms
-	_rect(img, 2, 28, 5, 8, STRAW)             # straw tufts at the hands
-	_rect(img, 49, 28, 5, 8, STRAW)
-	_ellipse(img, 28, 46, 14, 16, STRAW)       # straw-stuffed body
-	_rect(img, 31, 45, 6, 6, PATCH)            # sewn patch
-	_ellipse(img, 28, 22, 11, 11, BURLAP)      # sack head
-	_rect(img, 12, 12, 32, 4, HAT)             # hat brim
-	_rect(img, 18, 2, 20, 11, HAT)             # hat crown
-	_rect(img, 23, 20, 3, 3, OUTLINE)          # eyes
-	_rect(img, 31, 20, 3, 3, OUTLINE)
-	for x in range(23, 34, 2):                 # stitched mouth
-		img.set_pixel(x, 27, OUTLINE)
+	_scarecrow_parts(img, 0, 0)
 	return _outlined(img)
+
+
+## The scarecrow's flat parts (no outline) with its 56x72 frame's top-left at (ox, oy).
+func _scarecrow_parts(img: Image, ox: int, oy: int) -> void:
+	_rect(img, ox + 26, oy + 30, 4, 40, POLE)            # pole
+	_rect(img, ox + 4, oy + 30, 48, 4, POLE)             # cross-stick arms
+	_rect(img, ox + 2, oy + 28, 5, 8, STRAW)             # straw tufts at the hands
+	_rect(img, ox + 49, oy + 28, 5, 8, STRAW)
+	_ellipse(img, ox + 28, oy + 46, 14, 16, STRAW)       # straw-stuffed body
+	_rect(img, ox + 31, oy + 45, 6, 6, PATCH)            # sewn patch
+	_ellipse(img, ox + 28, oy + 22, 11, 11, BURLAP)      # sack head
+	_rect(img, ox + 12, oy + 12, 32, 4, HAT)             # hat brim
+	_rect(img, ox + 18, oy + 2, 20, 11, HAT)             # hat crown
+	_rect(img, ox + 23, oy + 20, 3, 3, OUTLINE)          # eyes
+	_rect(img, ox + 31, oy + 20, 3, 3, OUTLINE)
+	for x in range(23, 34, 2):                           # stitched mouth
+		img.set_pixel(ox + x, oy + 27, OUTLINE)
+
+
+# Walk sheet (CHANGE-BRIEF.md §2): 4x1 cells of 64x80. The 56x72 scarecrow sits with its
+# centre at the cell centre (offset 4, 4), so the pole foot is the bottom edge of the pole,
+# the continuous point (32, 74) in each cell.
+const WALK_CELL := Vector2i(64, 80)
+const WALK_FOOT := Vector2(32.0, 74.0)
+const WALK_LEAN_DEG := 5.0
+# Per frame: lean (-1 left, 0 upright, +1 right) and y offset in px.
+const WALK_POSES := [[0, 0], [-1, -3], [0, 1], [1, -3]]
+
+
+func _scarecrow_walk() -> Image:
+	var upright := _blank(WALK_CELL.x, WALK_CELL.y)
+	_scarecrow_parts(upright, 4, 4)
+	var sheet := _blank(WALK_CELL.x * WALK_POSES.size(), WALK_CELL.y)
+	for i in WALK_POSES.size():
+		var cell := _walk_pose(upright, WALK_POSES[i][0], WALK_POSES[i][1])
+		sheet.blit_rect(_outlined(cell), Rect2i(Vector2i.ZERO, WALK_CELL), Vector2i(i * WALK_CELL.x, 0))
+	return sheet
+
+
+## One pose: the flat upright parts rotated by lean * 5 degrees about the pole foot
+## (nearest pixel, so the palette stays exact), then moved down by dy px.
+## A negative angle in screen space (y down) tips the top to the left.
+func _walk_pose(upright: Image, lean: int, dy: int) -> Image:
+	var cell := _blank(WALK_CELL.x, WALK_CELL.y)
+	var angle := deg_to_rad(WALK_LEAN_DEG) * lean
+	var c := cos(angle)
+	var s := sin(angle)
+	for y in WALK_CELL.y:
+		for x in WALK_CELL.x:
+			# Inverse map: this pixel's centre, un-moved and un-rotated, back to the upright pose.
+			var d := Vector2(x + 0.5, y - dy + 0.5) - WALK_FOOT
+			var src := WALK_FOOT + Vector2(d.x * c + d.y * s, -d.x * s + d.y * c)
+			var sx := floori(src.x)
+			var sy := floori(src.y)
+			if sx >= 0 and sy >= 0 and sx < WALK_CELL.x and sy < WALK_CELL.y:
+				var p := upright.get_pixel(sx, sy)
+				if p.a > 0.0:
+					cell.set_pixel(x, y, p)
+	return cell
 
 
 func _archer() -> Image:
