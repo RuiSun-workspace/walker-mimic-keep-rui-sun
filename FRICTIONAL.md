@@ -1127,3 +1127,60 @@ it (`sessions/a7/session-6b.*`; 46 turns, 6 denials).
 
 **Full suite at the end of Step 6:** all 21 runs pass and every log is byte-identical to the committed
 one (TEST-REPORT A7.1).
+
+## 2026-11-22 — Step 7: the preview, Rui's look first, one change, and a prediction that missed by particles
+
+**The preview.** Claude wrote `prompt-7a.txt`, which Rui approved. The agent built
+`godot/previews/shoot_preview.tscn` (`c8f1b85`, unedited). It instances the real `archer.tscn` and places a real
+scarecrow on tick 20, so the archer's own rule starts the draw on strip frame 10. It found that the arrow
+shows on strip 19, not 18, because the archer reads the key one tick after the tree sets it. That disagreed
+with the brief's §11 row for clip frame 8, and it was left for Rui to judge by eye.
+
+**Rui looked before anyone read the frames.** Rui watched the preview windowed, at normal speed and at
+`--time-scale 0.25`. Rui wrote the r0 note first ("拉弓的幅度有点小…箭出来的时机没问题") and then captured r0.
+Claude put the note in TUNING.md verbatim (`d5fedef`) before opening a frame.
+
+**One change, proposed before it was made.** The tuning prompt (`prompt-7b.txt`) used the assignment's
+template with Rui's note. Its first pass was read-only (`sessions/a7/session-7b-propose.*`; 13 turns, 0
+denials).
+- The agent's reading: at −8° the bow's tip moves about 3 px. The ease-in hides the first half of the draw,
+  and the recovery looks like idle.
+- It proposed one key, −8° → −16°, with per-frame predicted values. It also said ahead of time what the
+  change would not fix (the recovery).
+- Rui approved ("批准 −16°"). The same session applied it via `--resume` (`sessions/a7/session-7c.*`; 14
+  turns, `0726ae3`, unedited) and added a read-back check pinning the new value.
+
+**Frictions in the apply session.**
+- **Allow-list gap, closed beforehand.** The plan wrote `bash scripts/run-test.sh`, which the allow list
+  refuses. Claude's apply prompt spelled out `./scripts/run-test.sh` and added the preview's headless command
+  to the allow list.
+- **4 denials.** All four were `cd "…"; ./scripts/run-test.sh …` compound commands. The agent retried in the
+  allowed form; nothing ran outside the list.
+- **A hidden exit code.** It ran two tests with `| tail -3`, which hides the exit code. It said so and grepped
+  the logs for the failure lines instead.
+- **Claude's re-run.** Claude re-ran read-back, state machine, pins, edges and burning_tint (30/60/144)
+  itself before committing, as the Step 5 lesson requires.
+- **Mutation m5.** Putting the key back to −8° fails only the new check, 165/1 (`a106016`).
+
+**The prediction's one miss.**
+- **What held.** The r1 log matched the prediction exactly, on every value, on both shots in the capture.
+  The archer's pixels did what it said: frames 9, 10 and 19 identical, frame 18 changed only around the bow.
+- **What missed.** It said frame 25 would be pixel-identical to r0, and 220 px differ. All of them are on
+  the hit scarecrow: the impact burst's smoke and the embers. `shoot_preview.gd` never fixes particle seeds,
+  while the A6 effect previews do. Neither the agent's prediction nor Claude's prompt allowed for that.
+- **The lesson.** A whole-frame "identical" claim needs seeded effects or a crop around what changed.
+  TUNING.md records the miss.
+
+**Rui stopped after r1** ("先这样吧…压到边缘我认为可以接受").
+- **Claude's measurement behind that verdict.** The archer's pixels match idle on clip frames 0–2 and 12–14.
+  So 6 of the shot's 15 frames look like idle, and the shot is 0.5 s of a 0.6 s cadence.
+- **Draft Revision 4.** Claude drafted it for Rui to confirm. It fills §11's strip numbers (10/18/19/25),
+  corrects the clip-frame-0 and clip-frame-8 rows, and records §10's "phases read as distinct" as met in the
+  strip but only partly in play.
+
+**Claude's own slip.**
+- **What happened.** Claude's first per-frame pixel count pointed at frame 9 on `F:`, but frame 9 is kept in
+  the repo, not on `F:`. Godot's `--script` mode hit a script error and never quit. The two stuck processes
+  (both from that command, checked by command line) were stopped after 3 minutes, and the count was re-run
+  with every frame copied into one scratch folder.
+- **The lesson.** Give one-off `--script` tools a `timeout`, and quit on a load error.
