@@ -1095,4 +1095,4 @@ tick. The test sampled at the `physics_frame` signal, before any node runs, so i
 
 Claude's first edit (`1a2959d`) read that sample before it existed and crashed the test. Its commit message
 claimed 107/0, written before the run had finished. `8ca7982` fixes both, and the test now passes 107/0.
-The lesson is the A6 one again: verify, then write the message.
+From here on Claude runs the test before writing the commit message.
