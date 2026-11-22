@@ -175,10 +175,12 @@ func _spawn_watched(points: Array[Vector2]) -> Array[int]:
 
 
 ## One real arrow: hold D until the archer's own auto-fire looses one, then hold A until the
-## archer is STEER_BACK px back. Keys go in at the start of a physics tick. Returns false if
-## no arrow was fired.
+## archer is back at the x where this helper started (CHANGE-BRIEF.md Revision 3: the archer keeps
+## moving through the 18-tick draw, so STEER_BACK px from the firing point stayed in the cone).
+## Keys go in at the start of a physics tick. Returns false if no arrow was fired.
 func _steer_one_arrow() -> bool:
 	var start: int = rec.fired
+	var x_start := game.archer.position.x
 	_key(KEY_D, true)
 	var n := 0
 	while rec.fired == start and n < MAX_FRAMES:
@@ -187,9 +189,8 @@ func _steer_one_arrow() -> bool:
 	_key(KEY_D, false)
 	if rec.fired == start:
 		return false
-	var x_fire := game.archer.position.x
 	_key(KEY_A, true)
-	while game.archer.position.x > x_fire - STEER_BACK and n < MAX_FRAMES:
+	while game.archer.position.x > x_start and n < MAX_FRAMES:
 		await physics_frame
 		n += 1
 	_key(KEY_A, false)
