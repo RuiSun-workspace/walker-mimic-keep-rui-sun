@@ -1,0 +1,1022 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+==== measuring the boundaries (no interrupt) ====
+MEASURED loss: 40 scarecrows placed at the wall at f 0 of a fresh run -> LOST on f 31
+PASS [measure] 40 wall scarecrows end a fresh run on f 31 (got 31)
+---- scenario baseline-walker ----
+baseline-walker f=1 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=2 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=3 | node=shoot pos=0.0167 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=4 | node=shoot pos=0.0333 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=5 | node=shoot pos=0.0500 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=6 | node=shoot pos=0.0667 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=7 | node=shoot pos=0.0833 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=8 | node=shoot pos=0.1000 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=9 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=10 | node=shoot pos=0.1333 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=11 | node=shoot pos=0.1500 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=12 | node=shoot pos=0.1667 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=13 | node=shoot pos=0.1833 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=14 | node=shoot pos=0.2000 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=15 | node=shoot pos=0.2167 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=16 | node=shoot pos=0.2333 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=17 | node=shoot pos=0.2500 armed=true rw=false cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=18 | node=shoot pos=0.2667 armed=true rw=true cd=0.000000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=19 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+baseline-walker f=20 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=21 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=22 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=23 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=24 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=25 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=26 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=27 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=28 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=29 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=30 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=31 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=32 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=33 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=34 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=39 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=40 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=41 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=42 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=43 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=44 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=45 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=46 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=47 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=48 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=49 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=50 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=51 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=52 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+baseline-walker f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=59 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=60 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=61 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=62 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=63 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=64 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=65 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=70 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=71 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=72 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=73 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=74 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=75 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=76 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=77 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=78 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=79 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=80 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=81 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=82 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=83 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=84 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=85 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=86 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=87 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=88 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=89 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=90 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=91 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+baseline-walker f=92 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=93 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=94 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=95 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=96 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=97 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=98 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=99 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=100 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=101 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=102 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=103 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=104 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=105 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=106 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=107 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=108 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-walker f=109 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=110 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=111 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=112 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+baseline-walker f=113 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+---- scenario baseline-cone ----
+baseline-cone f=1 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=2 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=3 | node=shoot pos=0.0167 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=4 | node=shoot pos=0.0333 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=5 | node=shoot pos=0.0500 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=6 | node=shoot pos=0.0667 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=7 | node=shoot pos=0.0833 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=8 | node=shoot pos=0.1000 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=9 | node=shoot pos=0.1167 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=10 | node=shoot pos=0.1333 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=11 | node=shoot pos=0.1500 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=12 | node=shoot pos=0.1667 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=13 | node=shoot pos=0.1833 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=14 | node=shoot pos=0.2000 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=15 | node=shoot pos=0.2167 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=16 | node=shoot pos=0.2333 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=17 | node=shoot pos=0.2500 armed=true rw=false cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=18 | node=shoot pos=0.2667 armed=true rw=true cd=0.000000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=19 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+baseline-cone f=20 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=21 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=22 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=23 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=24 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=25 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=26 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=27 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=28 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=29 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=30 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=31 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=32 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=33 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=34 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=39 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=40 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=41 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=42 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=43 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=44 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=45 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=46 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=47 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=48 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=49 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=50 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=51 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=52 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+baseline-cone f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=59 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=60 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=61 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=62 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=63 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=64 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=65 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=70 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=71 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=72 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=73 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=74 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=75 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=76 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=77 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=78 | node=shoot pos=0.0667 armed=true rw=false cd=0.216667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=79 | node=shoot pos=0.0833 armed=true rw=false cd=0.200000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=80 | node=shoot pos=0.1000 armed=true rw=false cd=0.183333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=81 | node=shoot pos=0.1167 armed=true rw=false cd=0.166667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=82 | node=shoot pos=0.1333 armed=true rw=false cd=0.150000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=83 | node=shoot pos=0.1500 armed=true rw=false cd=0.133333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=84 | node=shoot pos=0.1667 armed=true rw=false cd=0.116667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=85 | node=shoot pos=0.1833 armed=true rw=false cd=0.100000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=86 | node=shoot pos=0.2000 armed=true rw=false cd=0.083333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=87 | node=shoot pos=0.2167 armed=true rw=false cd=0.066667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=88 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=89 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=90 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=91 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+baseline-cone f=92 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=93 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=94 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=95 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=96 | node=shoot pos=0.3667 armed=false rw=false cd=0.516667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=97 | node=shoot pos=0.3833 armed=false rw=false cd=0.500000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=98 | node=shoot pos=0.4000 armed=false rw=false cd=0.483333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=99 | node=shoot pos=0.4167 armed=false rw=false cd=0.466667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=100 | node=shoot pos=0.4333 armed=false rw=false cd=0.450000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=101 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=102 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=103 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=104 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=105 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=106 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=107 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=108 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+baseline-cone f=109 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=110 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=111 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=112 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+baseline-cone f=113 | node=shoot pos=0.0500 armed=true rw=false cd=0.233333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+MEASURED (walker) shot 1: T 1, A 19, R 20, E 32 | shot 2: T 37, A 55, R 56, E 68 | release_window on R: false, on R+1: false; play position on R 0.3000
+MEASURED (walker) offsets from T: A +18, R +19, E +31
+PASS [measure] (walker) shot 1 draws on f 1 (got 1)
+PASS [measure] (walker) shot 2 draws on T = f 37 (got 37)
+PASS [measure] (walker) fired on A = T+18 for both shots (got +18, +18)
+PASS [measure] (walker) recovery starts on R = T+19, the tick after fired: the tree has played to 9/30 s, shot_armed already false (got +19, pos 0.3000)
+PASS [measure] (walker) the tree reports idle again on E = T+31 for both shots (got +31, +31)
+PASS [measure] (walker) §5.2 back-to-back releases 36 ticks apart (got 36)
+MEASURED (cone) shot 1: T 1, A 19, R 20, E 32 | shot 2: T 37, A 55, R 56, E 68 | release_window on R: false, on R+1: false; play position on R 0.3000
+MEASURED (cone) offsets from T: A +18, R +19, E +31
+PASS [measure] (cone) shot 1 draws on f 1 (got 1)
+PASS [measure] (cone) shot 2 draws on T = f 37 (got 37)
+PASS [measure] (cone) fired on A = T+18 for both shots (got +18, +18)
+PASS [measure] (cone) recovery starts on R = T+19, the tick after fired: the tree has played to 9/30 s, shot_armed already false (got +19, pos 0.3000)
+PASS [measure] (cone) the tree reports idle again on E = T+31 for both shots (got +31, +31)
+PASS [measure] (cone) §5.2 back-to-back releases 36 ticks apart (got 36)
+BOUNDARIES of the shot under test (shot 2): START T=37, ACTIVE A=55, RECOVERY R=56, END E=68
+
+==== placing a target so its death lands on each boundary (scan of its start height) ====
+death scan y=430: fired [19, 55, 91, 127], died on f 128  -> ACTIVE+1, RECOVERY+0
+death scan y=425: fired [19, 55, 91, 127], died on f 128
+death scan y=420: fired [19, 55, 91, 127], died on f 128
+death scan y=415: fired [19, 55, 91, 127], died on f 128
+death scan y=410: fired [19, 55, 91, 127], died on f 129  -> RECOVERY+1
+death scan y=405: fired [19, 55, 91, 127], died on f 129
+death scan y=400: fired [19, 55, 91, 127], died on f 129
+death scan y=395: fired [19, 55, 91, 127], died on f 130
+death scan y=390: fired [19, 55, 91, 127], died on f 130
+death scan y=385: fired [19, 55, 91, 127], died on f 130
+death scan y=380: fired [19, 55, 91, 127], died on f 130
+death scan y=375: fired [19, 55, 91, 127], died on f 131
+death scan y=370: fired [19, 55, 91, 127], died on f 131
+death scan y=365: fired [19, 55, 91, 127], died on f 131
+death scan y=360: fired [19, 55, 91, 127], died on f 132
+death scan y=355: fired [19, 55, 91, 127], died on f 132
+death scan y=350: fired [19, 55, 91, 127], died on f 132
+death scan y=345: fired [19, 55, 91, 127], died on f 133
+death scan y=340: fired [19, 55, 91, 127], died on f 133
+death scan y=335: fired [19, 55, 91, 127], died on f 133
+death scan y=330: fired [19, 55, 91, 127], died on f 134
+death scan y=325: fired [19, 55, 91, 127], died on f 134
+death scan y=320: fired [19, 55, 91, 127], died on f 134
+death scan y=315: fired [19, 55, 91, 127], died on f 135
+death scan y=310: fired [19, 55, 91, 127], died on f 135
+death scan y=305: fired [19, 55, 91, 127], died on f 135
+death scan y=300: fired [19, 55, 91, 127], died on f 136
+death scan y=295: fired [19, 55, 91, 127], died on f 136
+death scan y=290: fired [19, 55, 91, 127], died on f 136
+death scan y=285: fired [19, 55, 91, 127], died on f 136
+death scan y=280: fired [19, 55, 91, 127], died on f 137
+death scan y=275: fired [19, 55, 91, 127], died on f 137
+death scan y=270: fired [19, 55, 91, 127], died on f 137
+death scan y=265: fired [19, 55, 91, 127], died on f 138
+death scan y=260: fired [19, 55, 91, 127], died on f 138
+death scan y=255: fired [19, 55, 91, 127], died on f 138
+death scan y=250: fired [19, 55, 91, 127], died on f 139  -> END-1
+death scan y=245: fired [19, 55, 91, 127], died on f 139
+death scan y=240: fired [19, 55, 91, 127], died on f 139
+death scan y=235: fired [19, 55, 91, 127], died on f 140  -> END+0
+death scan y=230: fired [19, 55, 91, 127], died on f 140
+death scan y=225: fired [19, 55, 91, 127], died on f 140
+death scan y=220: fired [19, 55, 91, 127], died on f 141  -> END+1
+death scan y=215: fired [19, 55, 91, 127], died on f 141
+death scan y=210: fired [19, 55, 91, 127], died on f 141
+death scan y=205: fired [19, 55, 91, 127], died on f 142
+death scan y=200: fired [19, 55, 91, 127], died on f 142
+death scan y=195: fired [19, 55, 91, 127], died on f 142
+death scan y=190: fired [19, 55, 91, 127], died on f 143
+death scan y=185: fired [19, 55, 91, 127], died on f 143
+death scan y=180: fired [19, 55, 91, 127], died on f 143
+death scan y=175: fired [19, 55, 91, 127], died on f 143
+death scan y=170: fired [19, 55, 91, 127], died on f 144  -> START-1
+death scan y=165: fired [19, 55, 91, 127], died on f 144
+death scan y=160: fired [19, 55, 91, 127], died on f 144
+death scan y=155: fired [19, 55, 91, 127], died on f 145  -> START+0
+death scan y=150: fired [19, 55, 91, 127], died on f 145
+death scan y=145: fired [19, 55, 91, 127], died on f 145
+death scan y=140: fired [19, 55, 91, 127], died on f 146  -> START+1
+death scan y=135: fired [19, 55, 91, 127], died on f 146
+death scan y=130: fired [19, 55, 91, 127], died on f 146
+death scan y=125: fired [19, 55, 91, 127], died on f 147
+death scan y=120: fired [19, 55, 91, 127], died on f 147
+death scan y=115: fired [19, 55, 91, 127], died on f 147
+death scan y=110: fired [19, 55, 91, 127], died on f 148
+death scan y=105: fired [19, 55, 91, 127], died on f 148
+death scan y=100: fired [19, 55, 91, 127], died on f 148
+death scan y=95: fired [19, 55, 91, 127], died on f 149
+death scan y=90: fired [19, 55, 91, 127], died on f 149
+death scan y=85: fired [19, 55, 91, 127], died on f 149
+death scan y=80: fired [19, 55, 91, 127], died on f 150
+death scan y=75: fired [19, 55, 91, 127], died on f 150
+death scan y=70: fired [19, 55, 91, 127], died on f 150
+death scan y=65: fired [19, 55, 91, 127], died on f 150
+death scan y=60: fired [19, 55, 91, 127], died on f 151
+death scan y=55: fired [19, 55, 91, 127], died on f 151
+death scan y=50: fired [19, 55, 91, 127], died on f 151
+death scan y=45: fired [19, 55, 91, 127], died on f 152
+death scan y=40: fired [19, 55, 91, 127], died on f 152
+death scan y=35: fired [19, 55, 91, 127], died on f 152
+death scan y=30: fired [19, 55, 91, 127], died on f 153
+death scan y=25: fired [19, 55, 91, 127], died on f 153
+death scan y=20: fired [19, 55, 91, 127], died on f 153
+death scan y=15: fired [19, 55, 91, 127], died on f 154
+death scan y=10: fired [19, 55, 91, 127], died on f 154
+death scan y=5: fired [19, 55, 91, 127], died on f 154
+death scan y=0: fired [19, 55, 91, 127], died on f 155
+death scan y=-5: fired [19, 55, 91, 127], died on f 155
+death scan y=-10: fired [19, 55, 91, 127], died on f 155
+death scan y=-15: fired [19, 55, 91, 127], died on f 156
+death scan y=-20: fired [19, 55, 91, 127], died on f 156
+death scan y=-25: fired [19, 55, 91, 127], died on f 156
+death scan y=-30: fired [19, 55, 91, 127], died on f 156
+death scan y=-35: fired [19, 55, 91, 127], died on f 157
+death scan y=-40: fired [19, 55, 91, 127], died on f 157
+death scan y=-45: fired [19, 55, 91, 127], died on f 157
+death scan y=-50: fired [19, 55, 91, 127], died on f 158
+death scan y=-55: fired [19, 55, 91, 127], died on f 158
+death scan y=-60: fired [19, 55, 91, 127], died on f 158
+death scan y=-65: fired [19, 55, 91, 127], died on f 159
+death scan y=-70: fired [19, 55, 91, 127], died on f 159
+death scan y=-75: fired [19, 55, 91, 127], died on f 159
+death scan y=-80: fired [19, 55, 91, 127], died on f 160
+death scan y=-85: fired [19, 55, 91, 127], died on f 160
+death scan y=-90: fired [19, 55, 91, 127], died on f 160
+death scan y=-95: fired [19, 55, 91, 127], died on f 161
+death scan y=-100: fired [19, 55, 91, 127], died on f 161
+death scan y=-105: fired [19, 55, 91, 127], died on f 161
+death scan y=-110: fired [19, 55, 91, 127], died on f 162  -> ACTIVE-1
+death scan y=-115: fired [19, 55, 91, 127], died on f 162
+death scan y=-120: fired [19, 55, 91, 127], died on f 162
+death scan y=-125: fired [19, 55, 91, 127, 163], died on f 163  -> ACTIVE+0, RECOVERY-1
+death scan: 112 runs, found ["ACTIVE:1", "RECOVERY:0", "RECOVERY:1", "END:-1", "END:0", "END:1", "START:-1", "START:0", "START:1", "ACTIVE:-1", "ACTIVE:0", "RECOVERY:-1"]
+
+==== boundary START: tick 37 (T+0) ====
+---- START / the locked target leaves the cone ----
+  [START] cone t=36 (B-1) f=34 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] cone t=36 (B-1) f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] cone t=36 (B-1) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [START] cone t=36 (B-1) f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=654.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] cone t=36 (B-1) f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=661.0 lock=walker state=PLAYING paused=false | fired=0
+PASS [START] cone t=36 (B-1) setup: the locked target is in the cone on tick 35 and out on tick 36 (D from tick 36)
+PASS [START] cone t=36 (B-1) nothing differs from the baseline before tick 36
+PASS [START] cone t=36 (B-1) §5.2/§5.3 no draw locks the departed target on tick 36 or later
+PASS [START] cone t=36 (B-1) §5.2 the draw still starts on T=37 (cooldown <= 0.3, idle) and locks the walker, the target left in the cone
+PASS [START] cone t=36 (B-1) that draw releases on A=55 as usual
+  [START] cone t=37 (B+0) f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] cone t=37 (B+0) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] cone t=37 (B+0) f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=647.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] cone t=37 (B+0) f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=654.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] cone t=37 (B+0) f=39 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=661.0 lock=walker state=PLAYING paused=false | fired=0
+PASS [START] cone t=37 (B+0) setup: the locked target is in the cone on tick 36 and out on tick 37 (D from tick 37)
+PASS [START] cone t=37 (B+0) nothing differs from the baseline before tick 37
+PASS [START] cone t=37 (B+0) §5.2/§5.3 no draw locks the departed target on tick 37 or later
+PASS [START] cone t=37 (B+0) §5.2 the draw still starts on T=37 (cooldown <= 0.3, idle) and locks the walker, the target left in the cone
+PASS [START] cone t=37 (B+0) that draw releases on A=55 as usual
+  [START] cone t=38 (B+1) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] cone t=38 (B+1) f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [START] cone t=38 (B+1) f=38 | node=idle pos=0.0000 armed=false rw=false cd=0.283333 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [START] cone t=38 (B+1) f=39 | node=shoot pos=0.0000 armed=true rw=false cd=0.266667 x=654.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] cone t=38 (B+1) f=40 | node=shoot pos=0.0000 armed=true rw=false cd=0.250000 x=661.0 lock=walker state=PLAYING paused=false | fired=0
+PASS [START] cone t=38 (B+1) setup: the locked target is in the cone on tick 37 and out on tick 38 (D from tick 38)
+PASS [START] cone t=38 (B+1) nothing differs from the baseline before tick 38
+PASS [START] cone t=38 (B+1) §5.5 startup: drawing on tick 37 (armed, shoot), cancelled on tick 38 (shot_armed false)
+PASS [START] cone t=38 (B+1) §5.5 startup: back in idle at once on tick 38, locked target cleared (node idle, lock "")
+PASS [START] cone t=38 (B+1) §5.5 startup: the cooldown continues as normal (0.300000 -> 0.283333)
+PASS [START] cone t=38 (B+1) §5.5 startup: no arrow from the cancelled shot (none on ticks 38..56)
+PASS [START] cone t=38 (B+1) §5.5 no new target on the cancel tick, although walker is in the cone on it
+PASS [START] cone t=38 (B+1) §5.2 the next tick (39) draws on walker by the normal rule: idle, in the cone, cooldown 0.2667 <= 0.3
+---- START / a move key pressed and held ----
+  [START] move t=36 (B-1) f=34 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] move t=36 (B-1) f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] move t=36 (B-1) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [START] move t=36 (B-1) f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=654.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] move t=36 (B-1) f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=661.0 lock=walker state=PLAYING paused=false | fired=0
+PASS [START] move t=36 (B-1) §5.5 move: the archer moves 7 px on every tick 36..71 held, through every phase, and not before
+PASS [START] move t=36 (B-1) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [START] move t=36 (B-1) setup: the target stays in the cone while the archer moves
+  [START] move t=37 (B+0) f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] move t=37 (B+0) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] move t=37 (B+0) f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=647.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] move t=37 (B+0) f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=654.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] move t=37 (B+0) f=39 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=661.0 lock=walker state=PLAYING paused=false | fired=0
+PASS [START] move t=37 (B+0) §5.5 move: the archer moves 7 px on every tick 37..71 held, through every phase, and not before
+PASS [START] move t=37 (B+0) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [START] move t=37 (B+0) setup: the target stays in the cone while the archer moves
+  [START] move t=38 (B+1) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] move t=38 (B+1) f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] move t=38 (B+1) f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.283333 x=647.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] move t=38 (B+1) f=39 | node=shoot pos=0.0167 armed=true rw=false cd=0.266667 x=654.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] move t=38 (B+1) f=40 | node=shoot pos=0.0333 armed=true rw=false cd=0.250000 x=661.0 lock=walker state=PLAYING paused=false | fired=0
+PASS [START] move t=38 (B+1) §5.5 move: the archer moves 7 px on every tick 38..71 held, through every phase, and not before
+PASS [START] move t=38 (B+1) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [START] move t=38 (B+1) setup: the target stays in the cone while the archer moves
+---- START / pause (P, then P 10 ticks later) ----
+  [START] pause t=36 (B-1) f=34 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] pause t=36 (B-1) f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] pause t=36 (B-1) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [START] pause t=36 (B-1) f=37 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [START] pause t=36 (B-1) f=38 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=true | fired=0
+PASS [START] pause t=36 (B-1) setup: paused on ticks 36..45, running on 35 and 46
+PASS [START] pause t=36 (B-1) nothing differs from the baseline before tick 36
+PASS [START] pause t=36 (B-1) §5.5 pause: everything freezes on ticks 36..45 (tree node and play position 0.0333, release_window false, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [START] pause t=36 (B-1) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 36..73
+MEASURED [START] pause t=36 (B-1) boundaries T, A, R, E: [47, 65, 66, 78] (unpaused [37, 55, 56, 68])
+PASS [START] pause t=36 (B-1) §5.5 pause: each boundary on or after tick 36 moves by exactly 10 ticks, earlier ones stay (want [47, 65, 66, 78], got [47, 65, 66, 78])
+  [START] pause t=37 (B+0) f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] pause t=37 (B+0) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] pause t=37 (B+0) f=37 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [START] pause t=37 (B+0) f=38 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [START] pause t=37 (B+0) f=39 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=true | fired=0
+PASS [START] pause t=37 (B+0) setup: paused on ticks 37..46, running on 36 and 47
+PASS [START] pause t=37 (B+0) nothing differs from the baseline before tick 37
+PASS [START] pause t=37 (B+0) §5.5 pause: everything freezes on ticks 37..46 (tree node and play position 0.0333, release_window false, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [START] pause t=37 (B+0) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 37..73
+MEASURED [START] pause t=37 (B+0) boundaries T, A, R, E: [47, 65, 66, 78] (unpaused [37, 55, 56, 68])
+PASS [START] pause t=37 (B+0) §5.5 pause: each boundary on or after tick 37 moves by exactly 10 ticks, earlier ones stay (want [47, 65, 66, 78], got [47, 65, 66, 78])
+  [START] pause t=38 (B+1) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] pause t=38 (B+1) f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] pause t=38 (B+1) f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+  [START] pause t=38 (B+1) f=39 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+  [START] pause t=38 (B+1) f=40 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+PASS [START] pause t=38 (B+1) setup: paused on ticks 38..47, running on 37 and 48
+PASS [START] pause t=38 (B+1) nothing differs from the baseline before tick 38
+PASS [START] pause t=38 (B+1) §5.5 pause: everything freezes on ticks 38..47 (tree node and play position 0.0000, release_window false, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [START] pause t=38 (B+1) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 38..73
+MEASURED [START] pause t=38 (B+1) boundaries T, A, R, E: [37, 65, 66, 78] (unpaused [37, 55, 56, 68])
+PASS [START] pause t=38 (B+1) §5.5 pause: each boundary on or after tick 38 moves by exactly 10 ticks, earlier ones stay (want [37, 65, 66, 78], got [37, 65, 66, 78])
+---- START / the game ends (the gate falls), then R ----
+  [START] gameend t=36 (B-1) f=34 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] gameend t=36 (B-1) f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] gameend t=36 (B-1) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=LOST paused=false | fired=0
+  [START] gameend t=36 (B-1) f=37 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=LOST paused=false | fired=0
+  [START] gameend t=36 (B-1) f=38 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=LOST paused=false | fired=0
+PASS [START] gameend t=36 (B-1) setup: the gate falls on tick 36 (LOST first on f 36)
+PASS [START] gameend t=36 (B-1) nothing differs from the baseline before tick 36
+PASS [START] gameend t=36 (B-1) §5.5 game end: the shot freezes as it was after tick 35 (node idle, pos 0.0333, armed false, rw false) and no arrow is released on ticks 36..46
+PASS [START] gameend t=36 (B-1) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [START] gameend t=36 (B-1) §5.5 R: the tree is in idle on the first tick of the new run (47), release_window false, not armed (node idle, rw false, armed false)
+PASS [START] gameend t=36 (B-1) §5.5 R: no late arrow (none on ticks 36..67)
+PASS [START] gameend t=36 (B-1) §5.2 new run: the first shot draws on the first tick its target is in the cone (50), cooldown 0, by the normal rule
+PASS [START] gameend t=36 (B-1) §5.2 new run: that shot releases 18 ticks after its draw (on 68; got [68])
+  [START] gameend t=37 (B+0) f=35 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] gameend t=37 (B+0) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] gameend t=37 (B+0) f=37 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=LOST paused=false | fired=0
+  [START] gameend t=37 (B+0) f=38 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=LOST paused=false | fired=0
+  [START] gameend t=37 (B+0) f=39 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=LOST paused=false | fired=0
+PASS [START] gameend t=37 (B+0) setup: the gate falls on tick 37 (LOST first on f 37)
+PASS [START] gameend t=37 (B+0) nothing differs from the baseline before tick 37
+PASS [START] gameend t=37 (B+0) §5.5 game end: the shot freezes as it was after tick 36 (node idle, pos 0.0333, armed false, rw false) and no arrow is released on ticks 37..47
+PASS [START] gameend t=37 (B+0) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [START] gameend t=37 (B+0) §5.5 R: the tree is in idle on the first tick of the new run (48), release_window false, not armed (node idle, rw false, armed false)
+PASS [START] gameend t=37 (B+0) §5.5 R: no late arrow (none on ticks 37..68)
+PASS [START] gameend t=37 (B+0) §5.2 new run: the first shot draws on the first tick its target is in the cone (51), cooldown 0, by the normal rule
+PASS [START] gameend t=37 (B+0) §5.2 new run: that shot releases 18 ticks after its draw (on 69; got [69])
+  [START] gameend t=38 (B+1) f=36 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [START] gameend t=38 (B+1) f=37 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [START] gameend t=38 (B+1) f=38 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=LOST paused=false | fired=0
+  [START] gameend t=38 (B+1) f=39 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=LOST paused=false | fired=0
+  [START] gameend t=38 (B+1) f=40 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=LOST paused=false | fired=0
+PASS [START] gameend t=38 (B+1) setup: the gate falls on tick 38 (LOST first on f 38)
+PASS [START] gameend t=38 (B+1) nothing differs from the baseline before tick 38
+PASS [START] gameend t=38 (B+1) §5.5 game end: the shot freezes as it was after tick 37 (node shoot, pos 0.0000, armed true, rw false) and no arrow is released on ticks 38..48
+PASS [START] gameend t=38 (B+1) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [START] gameend t=38 (B+1) §5.5 R: the tree is in idle on the first tick of the new run (49), release_window false, not armed (node idle, rw false, armed false)
+PASS [START] gameend t=38 (B+1) §5.5 R: no late arrow (none on ticks 38..69)
+PASS [START] gameend t=38 (B+1) §5.2 new run: the first shot draws on the first tick its target is in the cone (52), cooldown 0, by the normal rule
+PASS [START] gameend t=38 (B+1) §5.2 new run: that shot releases 18 ticks after its draw (on 70; got [70])
+---- START / the locked target dies ----
+  death y=170 f=142 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=170 f=143 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=170 f=144 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=170 f=145 | node=idle pos=0.0333 armed=false rw=false cd=0.300000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=170 f=146 | node=idle pos=0.0333 armed=false rw=false cd=0.283333 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [START] death t=144 (B-1; target from y 170; this shot T 145, A 163, E 176) setup: the target is alive after tick 143 and dead on tick 144 (killed by a real arrow or burn)
+PASS [START] death t=144 (B-1; target from y 170; this shot T 145, A 163, E 176) §5.2 no draw on T=145 or later: no target is left (armed on: )
+PASS [START] death t=144 (B-1; target from y 170; this shot T 145, A 163, E 176) no arrow after the death
+  death y=155 f=143 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=155 f=144 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=155 f=145 | node=idle pos=0.0333 armed=false rw=false cd=0.300000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=155 f=146 | node=idle pos=0.0333 armed=false rw=false cd=0.283333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=155 f=147 | node=idle pos=0.0333 armed=false rw=false cd=0.266667 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [START] death t=145 (B+0; target from y 155; this shot T 145, A 163, E 176) setup: the target is alive after tick 144 and dead on tick 145 (killed by a real arrow or burn)
+PASS [START] death t=145 (B+0; target from y 155; this shot T 145, A 163, E 176) §5.2 no draw on T=145 or later: no target is left (armed on: )
+PASS [START] death t=145 (B+0; target from y 155; this shot T 145, A 163, E 176) no arrow after the death
+  death y=140 f=144 | node=idle pos=0.0333 armed=false rw=false cd=0.316667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=140 f=145 | node=shoot pos=0.0000 armed=true rw=false cd=0.300000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=140 f=146 | node=idle pos=0.0000 armed=false rw=false cd=0.283333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=140 f=147 | node=idle pos=0.0167 armed=false rw=false cd=0.266667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=140 f=148 | node=idle pos=0.0333 armed=false rw=false cd=0.250000 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [START] death t=146 (B+1; target from y 140; this shot T 145, A 163, E 176) setup: the target is alive after tick 145 and dead on tick 146 (killed by a real arrow or burn)
+PASS [START] death t=146 (B+1; target from y 140; this shot T 145, A 163, E 176) §5.5 startup: drawing on tick 145 (armed, shoot), cancelled on tick 146 (shot_armed false)
+PASS [START] death t=146 (B+1; target from y 140; this shot T 145, A 163, E 176) §5.5 startup: back in idle at once on tick 146, locked target cleared (node idle, lock "")
+PASS [START] death t=146 (B+1; target from y 140; this shot T 145, A 163, E 176) §5.5 startup: the cooldown continues as normal (0.300000 -> 0.283333)
+PASS [START] death t=146 (B+1; target from y 140; this shot T 145, A 163, E 176) §5.5 startup: no arrow from the cancelled shot (none on ticks 146..164)
+PASS [START] death t=146 (B+1; target from y 140; this shot T 145, A 163, E 176) no draw after the cancel: no target is left (ticks 146..170)
+
+==== boundary ACTIVE: tick 55 (T+18) ====
+---- ACTIVE / the locked target leaves the cone ----
+  [ACTIVE] cone t=54 (B-1) f=52 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=54 (B-1) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=54 (B-1) f=54 | node=idle pos=0.0000 armed=false rw=false cd=0.016667 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=54 (B-1) f=55 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=654.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=54 (B-1) f=56 | node=shoot pos=0.0000 armed=true rw=false cd=0.000000 x=661.0 lock=walker state=PLAYING paused=false | fired=0
+PASS [ACTIVE] cone t=54 (B-1) setup: the locked target is in the cone on tick 53 and out on tick 54 (D from tick 54)
+PASS [ACTIVE] cone t=54 (B-1) nothing differs from the baseline before tick 54
+PASS [ACTIVE] cone t=54 (B-1) §5.5 startup: drawing on tick 53 (armed, shoot), cancelled on tick 54 (shot_armed false)
+PASS [ACTIVE] cone t=54 (B-1) §5.5 startup: back in idle at once on tick 54, locked target cleared (node idle, lock "")
+PASS [ACTIVE] cone t=54 (B-1) §5.5 startup: the cooldown continues as normal (0.033333 -> 0.016667)
+PASS [ACTIVE] cone t=54 (B-1) §5.5 startup: no arrow from the cancelled shot (none on ticks 54..72)
+PASS [ACTIVE] cone t=54 (B-1) §5.5 no new target on the cancel tick, although walker is in the cone on it
+PASS [ACTIVE] cone t=54 (B-1) §5.2 the next tick (55) draws on walker by the normal rule: idle, in the cone, cooldown 0.0000 <= 0.3
+  [ACTIVE] cone t=55 (B+0) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=55 (B+0) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=55 (B+0) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=647.0 lock= state=PLAYING paused=false | fired=1
+  [ACTIVE] cone t=55 (B+0) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=55 (B+0) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [ACTIVE] cone t=55 (B+0) setup: the locked target is in the cone on tick 54 and out on tick 55 (D from tick 55)
+PASS [ACTIVE] cone t=55 (B+0) nothing differs from the baseline before tick 55
+PASS [ACTIVE] cone t=55 (B+0) §5.5 no effect: armed/node/pos/rw/cd/fired equal the baseline on ticks 55..69
+PASS [ACTIVE] cone t=55 (B+0) §5.5 the shot released exactly once, on A=55 (fired on [55])
+PASS [ACTIVE] cone t=55 (B+0) §5.5 the recovery plays out: shoot through 67, idle on E=68, never re-armed (shoot / idle)
+PASS [ACTIVE] cone t=55 (B+0) §5.5 the arrow released on the tick the target leaves still goes (fired on 55, target outside the cone on it, arrow in flight)
+  [ACTIVE] cone t=56 (B+1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=56 (B+1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [ACTIVE] cone t=56 (B+1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=56 (B+1) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [ACTIVE] cone t=56 (B+1) f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [ACTIVE] cone t=56 (B+1) setup: the locked target is in the cone on tick 55 and out on tick 56 (D from tick 56)
+PASS [ACTIVE] cone t=56 (B+1) nothing differs from the baseline before tick 56
+PASS [ACTIVE] cone t=56 (B+1) §5.5 no effect: armed/node/pos/rw/cd/fired equal the baseline on ticks 56..69
+PASS [ACTIVE] cone t=56 (B+1) §5.5 the shot released exactly once, on A=55 (fired on [55])
+PASS [ACTIVE] cone t=56 (B+1) §5.5 the recovery plays out: shoot through 67, idle on E=68, never re-armed (shoot / idle)
+---- ACTIVE / a move key pressed and held ----
+  [ACTIVE] move t=54 (B-1) f=52 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=54 (B-1) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=54 (B-1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=647.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=54 (B-1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=654.0 lock= state=PLAYING paused=false | fired=1
+  [ACTIVE] move t=54 (B-1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [ACTIVE] move t=54 (B-1) §5.5 move: the archer moves 7 px on every tick 54..71 held, through every phase, and not before
+PASS [ACTIVE] move t=54 (B-1) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [ACTIVE] move t=54 (B-1) setup: the target stays in the cone while the archer moves
+  [ACTIVE] move t=55 (B+0) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=55 (B+0) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=55 (B+0) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=647.0 lock= state=PLAYING paused=false | fired=1
+  [ACTIVE] move t=55 (B+0) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=55 (B+0) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [ACTIVE] move t=55 (B+0) §5.5 move: the archer moves 7 px on every tick 55..71 held, through every phase, and not before
+PASS [ACTIVE] move t=55 (B+0) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [ACTIVE] move t=55 (B+0) setup: the target stays in the cone while the archer moves
+  [ACTIVE] move t=56 (B+1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=56 (B+1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [ACTIVE] move t=56 (B+1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=56 (B+1) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [ACTIVE] move t=56 (B+1) f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [ACTIVE] move t=56 (B+1) §5.5 move: the archer moves 7 px on every tick 56..71 held, through every phase, and not before
+PASS [ACTIVE] move t=56 (B+1) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [ACTIVE] move t=56 (B+1) setup: the target stays in the cone while the archer moves
+---- ACTIVE / pause (P, then P 10 ticks later) ----
+  [ACTIVE] pause t=54 (B-1) f=52 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] pause t=54 (B-1) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] pause t=54 (B-1) f=54 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+  [ACTIVE] pause t=54 (B-1) f=55 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+  [ACTIVE] pause t=54 (B-1) f=56 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+PASS [ACTIVE] pause t=54 (B-1) setup: paused on ticks 54..63, running on 53 and 64
+PASS [ACTIVE] pause t=54 (B-1) nothing differs from the baseline before tick 54
+PASS [ACTIVE] pause t=54 (B-1) §5.5 pause: everything freezes on ticks 54..63 (tree node and play position 0.2500, release_window false, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [ACTIVE] pause t=54 (B-1) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 54..73
+MEASURED [ACTIVE] pause t=54 (B-1) boundaries T, A, R, E: [37, 65, 66, 78] (unpaused [37, 55, 56, 68])
+PASS [ACTIVE] pause t=54 (B-1) §5.5 pause: each boundary on or after tick 54 moves by exactly 10 ticks, earlier ones stay (want [37, 65, 66, 78], got [37, 65, 66, 78])
+  [ACTIVE] pause t=55 (B+0) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] pause t=55 (B+0) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] pause t=55 (B+0) f=55 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+  [ACTIVE] pause t=55 (B+0) f=56 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+  [ACTIVE] pause t=55 (B+0) f=57 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+PASS [ACTIVE] pause t=55 (B+0) setup: paused on ticks 55..64, running on 54 and 65
+PASS [ACTIVE] pause t=55 (B+0) nothing differs from the baseline before tick 55
+PASS [ACTIVE] pause t=55 (B+0) §5.5 pause: everything freezes on ticks 55..64 (tree node and play position 0.2667, release_window true, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [ACTIVE] pause t=55 (B+0) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 55..73
+MEASURED [ACTIVE] pause t=55 (B+0) boundaries T, A, R, E: [37, 65, 66, 78] (unpaused [37, 55, 56, 68])
+PASS [ACTIVE] pause t=55 (B+0) §5.5 pause: each boundary on or after tick 55 moves by exactly 10 ticks, earlier ones stay (want [37, 65, 66, 78], got [37, 65, 66, 78])
+  [ACTIVE] pause t=56 (B+1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] pause t=56 (B+1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [ACTIVE] pause t=56 (B+1) f=56 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [ACTIVE] pause t=56 (B+1) f=57 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [ACTIVE] pause t=56 (B+1) f=58 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=true | fired=0
+PASS [ACTIVE] pause t=56 (B+1) setup: paused on ticks 56..65, running on 55 and 66
+PASS [ACTIVE] pause t=56 (B+1) nothing differs from the baseline before tick 56
+PASS [ACTIVE] pause t=56 (B+1) §5.5 pause: everything freezes on ticks 56..65 (tree node and play position 0.2833, release_window true, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [ACTIVE] pause t=56 (B+1) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 56..73
+MEASURED [ACTIVE] pause t=56 (B+1) boundaries T, A, R, E: [37, 55, 66, 78] (unpaused [37, 55, 56, 68])
+PASS [ACTIVE] pause t=56 (B+1) §5.5 pause: each boundary on or after tick 56 moves by exactly 10 ticks, earlier ones stay (want [37, 55, 66, 78], got [37, 55, 66, 78])
+---- ACTIVE / the game ends (the gate falls), then R ----
+  [ACTIVE] gameend t=54 (B-1) f=52 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] gameend t=54 (B-1) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] gameend t=54 (B-1) f=54 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=LOST paused=false | fired=0
+  [ACTIVE] gameend t=54 (B-1) f=55 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=LOST paused=false | fired=0
+  [ACTIVE] gameend t=54 (B-1) f=56 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=LOST paused=false | fired=0
+PASS [ACTIVE] gameend t=54 (B-1) setup: the gate falls on tick 54 (LOST first on f 54)
+PASS [ACTIVE] gameend t=54 (B-1) nothing differs from the baseline before tick 54
+PASS [ACTIVE] gameend t=54 (B-1) §5.5 game end: the shot freezes as it was after tick 53 (node shoot, pos 0.2500, armed true, rw false) and no arrow is released on ticks 54..64
+PASS [ACTIVE] gameend t=54 (B-1) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [ACTIVE] gameend t=54 (B-1) §5.5 R: the tree is in idle on the first tick of the new run (65), release_window false, not armed (node idle, rw false, armed false)
+PASS [ACTIVE] gameend t=54 (B-1) §5.5 R: no late arrow (none on ticks 54..85)
+PASS [ACTIVE] gameend t=54 (B-1) §5.2 new run: the first shot draws on the first tick its target is in the cone (68), cooldown 0, by the normal rule
+PASS [ACTIVE] gameend t=54 (B-1) §5.2 new run: that shot releases 18 ticks after its draw (on 86; got [86])
+  [ACTIVE] gameend t=55 (B+0) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] gameend t=55 (B+0) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] gameend t=55 (B+0) f=55 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=LOST paused=false | fired=0
+  [ACTIVE] gameend t=55 (B+0) f=56 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=LOST paused=false | fired=0
+  [ACTIVE] gameend t=55 (B+0) f=57 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=LOST paused=false | fired=0
+PASS [ACTIVE] gameend t=55 (B+0) setup: the gate falls on tick 55 (LOST first on f 55)
+PASS [ACTIVE] gameend t=55 (B+0) nothing differs from the baseline before tick 55
+PASS [ACTIVE] gameend t=55 (B+0) §5.5 game end: the shot freezes as it was after tick 54 (node shoot, pos 0.2667, armed true, rw true) and no arrow is released on ticks 55..65
+PASS [ACTIVE] gameend t=55 (B+0) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [ACTIVE] gameend t=55 (B+0) §5.5 R: the tree is in idle on the first tick of the new run (66), release_window false, not armed (node idle, rw false, armed false)
+PASS [ACTIVE] gameend t=55 (B+0) §5.5 R: no late arrow (none on ticks 55..86)
+PASS [ACTIVE] gameend t=55 (B+0) §5.2 new run: the first shot draws on the first tick its target is in the cone (69), cooldown 0, by the normal rule
+PASS [ACTIVE] gameend t=55 (B+0) §5.2 new run: that shot releases 18 ticks after its draw (on 87; got [87])
+  [ACTIVE] gameend t=56 (B+1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [ACTIVE] gameend t=56 (B+1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [ACTIVE] gameend t=56 (B+1) f=56 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=LOST paused=false | fired=0
+  [ACTIVE] gameend t=56 (B+1) f=57 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=LOST paused=false | fired=0
+  [ACTIVE] gameend t=56 (B+1) f=58 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=LOST paused=false | fired=0
+PASS [ACTIVE] gameend t=56 (B+1) setup: the gate falls on tick 56 (LOST first on f 56)
+PASS [ACTIVE] gameend t=56 (B+1) nothing differs from the baseline before tick 56
+PASS [ACTIVE] gameend t=56 (B+1) §5.5 game end: the shot freezes as it was after tick 55 (node shoot, pos 0.2833, armed false, rw true) and no arrow is released on ticks 56..66
+PASS [ACTIVE] gameend t=56 (B+1) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [ACTIVE] gameend t=56 (B+1) §5.5 R: the tree is in idle on the first tick of the new run (67), release_window false, not armed (node idle, rw false, armed false)
+PASS [ACTIVE] gameend t=56 (B+1) §5.5 R: no late arrow (none on ticks 56..87)
+PASS [ACTIVE] gameend t=56 (B+1) §5.2 new run: the first shot draws on the first tick its target is in the cone (70), cooldown 0, by the normal rule
+PASS [ACTIVE] gameend t=56 (B+1) §5.2 new run: that shot releases 18 ticks after its draw (on 88; got [88])
+---- ACTIVE / the locked target dies ----
+  death y=-110 f=160 | node=shoot pos=0.2333 armed=true rw=false cd=0.050000 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=-110 f=161 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=-110 f=162 | node=idle pos=0.0000 armed=false rw=false cd=0.016667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=-110 f=163 | node=idle pos=0.0167 armed=false rw=false cd=0.000000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=-110 f=164 | node=idle pos=0.0333 armed=false rw=false cd=0.000000 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [ACTIVE] death t=162 (B-1; target from y -110; this shot T 145, A 163, E 176) setup: the target is alive after tick 161 and dead on tick 162 (killed by a real arrow or burn)
+PASS [ACTIVE] death t=162 (B-1; target from y -110; this shot T 145, A 163, E 176) §5.5 startup: drawing on tick 161 (armed, shoot), cancelled on tick 162 (shot_armed false)
+PASS [ACTIVE] death t=162 (B-1; target from y -110; this shot T 145, A 163, E 176) §5.5 startup: back in idle at once on tick 162, locked target cleared (node idle, lock "")
+PASS [ACTIVE] death t=162 (B-1; target from y -110; this shot T 145, A 163, E 176) §5.5 startup: the cooldown continues as normal (0.033333 -> 0.016667)
+PASS [ACTIVE] death t=162 (B-1; target from y -110; this shot T 145, A 163, E 176) §5.5 startup: no arrow from the cancelled shot (none on ticks 162..180)
+PASS [ACTIVE] death t=162 (B-1; target from y -110; this shot T 145, A 163, E 176) no draw after the cancel: no target is left (ticks 162..186)
+  death y=-125 f=161 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=-125 f=162 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=-125 f=163 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  death y=-125 f=164 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=-125 f=165 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [ACTIVE] death t=163 (B+0; target from y -125; this shot T 145, A 163, E 176) setup: the target is alive after tick 162 and dead on tick 163 (killed by a real arrow or burn)
+PASS [ACTIVE] death t=163 (B+0; target from y -125; this shot T 145, A 163, E 176) §5.5 the shot released exactly once, on A=163 (fired on [163])
+PASS [ACTIVE] death t=163 (B+0; target from y -125; this shot T 145, A 163, E 176) §5.5 the recovery plays out: shoot through 175, idle on E=176, never re-armed (shoot / idle)
+PASS [ACTIVE] death t=163 (B+0; target from y -125; this shot T 145, A 163, E 176) §5.5 the arrow released on the tick the target dies still goes (fired on 163)
+PASS [ACTIVE] death t=163 (B+0; target from y -125; this shot T 145, A 163, E 176) no new draw after the shot: no target is left
+  death y=430 f=126 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=430 f=127 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  death y=430 f=128 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=430 f=129 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=430 f=130 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [ACTIVE] death t=128 (B+1; target from y 430; this shot T 109, A 127, E 140) setup: the target is alive after tick 127 and dead on tick 128 (killed by a real arrow or burn)
+PASS [ACTIVE] death t=128 (B+1; target from y 430; this shot T 109, A 127, E 140) §5.5 the shot released exactly once, on A=127 (fired on [127])
+PASS [ACTIVE] death t=128 (B+1; target from y 430; this shot T 109, A 127, E 140) §5.5 the recovery plays out: shoot through 139, idle on E=140, never re-armed (shoot / idle)
+PASS [ACTIVE] death t=128 (B+1; target from y 430; this shot T 109, A 127, E 140) no new draw after the shot: no target is left
+
+==== boundary RECOVERY: tick 56 (T+19) ====
+---- RECOVERY / the locked target leaves the cone ----
+  [RECOVERY] cone t=55 (B-1) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=55 (B-1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=55 (B-1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=647.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] cone t=55 (B-1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=55 (B-1) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] cone t=55 (B-1) setup: the locked target is in the cone on tick 54 and out on tick 55 (D from tick 55)
+PASS [RECOVERY] cone t=55 (B-1) nothing differs from the baseline before tick 55
+PASS [RECOVERY] cone t=55 (B-1) §5.5 no effect: armed/node/pos/rw/cd/fired equal the baseline on ticks 55..69
+PASS [RECOVERY] cone t=55 (B-1) §5.5 the shot released exactly once, on A=55 (fired on [55])
+PASS [RECOVERY] cone t=55 (B-1) §5.5 the recovery plays out: shoot through 67, idle on E=68, never re-armed (shoot / idle)
+PASS [RECOVERY] cone t=55 (B-1) §5.5 the arrow released on the tick the target leaves still goes (fired on 55, target outside the cone on it, arrow in flight)
+  [RECOVERY] cone t=56 (B+0) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=wall state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=56 (B+0) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] cone t=56 (B+0) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=56 (B+0) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=56 (B+0) f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] cone t=56 (B+0) setup: the locked target is in the cone on tick 55 and out on tick 56 (D from tick 56)
+PASS [RECOVERY] cone t=56 (B+0) nothing differs from the baseline before tick 56
+PASS [RECOVERY] cone t=56 (B+0) §5.5 no effect: armed/node/pos/rw/cd/fired equal the baseline on ticks 56..69
+PASS [RECOVERY] cone t=56 (B+0) §5.5 the shot released exactly once, on A=55 (fired on [55])
+PASS [RECOVERY] cone t=56 (B+0) §5.5 the recovery plays out: shoot through 67, idle on E=68, never re-armed (shoot / idle)
+  [RECOVERY] cone t=57 (B+1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] cone t=57 (B+1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=57 (B+1) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=57 (B+1) f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] cone t=57 (B+1) f=59 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] cone t=57 (B+1) setup: the locked target is in the cone on tick 56 and out on tick 57 (D from tick 57)
+PASS [RECOVERY] cone t=57 (B+1) nothing differs from the baseline before tick 57
+PASS [RECOVERY] cone t=57 (B+1) §5.5 no effect: armed/node/pos/rw/cd/fired equal the baseline on ticks 57..69
+PASS [RECOVERY] cone t=57 (B+1) §5.5 the shot released exactly once, on A=55 (fired on [55])
+PASS [RECOVERY] cone t=57 (B+1) §5.5 the recovery plays out: shoot through 67, idle on E=68, never re-armed (shoot / idle)
+---- RECOVERY / a move key pressed and held ----
+  [RECOVERY] move t=55 (B-1) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=55 (B-1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=55 (B-1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=647.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] move t=55 (B-1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=55 (B-1) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] move t=55 (B-1) §5.5 move: the archer moves 7 px on every tick 55..71 held, through every phase, and not before
+PASS [RECOVERY] move t=55 (B-1) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [RECOVERY] move t=55 (B-1) setup: the target stays in the cone while the archer moves
+  [RECOVERY] move t=56 (B+0) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=56 (B+0) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] move t=56 (B+0) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=56 (B+0) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=56 (B+0) f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] move t=56 (B+0) §5.5 move: the archer moves 7 px on every tick 56..71 held, through every phase, and not before
+PASS [RECOVERY] move t=56 (B+0) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [RECOVERY] move t=56 (B+0) setup: the target stays in the cone while the archer moves
+  [RECOVERY] move t=57 (B+1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] move t=57 (B+1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=57 (B+1) f=57 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=57 (B+1) f=58 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] move t=57 (B+1) f=59 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] move t=57 (B+1) §5.5 move: the archer moves 7 px on every tick 57..71 held, through every phase, and not before
+PASS [RECOVERY] move t=57 (B+1) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [RECOVERY] move t=57 (B+1) setup: the target stays in the cone while the archer moves
+---- RECOVERY / pause (P, then P 10 ticks later) ----
+  [RECOVERY] pause t=55 (B-1) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] pause t=55 (B-1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] pause t=55 (B-1) f=55 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+  [RECOVERY] pause t=55 (B-1) f=56 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+  [RECOVERY] pause t=55 (B-1) f=57 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=true | fired=0
+PASS [RECOVERY] pause t=55 (B-1) setup: paused on ticks 55..64, running on 54 and 65
+PASS [RECOVERY] pause t=55 (B-1) nothing differs from the baseline before tick 55
+PASS [RECOVERY] pause t=55 (B-1) §5.5 pause: everything freezes on ticks 55..64 (tree node and play position 0.2667, release_window true, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [RECOVERY] pause t=55 (B-1) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 55..73
+MEASURED [RECOVERY] pause t=55 (B-1) boundaries T, A, R, E: [37, 65, 66, 78] (unpaused [37, 55, 56, 68])
+PASS [RECOVERY] pause t=55 (B-1) §5.5 pause: each boundary on or after tick 55 moves by exactly 10 ticks, earlier ones stay (want [37, 65, 66, 78], got [37, 65, 66, 78])
+  [RECOVERY] pause t=56 (B+0) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] pause t=56 (B+0) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] pause t=56 (B+0) f=56 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [RECOVERY] pause t=56 (B+0) f=57 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [RECOVERY] pause t=56 (B+0) f=58 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=true | fired=0
+PASS [RECOVERY] pause t=56 (B+0) setup: paused on ticks 56..65, running on 55 and 66
+PASS [RECOVERY] pause t=56 (B+0) nothing differs from the baseline before tick 56
+PASS [RECOVERY] pause t=56 (B+0) §5.5 pause: everything freezes on ticks 56..65 (tree node and play position 0.2833, release_window true, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [RECOVERY] pause t=56 (B+0) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 56..73
+MEASURED [RECOVERY] pause t=56 (B+0) boundaries T, A, R, E: [37, 55, 66, 78] (unpaused [37, 55, 56, 68])
+PASS [RECOVERY] pause t=56 (B+0) §5.5 pause: each boundary on or after tick 56 moves by exactly 10 ticks, earlier ones stay (want [37, 55, 66, 78], got [37, 55, 66, 78])
+  [RECOVERY] pause t=57 (B+1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] pause t=57 (B+1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] pause t=57 (B+1) f=57 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [RECOVERY] pause t=57 (B+1) f=58 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [RECOVERY] pause t=57 (B+1) f=59 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=true | fired=0
+PASS [RECOVERY] pause t=57 (B+1) setup: paused on ticks 57..66, running on 56 and 67
+PASS [RECOVERY] pause t=57 (B+1) nothing differs from the baseline before tick 57
+PASS [RECOVERY] pause t=57 (B+1) §5.5 pause: everything freezes on ticks 57..66 (tree node and play position 0.3000, release_window false, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [RECOVERY] pause t=57 (B+1) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 57..73
+MEASURED [RECOVERY] pause t=57 (B+1) boundaries T, A, R, E: [37, 55, 56, 78] (unpaused [37, 55, 56, 68])
+PASS [RECOVERY] pause t=57 (B+1) §5.5 pause: each boundary on or after tick 57 moves by exactly 10 ticks, earlier ones stay (want [37, 55, 56, 78], got [37, 55, 56, 78])
+---- RECOVERY / the game ends (the gate falls), then R ----
+  [RECOVERY] gameend t=55 (B-1) f=53 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] gameend t=55 (B-1) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] gameend t=55 (B-1) f=55 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=LOST paused=false | fired=0
+  [RECOVERY] gameend t=55 (B-1) f=56 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=LOST paused=false | fired=0
+  [RECOVERY] gameend t=55 (B-1) f=57 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=LOST paused=false | fired=0
+PASS [RECOVERY] gameend t=55 (B-1) setup: the gate falls on tick 55 (LOST first on f 55)
+PASS [RECOVERY] gameend t=55 (B-1) nothing differs from the baseline before tick 55
+PASS [RECOVERY] gameend t=55 (B-1) §5.5 game end: the shot freezes as it was after tick 54 (node shoot, pos 0.2667, armed true, rw true) and no arrow is released on ticks 55..65
+PASS [RECOVERY] gameend t=55 (B-1) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [RECOVERY] gameend t=55 (B-1) §5.5 R: the tree is in idle on the first tick of the new run (66), release_window false, not armed (node idle, rw false, armed false)
+PASS [RECOVERY] gameend t=55 (B-1) §5.5 R: no late arrow (none on ticks 55..86)
+PASS [RECOVERY] gameend t=55 (B-1) §5.2 new run: the first shot draws on the first tick its target is in the cone (69), cooldown 0, by the normal rule
+PASS [RECOVERY] gameend t=55 (B-1) §5.2 new run: that shot releases 18 ticks after its draw (on 87; got [87])
+  [RECOVERY] gameend t=56 (B+0) f=54 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  [RECOVERY] gameend t=56 (B+0) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] gameend t=56 (B+0) f=56 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=LOST paused=false | fired=0
+  [RECOVERY] gameend t=56 (B+0) f=57 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=LOST paused=false | fired=0
+  [RECOVERY] gameend t=56 (B+0) f=58 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=LOST paused=false | fired=0
+PASS [RECOVERY] gameend t=56 (B+0) setup: the gate falls on tick 56 (LOST first on f 56)
+PASS [RECOVERY] gameend t=56 (B+0) nothing differs from the baseline before tick 56
+PASS [RECOVERY] gameend t=56 (B+0) §5.5 game end: the shot freezes as it was after tick 55 (node shoot, pos 0.2833, armed false, rw true) and no arrow is released on ticks 56..66
+PASS [RECOVERY] gameend t=56 (B+0) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [RECOVERY] gameend t=56 (B+0) §5.5 R: the tree is in idle on the first tick of the new run (67), release_window false, not armed (node idle, rw false, armed false)
+PASS [RECOVERY] gameend t=56 (B+0) §5.5 R: no late arrow (none on ticks 56..87)
+PASS [RECOVERY] gameend t=56 (B+0) §5.2 new run: the first shot draws on the first tick its target is in the cone (70), cooldown 0, by the normal rule
+PASS [RECOVERY] gameend t=56 (B+0) §5.2 new run: that shot releases 18 ticks after its draw (on 88; got [88])
+  [RECOVERY] gameend t=57 (B+1) f=55 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  [RECOVERY] gameend t=57 (B+1) f=56 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [RECOVERY] gameend t=57 (B+1) f=57 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=LOST paused=false | fired=0
+  [RECOVERY] gameend t=57 (B+1) f=58 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=LOST paused=false | fired=0
+  [RECOVERY] gameend t=57 (B+1) f=59 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=LOST paused=false | fired=0
+PASS [RECOVERY] gameend t=57 (B+1) setup: the gate falls on tick 57 (LOST first on f 57)
+PASS [RECOVERY] gameend t=57 (B+1) nothing differs from the baseline before tick 57
+PASS [RECOVERY] gameend t=57 (B+1) §5.5 game end: the shot freezes as it was after tick 56 (node shoot, pos 0.3000, armed false, rw false) and no arrow is released on ticks 57..67
+PASS [RECOVERY] gameend t=57 (B+1) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [RECOVERY] gameend t=57 (B+1) §5.5 R: the tree is in idle on the first tick of the new run (68), release_window false, not armed (node idle, rw false, armed false)
+PASS [RECOVERY] gameend t=57 (B+1) §5.5 R: no late arrow (none on ticks 57..88)
+PASS [RECOVERY] gameend t=57 (B+1) §5.2 new run: the first shot draws on the first tick its target is in the cone (71), cooldown 0, by the normal rule
+PASS [RECOVERY] gameend t=57 (B+1) §5.2 new run: that shot releases 18 ticks after its draw (on 89; got [89])
+---- RECOVERY / the locked target dies ----
+  death y=-125 f=161 | node=shoot pos=0.2500 armed=true rw=false cd=0.033333 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=-125 f=162 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=-125 f=163 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  death y=-125 f=164 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=-125 f=165 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] death t=163 (B-1; target from y -125; this shot T 145, A 163, E 176) setup: the target is alive after tick 162 and dead on tick 163 (killed by a real arrow or burn)
+PASS [RECOVERY] death t=163 (B-1; target from y -125; this shot T 145, A 163, E 176) §5.5 the shot released exactly once, on A=163 (fired on [163])
+PASS [RECOVERY] death t=163 (B-1; target from y -125; this shot T 145, A 163, E 176) §5.5 the recovery plays out: shoot through 175, idle on E=176, never re-armed (shoot / idle)
+PASS [RECOVERY] death t=163 (B-1; target from y -125; this shot T 145, A 163, E 176) §5.5 the arrow released on the tick the target dies still goes (fired on 163)
+PASS [RECOVERY] death t=163 (B-1; target from y -125; this shot T 145, A 163, E 176) no new draw after the shot: no target is left
+  death y=430 f=126 | node=shoot pos=0.2667 armed=true rw=true cd=0.016667 x=640.0 lock=walker state=PLAYING paused=false | fired=0
+  death y=430 f=127 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  death y=430 f=128 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=430 f=129 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=430 f=130 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] death t=128 (B+0; target from y 430; this shot T 109, A 127, E 140) setup: the target is alive after tick 127 and dead on tick 128 (killed by a real arrow or burn)
+PASS [RECOVERY] death t=128 (B+0; target from y 430; this shot T 109, A 127, E 140) §5.5 the shot released exactly once, on A=127 (fired on [127])
+PASS [RECOVERY] death t=128 (B+0; target from y 430; this shot T 109, A 127, E 140) §5.5 the recovery plays out: shoot through 139, idle on E=140, never re-armed (shoot / idle)
+PASS [RECOVERY] death t=128 (B+0; target from y 430; this shot T 109, A 127, E 140) no new draw after the shot: no target is left
+  death y=410 f=127 | node=shoot pos=0.2833 armed=false rw=true cd=0.600000 x=640.0 lock= state=PLAYING paused=false | fired=1
+  death y=410 f=128 | node=shoot pos=0.3000 armed=false rw=false cd=0.583333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=410 f=129 | node=shoot pos=0.3167 armed=false rw=false cd=0.566667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=410 f=130 | node=shoot pos=0.3333 armed=false rw=false cd=0.550000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=410 f=131 | node=shoot pos=0.3500 armed=false rw=false cd=0.533333 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [RECOVERY] death t=129 (B+1; target from y 410; this shot T 109, A 127, E 140) setup: the target is alive after tick 128 and dead on tick 129 (killed by a real arrow or burn)
+PASS [RECOVERY] death t=129 (B+1; target from y 410; this shot T 109, A 127, E 140) §5.5 the shot released exactly once, on A=127 (fired on [127])
+PASS [RECOVERY] death t=129 (B+1; target from y 410; this shot T 109, A 127, E 140) §5.5 the recovery plays out: shoot through 139, idle on E=140, never re-armed (shoot / idle)
+PASS [RECOVERY] death t=129 (B+1; target from y 410; this shot T 109, A 127, E 140) no new draw after the shot: no target is left
+
+==== boundary END: tick 68 (T+31) ====
+---- END / the locked target leaves the cone ----
+  [END] cone t=67 (B-1) f=65 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=67 (B-1) f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=67 (B-1) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=67 (B-1) f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=67 (B-1) f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] cone t=67 (B-1) setup: the locked target is in the cone on tick 66 and out on tick 67 (D from tick 67)
+PASS [END] cone t=67 (B-1) nothing differs from the baseline before tick 67
+PASS [END] cone t=67 (B-1) §5.5 no effect: armed/node/pos/rw/cd/fired equal the baseline on ticks 67..69
+PASS [END] cone t=67 (B-1) §5.5 the shot released exactly once, on A=55 (fired on [55])
+PASS [END] cone t=67 (B-1) §5.5 the recovery plays out: shoot through 67, idle on E=68, never re-armed (shoot / idle)
+  [END] cone t=68 (B+0) f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=68 (B+0) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=68 (B+0) f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=68 (B+0) f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=68 (B+0) f=70 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] cone t=68 (B+0) setup: the locked target is in the cone on tick 67 and out on tick 68 (D from tick 68)
+PASS [END] cone t=68 (B+0) nothing differs from the baseline before tick 68
+PASS [END] cone t=68 (B+0) §5.5 no effect: armed/node/pos/rw/cd/fired equal the baseline on ticks 68..69
+PASS [END] cone t=68 (B+0) §5.5 the shot released exactly once, on A=55 (fired on [55])
+PASS [END] cone t=68 (B+0) §5.5 the recovery plays out: shoot through 67, idle on E=68, never re-armed (shoot / idle)
+  [END] cone t=69 (B+1) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=69 (B+1) f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=69 (B+1) f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=69 (B+1) f=70 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [END] cone t=69 (B+1) f=71 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] cone t=69 (B+1) setup: the locked target is in the cone on tick 68 and out on tick 69 (D from tick 69)
+PASS [END] cone t=69 (B+1) nothing differs from the baseline before tick 69
+PASS [END] cone t=69 (B+1) §5.5 no effect: armed/node/pos/rw/cd/fired equal the baseline on ticks 69..69
+PASS [END] cone t=69 (B+1) §5.5 the shot released exactly once, on A=55 (fired on [55])
+PASS [END] cone t=69 (B+1) §5.5 the recovery plays out: shoot through 67, idle on E=68, never re-armed (shoot / idle)
+---- END / a move key pressed and held ----
+  [END] move t=67 (B-1) f=65 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=67 (B-1) f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=67 (B-1) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=67 (B-1) f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=67 (B-1) f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] move t=67 (B-1) §5.5 move: the archer moves 7 px on every tick 67..71 held, through every phase, and not before
+PASS [END] move t=67 (B-1) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [END] move t=67 (B-1) setup: the target stays in the cone while the archer moves
+  [END] move t=68 (B+0) f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=68 (B+0) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=68 (B+0) f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=68 (B+0) f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=68 (B+0) f=70 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] move t=68 (B+0) §5.5 move: the archer moves 7 px on every tick 68..71 held, through every phase, and not before
+PASS [END] move t=68 (B+0) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [END] move t=68 (B+0) setup: the target stays in the cone while the archer moves
+  [END] move t=69 (B+1) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=69 (B+1) f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=69 (B+1) f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=647.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=69 (B+1) f=70 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=654.0 lock= state=PLAYING paused=false | fired=0
+  [END] move t=69 (B+1) f=71 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=661.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] move t=69 (B+1) §5.5 move: the archer moves 7 px on every tick 69..71 held, through every phase, and not before
+PASS [END] move t=69 (B+1) §5.5 move never interrupts: armed/node/pos/rw/cd/fired equal the baseline on ticks 0..71 (T 37, A 55, R 56, E 68 unchanged)
+PASS [END] move t=69 (B+1) setup: the target stays in the cone while the archer moves
+---- END / pause (P, then P 10 ticks later) ----
+  [END] pause t=67 (B-1) f=65 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] pause t=67 (B-1) f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] pause t=67 (B-1) f=67 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [END] pause t=67 (B-1) f=68 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [END] pause t=67 (B-1) f=69 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=true | fired=0
+PASS [END] pause t=67 (B-1) setup: paused on ticks 67..76, running on 66 and 77
+PASS [END] pause t=67 (B-1) nothing differs from the baseline before tick 67
+PASS [END] pause t=67 (B-1) §5.5 pause: everything freezes on ticks 67..76 (tree node and play position 0.4667, release_window false, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [END] pause t=67 (B-1) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 67..73
+MEASURED [END] pause t=67 (B-1) boundaries T, A, R, E: [37, 55, 56, 78] (unpaused [37, 55, 56, 68])
+PASS [END] pause t=67 (B-1) §5.5 pause: each boundary on or after tick 67 moves by exactly 10 ticks, earlier ones stay (want [37, 55, 56, 78], got [37, 55, 56, 78])
+  [END] pause t=68 (B+0) f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] pause t=68 (B+0) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] pause t=68 (B+0) f=68 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [END] pause t=68 (B+0) f=69 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [END] pause t=68 (B+0) f=70 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=true | fired=0
+PASS [END] pause t=68 (B+0) setup: paused on ticks 68..77, running on 67 and 78
+PASS [END] pause t=68 (B+0) nothing differs from the baseline before tick 68
+PASS [END] pause t=68 (B+0) §5.5 pause: everything freezes on ticks 68..77 (tree node and play position 0.4833, release_window false, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [END] pause t=68 (B+0) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 68..73
+MEASURED [END] pause t=68 (B+0) boundaries T, A, R, E: [37, 55, 56, 78] (unpaused [37, 55, 56, 68])
+PASS [END] pause t=68 (B+0) §5.5 pause: each boundary on or after tick 68 moves by exactly 10 ticks, earlier ones stay (want [37, 55, 56, 78], got [37, 55, 56, 78])
+  [END] pause t=69 (B+1) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] pause t=69 (B+1) f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] pause t=69 (B+1) f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [END] pause t=69 (B+1) f=70 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=true | fired=0
+  [END] pause t=69 (B+1) f=71 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=true | fired=0
+PASS [END] pause t=69 (B+1) setup: paused on ticks 69..78, running on 68 and 79
+PASS [END] pause t=69 (B+1) nothing differs from the baseline before tick 69
+PASS [END] pause t=69 (B+1) §5.5 pause: everything freezes on ticks 69..78 (tree node and play position 0.0000, release_window false, shot_armed, cooldown, target, scarecrows, arrows), no arrow
+PASS [END] pause t=69 (B+1) §5.5 pause: the shot resumes from the same frame: tick k+10 equals baseline tick k for k = 69..73
+MEASURED [END] pause t=69 (B+1) boundaries T, A, R, E: [37, 55, 56, 68] (unpaused [37, 55, 56, 68])
+PASS [END] pause t=69 (B+1) §5.5 pause: each boundary on or after tick 69 moves by exactly 10 ticks, earlier ones stay (want [37, 55, 56, 68], got [37, 55, 56, 68])
+---- END / the game ends (the gate falls), then R ----
+  [END] gameend t=67 (B-1) f=65 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] gameend t=67 (B-1) f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] gameend t=67 (B-1) f=67 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=LOST paused=false | fired=0
+  [END] gameend t=67 (B-1) f=68 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=LOST paused=false | fired=0
+  [END] gameend t=67 (B-1) f=69 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=LOST paused=false | fired=0
+PASS [END] gameend t=67 (B-1) setup: the gate falls on tick 67 (LOST first on f 67)
+PASS [END] gameend t=67 (B-1) nothing differs from the baseline before tick 67
+PASS [END] gameend t=67 (B-1) §5.5 game end: the shot freezes as it was after tick 66 (node shoot, pos 0.4667, armed false, rw false) and no arrow is released on ticks 67..77
+PASS [END] gameend t=67 (B-1) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [END] gameend t=67 (B-1) §5.5 R: the tree is in idle on the first tick of the new run (78), release_window false, not armed (node idle, rw false, armed false)
+PASS [END] gameend t=67 (B-1) §5.5 R: no late arrow (none on ticks 67..98)
+PASS [END] gameend t=67 (B-1) §5.2 new run: the first shot draws on the first tick its target is in the cone (81), cooldown 0, by the normal rule
+PASS [END] gameend t=67 (B-1) §5.2 new run: that shot releases 18 ticks after its draw (on 99; got [99])
+  [END] gameend t=68 (B+0) f=66 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] gameend t=68 (B+0) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] gameend t=68 (B+0) f=68 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=LOST paused=false | fired=0
+  [END] gameend t=68 (B+0) f=69 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=LOST paused=false | fired=0
+  [END] gameend t=68 (B+0) f=70 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=LOST paused=false | fired=0
+PASS [END] gameend t=68 (B+0) setup: the gate falls on tick 68 (LOST first on f 68)
+PASS [END] gameend t=68 (B+0) nothing differs from the baseline before tick 68
+PASS [END] gameend t=68 (B+0) §5.5 game end: the shot freezes as it was after tick 67 (node shoot, pos 0.4833, armed false, rw false) and no arrow is released on ticks 68..78
+PASS [END] gameend t=68 (B+0) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [END] gameend t=68 (B+0) §5.5 R: the tree is in idle on the first tick of the new run (79), release_window false, not armed (node idle, rw false, armed false)
+PASS [END] gameend t=68 (B+0) §5.5 R: no late arrow (none on ticks 68..99)
+PASS [END] gameend t=68 (B+0) §5.2 new run: the first shot draws on the first tick its target is in the cone (82), cooldown 0, by the normal rule
+PASS [END] gameend t=68 (B+0) §5.2 new run: that shot releases 18 ticks after its draw (on 100; got [100])
+  [END] gameend t=69 (B+1) f=67 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] gameend t=69 (B+1) f=68 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  [END] gameend t=69 (B+1) f=69 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=LOST paused=false | fired=0
+  [END] gameend t=69 (B+1) f=70 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=LOST paused=false | fired=0
+  [END] gameend t=69 (B+1) f=71 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=LOST paused=false | fired=0
+PASS [END] gameend t=69 (B+1) setup: the gate falls on tick 69 (LOST first on f 69)
+PASS [END] gameend t=69 (B+1) nothing differs from the baseline before tick 69
+PASS [END] gameend t=69 (B+1) §5.5 game end: the shot freezes as it was after tick 68 (node idle, pos 0.0000, armed false, rw false) and no arrow is released on ticks 69..79
+PASS [END] gameend t=69 (B+1) rev. 1.1 R: the run restarts and shot_armed and the locked target are cleared at once (state 0, armed false, target false)
+PASS [END] gameend t=69 (B+1) §5.5 R: the tree is in idle on the first tick of the new run (80), release_window false, not armed (node idle, rw false, armed false)
+PASS [END] gameend t=69 (B+1) §5.5 R: no late arrow (none on ticks 69..100)
+PASS [END] gameend t=69 (B+1) §5.2 new run: the first shot draws on the first tick its target is in the cone (83), cooldown 0, by the normal rule
+PASS [END] gameend t=69 (B+1) §5.2 new run: that shot releases 18 ticks after its draw (on 101; got [101])
+---- END / the locked target dies ----
+  death y=250 f=137 | node=shoot pos=0.4500 armed=false rw=false cd=0.433333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=250 f=138 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=250 f=139 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=250 f=140 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=250 f=141 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] death t=139 (B-1; target from y 250; this shot T 109, A 127, E 140) setup: the target is alive after tick 138 and dead on tick 139 (killed by a real arrow or burn)
+PASS [END] death t=139 (B-1; target from y 250; this shot T 109, A 127, E 140) §5.5 the shot released exactly once, on A=127 (fired on [127])
+PASS [END] death t=139 (B-1; target from y 250; this shot T 109, A 127, E 140) §5.5 the recovery plays out: shoot through 139, idle on E=140, never re-armed (shoot / idle)
+PASS [END] death t=139 (B-1; target from y 250; this shot T 109, A 127, E 140) no new draw after the shot: no target is left
+  death y=235 f=138 | node=shoot pos=0.4667 armed=false rw=false cd=0.416667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=235 f=139 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=235 f=140 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=235 f=141 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=235 f=142 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] death t=140 (B+0; target from y 235; this shot T 109, A 127, E 140) setup: the target is alive after tick 139 and dead on tick 140 (killed by a real arrow or burn)
+PASS [END] death t=140 (B+0; target from y 235; this shot T 109, A 127, E 140) §5.5 the shot released exactly once, on A=127 (fired on [127])
+PASS [END] death t=140 (B+0; target from y 235; this shot T 109, A 127, E 140) §5.5 the recovery plays out: shoot through 139, idle on E=140, never re-armed (shoot / idle)
+PASS [END] death t=140 (B+0; target from y 235; this shot T 109, A 127, E 140) no new draw after the shot: no target is left
+  death y=220 f=139 | node=shoot pos=0.4833 armed=false rw=false cd=0.400000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=220 f=140 | node=idle pos=0.0000 armed=false rw=false cd=0.383333 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=220 f=141 | node=idle pos=0.0000 armed=false rw=false cd=0.366667 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=220 f=142 | node=idle pos=0.0167 armed=false rw=false cd=0.350000 x=640.0 lock= state=PLAYING paused=false | fired=0
+  death y=220 f=143 | node=idle pos=0.0333 armed=false rw=false cd=0.333333 x=640.0 lock= state=PLAYING paused=false | fired=0
+PASS [END] death t=141 (B+1; target from y 220; this shot T 109, A 127, E 140) setup: the target is alive after tick 140 and dead on tick 141 (killed by a real arrow or burn)
+PASS [END] death t=141 (B+1; target from y 220; this shot T 109, A 127, E 140) §5.5 the shot released exactly once, on A=127 (fired on [127])
+PASS [END] death t=141 (B+1; target from y 220; this shot T 109, A 127, E 140) §5.5 the recovery plays out: shoot through 139, idle on E=140, never re-armed (shoot / idle)
+PASS [END] death t=141 (B+1; target from y 220; this shot T 109, A 127, E 140) no new draw after the shot: no target is left
+
+INFO restart mid-startup (gate fell on tick 42, node shoot), R at resume 52 with a target placed in the same resume: tree on tick 53 is idle; the new run's first draw is on tick 54 (= R + 2)
+
+NOT AT THE EXACT TICK: none
+RESULT test_archer_edges: 325 passed, 0 failed
