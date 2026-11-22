@@ -392,3 +392,27 @@ not settle them. The original text above is unchanged; these rules are added.
      and `Archer/AnimationTree`. `BowPivot` sits at the grip.
    - The part images are new files written by `godot/tools/make_sprites.gd`. The existing
      `archer.png` is neither changed nor deleted.
+
+### Revision 2 — 2026-11-21 (Step 6 re-pin; drafted by Claude from the review Rui approved, "全部按建议")
+
+After Step 5, three test changes were not predicted by §5. The original text above, including my §5.6
+predictions, is unchanged; this records how each one is handled. None loosens an expected value.
+
+1. **Re-pinned as predicted by §5.2** (a first shot 18 ticks later): pin scenarios (a), (b), (c) and (f),
+   first fired frame 1 → 19; (c) fired − re-entry 0 → 18; (a) death 118 → 136; (c) cooldown at 0 at
+   37 → 55.
+2. **Pin scenario (d), the pause.** Its pause at frame 15 now lands in the middle of the first draw, so it
+   delays shot 1 instead of shot 2, and "P pauses mid-cooldown" no longer holds. Neither the brief nor the
+   code is wrong: the pin's fixed frame encoded the old instant release. The pause moves to a frame between
+   the first release and the next draw, which keeps the scenario's intent (a pause mid-cooldown shifts the
+   next shot by exactly the paused frames).
+3. **Pin scenario (f), the loss.** The run is lost one frame earlier (f 104 → 103). Kills come later because
+   first shots do, so the gate takes slightly more damage. This follows from §5.2 but §5 did not list it.
+   Re-pinned.
+4. **`test_burning_tint`'s steering helper.** It held D until `fired`, then steered back 40 px. During the
+   new 18-tick draw the archer keeps moving (§5.5), about 126 px, so 40 px back left the target in the cone
+   and a second arrow followed (15 failures at 30, 60 and 144). My §5.6 prediction that "its conclusion
+   should not change" was wrong: the test's input script assumed the old release timing. The helper now
+   releases D when the draw starts (`shot_armed` turns true) and steers back after `fired`, so the archer
+   stops where the arrow used to leave. §9's "existing test expectations unchanged" is amended to allow this
+   one change to an input script; every expected value in the test stays as it was.
