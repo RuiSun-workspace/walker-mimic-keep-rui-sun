@@ -134,6 +134,7 @@ PASS shoot Rig/BowPivot/String:scale key 3 at frame 15: 0.50000000 within 1/60 o
 PASS shoot Rig/BowPivot/String:scale: frame 0 -> 8 eases in (transition 2.000 > 1)
 PASS shoot Rig/BowPivot/String:scale: frame 9 -> 15 eases out (transition 0.500 in 0..1)
 PASS shoot Rig/BowPivot/String:scale: frame 8 differs from rest
+PASS shoot Rig/BowPivot:rotation at frame 8 == deg_to_rad(-16.0) (got -0.27925268)
 PASS shoot has a value track on .:release_window
 PASS release_window track is UPDATE_DISCRETE (got 1)
 PASS release_window has 3 keys (got 3)
@@ -170,7 +171,7 @@ PASS idle keys release_window false (got false)
 INFO shoot pose table (keys as stored; rotation also in degrees)
 INFO | frame | time (s)     | Rig/BowPivot:rotation | Rig/BowPivot:position | Rig/BowPivot/String:position | Rig/BowPivot/String:scale | .:release_window
 INFO |     0 | 0.00000000 | 0.000000 rad (0.0 deg), trans 2.00 | (12.5, -4.0), trans 2.00 | (2.0, 0.0), trans 2.00 | (1.0, 1.0), trans 2.00 | false
-INFO |     8 | 0.26666667 | -0.139626 rad (-8.0 deg), trans 1.00 | (11.5, -1.0), trans 1.00 | (5.0, 0.0), trans 1.00 | (1.0, 1.1), trans 1.00 | true
+INFO |     8 | 0.26666667 | -0.279253 rad (-16.0 deg), trans 1.00 | (11.5, -1.0), trans 1.00 | (5.0, 0.0), trans 1.00 | (1.0, 1.1), trans 1.00 | true
 INFO |     9 | 0.30000000 | 0.034907 rad (2.0 deg), trans 0.50 | (12.5, -5.0), trans 0.50 | (1.0, 0.0), trans 0.50 | (1.0, 1.0), trans 0.50 | false
 INFO |    15 | 0.50000000 | 0.000000 rad (0.0 deg), trans 1.00 | (12.5, -4.0), trans 1.00 | (2.0, 0.0), trans 1.00 | (1.0, 1.0), trans 1.00 | (held)
-RESULT PASS: 165 passed, 0 failed
+RESULT PASS: 166 passed, 0 failed

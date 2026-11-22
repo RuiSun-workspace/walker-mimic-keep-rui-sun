@@ -147,6 +147,13 @@ func _init() -> void:
 			_check(not _approx(shoot.track_get_key_value(t, 1), shoot.track_get_key_value(t, 0)),
 				"shoot %s: frame 8 differs from rest" % path)
 
+	# Pins the Step 7 tuning (TUNING.md, A7 r1): the bow's full-draw rotation at frame 8 is -16 deg.
+	var bow_rt := shoot.find_track(NodePath("Rig/BowPivot:rotation"), Animation.TYPE_VALUE)
+	_check(bow_rt >= 0 and shoot.track_get_key_count(bow_rt) > 1
+		and absf(float(shoot.track_get_key_value(bow_rt, 1)) - deg_to_rad(-16.0)) < VALUE_TOL,
+		"shoot Rig/BowPivot:rotation at frame 8 == deg_to_rad(-16.0) (got %s)"
+		% (shoot.track_get_key_value(bow_rt, 1) if bow_rt >= 0 and shoot.track_get_key_count(bow_rt) > 1 else "no key"))
+
 	# ---- shoot: release_window ----
 	var rt := shoot.find_track(NodePath(RELEASE_PATH), Animation.TYPE_VALUE)
 	_check(rt >= 0, "shoot has a value track on %s" % RELEASE_PATH)
