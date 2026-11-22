@@ -1,0 +1,55 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract for this change.
+The shot is wired (Step 5) and godot/tests/test_archer_state_machine.gd
+passes. This step adds edge tests only. Do not change any game file,
+scene, clip, existing test or pin, and do not edit any .gdshader file.
+
+Edges (assignment Step 6): test the committing action at every phase
+boundary in the table, and an interrupt in each phase: an input
+arriving one frame before the boundary, on it, and one frame after. The
+brief says what each interrupt does; the test asserts it.
+
+Write ONE new file, godot/tests/test_archer_edges.gd, a headless
+SceneTree script run at 60 (one frame = one physics tick):
+- Drive the real main.tscn only as the existing state tests do:
+  spawning_enabled = false, scarecrows placed with
+  Game.spawn_scarecrow(), keys through Input.parse_input_event (A/D
+  move, P pause, R restart). Never call travel(), start(),
+  cancel_shot(), _fire_at() or reset(), and never assign to archer,
+  tree or scarecrow variables. Read state only.
+- Measure the boundaries first, in ticks from the tick archer.gd calls
+  travel("shoot") (tick T, the tick shot_armed turns true): the start
+  of startup (T), the active frame (the tick fired is emitted), the
+  start of recovery (the tick after), and the end of recovery (the
+  first tick the tree reports idle again). Print them, then use the
+  measured values as named constants with the comment "measured
+  2026-11-21".
+- For each boundary B, send each interrupt at B-1, B and B+1, and
+  assert what brief §5.4-5.5 (and revision 1) says:
+  * the locked target leaves the cone (place it so that holding a move
+    key carries it out on the chosen tick): in startup the shot is
+    cancelled, no arrow, back to idle, cooldown untouched, no new
+    target that tick; in active and recovery it has no effect, and an
+    arrow released on the tick it leaves still goes;
+  * a move key pressed and held: never interrupts; the archer moves
+    7 px per tick in every phase;
+  * P pressed, then P again 10 ticks later: everything freezes,
+    including the tree's play position and release_window, and the
+    shot resumes from the same frame, so every later boundary shifts by
+    exactly the paused ticks;
+  * the game ends (the gate falls) on the chosen tick: the shot
+    freezes and no arrow is released, then R restarts: tree back to
+    idle, shot_armed false, no late arrow, and the first shot of the
+    new run follows the normal draw rule;
+  * the locked target dies, if a death can be timed to the tick
+    through real play; if it cannot, say so and do not fake it.
+- If an exact tick cannot be reached through real input, test the
+  nearest tick you can reach, print which one, and list it under
+  "NOT AT THE EXACT TICK" in your final message.
+- Print PASS/FAIL lines grouped by boundary and interrupt, and a RESULT
+  line with pass and fail counts; quit(1) on any failure.
+
+Run it with ./scripts/run-test.sh test_archer_edges.gd 60 (exactly as
+written; bash scripts/... and PowerShell are not allowed), then
+godot --headless --path godot --import, and paste the real output. If
+an assertion fails, do not change the game: report it with the ticks
+and the brief rule it tests. Do not commit.
