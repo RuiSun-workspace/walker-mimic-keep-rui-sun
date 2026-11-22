@@ -1,0 +1,36 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract for this change;
+§11 specifies the frame strip for the archer shot. This step builds the
+preview the strip is captured from. Do not change any game file, scene,
+clip, test or .gdshader file.
+
+Write godot/previews/shoot_preview.tscn and godot/previews/shoot_preview.gd:
+- The background is the real level's meadow and wall walk, drawn by
+  godot/game/background.gd, at the project's 1280x720, 1:1. The archer
+  is an instance of the real godot/game/archer.tscn at its game
+  position (640, 572), with arrows_parent set, so the draw, the release
+  and the arrow come from archer.gd's own rule and the AnimationTree,
+  not from the preview. The preview never calls travel(), start() or
+  cancel_shot() and never writes archer, tree or clip state.
+- Trigger: place one real scarecrow (godot/game/scarecrow.tscn) inside
+  the cone, on the tick that makes archer.gd start the draw on movie
+  frame 10 when run with --fixed-fps 30 (physics stays at 60 ticks/s,
+  so one movie frame is two physics ticks). Measure it and state which
+  frame the draw, the release and the return to idle land on.
+- After a shot has finished (tree back in idle, the arrow gone), wait
+  1 s, remove the target and place a new one the same way, so a
+  windowed run without --quit-after shows the shot again and again.
+- Every rendered frame, print ONE line beginning with the movie frame
+  number (Engine.get_frames_drawn()) and the physics tick, then: the
+  tree's current node and play position, release_window, shot_armed,
+  Rig/BowPivot rotation (degrees) and position, String position and
+  scale, the number of live arrows, and any `fired` this frame. Print a
+  header line naming the fields first.
+
+Check it headless, without a window:
+godot --headless --path godot res://previews/shoot_preview.tscn --fixed-fps 30 --quit-after 90
+and paste the lines for frames 8-28. Then run
+godot --headless --path godot --import, and re-run
+./scripts/run-test.sh test_archer_state_machine.gd 60 and
+./scripts/run-test.sh test_pins_a7.gd 60 to show nothing in the game
+changed (107/0, 38/0). Use these commands exactly as written; bash
+scripts/... and PowerShell are not allowed. Do not commit.
