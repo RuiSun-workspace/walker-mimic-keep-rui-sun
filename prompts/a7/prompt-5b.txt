@@ -1,0 +1,26 @@
+Plan approved: implement steps A, B, C and D in that order, with these
+changes. After each step, show its diff. If any step meets a conflict
+with the brief or with something already in the scene, stop and report
+it instead of working around it.
+
+1. Step B, order within one physics tick while shot_armed: check the
+   release first, then the cancel. If release_window is true, the arrow
+   is released even if the locked target left the cone or died on that
+   same tick (brief §5.5: target loss in active has no effect). Aim at
+   the locked target's position at that moment; if the target has
+   already been freed, aim at the position recorded for it on the
+   previous tick. Only while release_window is still false does a lost
+   target cancel the shot.
+2. Your point 1 is accepted as you read it: the cancelled shot is never
+   redirected to another target, and nothing is drawn on the tick of
+   the cancel; from the next tick the normal draw rule applies.
+3. Your point 5: leave pause, game end and restart in each phase, and
+   target loss in active and recovery, to Step 6's edge tests. Keep
+   your two recommended extras in the structure test.
+4. Run every test as the plan says (existing ones at the fps CLAUDE.md
+   gives, the pins and the new test at 60, through ./scripts/run-test.sh
+   exactly as written), list every FAIL line, and say for each whether
+   brief §5.2 or §5.6 predicted it. Edit no existing test and no pin.
+
+Run godot --headless --path godot --import after adding the new
+scripts. Do not commit.
