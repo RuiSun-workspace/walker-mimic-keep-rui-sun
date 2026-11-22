@@ -1,0 +1,76 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract for this change.
+Both clips are set up and their read-back tests pass. Do not change
+any clip's keys in this task, and do not edit any .gdshader file.
+
+First propose the smallest plan that meets the brief: the state
+machine's states and transitions, the code that plays each clip, which
+node is the one authority over each animated node, and a structure
+test in godot/tests/. Say which brief rule each assertion covers, and
+which rules only a human can check. Do not edit yet.
+
+After I approve a step, implement only that step and show the diff.
+Rules:
+- Presentation code may read game state; it never writes it. Do not
+  change collision, movement, input, the existing state machine's
+  timings, or the existing tests and pins.
+- Exactly one node writes to each animated node. If the brief's
+  authority conflicts with something already in the scene, say so and
+  stop.
+- The structure test asserts the state table against the resource:
+  every state the code requests exists, every transition in the brief
+  is present, and for an AnimationTree, its advance_expression_base_node
+  is set and each transition's advance_mode is what the brief says.
+- The test drives the state machine through the real game loop and
+  real input, via Input.parse_input_event, never by calling the
+  transition function directly.
+- Read the current clip with the property that route uses: animation
+  for AnimatedSprite2D, current_animation for AnimationPlayer.
+- Run every test with ./scripts/run-test.sh: the existing ones and the
+  pins as CLAUDE.md says, and the new one at 60, or in realtime if it
+  waits on audio. Show the real output and say which mode you used.
+- Say exactly what the test proves and what it cannot prove headlessly.
+- Do not commit.
+
+Project specifics. The plan must cover every one of these, each with
+the brief section it comes from; if any cannot be met, say so in the
+plan instead of working around it:
+- Archer (brief §5, §6, §7, revision 1): a new Archer/AnimationTree
+  whose tree_root is an AnimationNodeStateMachine with states idle and
+  shoot; anim_player is the existing Archer/AnimationPlayer;
+  callback_mode_process PHYSICS (the default is IDLE);
+  advance_expression_base_node "..". Transitions: Start -> idle Auto;
+  idle -> shoot Enabled, Immediate, xfade 0; shoot -> idle Auto, At
+  End, xfade 0; exactly one transition per pair. A startup cancel is
+  playback.start("idle"), not a transition.
+- archer.gd (brief §5): the draw starts when the tree is in idle, a
+  target is in the cone and fire_cooldown <= 0.3 s; it locks that
+  target, sets shot_armed and calls travel("shoot"). An arrow spawns
+  only when shot_armed and release_window are both true, aimed at the
+  locked target's position at that moment; then fire_cooldown =
+  FIRE_INTERVAL and shot_armed is cleared, and `fired` is emitted as
+  today. A locked target that dies or leaves the cone before the
+  release cancels the shot. Movement is unchanged in every phase.
+  New cancel_shot() clears shot_armed and the target and calls
+  playback.start("idle"); it never writes release_window.
+- main.gd (brief revision 1.1): reset() gains one line,
+  archer.cancel_shot(). Nothing else in main.gd changes.
+- Scarecrow (brief §1, revision 1.4): a new child node
+  Scarecrow/WalkPresenter with godot/game/scarecrow_walk_presenter.gd
+  that reads the scarecrow's at_wall and calls play("walk") while it
+  is false and play("hold") once it is true, on Scarecrow/AnimationPlayer.
+  scarecrow.gd is not changed.
+- Name the structure test godot/tests/test_archer_state_machine.gd.
+  Besides the template's checks, it asserts through the real loop: the
+  tree is in idle at start; the frames from travel("shoot") to the
+  arrow; two back-to-back releases are exactly 36 physics ticks apart
+  (brief §5.2); `fired` is never emitted while the tree is not in
+  shoot; and a walking scarecrow's AnimationPlayer plays walk, then
+  hold at the wall.
+- The pins (godot/tests/test_pins_a7.gd) are expected to fail where
+  the brief predicts (§5.2: a first shot is released 0.3 s = 18 ticks
+  later, the 36-tick cadence stays; §5.6 lists Rui's predictions for
+  the existing tests). Do not edit
+  them or any existing test: run them, list every FAIL line, and say
+  for each whether brief §5 predicted it. Re-pinning is Step 6.
+- Use ./scripts/run-test.sh exactly as written; bash scripts/... and
+  PowerShell are not allowed.
