@@ -1,0 +1,26 @@
+== walk right during the draw, archer from x 640, target at 192 100
+draw starts tick 3: archer x 640, target (192, 102), angle 43.6 deg
+FIRED on tick 21, archer x 766, angle 51.5 deg
+arrow MISSED (no hit within 3 s)
+== walk right during the draw, archer from x 640, target at 340 100
+draw starts tick 3: archer x 640, target (340, 102), angle 32.5 deg
+FIRED on tick 21, archer x 766, angle 43.0 deg
+arrow HIT the target
+== walk right during the draw, archer from x 640, target at 500 250
+draw starts tick 3: archer x 640, target (500, 252), angle 23.6 deg
+FIRED on tick 21, archer x 766, angle 40.9 deg
+arrow HIT the target
+== walk right during the draw, archer from x 640, target at 600 530
+draw starts tick 3: archer x 640, target (600, 530), angle 43.6 deg
+CANCELLED on tick 8, archer x 675, angle 60.8 deg
+== walk right during the draw, archer from x 640, target at 610 500
+draw starts tick 3: archer x 640, target (610, 502), angle 23.1 deg
+CANCELLED on tick 15, archer x 724, angle 61.7 deg
+== control: no walking, archer at x 640, target at 192 100
+draw starts tick 3: archer x 640, target (192, 102), angle 43.6 deg
+FIRED on tick 21, archer x 640, angle 44.4 deg
+arrow HIT the target
+== control: no walking, archer at x 766, target at 192 100
+draw starts tick 3: archer x 766, target (192, 102), angle 50.7 deg
+FIRED on tick 21, archer x 766, angle 51.5 deg
+arrow MISSED (no hit within 3 s)
