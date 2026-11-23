@@ -1184,3 +1184,37 @@ denials).
   (both from that command, checked by command line) were stopped after 3 minutes, and the count was re-run
   with every frame copied into one scratch folder.
 - **The lesson.** Give one-off `--script` tools a `timeout`, and quit on a load error.
+
+## 2026-11-22 — Use It: Rui's playtest, a checklist of Claude's that was wrong, and the walk strip
+
+**The checklist.** Claude wrote Rui a playtest checklist: seam, the shot in play with an interrupt in each
+phase, background contrast, the jagged eyes. One line was wrong: "walk away so the target leaves the cone;
+the draw is cancelled". Rui did not see a cancel; the arrow flew and missed.
+- **Why the line was wrong.** Claude's walk-away probe (`56cff4e`) showed the game is right. In 0.3 s the
+  archer moves at most 126 px, which takes a target out of the 120° cone only if it is under about 73 px
+  above the archer, so only a scarecrow at the wall qualifies.
+- **Why the arrow missed.** A far target near the cone's edge is missed whether or not you walk. Standing
+  still at the same x misses too. Arrows do not lead, and that predates A7.
+- **The lesson.** Claude wrote the checklist line from the brief's rule without working out when the rule
+  can fire in play. A human instruction needs the same geometry check as a test.
+
+**The cancel nobody saw.**
+- **In play.** Rui's retry failed: by the time a scarecrow reaches the wall, others are in the cone, and the
+  archer draws on the next one at once.
+- **In a fixture.** Claude then built a windowed fixture with one scarecrow at the wall (`9b3e2bf`,
+  `965a0bb`). Rui could not launch it at first; Claude ran it in Rui's Terminal panel instead.
+- **First version.** It waited on ticks, so at `--time-scale 0.25` the bow had barely moved before the
+  cancel. Claude changed it to wait on the bow's lean.
+- **Result.** At 0.25 and then 0.1 Rui saw nothing ("感觉弓根本就没动") and stopped there. TEST-REPORT A7.6
+  records the cancel as not seen by a human, established by the edge test and probe logs only.
+- **The lesson.** A cancel 5–13 ticks into an ease-in draw happens before the pose is visible (Revision 4
+  item 3), so a fixture cannot show it either without changing the clip.
+
+**The walk strip.** Claude wrote `prompt-8a.txt`, which Rui approved.
+- **The preview.** The agent built `walk_preview` (`sessions/a7/session-8a.*`; 14 turns, 1 denial for a
+  `cd …;` chain). A preview-owned camera keeps the scarecrow's origin on one screen pixel.
+- **The agent's report.** Its pasted log had one wrong number: frame 37 y 255.250 where the run gives
+  256.250. Claude's rerun caught it; the file is fine.
+- **The capture.** Rui captured it windowed; all 100 lines hold (640, 360). Claude measured the pole foot
+  at x 638–641 throughout, with y offsets 0/−3/+1/−3.
+- **The verdict.** Rui: "没有漂移".

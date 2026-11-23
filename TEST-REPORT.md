@@ -683,7 +683,7 @@ assignment specifies.
 | Fresh cache | Mutation 4: `godot/.godot` deleted, `--import`, all four read-backs pass. The rig and clips are keyed `.tscn` text, not an imported rig, so there is no imported loop mode to lose (A7.4). |
 | State machine | `test_archer_state_machine.gd` 107/0. It checks the structure against the saved resource (Start→idle Auto; idle→shoot Enabled; shoot→idle Auto + At End; xfade 0; callback PHYSICS). It drives real input through `Input.parse_input_event` and never calls `travel()`, `start()`, `cancel_shot()` or `play()`. |
 | Edges | `test_archer_edges.gd` 325/0. Every boundary (T, T+18, T+19, T+31) × every interrupt at B−1, B and B+1 (A7.3). |
-| Frame strips (fixture) | `captures/shoot/r0/` and `captures/shoot/r1/`: fixture captures from `godot/previews/shoot_preview.tscn`, run by Rui in windowed Movie Maker at `--fixed-fps 30`. Their logs are `logs/shoot_preview_r0.log` and `_r1.log`, and the enlarged crops are in `captures/shoot/sheets/`. The walk-cycle strip: **pending** (see Registration). |
+| Frame strips (fixture) | `captures/shoot/r0/` and `captures/shoot/r1/`: fixture captures from `godot/previews/shoot_preview.tscn`, run by Rui in windowed Movie Maker at `--fixed-fps 30`. Their logs are `logs/shoot_preview_r0.log` and `_r1.log`, and the enlarged crops are in `captures/shoot/sheets/`. The walk-cycle strip is `captures/walk/r0/`, a fixture capture from `godot/previews/walk_preview.tscn`, run by Rui the same way (log `logs/walk_preview_r0.log`, sheet `captures/walk/sheets/r0_cycle_x4.png`). |
 | Two clocks | Walk: `AnimationPlayer` on IDLE (process); no gameplay reads it. Shot: `AnimationTree` on PHYSICS, read by `archer.gd` in `_physics_process`. Measured in the preview log: `release_window` true from tick 37 (strip 18), `fired@tick38` (strip 19). **Largest disagreement: 1 physics tick = 1/60 s ≈ 0.0167 s**, from tick order (the parent archer runs before its child tree). It is the same in r0 and r1, and the 0.3 s draw lead already includes it. |
 
 ### Human checks (Rui's words, 2026-11-22)
@@ -738,8 +738,23 @@ pixels match idle for clip frames 0–2 (CHANGE-BRIEF Revision 4).
 - On distinct phases, Rui's in-game words ("能明显看出…三个阶段") differ from Rui's note on the r1 preview
   ("如果不调整攻速的话很难完全区分三个阶段了"). Both are recorded as said.
 
-**Registration.** Pending: no walk-cycle strip exists yet. The sheet itself passes `test_scarecrow_sheet.gd`,
-which checks that the pole-foot x is the same in every cell and that y follows 0/−3/+1/−3.
+**Registration.** Strip: `captures/walk/r0/`, a fixture capture from `godot/previews/walk_preview.tscn`
+(agent-built, `fb1c943`), run by Rui in windowed Movie Maker at `--fixed-fps 30`.
+- **How the strip holds the scarecrow still.** A real scarecrow walks by its own script, and a camera owned
+  by the preview keeps its node origin on one screen pixel. The log `logs/walk_preview_r0.log` shows (640,
+  360) on all 100 lines.
+- **What was kept.** Frames 17, 20, 24 and 28 (cells 0–3), and 32 (cell 0 of the next cycle). The sheet is
+  `captures/walk/sheets/r0_cycle_x4.png`.
+- **Claude's measurement** (`evidence/a7-probes/walk_foot_position.*`). The pole foot spans x 638–641 on
+  every frame from 17 to 32, and on 47, 62 and 77. Its bottom edge is at y 394 / 391 / 395 / 391, which is
+  0 / −3 / +1 / −3 as brief §3 specifies. Cell 0 lands at the same place in every cycle.
+- The sheet itself also passes `test_scarecrow_sheet.gd`, which checks the same foot x and y offsets in the
+  PNG.
+
+Rui's verdict on the strip:
+> 没有漂移
+
+("No drift.")
 
 **Against the background.**
 > c背景对比没问题
