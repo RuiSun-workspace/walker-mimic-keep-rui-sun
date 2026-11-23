@@ -76,6 +76,13 @@ stills are this repository's own `evidence/`. One local, disclosed change to the
 label on `GodotDesignBoard.tsx`). Plan approved and final cut watched by Rui. Records:
 `youtube/claude-liam-walker-mimic-keep-a5-gamedev/` (SOURCES.md, CAPTURE.md, BUILD-PROMPT.md there).
 
+`claude-liam-walker-mimic-keep-a7-gamedev.mp4` (Assignment 7), built by Claude Code on 2026-11-22 the same
+way: Kokoro v1.0 `am_onyx`, Remotion, the stock jingle `bear-brown-1`, the same local toolkit patch. Engine
+footage is Godot Movie Maker output of an isolated copy of commit `62d7f72`, driven by
+`capture/capture_a7_film.gd` (scarecrows placed by `Game.spawn_scarecrow()`, real key events, labelled);
+stills are this repository's own fixture strips and logs. Shot list approved and final cut watched by Rui.
+Records: `youtube/claude-liam-walker-mimic-keep-a7-gamedev/` (CAPTURE.md, BUILD-PROMPT.md, FACTCHECK.md).
+
 ## Assignment 6 — particle effects
 
 | Files | Who | Record |
@@ -94,3 +101,29 @@ label on `GodotDesignBoard.tsx`). Plan approved and final cut watched by Rui. Re
 Claude (main session) reviewed every agent result, reran the tests, made the mutations, read the
 strips, and wrote TEST-REPORT.md, FRICTIONAL.md and the prompts' approval texts. Frame strips under
 `captures/` are fixture captures that Rui ran in windowed Movie Maker.
+
+## Assignment 7 — animation
+
+| Files | Who | Record |
+|---|---|---|
+| `CHANGE-BRIEF.md` (`0734c5c`, revisions 1–4), every TUNING.md first look and verdict, the human checks in TEST-REPORT A7.6, the frame-strip and pin-replay captures | Rui | Rui answered a Chinese questionnaire (`prompts/a7/brief-questions-zh.md`); Claude translated the answers into the English brief and Rui filled every `TODO(Rui)`. Revisions 2–4 were drafted by Claude and approved by Rui |
+| `CLAUDE.md` draft | session 1 (`prompts/a7/prompt-1.txt`, verbatim from the assignment) | `266593f`, review `524aa7e` |
+| `godot/tests/test_pins_a7.gd` | session 2 (`prompt-2.txt`) | `d6d8596`; re-pin session 6b (`prompt-6b.txt`) `7eb30c5` |
+| `godot/assets/sprites/scarecrow_walk.png`, its part of `godot/tools/make_sprites.gd`, `godot/tests/test_scarecrow_sheet.gd` | session 3a (`prompt-3a.txt`) | `8597ff5` |
+| `walk` / `hold` clips and `hframes` in `godot/game/scarecrow.tscn`, `godot/tests/test_scarecrow_walk_readback.gd` | session 3b (`prompt-3b.txt`) | `1cfa8d8` |
+| `archer_{body,bow,string}.png`, their part of `make_sprites.gd`, `godot/tests/test_archer_parts.gd` | session 4a (`prompt-4a.txt`) | `f7076ff` |
+| The cutout rig and the `idle` / `shoot` clips in `godot/game/archer.tscn`, `godot/tests/test_archer_shot_readback.gd` | session 4b (`prompt-4b.txt`) | `ef6e427` |
+| The AnimationTree, the draw/release/cancel code in `godot/game/archer.gd`, one line in `main.gd`, `godot/game/scarecrow_walk_presenter.gd`, `godot/tests/test_archer_state_machine.gd` | session 5 (`prompt-5.txt` plan, `prompt-5b.txt` approval) | `7d326bb`; the test's Start→idle check corrected by Claude, `8ca7982` |
+| `godot/tests/test_archer_edges.gd` | session 6a (`prompt-6a.txt`) | `d34dccc` (transcript excerpt: `sessions/a7/session-6a.EXCERPT-NOTE.md`) |
+| `godot/tests/test_burning_tint.gd` steering helper | Claude, CHANGE-BRIEF revision 3, approved by Rui | `520f72d` |
+| `godot/previews/shoot_preview.*` | session 7a (`prompt-7a.txt`) | `c8f1b85` |
+| Tuning r1 (bow full draw −8° → −16°) and its read-back pin | proposed by session 7b (read-only), applied by session 7c (`prompt-7c.txt`); asked for and kept by Rui | `f245477`, `0726ae3` |
+| `godot/previews/walk_preview.*` | session 8a (`prompt-8a.txt`) | `fb1c943` |
+| `scripts/run-test.sh` | the Assignment 7 wrapper, verbatim | `1f3fad7` |
+| `godot/tools/contact_sheet.gd`, the probes in `evidence/a7-probes/`, the mutations in `evidence/a7-mutations/` | Claude | see FRICTIONAL.md |
+
+Every agent session ran `claude -p` with Claude Opus 5.5; prompts are in `prompts/a7/` and transcripts in
+`sessions/a7/`. Claude (main session) drafted the prompts for Rui's approval, committed each agent result
+unedited, reviewed it, reran the tests, made the mutations and wrote TEST-REPORT.md and FRICTIONAL.md.
+No agent session changed `godot/shaders/`. The sprite sheet and rig parts are written by code; no third-party
+licence applies (`godot/assets/sprites/ATTRIBUTION.md`).

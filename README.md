@@ -31,6 +31,15 @@ godot --path godot
 The 3D showcase scene (Shield Goblin's wooden shield, used for the material work) is
 `res://showcase/shield_room.tscn`; open it and press F6.
 
+The Assignment 7 preview scenes (fixtures, not the game) show one clip at a time:
+
+```bash
+godot --path godot res://previews/shoot_preview.tscn   # the archer's shot, one target, repeated
+godot --path godot res://previews/walk_preview.tscn    # one walking scarecrow, camera on its origin
+# frame strips as captured (windowed Movie Maker, 30 fps):
+godot --path godot res://previews/shoot_preview.tscn --write-movie "$PWD/captures/shoot/rN/frame.png" --fixed-fps 30 --quit-after 90
+```
+
 ## Controls
 
 | Key | Action |
@@ -69,14 +78,21 @@ godot --headless --path godot --import
 ./scripts/run-test.sh test_burning_embers_config.gd 60
 ./scripts/run-test.sh test_burning_embers_state.gd 60
 ./scripts/run-test.sh cost_effects.gd 60 300      # headless CPU price, not a pass/fail test
+./scripts/run-test.sh test_pins_a7.gd 60          # Assignment 7: behaviour pins
+./scripts/run-test.sh test_scarecrow_sheet.gd 60
+./scripts/run-test.sh test_scarecrow_walk_readback.gd 60
+./scripts/run-test.sh test_archer_parts.gd 60
+./scripts/run-test.sh test_archer_shot_readback.gd 60
+./scripts/run-test.sh test_archer_state_machine.gd 60
+./scripts/run-test.sh test_archer_edges.gd 60
 ```
 
 `scripts/run-test.sh` runs one test headless at a pinned frame rate, writes `logs/<test>_<fps>fps.log`
-and exits 1 on `SHADER ERROR` or `SCRIPT ERROR`; run it from the repository root.
+and exits 1 on `SHADER ERROR`, `SCRIPT ERROR` or `Failed loading resource`; run it from the repository root.
 `test_rules.gd` (23 checks) covers spawning, targeting, the burn's duration, damage, refresh,
 time scale and pause, gate damage, losing and winning. `test_input.gd` (14 checks) drives the
-real keys through `Input.parse_input_event`. The Assignment 5 suites and their counts are in
-TEST-REPORT.md. Every test prints one PASS/FAIL line per check and exits 1 on any failure.
+real keys through `Input.parse_input_event`. The suites of Assignments 5–7 and their counts are in
+TEST-REPORT.md (Assignment 7: A7.1 and A7.6). Every test prints one PASS/FAIL line per check and exits 1 on any failure.
 
 ## Assets
 
@@ -84,10 +100,11 @@ One downloaded texture set: Poly Haven's **Wood Planks** (1K PNG, CC0) in
 `godot/assets/textures/wood_planks/`, for the shield material. Its credits, md5s and the role of
 each file are in `ATTRIBUTION.md` next to it. The material uses the OpenGL normal map
 (`_nor_gl`); `_nor_dx` is kept only to calibrate `godot/tests/normal_map_check.gd`.
-Nothing is AI-generated. Everything else is written by code in this repository:
+Nothing is AI-generated. Everything else is written by code in this repository; the
+sprite credits are in `godot/assets/sprites/ATTRIBUTION.md`:
 
 ```bash
-godot --headless --path godot --script res://tools/make_sprites.gd      # 4 sprites
+godot --headless --path godot --script res://tools/make_sprites.gd      # sprites, walk sheet, archer rig parts
 godot --headless --path godot --script res://tools/make_shield_mesh.gd  # shield mesh
 godot --headless --path godot --script res://tools/make_scorch_mask.gd  # shield scorch mask
 godot --path godot --script res://tools/capture_prototype.gd            # evidence frames (not headless)
@@ -120,6 +137,34 @@ agent sessions, reviewed and checked by Rui). Details: CHANGE-BRIEF.md, MATERIAL
 - Evidence (in-engine captures, logs, mutations) in `evidence/`; the agent prompts in `prompts/` and their
   transcripts in `sessions/`; the record of who did what in FRICTIONAL.md and SOURCES.md.
 
+## What Assignment 7 added
+
+Two animation clips, specified by Rui in CHANGE-BRIEF.md (revisions 1–4) and built, wired and tested by
+agent sessions that Claude Code reviewed. Rui's look-first verdicts and the one tuning change are in
+TUNING.md; tests, mutations and Rui's human checks are in TEST-REPORT.md (A7.1–A7.6); who did what is in
+FRICTIONAL.md and SOURCES.md.
+
+- **Scarecrow walk — the loop.** Route: Sprite2D with an AnimationPlayer frame track.
+  `godot/assets/sprites/scarecrow_walk.png` (4×1 sheet of 64×80 cells, written by
+  `godot/tools/make_sprites.gd`) is sliced with `hframes = 4` on `Scarecrow/Sprite`
+  (`godot/game/scarecrow.tscn`). The `walk` clip keys `Sprite:frame` 0–3 at 8 fps (discrete, LOOP_LINEAR,
+  0.5 s); `hold` keys frame 0 while the scarecrow stands at the wall. `godot/game/scarecrow_walk_presenter.gd` reads `at_wall` and picks
+  the clip; it never writes the frame.
+- **Archer shot — the committing action.** Route: a keyed cutout rig. `Archer/Rig` with `Body` and
+  `BowPivot/Bow`, `BowPivot/String` (`godot/game/archer.tscn`; parts `archer_{body,bow,string}.png`). The
+  `idle` and `shoot` clips are keyed at 30 fps on the phase table: startup frames 0–7, active frame 8
+  (`release_window` true), recovery 9–14. Full draw −16° after tuning r1.
+- **One authority each.** `Archer/AnimationTree` (state machine Start → idle → shoot → idle, callback
+  PHYSICS) is the only thing that plays the archer's AnimationPlayer. `Scarecrow/AnimationPlayer` (IDLE) is the
+  only writer of the sprite's frame.
+- **Gameplay change named by the brief.** The arrow now leaves on the active frame: the archer starts the draw
+  0.3 s before the cooldown ends, so the 0.6 s cadence is kept and only the first shot is later. A target that
+  leaves the cone during startup cancels the draw with no arrow. Pins re-run and re-pinned (TEST-REPORT A7.2).
+- **Tests.** Behaviour pins, the sheet check, two read-backs, the state-machine structure test, the edge tests
+  (every phase boundary × every interrupt) and four mutations (TEST-REPORT A7.1–A7.4).
+- **Previews** (`godot/previews/shoot_preview.*`, `walk_preview.*`): fixtures used for the frame strips in
+  `captures/shoot/` and `captures/walk/`, captured by Rui in windowed Movie Maker.
+
 ## What Assignment 6 added
 
 Two GPU particle effects (GPUParticles2D), specified by Rui in CHANGE-BRIEF.md and built, wired and
@@ -147,6 +192,14 @@ tested by agent sessions that Claude Code reviewed. Tuning verdicts are Rui's, f
 
 ## Film
 
+**Assignment 7:** *Mimic Keep: A Clip Is a List of Keys.* — Brutalist godot-gamedev explainer (walker), 4K, 5:27.
+
+- File: `claude-liam-walker-mimic-keep-a7-gamedev.mp4`
+- SHA-256: `dae506e8e44ebf96a470f4fb343937968c22612b58bad28278d9601a3471454b`
+- **[▶ Watch the film](https://northeastern-my.sharepoint.com/:v:/g/personal/sun_r3_northeastern_edu/IQCRlKXVZwhAT4P2wRN0P9_HAXr9IitGGxW46S-2RUpmeU8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=x0H2f1)** — Northeastern OneDrive (the MP4 is not in this repository)
+- Game source shown: commit `62d7f72`. Beat sheet, script, capture driver and evidence ledger:
+  `youtube/claude-liam-walker-mimic-keep-a7-gamedev/`.
+
 **Assignment 6:** *Mimic Keep: The Strip Cannot See the Hit.* — Brutalist godot-gamedev explainer (walker), 4K, 4:45.
 
 - File: `claude-liam-walker-mimic-keep-a6-gamedev.mp4`
@@ -166,6 +219,20 @@ tested by agent sessions that Claude Code reviewed. Tuning verdicts are Rui's, f
   `youtube/claude-liam-walker-mimic-keep-a5-gamedev/`.
 
 ## Known limitations
+
+Assignment 7:
+
+- A startup cancel (the target leaving the cone mid-draw) has not been seen by a human, in play or in a
+  fixture: in 0.3 s the archer can walk only a target near the wall out of the cone, and the cancel comes
+  before the bow's lean is visible. It is established by `test_archer_edges.gd` and the probes in
+  `evidence/a7-probes/` (TEST-REPORT A7.6).
+- The three phases are clearly distinct in play (Rui), but only partly in the r1 preview: a 0.5 s clip in a
+  0.6 s cadence leaves little rest between shots (TUNING.md).
+- The rotated walk cells (1 and 3) have jagged eyes from nearest-neighbour rotation; accepted by Rui.
+- Arrows fly straight at where the target was at release and do not lead, so a far target near the cone's
+  edge can be missed. This predates A7.
+- The active frame (1/30 s) cannot be paused on by hand; it is covered by the edge tests.
+- One playtester (Rui). The film's interrupt take uses scripted key events, labelled as such.
 
 Assignment 6:
 
