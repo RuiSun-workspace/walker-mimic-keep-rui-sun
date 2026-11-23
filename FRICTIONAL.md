@@ -1240,3 +1240,28 @@ the wrapper (identical to the assignment's), pins before Step 5, both read-backs
 edges, four mutations in worktrees, strips, Use It, and no cache, media or credentials in git. All 14 A7
 agent sessions ended with `success`, none at the turn limit. README and SUBMISSION are still the A6 versions,
 to be rewritten in Ship It.
+
+## 2026-11-22 — The A7 film
+
+Rui approved the shot list (21 beats, two takes) before anything was recorded. Claude built the film on the A6 reel's
+scripts, locally: Kokoro narration, Remotion scenes, and Godot Movie Maker run on an isolated copy of `62d7f72`.
+Rui watched the final export ("看完了") and uploaded it. What went wrong on the way, all fixed before the master:
+- **The capture driver.** In the first headless dry run of the `interrupts` take, the recovery pause landed when
+  the bow was already back at 0.1°, so there was nothing to see. The wall-target run also started too late into the
+  draw, so the release beat the cancel and an arrow flew. Claude changed the driver to wait on observed state (a
+  fresh arrow; a −2° lean) before sending each key. The first windowed take was then 18 frames shorter than B15's
+  narration. Claude re-recorded it with a longer end hold rather than retime it.
+- **Claude's own renders, found by looking.** Four code panels were clipped at the bottom. In B11 the clipped line
+  was the cancel line the narration points at. B10 had shortened Rui's r1 verdict with an ellipsis that dropped
+  "很难完全区分三个阶段"; it now quotes the whole sentence. The burned-in labels covered the archer (B15) and the
+  walker at the wall (B14). Two document excerpts had been cut on hard line breaks, not sentences.
+- **The toolkit's gates.** Gate F refused the first two compiles (no SHOTLIST.md, then no PROMPTS.md in the reel).
+  Gate V refused the third: the still labels crossed the title-safe line. Gate V's contrast check then flagged
+  B14's label, which was fixed with per-label contrast regions.
+- **Python from PowerShell.** The first Remotion run did nothing: bare `python` in PowerShell is not the venv. It
+  was re-run with the venv's `python.exe`.
+- **The unseen cancel.** B17 and B18 say that no human has seen a startup cancel (TEST-REPORT A7.6). The film shows
+  one, cropped and scaled 1.6×, at about 4:04 (B15, a scripted-input take). Rui did not say they saw it there, so
+  the narration and TEST-REPORT stand as recorded.
+Records: `youtube/claude-liam-walker-mimic-keep-a7-gamedev/` (BUILD-PROMPT.md lists every deviation; FACTCHECK.md
+lists every narration claim and its source).
