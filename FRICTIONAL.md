@@ -1218,3 +1218,25 @@ the draw is cancelled". Rui did not see a cancel; the arrow flew and missed.
 - **The capture.** Rui captured it windowed; all 100 lines hold (640, 360). Claude measured the pole foot
   at x 638–641 throughout, with y offsets 0/−3/+1/−3.
 - **The verdict.** Rui: "没有漂移".
+
+## 2026-11-22 — Pre-film audit against the assignment text
+
+Rui asked for a check that nothing the assignment requires was missing. Claude re-read the full assignment and
+checked each requirement against the repository. Five gaps were found:
+1. **In-game verdict for the tuning.** TUNING had no running-game verdict for r1, because both tuning
+   verdicts were made on the windowed preview. A section now quotes Rui's Use It words from the main game
+   and says where each observation came from.
+2. **Pause in each phase.** "An interrupt in each phase" in play was thin: Rui had not said which phase P was
+   pressed in. Rui retried, pausing once in startup and once in recovery. The result is in TEST-REPORT A7.6,
+   with a note that Rui's sentence follows the wording of Claude's request.
+3. **Oversized transcript.** `session-6a.jsonl` was 1.23 MB, over the "about 1 MB" limit. It was replaced by a
+   labelled excerpt; see `sessions/a7/session-6a.EXCERPT-NOTE.md` (`0c255c3`).
+4. **Sprite credits.** There was no credits file next to the sprites. `godot/assets/sprites/ATTRIBUTION.md`
+   now exists; the art is code-generated and already recorded in SOURCES.md.
+5. **Stale TEST-REPORT line.** A7.5 still said the §11 numbers were to be filled. It now points to Revision 4.
+
+Checked and found in order: brief before the first prompt, CLAUDE.md (119 lines, separate review commit),
+the wrapper (identical to the assignment's), pins before Step 5, both read-backs, the state-machine test,
+edges, four mutations in worktrees, strips, Use It, and no cache, media or credentials in git. All 14 A7
+agent sessions ended with `success`, none at the turn limit. README and SUBMISSION are still the A6 versions,
+to be rewritten in Ship It.

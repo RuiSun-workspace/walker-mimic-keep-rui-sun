@@ -733,8 +733,14 @@ pixels match idle for clip frames 0–2 (CHANGE-BRIEF Revision 4).
 **Result:**
 - A startup cancel was **not seen by a human**, in play or in the fixture. It is established only by
   `test_archer_edges.gd` and the probes' logs.
-- Pause and resume were seen to continue the animation correctly. Rui did not say which phase P was
-  pressed in.
+- Pause and resume were seen to continue the animation correctly. The first report did not say which phase
+  P was pressed in.
+- **Pause in startup and in recovery, retried in play.** This was a gap found in the pre-film audit, so Rui
+  pressed P once in each phase. Rui's words, which follow the wording of Claude's request:
+  > 暂停时弓停在半倾的位置，再按 P 恢复后接着拉完、射出箭，弓往回摆的那约 0.2 s 内按 P，看恢复后弓接着回正。
+
+  Translation: "When paused, the bow stopped half-leaned; after P again it finished the draw and fired. When
+  I pressed P during the roughly 0.2 s swing back, after resuming the bow continued back to upright."
 - The active frame (one frame, 1/30 s) cannot be hit by hand.
 - On distinct phases, Rui's in-game words ("能明显看出…三个阶段") differ from Rui's note on the r1 preview
   ("如果不调整攻速的话很难完全区分三个阶段了"). Both are recorded as said.
