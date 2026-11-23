@@ -1,0 +1,31 @@
+Read CLAUDE.md first. CHANGE-BRIEF.md is the contract; §2 and §3 specify the walk sheet and cycle.
+This step builds the preview that the walk cycle's registration strip is captured from (Use It:
+"the frame strip of the cycle: the character does not drift within its cells"). Do not change any
+game file, scene, clip, test or .gdshader file.
+
+Write godot/previews/walk_preview.tscn and godot/previews/walk_preview.gd:
+- The background is the real level drawn by godot/game/background.gd, at the project's 1280x720,
+  1:1. One real scarecrow (an instance of godot/game/scarecrow.tscn) walks down by its own script
+  and its own AnimationPlayer and WalkPresenter, from a start height that keeps it walking (not
+  at_wall) for at least 6 s. The preview never writes scarecrow, sprite, player or clip state and
+  never calls play().
+- A Camera2D owned by the preview keeps the scarecrow's node origin on the same screen pixel in
+  every rendered frame, so the background scrolls and the scarecrow stays still on screen. No
+  smoothing. Choose the update point so this holds exactly when run with --fixed-fps 30 (physics
+  stays at 60 ticks/s); prove it from the log, not by argument.
+- Every rendered frame, print ONE line beginning with the movie frame number
+  (Engine.get_frames_drawn()) and the physics tick, then: the scarecrow's global position, its
+  node origin in screen pixels (get_global_transform_with_canvas().origin), Sprite.frame, the
+  player's current animation and position, and at_wall. Print a header line naming the fields
+  first.
+
+Check it headless, without a window:
+godot --headless --path godot res://previews/walk_preview.tscn --fixed-fps 30 --quit-after 90
+and paste the lines for frames 1-40. State: on which frames each of the four cells (0-3) is
+shown for the first two cycles (the walk is 8 cells per second, so at 30 fps a cell lasts 3.75
+movie frames: say which cells get 3 frames and which get 4), and whether the screen origin is the
+same on every line. Then run godot --headless --path godot --import, and re-run
+./scripts/run-test.sh test_scarecrow_walk_readback.gd 60 and
+./scripts/run-test.sh test_pins_a7.gd 60 to show nothing in the game changed (68 checks pass,
+38/0). Use these commands exactly as written; bash scripts/..., cd "..."; chains and PowerShell
+are not allowed. Do not commit.
