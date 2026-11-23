@@ -265,3 +265,25 @@ fires every 0.6 s (`FIRE_INTERVAL`, a pinned gameplay number this change does no
 lasts 0.5 s. So while a target is held, idle shows for about 0.1 s (3 movie frames at 30 fps) between shots.
 The draw, the release and the recovery follow one another with almost no rest between them. Changing the fire
 rate is outside this change: CHANGE-BRIEF.md §5 keeps back-to-back shots on the 0.6 s cadence.
+
+## 2026-11-22 — r1 in the running game (Rui's Use It playtest)
+
+**Where the earlier observations came from.**
+- Both of Rui's verdicts above, the r0 note that drove the change and the r1 verdict, were made watching
+  `godot/previews/shoot_preview.tscn` windowed. That scene is a fixture: it runs the real `archer.tscn`
+  with its real draw rule and AnimationTree, against the real background, with one placed target. It is
+  not the main game.
+- The observation that drove r1 is Rui's own, written before Claude read any frame. It is not Claude's
+  first reading.
+
+**r1 in the main game.** Rui then played r1 in the main game (editor, F5, 1280×720, normal speed) during
+Use It (TEST-REPORT A7.6). On the phases, Rui's words were:
+
+> 暂停和恢复后动画接得上，能明显看出拉弓和射箭后回正还有弓不动三个阶段
+
+Translation: "After pause and resume the animation continues correctly. The draw, the return to upright
+after the shot, and the still bow are clearly three separate phases."
+
+**Verdict in play: r1 kept.**
+- In play the phases read as distinct. In the fixture, Rui found them hard to separate fully (above).
+- Both statements are Rui's and are recorded as said. Claude does not reconcile them.

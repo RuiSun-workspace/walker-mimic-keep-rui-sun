@@ -661,7 +661,8 @@ assignment specifies.
 - Whether startup, active and recovery read as distinct motions, and whether the agent's pose amounts are
   right (Step 7 frame strip and play).
 - Whether the walk loops without a visible catch. The jagged eyes in the leaning cells were accepted for now.
-- The §11 strip frame numbers. They are filled in after the windowed capture.
+- The §11 strip frame numbers. They are filled in after the windowed capture. (Done 2026-11-22: strip frames
+  10/18/19/25, CHANGE-BRIEF Revision 4.)
 - `--debug-collisions` draws nothing in this project: hits are by distance (`arrow.gd:21`).
 
 ## A7.6 Use It — results (2026-11-22)
