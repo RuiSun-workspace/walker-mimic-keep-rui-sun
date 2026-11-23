@@ -1,0 +1,1091 @@
+{
+ "schema_version": 1,
+ "teaching_contract": "code-then-result-v1",
+ "source_revision": "62d7f72aa00f3d09aa6ec1240e0191b6904de2b2",
+ "build_id": "2e4524529ac0896385ce43eece6c313d19beb611a4af69da66e37fd889e33bea",
+ "files": [
+  {
+   "path": "MATERIALS.md",
+   "sha256": "7d5cd619f7143c0384cdcd39c3490c7e56e2cb2cbf95e4abbe46f5949069902a",
+   "role": "documentation",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/ATTRIBUTION.md",
+   "sha256": "ab35ec40127513013015fe20924d44bffa84f2331f4d366d1628622dfd6dc676",
+   "role": "documentation",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer.png",
+   "sha256": "1e64f5e3b10e13a288da08dcdfdfad6c1480a6a50a447a4c438f1e11af8e1917",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer.png.import",
+   "sha256": "4ff8b7d693f2f3709974f55c8b3b1f7c518703c4e86d5a2fc942cd6eafd06c9b",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer_body.png",
+   "sha256": "d5d3dcc22f5f483bff9b6696decfdd5582cf33dd3eebfa9f3de27e832879c12c",
+   "role": "texture",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer_body.png.import",
+   "sha256": "b230c99c8c35977e066c37ef6bc4ac86b0f5f04c56ddfd4a7f15689e5f44d687",
+   "role": "import settings",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer_bow.png",
+   "sha256": "68e2d1f992cee4e87d420d8af6432e4ed95b0f45f4cfceb485413937aa178275",
+   "role": "texture",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer_bow.png.import",
+   "sha256": "8f988c3e2de06d81f32444ff04b21a0d0ac275f1e3301a5de9a45fcf59bdf9cb",
+   "role": "import settings",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer_string.png",
+   "sha256": "fba6d06de48d8af6c17bda264c4b5cfb44d944bb227bc24b6100d45d3704b4c6",
+   "role": "texture",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "assets/sprites/archer_string.png.import",
+   "sha256": "056e7fcb2e36b4ff5a2c7b75a27291aa992cdd06fd965ba8c225b0c61a7bafbf",
+   "role": "import settings",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "assets/sprites/arrow.png",
+   "sha256": "d8203784ecfe61ba1e0838ad8aa05dd0700cb779b370ea8c5d106f4e4aaa0bce",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/arrow.png.import",
+   "sha256": "e4c0991df2b75aace5bd652de20c3d44d80ea290eee276f785252fb9f983514c",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/mimi.png",
+   "sha256": "0f45a24c8b227c1ad83569ea0dd7600a951c5dfb944d727d48c861600f28a9ff",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/mimi.png.import",
+   "sha256": "a1a789a60e9887e8202b59a0d26c1b7b82008003f55f2e4987f2f1bae8a9b18d",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/scarecrow.png",
+   "sha256": "11ac842023a31ea944b0e756f996a44e48152c9757850ce40b37d8d482a06199",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/scarecrow.png.import",
+   "sha256": "e3dc240367831cd65c6819a5cd4bbbaece7219a503444d7dae9a3be4beb7cf4a",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/sprites/scarecrow_walk.png",
+   "sha256": "3ac22115e039875fc7a14001e2efd53fadf6f784252565765985118d271fad36",
+   "role": "texture",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "assets/sprites/scarecrow_walk.png.import",
+   "sha256": "e9ecef03d8c69550e0c5a7caff48183e125feb3f8cb574cd1086576776deef9b",
+   "role": "import settings",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "assets/textures/hint_greys_3x1.png",
+   "sha256": "deb9df2a9689dd2297f2d37a3fa2759104f49dbb2eb3e33c00e1fa6292060ca6",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/hint_greys_3x1.png.import",
+   "sha256": "c412e714abedfc2f8473a7222eb197facc5cfc954796f9c59990af128c9d1267",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/shield_scorch_mask.png",
+   "sha256": "a6613bfda349135092ce21c6bbd2f4b01e6e9de7eac2eba2eb1864944fbb0ee9",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/shield_scorch_mask.png.import",
+   "sha256": "61b9bf146062a70e1ac02b6230ae5521d2617b51a96bbd200a82ebac4b9727f9",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/ATTRIBUTION.md",
+   "sha256": "37f77475dd0c04c8b21caeff1ea3e0dfa207c2c042f2234f4f39c95c7687cb57",
+   "role": "documentation",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_diff_1k.png",
+   "sha256": "2d079a0bea287e2b167eaec78360932aa822e970b4b9650c7c4f55bbdf36a91f",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_diff_1k.png.import",
+   "sha256": "aeb5b05b9255d87095ca12660d091a998849bfef2571307419e7b4f304367406",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_dx_1k.png",
+   "sha256": "d259de8ef9cfb3a0f3b8d917622734c45362142798ad7331895ba3c5f7076455",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_dx_1k.png.import",
+   "sha256": "2a489edf3df5307c42ec6939a7f906e3240680336fb709b28aa5c38200d4c9ed",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_gl_1k.png",
+   "sha256": "f0b8c0e78a28f0e4aa962921f508a232b42a1f787a9b10cdb37aa1050e6e845d",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_nor_gl_1k.png.import",
+   "sha256": "981b56648dc93573c9ec7abf8ca5fc2fd6886204a16c656c94e8e4caa811bf3a",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_rough_1k.png",
+   "sha256": "f1eec48d61e647be0274012318137d9093ac94551d59b082414cb26c2f4da66d",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "assets/textures/wood_planks/wood_planks_rough_1k.png.import",
+   "sha256": "0442b7342eab62cadd100404ba9a5c7a0e0bb78ddebe0642e800b0913219e5f6",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/burning_embers.tscn",
+   "sha256": "2905e5159daf0fe14125a79a1f1370ceedcbc1fc113e43cb3b44613137ebdb2d",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/burning_embers_driver.gd",
+   "sha256": "bd87f5d755f10e9fd46f2f2d602296759c18b966a861a9d75d10f035299f1c8b",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/impact_burst.tscn",
+   "sha256": "115dec820619c6526db5debd41df15a12549ed35bef5e37decdb305fd9f93d1e",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/impact_spawner.gd",
+   "sha256": "ec21758afde8f08374541978e1a28c3e5ceebc00516c8ccf128f41f50267daaf",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/textures/ATTRIBUTION.md",
+   "sha256": "a7c27baf444d4776b7f2de8d7006a8df1c8dbfe14c744eff99a93493fb3ddde6",
+   "role": "documentation",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/textures/smoke_dot.png",
+   "sha256": "01af7b005816f111f5276b02fe7a27d0250cdfc789e54e948baca591d00c7ab3",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/textures/smoke_dot.png.import",
+   "sha256": "09aa4bef02b62b540f89571918edfeb131cda5285104a43597951ffc4f87c52b",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/textures/soft_dot.png",
+   "sha256": "3ff61b81435c722a50ac4d6c53511df34a1d6d83c6208cfa09203b4249f08e96",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/textures/soft_dot.png.import",
+   "sha256": "9278001b71ebc141d2d640cbee3863e4da4653edd450d17d76ea79fbf813418a",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/textures/straw_chip.png",
+   "sha256": "faf208a39026f2e22f2636455e2b0cf8f62ce2e01d864335e87fc9f875e89583",
+   "role": "texture",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "effects/textures/straw_chip.png.import",
+   "sha256": "706aad3da787cff3eb6e203c057701c6ae8b3f510506c6ce66357eeb300e1014",
+   "role": "import settings",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/archer.gd",
+   "sha256": "d030c5c45166b41a2f5b7bf2784c5995032a48ca2360620df24498599ca2e07e",
+   "role": "script",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "game/archer.tscn",
+   "sha256": "765a5b5600338f81880f0af542c60c875af990b79e2c6f71d9c5679c539bcd7d",
+   "role": "scene",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "game/arrow.gd",
+   "sha256": "e0ffe36c919e48bf24bd0955b908bd77408430eb81eb209e1e80b35ed3bea5d7",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/arrow.tscn",
+   "sha256": "d9895afbc5b48e43a9255873f5e35fb0df458ee7f7e3fb164fd388e8fe5d3d75",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/background.gd",
+   "sha256": "8a2ef444cb3dd34ab310afea85feff14a78c71d2b868b9bc121802d5052f3ca6",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/burning_tint.gd",
+   "sha256": "0144491071c9d08994784d440f98e5099b353b92a8b4592d088fa29a9c21d4cb",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/hud.gd",
+   "sha256": "a004ac19d60a73e04389a3c386e548fa64e9921b08f3405cf4ad8629d8368621",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/main.gd",
+   "sha256": "28d7d2ffa6f15f30edd17e2a3567fc5ae29e1ea8d21ce701f01edee8a73b88ff",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/main.tscn",
+   "sha256": "f76d0e7f94006eb8262992f7ac6f8caabee469a772f7103b0d38b7de74d5a724",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/scarecrow.gd",
+   "sha256": "29ab66062c23c1c4afbd74552463f002498666667e09566c439877920defe6af",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "game/scarecrow.tscn",
+   "sha256": "2c861ed1b2294cf45926bed53d1a2b8ba64bf4a5a284cb7b15e12736555d9ec6",
+   "role": "scene",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "game/scarecrow_walk_presenter.gd",
+   "sha256": "802ff1ca331ffe698b09af797eef8fea67e2dde510622d29691a5e55c54c1e32",
+   "role": "script",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "game/tuning.gd",
+   "sha256": "c82ddf5a69c60678f4e21b48454b50110258aa57142aaae39de142cff15dccd6",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "previews/burning_embers_preview.gd",
+   "sha256": "42f0ab07dabfaa1e96dcc07eeecf33300c72b5db9058f1abb47647d2e41776c3",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "previews/burning_embers_preview.tscn",
+   "sha256": "ec24102d5ab4b12e644712089f6d3e6abcba104cb673b8e3f091494dd4c68939",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "previews/impact_burst_preview.gd",
+   "sha256": "7caceda881eb6e6754166817614fbae3c8ef5a273e769ff3c43413d32d419902",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "previews/impact_burst_preview.tscn",
+   "sha256": "7dd01957bcf08299f0c2123ee8383cd6a2b8b2ba16deecb4a35607bce88f8656",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "previews/shoot_preview.gd",
+   "sha256": "36af426fedd8472f24a4044f9ebbb2ec78932729695414194829722aa42b9116",
+   "role": "script",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "previews/shoot_preview.tscn",
+   "sha256": "0ea18ea3e1c11fc14bb53c6d8c5c0605dc342debea607a94a52347cc04bfe5e0",
+   "role": "scene",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "previews/walk_preview.gd",
+   "sha256": "8cf8d0500a1547458ef36851b413eec02d36a416131769ae6fa56c48d47d68b3",
+   "role": "script",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "previews/walk_preview.tscn",
+   "sha256": "3b8e8e444a38ccbe4956dfaa02be2523ac49fffe52abaecede96dc8eaa7d49ea",
+   "role": "scene",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "project.godot",
+   "sha256": "2044219d37c49b8105408b60f929fd80bce3aaba57f2aab66ec508f67b6e1cef",
+   "role": "config",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/burning_tint.gdshader",
+   "sha256": "3a4373cc278f77b985b1fadf35834ba38a718608bdb6a5349257c234d413cb72",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/hint_experiment.gdshader",
+   "sha256": "dcca1deebc18ce694ea3f26964a614958b7313939d557c080108d63ea6ed0bdb",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/particles_generated.gdshader",
+   "sha256": "4e391cf95723069cbb9697b284ce37944d8e16c2407dc6f30dbaf5314fda42dd",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/shield_wood.gdshader",
+   "sha256": "acbee02dfff8f4fa36ff712c65ef7d1f62c981b9ffc9615b88143bda286b0625",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "shaders/standard_generated.gdshader",
+   "sha256": "ca1c191c44fb614ae64a258fce3efbc13b77fdc82f480e98ac4582e30805650d",
+   "role": "shader",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/hint_experiment.tscn",
+   "sha256": "13f642cee6f1abf6e4b36baf859b370e7f5e9d3b760a61dbd80802a19ab3c9d5",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/hint_raw.tres",
+   "sha256": "0bfba4cae5d56575232130b174df277bd1e38fadfd4b56b7b914f45da2fca7d7",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/hint_source_color.tres",
+   "sha256": "71bbd9af6fcec3b4152c9d104ebe7454498d79db1e4a0bb9e5921173e01601d6",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/shield_burned.tres",
+   "sha256": "1ee48e02199ccf1c70439ff669fbe812dfc9d3b9913d8fb5d0c15f996ef4bf6d",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/shield_mesh.tres",
+   "sha256": "8502daa39c4455b619fdc828bbebec8a62efdf21dd2fcac52dff5b6c4452febb",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/shield_new.tres",
+   "sha256": "d808a88a6218a18d30efda48bf8c44207356b31363b1148bcd687349c6445861",
+   "role": "resource",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "showcase/shield_room.tscn",
+   "sha256": "d1f5000b106866c0a6dc764cc29c1a04576696b3fadb12c59745180e1465a679",
+   "role": "scene",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/cost_effects.gd",
+   "sha256": "bb3c239cf2a4054e5eaab91bc022f0dbc254ab61f2bcfefeb81203c698b11e8d",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/normal_map_check.gd",
+   "sha256": "36ffb0b71f568690e3107726d90854e5a52cf9b909948618f2cec12803523b70",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_archer_edges.gd",
+   "sha256": "8b6445ecc930df9403640ab349af946c2521a21c04536f6eae8d0c877266c48f",
+   "role": "script",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "tests/test_archer_parts.gd",
+   "sha256": "bb62189026a74d830882627596db02399f3dff5c6737927d06d301e97649144b",
+   "role": "script",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "tests/test_archer_shot_readback.gd",
+   "sha256": "00dba3b9fd894bb6b6270c3f01f0f725e8da23273c2c461fda9531507cd06f01",
+   "role": "script",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "tests/test_archer_state_machine.gd",
+   "sha256": "2fd944cd299ccdbb5fb47484dc202d288ee906a95fbf7668551c856609c0b7c1",
+   "role": "script",
+   "component_ids": [
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "tests/test_burning_embers_config.gd",
+   "sha256": "52f39d8b8f061d5b6eeb02c3f7b44c5ad578eec06526cfc72f9f40faa7046788",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_burning_embers_state.gd",
+   "sha256": "9ea0266243b2c944d78fbae7b28ec477ab46d56708515ccf3f65aeb13c7ba3cf",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_burning_tint.gd",
+   "sha256": "50201f49a4e83bd53b8ea914c1747f787194a10a588d523822def3d2f88cb479",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_impact_burst_config.gd",
+   "sha256": "d0981493acdabf9689c3dd0a42c43a6ea997ba4850ef13ece7bea0aea4682c3e",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_impact_burst_state.gd",
+   "sha256": "55463e97766bc1e3483dfd70423c4d66c20baf03c2192c1e4bc2144f6d0e8ef0",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_input.gd",
+   "sha256": "dbe3b9fd20bf20b41cc31cb3a400dd9d0cffa77103f28590fa03efc6afc2fd7e",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_materials.gd",
+   "sha256": "4dc0590c3f174b1bff9498f9f8ca558b48b45b1969a5cf9354bd7b9ece57f3bc",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_pins_a7.gd",
+   "sha256": "855ee901ece2a88b3914541a2246b3a2955bc1620fa0e252eead7a96e427d01a",
+   "role": "script",
+   "component_ids": [
+    "pins"
+   ]
+  },
+  {
+   "path": "tests/test_rules.gd",
+   "sha256": "bed2ce16a2effe7cf45a30e5b76b583b77bb0537916621eee5d71c3ed02ae50e",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tests/test_scarecrow_sheet.gd",
+   "sha256": "a69fdcb123be73d23471145dec81cedb0b48482be3cefe26878af28a2d037d33",
+   "role": "script",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "tests/test_scarecrow_walk_readback.gd",
+   "sha256": "4b3fd70365433085e3addbee0446be8cf216b2be571a832381355591bdfafe30",
+   "role": "script",
+   "component_ids": [
+    "walk-cycle"
+   ]
+  },
+  {
+   "path": "tests/test_wall_targeting.gd",
+   "sha256": "6a44fd8417ad5e6281817b1ddf610873cf379475457ff21df33e553df68bf3c5",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/balance_sim.gd",
+   "sha256": "53d78b15966b31aa5586bc8d6751cb53cccae442d5942b27e72038187c0628b8",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_burn_values.gd",
+   "sha256": "79c34c2779ac58430dbae041d0427336383fa518b8546064eb88391a96f59ba9",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_in_play.gd",
+   "sha256": "c86fc1de60d1473dcc06eb29e6252dae45894a721bf9bc8d3f4f790df5c85948",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_prototype.gd",
+   "sha256": "4f2ed0c8bf139c8b28d5deede84ff274d95ef386442301c25f33d5de8b35142b",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/capture_shield_room.gd",
+   "sha256": "c83940411429c599555e8746374dbf4feb16b37a41576c6a1f431223f7547d7b",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/compare_os_screenshot.gd",
+   "sha256": "fa36b0dc589299619bae657c06616faa93a66b275c5eb31f7b88f00e2c66a1a4",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/contact_sheet.gd",
+   "sha256": "c6e6262223f9b577d2bd5928205e78d552e0fac115cec2d0894b0ad1f8880b81",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_hint_greys.gd",
+   "sha256": "c7a4cede6be1cb86f59642d2071fd0c13a907b1667c2b3e8e80f43ec63ef99f8",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_particle_textures.gd",
+   "sha256": "c41109a61ebba12b37028944dd4baf28dd941f5a0a32355f1dda0e1fdf9d9db4",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_scorch_mask.gd",
+   "sha256": "91927d866dad9e2fd09fdfe2500ff17264519a923e8755e69a40d103057d6efe",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_shield_mesh.gd",
+   "sha256": "ebcc668346759acc91eb9e5e205aff75beca6770d582f99d0b0112d2260b3f68",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  },
+  {
+   "path": "tools/make_sprites.gd",
+   "sha256": "402330c010010de9d481645c35be4091ffd7bc68d45557ee4b521f2cc9524f22",
+   "role": "script",
+   "component_ids": [
+    "walk-cycle",
+    "archer-shot"
+   ]
+  },
+  {
+   "path": "tools/os_screenshot.ps1",
+   "sha256": "ee97062c6d852b68028d01886905d6b1fa7df8f598d003dbaff3e56a9e1a1f83",
+   "role": "script",
+   "component_ids": [
+    "game"
+   ]
+  }
+ ],
+ "components": [
+  {
+   "id": "game",
+   "explanation": "The Mimic Keep game the clips live in, and the earlier assignments' work kept unchanged: main.gd (whose reset() now also calls archer.cancel_shot()), arrow.gd, scarecrow.gd, the HUD's pause, the A5 shaders and materials, the A6 effects, sprites, tools and the earlier test suites.",
+   "beat_ids": [
+    "B02",
+    "B03"
+   ],
+   "files": [
+    "MATERIALS.md",
+    "assets/sprites/archer.png",
+    "assets/sprites/archer.png.import",
+    "assets/sprites/arrow.png",
+    "assets/sprites/arrow.png.import",
+    "assets/sprites/mimi.png",
+    "assets/sprites/mimi.png.import",
+    "assets/sprites/scarecrow.png",
+    "assets/sprites/scarecrow.png.import",
+    "assets/textures/hint_greys_3x1.png",
+    "assets/textures/hint_greys_3x1.png.import",
+    "assets/textures/shield_scorch_mask.png",
+    "assets/textures/shield_scorch_mask.png.import",
+    "assets/textures/wood_planks/ATTRIBUTION.md",
+    "assets/textures/wood_planks/wood_planks_diff_1k.png",
+    "assets/textures/wood_planks/wood_planks_diff_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_nor_dx_1k.png",
+    "assets/textures/wood_planks/wood_planks_nor_dx_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_nor_gl_1k.png",
+    "assets/textures/wood_planks/wood_planks_nor_gl_1k.png.import",
+    "assets/textures/wood_planks/wood_planks_rough_1k.png",
+    "assets/textures/wood_planks/wood_planks_rough_1k.png.import",
+    "effects/burning_embers.tscn",
+    "effects/burning_embers_driver.gd",
+    "effects/impact_burst.tscn",
+    "effects/impact_spawner.gd",
+    "effects/textures/ATTRIBUTION.md",
+    "effects/textures/smoke_dot.png",
+    "effects/textures/smoke_dot.png.import",
+    "effects/textures/soft_dot.png",
+    "effects/textures/soft_dot.png.import",
+    "effects/textures/straw_chip.png",
+    "effects/textures/straw_chip.png.import",
+    "game/arrow.gd",
+    "game/arrow.tscn",
+    "game/background.gd",
+    "game/burning_tint.gd",
+    "game/hud.gd",
+    "game/main.gd",
+    "game/main.tscn",
+    "game/scarecrow.gd",
+    "game/tuning.gd",
+    "previews/burning_embers_preview.gd",
+    "previews/burning_embers_preview.tscn",
+    "previews/impact_burst_preview.gd",
+    "previews/impact_burst_preview.tscn",
+    "project.godot",
+    "shaders/burning_tint.gdshader",
+    "shaders/hint_experiment.gdshader",
+    "shaders/particles_generated.gdshader",
+    "shaders/shield_wood.gdshader",
+    "shaders/standard_generated.gdshader",
+    "showcase/hint_experiment.tscn",
+    "showcase/hint_raw.tres",
+    "showcase/hint_source_color.tres",
+    "showcase/shield_burned.tres",
+    "showcase/shield_mesh.tres",
+    "showcase/shield_new.tres",
+    "showcase/shield_room.tscn",
+    "tests/cost_effects.gd",
+    "tests/normal_map_check.gd",
+    "tests/test_burning_embers_config.gd",
+    "tests/test_burning_embers_state.gd",
+    "tests/test_burning_tint.gd",
+    "tests/test_impact_burst_config.gd",
+    "tests/test_impact_burst_state.gd",
+    "tests/test_input.gd",
+    "tests/test_materials.gd",
+    "tests/test_rules.gd",
+    "tests/test_wall_targeting.gd",
+    "tools/balance_sim.gd",
+    "tools/capture_burn_values.gd",
+    "tools/capture_in_play.gd",
+    "tools/capture_prototype.gd",
+    "tools/capture_shield_room.gd",
+    "tools/compare_os_screenshot.gd",
+    "tools/contact_sheet.gd",
+    "tools/make_hint_greys.gd",
+    "tools/make_particle_textures.gd",
+    "tools/make_scorch_mask.gd",
+    "tools/make_shield_mesh.gd",
+    "tools/os_screenshot.ps1"
+   ]
+  },
+  {
+   "id": "walk-cycle",
+   "explanation": "The scarecrow walk, the cycle: scarecrow_walk.png (4x1, 64x80 cells, written by tools/make_sprites.gd) sliced by Sprite.hframes = 4; the walk and hold clips in scarecrow.tscn (Sprite:frame, UPDATE_DISCRETE, LOOP_LINEAR); scarecrow_walk_presenter.gd picks the clip from at_wall and never writes the frame; the sheet and walk read-backs; the camera-follow walk preview behind the registration strip.",
+   "beat_ids": [
+    "B04",
+    "B05",
+    "B06",
+    "B13",
+    "B14"
+   ],
+   "files": [
+    "game/scarecrow.tscn",
+    "game/scarecrow_walk_presenter.gd",
+    "assets/sprites/scarecrow_walk.png",
+    "assets/sprites/scarecrow_walk.png.import",
+    "assets/sprites/ATTRIBUTION.md",
+    "tools/make_sprites.gd",
+    "previews/walk_preview.tscn",
+    "previews/walk_preview.gd",
+    "tests/test_scarecrow_sheet.gd",
+    "tests/test_scarecrow_walk_readback.gd"
+   ]
+  },
+  {
+   "id": "archer-shot",
+   "explanation": "The archer shot, the committing action: a cutout rig (Rig/Body, Rig/BowPivot/Bow, Rig/BowPivot/String) keyed in archer.tscn at the phase table's boundaries, with release_window keyed true for one frame; the AnimationTree state machine (PHYSICS, advance_expression_base_node ..) plays idle and shoot; archer.gd travels, cancels and reads release_window in _physics_process; read-back, state-machine and edge tests; the shoot preview fixture.",
+   "beat_ids": [
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B11",
+    "B12",
+    "B15"
+   ],
+   "files": [
+    "game/archer.tscn",
+    "game/archer.gd",
+    "assets/sprites/archer_body.png",
+    "assets/sprites/archer_body.png.import",
+    "assets/sprites/archer_bow.png",
+    "assets/sprites/archer_bow.png.import",
+    "assets/sprites/archer_string.png",
+    "assets/sprites/archer_string.png.import",
+    "tools/make_sprites.gd",
+    "previews/shoot_preview.tscn",
+    "previews/shoot_preview.gd",
+    "tests/test_archer_parts.gd",
+    "tests/test_archer_shot_readback.gd",
+    "tests/test_archer_state_machine.gd",
+    "tests/test_archer_edges.gd"
+   ]
+  },
+  {
+   "id": "pins",
+   "explanation": "tests/test_pins_a7.gd: behaviour pins committed before the change and re-pinned only where the brief predicted; shown with the read-backs, edges and mutations in the proof still.",
+   "beat_ids": [
+    "B16"
+   ],
+   "files": [
+    "tests/test_pins_a7.gd"
+   ]
+  }
+ ],
+ "excerpts": [
+  {
+   "beat_id": "B04",
+   "path": "game/scarecrow.tscn",
+   "start_line": 18,
+   "end_line": 31,
+   "text": "length = 0.5\nloop_mode = 1\nstep = 0.125\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"Sprite:frame\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 0.125, 0.25, 0.375),\n\"transitions\": PackedFloat32Array(1, 1, 1, 1),\n\"update\": 1,\n\"values\": [0, 1, 2, 3]"
+  },
+  {
+   "beat_id": "B08",
+   "path": "game/archer.tscn",
+   "start_line": 75,
+   "end_line": 88,
+   "text": "length = 0.5\nstep = 0.033333335\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"Rig/BowPivot:rotation\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 0.26666668, 0.3, 0.5),\n\"transitions\": PackedFloat32Array(2, 1, 0.5, 1),\n\"update\": 0,\n\"values\": [0.0, -0.27925268, 0.034906585, 0.0]\n}"
+  },
+  {
+   "beat_id": "B11",
+   "path": "game/archer.gd",
+   "start_line": 27,
+   "end_line": 40,
+   "text": "func _physics_process(delta: float) -> void:\n\tvar axis := Input.get_axis(\"move_left\", \"move_right\")\n\tposition.x = clampf(position.x + axis * Tuning.ARCHER_SPEED * delta,\n\t\t\tTuning.ARCHER_MARGIN, Tuning.VIEW.x - Tuning.ARCHER_MARGIN)\n\tfire_cooldown = maxf(fire_cooldown - delta, 0.0)\n\tif shot_armed:\n\t\tif release_window:\n\t\t\t# Active frame: the arrow goes even if the target was lost on this same tick (§5.5).\n\t\t\tvar aim := locked_target.global_position if is_instance_valid(locked_target) else _locked_pos\n\t\t\t_fire_at(aim)\n\t\t\tfire_cooldown = Tuning.FIRE_INTERVAL\n\t\t\tshot_armed = false\n\t\t\tlocked_target = null\n\t\telif not _target_held():"
+  },
+  {
+   "beat_id": "B13",
+   "path": "game/scarecrow_walk_presenter.gd",
+   "start_line": 2,
+   "end_line": 15,
+   "text": "## Presentation only (CHANGE-BRIEF §1, revision 1.4): picks which clip Scarecrow/AnimationPlayer plays\n## from the scarecrow's at_wall. walk while it advances, hold (frame 0) once it hits the gate.\n## Reads game state, never writes it; never writes Sprite.frame (the AnimationPlayer is its one writer).\n## Compares against assigned_animation, not current_animation: hold is a one-key LOOP_NONE clip, so\n## current_animation turns \"\" once it ends and would otherwise make this call play() every frame.\n\n@onready var _scarecrow: Scarecrow = get_parent() as Scarecrow\n@onready var _player: AnimationPlayer = $\"../AnimationPlayer\"\n\n\nfunc _process(_delta: float) -> void:\n\tvar clip := &\"hold\" if _scarecrow.at_wall else &\"walk\"\n\tif _player.assigned_animation != clip:\n\t\t_player.play(clip)"
+  }
+ ],
+ "exclusions": [],
+ "code_result_pairs": [
+  {
+   "code_beat": "B04",
+   "result_beat": "B05",
+   "observation": "The four keyed integers on screen: the sheet's four cells, frame 0 to 3, sliced 4x1 by hframes, and the walk strip showing cells 0-3 with the pole foot in one column (x 638-641).",
+   "media": {
+    "path": "media/B05.png",
+    "sha256": "633a196b65cb416f380754f066eb452b0017d1c4a104188fb4ebcd14d5022b1e"
+   }
+  },
+  {
+   "code_beat": "B08",
+   "result_beat": "B09",
+   "observation": "The keys at frames 0, 8, 9 and 15 in the fixture strip: trigger at strip frame 10, full draw at -16 deg with release_window true at 18, arrow out at 19, idle at 25, each with its log line.",
+   "media": {
+    "path": "media/B09.png",
+    "sha256": "9821072c06b1ed39c9e1d675ab0410f74567b6d220900501acff3f53c9b2a6f4"
+   }
+  },
+  {
+   "code_beat": "B11",
+   "result_beat": "B12",
+   "observation": "The read in _physics_process measured: release_window true on tick 37, fired on tick 38, one physics tick (1/60 s) after the tree writes it.",
+   "media": {
+    "path": "media/B12.png",
+    "sha256": "785a8dde660f07be07dc966a913d3d288394548dba4c20c110112b2862576e86"
+   }
+  },
+  {
+   "code_beat": "B13",
+   "result_beat": "B14",
+   "observation": "The presenter's choice in play: a scarecrow outside the cone walks about a dozen wraps on the walk clip, then switches to hold when at_wall turns true.",
+   "media": {
+    "path": "media/B14.mp4",
+    "sha256": "4992cefc66bc8b0332148fa3b32841a5ef2b15796ee64b92da90e00482348fa7"
+   }
+  }
+ ]
+}

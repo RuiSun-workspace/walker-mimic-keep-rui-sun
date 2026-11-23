@@ -1,0 +1,55 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.303 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3070 Laptop GPU
+
+Movie Maker mode enabled, recording movie in 3840×2160 @ 30 FPS...
+f0000 t=  0.00s  placed target (640, 60)
+f0010 t=  0.33s  FIRED arrow 1
+f0028 t=  0.93s  FIRED arrow 2
+f0044 t=  1.47s  P pressed (startup): archer x 640, shoot@0.217, armed true, release_window false, bow -10.6 deg, paused false
+f0045 t=  1.50s  one frame later: archer x 640, shoot@0.217, armed true, release_window false, bow -10.6 deg, paused true
+f0104 t=  3.47s  still paused after 60 frames: archer x 640, shoot@0.217, armed true, release_window false, bow -10.6 deg, paused true
+f0105 t=  3.50s  P pressed again: archer x 640, shoot@0.250, armed true, release_window false, bow -14.1 deg, paused false
+f0106 t=  3.53s  FIRED arrow 3
+f0106 t=  3.53s    after resume: archer x 640, shoot@0.283, armed false, release_window true, bow -7.0 deg, paused false
+f0107 t=  3.57s    after resume: archer x 640, shoot@0.317, armed false, release_window false, bow 1.7 deg, paused false
+f0108 t=  3.60s    after resume: archer x 640, shoot@0.350, armed false, release_window false, bow 1.1 deg, paused false
+f0124 t=  4.13s  FIRED arrow 4
+f0136 t=  4.53s  placed target (640, 60)
+f0145 t=  4.83s  P pressed (active): archer x 640, shoot@0.267, armed true, release_window true, bow -16.0 deg, paused false
+f0146 t=  4.87s  one frame later: archer x 640, shoot@0.267, armed true, release_window true, bow -16.0 deg, paused true
+f0205 t=  6.83s  still paused after 60 frames: archer x 640, shoot@0.267, armed true, release_window true, bow -16.0 deg, paused true
+f0206 t=  6.87s  FIRED arrow 5
+f0206 t=  6.87s  P pressed again: archer x 640, shoot@0.300, armed false, release_window false, bow 2.0 deg, paused false
+f0207 t=  6.90s    after resume: archer x 640, shoot@0.333, armed false, release_window false, bow 1.4 deg, paused false
+f0208 t=  6.93s    after resume: archer x 640, shoot@0.367, armed false, release_window false, bow 0.9 deg, paused false
+f0209 t=  6.97s    after resume: archer x 640, shoot@0.400, armed false, release_window false, bow 0.5 deg, paused false
+f0224 t=  7.47s  FIRED arrow 6
+f0242 t=  8.07s  FIRED arrow 7
+f0243 t=  8.10s  P pressed (recovery): archer x 640, shoot@0.333, armed false, release_window false, bow 1.4 deg, paused false
+f0244 t=  8.13s  one frame later: archer x 640, shoot@0.333, armed false, release_window false, bow 1.4 deg, paused true
+f0303 t= 10.10s  still paused after 60 frames: archer x 640, shoot@0.333, armed false, release_window false, bow 1.4 deg, paused true
+f0304 t= 10.13s  P pressed again: archer x 640, shoot@0.367, armed false, release_window false, bow 0.9 deg, paused false
+f0305 t= 10.17s    after resume: archer x 640, shoot@0.400, armed false, release_window false, bow 0.5 deg, paused false
+f0306 t= 10.20s    after resume: archer x 640, shoot@0.433, armed false, release_window false, bow 0.2 deg, paused false
+f0307 t= 10.23s    after resume: archer x 640, shoot@0.467, armed false, release_window false, bow 0.1 deg, paused false
+f0320 t= 10.67s  FIRED arrow 8
+f0329 t= 10.97s  D held from the draw's start: archer x 640, shoot@0.000, armed true, release_window false, bow 0.0 deg, paused false
+f0332 t= 11.07s  placed target (640, 60)
+f0342 t= 11.40s  FIRED arrow 9
+f0342 t= 11.40s  D released after the arrow: archer x 822, shoot@0.300, armed false, release_window false, bow 2.0 deg, paused false
+f0355 t= 11.83s  A released: archer x 640, shoot@0.133, armed true, release_window false, bow -4.0 deg, paused false
+f0360 t= 12.00s  FIRED arrow 10
+f0378 t= 12.60s  FIRED arrow 11
+f0396 t= 13.20s  FIRED arrow 12
+f0438 t= 14.60s  field clear; placed one scarecrow at the wall (610, 530)
+f0442 t= 14.73s  D held: archer x 640, shoot@0.100, armed true, release_window false, bow -2.3 deg, paused false
+f0446 t= 14.87s  CANCELLED: archer x 696, idle@0.017, armed false, release_window false, bow 0.0 deg, paused false, arrows 12
+f0450 t= 15.00s  D released at x 752: archer x 752, idle@0.033, armed false, release_window false, bow 0.0 deg, paused false
+f0570 t= 19.00s  end: arrows fired 12, archer x 752, idle@0.033, armed false, release_window false, bow 0.0 deg, paused false
+--------------------------------------------------------------------------------
+Done recording movie at path: F:/7270/reels/claude-liam-walker-mimic-keep-a7-gamedev/_frames/interrupts/f.png
+571 frames at 30 FPS (movie length: 00:00:19:01), recorded in 00:03:45 (8% of real-time speed).
+CPU render time: 0.13 seconds (average: 0.23 ms/frame)
+GPU render time: 0.31 seconds (average: 0.54 ms/frame)
+Encoding time: 114.86 seconds (average: 201.16 ms/frame)
+--------------------------------------------------------------------------------

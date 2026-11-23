@@ -1,0 +1,1131 @@
+{
+  "metadata": {
+    "title": "Mimic Keep: A Clip Is a List of Keys.",
+    "slug": "claude-liam-walker-mimic-keep-a7-gamedev",
+    "topic": "WALKER · MIMIC KEEP ANIMATION",
+    "kind": "gamedev",
+    "playlist": "Brutalist",
+    "brand": "claude-liam",
+    "audience": "CSYE 7270 reviewers and Walker readers",
+    "register": "Teardown",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "aspect_ratio": "16:9",
+    "fit": "contain",
+    "captions": false,
+    "channel": "@NikBearBrown",
+    "channel_title": "@NikBearBrown",
+    "folderLabel": "@NikBearBrown",
+    "greeting": "Merhaba, Liam",
+    "greeting_note": "hello lexicon: Merhaba (Turkish), not used by the A1-A6 reels (Kia ora, Zdravo, Kumusta, Mingalaba, Sawubona were).",
+    "persona": "Liam (in for Bear)",
+    "presenter": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "episode_id": "walker-mimic-keep-a7-gamedev",
+    "note": "godot-gamedev in walker mode over walker-mimic-keep-rui-sun (CSYE 7270 Assignment 7). Source commit 62d7f72aa00f3d09aa6ec1240e0191b6904de2b2, build_id 2e4524529ac0896385ce43eece6c313d19beb611a4af69da66e37fd889e33bea, Godot 4.7.2.stable.official.ed1daf0bf, Forward+. B02, B14 and B15 are native 3840x2160 Godot Movie Maker output from an isolated copy of that commit, driven by capture/capture_a7_film.gd (B02, B14: no input; B15: key events sent by the script). Stills compose the repository's fixture strips, logs and recorded words; all labelled in frame.",
+    "build": {
+      "at": "2026-11-22T22:34:29",
+      "cut": "master",
+      "filled": 21,
+      "of": 21,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "ASK",
+      "role_note": "COLD OPEN LAW - Claude UI cold open. The prompt is an ILLUSTRATIVE RECONSTRUCTION of the walker ask, never a transcript.",
+      "narration_text": "Merhaba, this is Liam, in for Bear. The ask, reconstructed: in Mimic Keep, an archer on a castle wall shoots fire arrows at straw scarecrows. Give the scarecrows a walk cycle from a sprite sheet, and give the archer a shot that draws, releases and recovers.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Merhaba, Liam",
+            "topic": "WALKER · MIMIC KEEP ANIMATION",
+            "segment": "walker-mimic-keep-rui-sun",
+            "command": "Please use Walker to convert my game design document about Mimic Keep, a castle-defense game where an archer on the wall shoots fire arrows at straw scarecrows, into two animations: a looping scarecrow walk from a sprite sheet, and an archer shot on a keyed cutout rig, driven by a state machine. I write the brief, the phase table, every prediction and verdict; agents build and test; I judge the motion in play.",
+            "runningText": "reading CHANGE-BRIEF.md; release_window keyed on clip frame 8…",
+            "output": [
+              "walk: Sprite2D + AnimationPlayer frame track · the cycle",
+              "shoot: keyed cutout rig + AnimationTree · the committing action",
+              "proof: read-backs, fixture strips, then Rui's eyes"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "Opus",
+            "durationSeconds": 14.76
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": "2026-11-23T02:40:03.186500+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 14.76,
+      "audio_file": "mp3/beat-B00.mp3",
+      "render_duration_s": 14.766666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B00.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "role_note": "What was built, with one real correction: the full-draw key went from -8 to -16 degrees after Rui's look.",
+      "narration_text": "Two clips. Rui wrote the brief and the phase table; agent sessions built the keys, the state machine and the tests. The tests proved the structure. Only Rui's eyes could say the draw was too small, so eight degrees became sixteen.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "Mimic Keep:\nthe bow drew\neight degrees.",
+            "triggerWords": "eight",
+            "replacementWords": "sixteen",
+            "seed": "mimic-keep-a7-b01",
+            "face": "serif",
+            "fontSize": 190,
+            "lineSpacing": 1.7,
+            "align": "center",
+            "charMs": 26,
+            "jitter": 18,
+            "mistakeRate": 0,
+            "hesitateWithin": 0,
+            "hesitateBetween": 0,
+            "durationSeconds": 12.84
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": "2026-11-23T02:41:18.578835+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 12.84,
+      "audio_file": "mp3/beat-B01.mp3",
+      "render_duration_s": 12.866666666666667,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B01.mp4",
+        "filled_by": "remotion:BrutalistHesitantWriter",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "GAME",
+      "role_note": "The game and both clips in play.",
+      "narration_text": "This is the game, with nobody at the keys. The scarecrows walk down on a four cell cycle, and the one outside the archer's reach stops at the wall. The archer draws, releases and recovers on its own, one shot every point six seconds.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "Scarecrows placed by the script · no keys pressed",
+        "clip_file": "media/B02.mp4",
+        "capture_window": {
+          "take": "play",
+          "start_s": 0.0,
+          "end_s": 13.6333,
+          "frames": [
+            0,
+            409
+          ],
+          "media_sha256": "fd4efa696fc7b933984a529032bee2ee5c98deca238eb16873b55f60d1548995"
+        }
+      },
+      "actual_duration_s": 13.6333,
+      "audio_file": "mix/B02.wav",
+      "render_duration_s": 13.633333333333333,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Native 3840x2160 engine capture fills the frame by design.",
+        "contrast_regions": [
+          {
+            "label": "burned-in shot label",
+            "box": [
+              0.031,
+              0.854,
+              0.555,
+              0.944
+            ]
+          }
+        ],
+        "contrast_reason": "Engine footage of a flat green meadow by design; the text a viewer must read is the burned-in label, so contrast is measured there."
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B02.mp4",
+        "filled_by": "media",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "BRIEF",
+      "role_note": "Both clips, their routes, which loops and which commits, and the one authority over each.",
+      "narration_text": "The brief names both clips. The scarecrow walk is the cycle: a Sprite2D sliced four by one, keyed by an AnimationPlayer frame track. The archer's shot is the committing action: a three part cutout rig, keyed in the scene file and played by an AnimationTree state machine. Each has exactly one authority.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "Two clips, two routes, one authority each",
+            "section": "CHANGE-BRIEF.md §1 · The two clips",
+            "excerptLabel": "DOCUMENT EXCERPT",
+            "excerpt": "**Authority:** the scarecrow's own `AnimationPlayer` is the only writer of `Sprite.frame`.",
+            "source": "CHANGE-BRIEF.md §1, §6, §8 · Rui's specification · @ 62d7f72",
+            "status": "WRITTEN BY RUI BEFORE ANY BUILD · 2026-11-19",
+            "visualLabel": "What the brief fixed",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Walk · the cycle",
+                "text": "Sprite2D + AnimationPlayer frame track · 4 cells at 8 fps · LOOP_LINEAR"
+              },
+              {
+                "label": "Its authority",
+                "text": "Scarecrow/AnimationPlayer writes Sprite.frame · WalkPresenter only picks walk or hold"
+              },
+              {
+                "label": "Shot · the committing action",
+                "text": "cutout rig: Body, BowPivot/Bow, BowPivot/String · keyed in archer.tscn · LOOP_NONE"
+              },
+              {
+                "label": "Its authority",
+                "text": "Archer/AnimationTree plays idle and shoot · archer.gd travels, cancels and reads"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.36,
+                "card": 0
+              },
+              {
+                "at": 5.91,
+                "card": 1
+              },
+              {
+                "at": 10.46,
+                "card": 2
+              },
+              {
+                "at": 15.0,
+                "card": 3
+              }
+            ],
+            "durationSeconds": 17.05
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": "2026-11-23T03:24:27.503988+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.05,
+      "audio_file": "mp3/beat-B03.mp3",
+      "render_duration_s": 17.066666666666666,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B03.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "MECHANISM",
+      "role_note": "Q1: what a clip is, pointed at the walk clip's own lines; the frame track that reads the sheet.",
+      "narration_text": "What is a clip? This one. An Animation resource holding tracks. A track names a node and a property: sprite, colon, frame. Four keys at zero, point one two five, point two five and point three seven five seconds set the integers zero to three. Update one is discrete, so each frame holds. Nothing here knows about scarecrows.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 23,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "What a clip is: a list of keys.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/game/scarecrow.tscn",
+            "source": "Verbatim project source at commit 62d7f72 · Godot editor reconstruction (teaching view)",
+            "code": "length = 0.5\nloop_mode = 1\nstep = 0.125\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"Sprite:frame\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 0.125, 0.25, 0.375),\n\"transitions\": PackedFloat32Array(1, 1, 1, 1),\n\"update\": 1,\n\"values\": [0, 1, 2, 3]",
+            "startLine": 18,
+            "cues": [
+              {
+                "at": 1.41,
+                "line": 19,
+                "label": "loop_mode = 1: Animation.LOOP_LINEAR"
+              },
+              {
+                "at": 4.24,
+                "line": 20,
+                "label": "step = 1/8 s: one frame period at 8 fps"
+              },
+              {
+                "at": 7.06,
+                "line": 24,
+                "label": "the track names a node and a property"
+              },
+              {
+                "at": 9.89,
+                "line": 28,
+                "label": "four key times, 1/8 s apart"
+              },
+              {
+                "at": 12.72,
+                "line": 30,
+                "label": "update 1: UPDATE_DISCRETE, the frame holds"
+              },
+              {
+                "at": 15.54,
+                "line": 31,
+                "label": "the values: integers 0 to 3"
+              }
+            ],
+            "codeFontSize": 21,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Slicing",
+                "value": "hframes = 4 (line 63)"
+              },
+              {
+                "label": "Seam",
+                "value": "no frame 0 at 0.5 s"
+              },
+              {
+                "label": "Read-back",
+                "value": "68 checks pass"
+              }
+            ],
+            "durationSeconds": 17.66
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": "2026-11-23T02:59:49.715569+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.66,
+      "audio_file": "mp3/beat-B04.mp3",
+      "render_duration_s": 17.666666666666668,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B04.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "RESULT",
+      "role_note": "The sheet, its 4×1 slicing, and the walk strip's cells.",
+      "narration_text": "Which cell is frame three is decided by the slicing, h frames four, not by the image. The sheet is written by code, so no third party licence applies. In the walk preview a camera holds the scarecrow still: its pole foot stays in one column, and hops zero, minus three, plus one, minus three pixels.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 22,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Fixture capture · walk_preview, camera follows the scarecrow",
+        "evidence_media": "media/B05.png"
+      },
+      "image_file": "assets/b05.png",
+      "actual_duration_s": 17.39,
+      "audio_file": "mp3/beat-B05.mp3",
+      "render_duration_s": 17.4,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B05.png",
+        "filled_by": "still",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "PROOF",
+      "role_note": "Q1: a track that names a missing property is silently inert.",
+      "narration_text": "And why a wrong property fails silently. Mutation one renamed the property to frames. The scene still loads with no error, and the track would key nothing. Only the read-back saw it: no property called frames on a Sprite2D.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 16,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Recorded output · evidence/a7-mutations/m1a"
+      },
+      "image_file": "assets/b06.png",
+      "actual_duration_s": 12.84,
+      "audio_file": "mp3/beat-B06.mp3",
+      "render_duration_s": 12.866666666666667,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B06.png",
+        "filled_by": "still",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "BRIEF",
+      "role_note": "Q4: feel designed in frames; the phase table beside the key times built from it.",
+      "narration_text": "Feel is designed in frames. Rui counted a real archer, converted to thirty frames per second: twenty six frames of draw, one of loose, fourteen of follow through. The game compresses that to eight, one and six, at a step of one thirtieth of a second. The key times come from that table, not the other way round.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 23,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "The phase table, then the keys",
+            "section": "CHANGE-BRIEF.md §4 · The phase table",
+            "excerptLabel": "DOCUMENT EXCERPT",
+            "excerpt": "Frame rate: 30 fps. `Animation.step` = 1/30 s (one frame period). Clip length 15 frames = 0.5 s.",
+            "source": "CHANGE-BRIEF.md §4 · Rui's measurement and table · @ 62d7f72",
+            "status": "WRITTEN BY RUI BEFORE ANY KEY",
+            "visualLabel": "Phase → key time",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Startup · 8 frames",
+                "text": "begins frame 0 → key 0 s · draw; may move; a lost target cancels"
+              },
+              {
+                "label": "Active · 1 frame",
+                "text": "begins frame 8 → key 0.26666668 s · release_window true"
+              },
+              {
+                "label": "Recovery · 6 frames",
+                "text": "begins frame 9 → key 0.3 s · release_window false; ends 15 → 0.5 s"
+              },
+              {
+                "label": "Reference (real archer)",
+                "text": "52 / 2 / 28 frames at 60 fps = 26 / 1 / 14 at 30 · compressed to 8 / 1 / 6"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.33,
+                "card": 0
+              },
+              {
+                "at": 5.75,
+                "card": 1
+              },
+              {
+                "at": 10.17,
+                "card": 2
+              },
+              {
+                "at": 14.59,
+                "card": 3
+              }
+            ],
+            "durationSeconds": 16.58
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": "2026-11-23T02:46:24.143465+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 16.58,
+      "audio_file": "mp3/beat-B07.mp3",
+      "render_duration_s": 16.6,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B07.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "MECHANISM",
+      "role_note": "The committing action keyed at its phase boundaries, verbatim.",
+      "narration_text": "The keys, built from the table. Step is one thirtieth. The bow's rotation is keyed at frames zero, eight, nine and fifteen. Transition two accelerates into full draw; point five settles through recovery. The full draw value is minus sixteen degrees, after tuning. The same clip keys release window, true for one frame.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "The keys, built from the table.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/game/archer.tscn",
+            "source": "Verbatim project source at commit 62d7f72 · Godot editor reconstruction (teaching view)",
+            "code": "length = 0.5\nstep = 0.033333335\ntracks/0/type = \"value\"\ntracks/0/imported = false\ntracks/0/enabled = true\ntracks/0/path = NodePath(\"Rig/BowPivot:rotation\")\ntracks/0/interp = 1\ntracks/0/loop_wrap = true\ntracks/0/keys = {\n\"times\": PackedFloat32Array(0, 0.26666668, 0.3, 0.5),\n\"transitions\": PackedFloat32Array(2, 1, 0.5, 1),\n\"update\": 0,\n\"values\": [0.0, -0.27925268, 0.034906585, 0.0]\n}",
+            "startLine": 75,
+            "cues": [
+              {
+                "at": 1.44,
+                "line": 76,
+                "label": "step = 1/30 s: one frame period"
+              },
+              {
+                "at": 5.02,
+                "line": 80,
+                "label": "the bow pivot's rotation"
+              },
+              {
+                "at": 8.61,
+                "line": 84,
+                "label": "frames 0, 8, 9, 15 → 0, 8/30, 9/30, 0.5 s"
+              },
+              {
+                "at": 12.2,
+                "line": 85,
+                "label": "2: ease into full draw · 0.5: settle"
+              },
+              {
+                "at": 15.79,
+                "line": 87,
+                "label": "full draw -0.279 rad = -16° (tuned)"
+              }
+            ],
+            "codeFontSize": 21,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "release_window",
+                "value": "lines 128-135: F, T, F"
+              },
+              {
+                "label": "float32",
+                "value": "8/30 → 0.26666668"
+              },
+              {
+                "label": "Read-back",
+                "value": "166/0, −16° pinned"
+              }
+            ],
+            "durationSeconds": 17.94
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": "2026-11-23T03:01:35.638825+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.94,
+      "audio_file": "mp3/beat-B08.mp3",
+      "render_duration_s": 17.966666666666665,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B08.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "RESULT",
+      "role_note": "The frame strip at each phase boundary, with the log line for each frame.",
+      "narration_text": "The fixture strip at each boundary. Frame ten is the trigger, still looking idle. Eighteen is full draw, release window true, no arrow yet. Nineteen: the arrow is out, because the archer reads the key one tick after the tree writes it. Twenty five is idle again.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 19,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Fixture capture · shoot_preview r1",
+        "evidence_media": "media/B09.png"
+      },
+      "image_file": "assets/b09.png",
+      "actual_duration_s": 14.21,
+      "audio_file": "mp3/beat-B09.mp3",
+      "render_duration_s": 14.233333333333333,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B09.png",
+        "filled_by": "still",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "TUNING",
+      "role_note": "The observation-driven revision: observation, prediction, two strips, verdict.",
+      "narration_text": "The revision came from Rui's eyes, not Claude's. Rui watched first: the draw moved too little, and the phases were hard to tell apart. The agent proposed one key, minus eight degrees to minus sixteen, and predicted every logged angle. The log matched; one frame missed, on unseeded particles. Rui kept it, and in play said the three phases read clearly.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 24,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Fixture captures · r0 → r1"
+      },
+      "image_file": "assets/b10.png",
+      "actual_duration_s": 18.41,
+      "audio_file": "mp3/beat-B10.mp3",
+      "render_duration_s": 18.433333333333334,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B10.png",
+        "filled_by": "still",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "MECHANISM",
+      "role_note": "Q2 one authority and Q3 two clocks, pointed at the archer's own lines.",
+      "narration_text": "One authority. Only the AnimationTree writes release window, keyed in the clip. The archer reads it here, in physics process, and never writes it. Two clocks: the tree's callback mode is physics, so the clip and this read share a tick type. The scarecrow's player runs on idle, and no gameplay reads it.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 21,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "One authority, one clock.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/game/archer.gd",
+            "source": "Verbatim project source at commit 62d7f72 · Godot editor reconstruction (teaching view)",
+            "code": "func _physics_process(delta: float) -> void:\n\tvar axis := Input.get_axis(\"move_left\", \"move_right\")\n\tposition.x = clampf(position.x + axis * Tuning.ARCHER_SPEED * delta,\n\t\t\tTuning.ARCHER_MARGIN, Tuning.VIEW.x - Tuning.ARCHER_MARGIN)\n\tfire_cooldown = maxf(fire_cooldown - delta, 0.0)\n\tif shot_armed:\n\t\tif release_window:\n\t\t\t# Active frame: the arrow goes even if the target was lost on this same tick (§5.5).\n\t\t\tvar aim := locked_target.global_position if is_instance_valid(locked_target) else _locked_pos\n\t\t\t_fire_at(aim)\n\t\t\tfire_cooldown = Tuning.FIRE_INTERVAL\n\t\t\tshot_armed = false\n\t\t\tlocked_target = null\n\t\telif not _target_held():",
+            "startLine": 27,
+            "cues": [
+              {
+                "at": 1.23,
+                "line": 27,
+                "label": "_physics_process: the physics tick"
+              },
+              {
+                "at": 5.34,
+                "line": 33,
+                "label": "reads release_window, never writes it"
+              },
+              {
+                "at": 9.45,
+                "line": 36,
+                "label": "the arrow on the first true read"
+              },
+              {
+                "at": 13.55,
+                "line": 40,
+                "label": "startup only: a lost target cancels"
+              }
+            ],
+            "codeFontSize": 19,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Authority",
+                "value": "the tree writes release_window"
+              },
+              {
+                "label": "Clock",
+                "value": "archer.tscn:194 → PHYSICS"
+              },
+              {
+                "label": "Base node",
+                "value": "archer.tscn:196 \"..\""
+              }
+            ],
+            "durationSeconds": 15.4
+          },
+          "rendered": {
+            "out": "media/B11.mp4",
+            "at": "2026-11-23T03:03:08.493979+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 15.4,
+      "audio_file": "mp3/beat-B11.mp3",
+      "render_duration_s": 15.4,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B11.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "RESULT",
+      "role_note": "Q3 measured: one physics tick between the key and the read.",
+      "narration_text": "Measured, from the same windowed run as the strip: release window turns true on tick thirty seven, and the arrow fires on tick thirty eight. The largest disagreement is one physics tick, a sixtieth of a second, already inside the point three second draw lead.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Fixture capture · log lines from the same windowed run",
+        "evidence_media": "media/B12.png"
+      },
+      "image_file": "assets/b12.png",
+      "actual_duration_s": 14.23,
+      "audio_file": "mp3/beat-B12.mp3",
+      "render_duration_s": 14.233333333333333,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B12.png",
+        "filled_by": "still",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "MECHANISM",
+      "role_note": "Q2 for the sprite: the presenter only picks the clip; the AnimationPlayer is the one writer.",
+      "narration_text": "The walk's authority. The presenter reads at wall and picks walk or hold. It never writes the frame: the AnimationPlayer is the frame's only writer. It compares the assigned animation, because a one key hold clip empties current animation when it ends.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 17,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "code-cue",
+        "remotion": {
+          "pattern": "GodotDevWorkbench",
+          "props": {
+            "mode": "code",
+            "title": "The walk's one writer.",
+            "project": "walker-mimic-keep-rui-sun",
+            "path": "godot/game/scarecrow_walk_presenter.gd",
+            "source": "Verbatim project source at commit 62d7f72 · Godot editor reconstruction (teaching view)",
+            "code": "## Presentation only (CHANGE-BRIEF §1, revision 1.4): picks which clip Scarecrow/AnimationPlayer plays\n## from the scarecrow's at_wall. walk while it advances, hold (frame 0) once it hits the gate.\n## Reads game state, never writes it; never writes Sprite.frame (the AnimationPlayer is its one writer).\n## Compares against assigned_animation, not current_animation: hold is a one-key LOOP_NONE clip, so\n## current_animation turns \"\" once it ends and would otherwise make this call play() every frame.\n\n@onready var _scarecrow: Scarecrow = get_parent() as Scarecrow\n@onready var _player: AnimationPlayer = $\"../AnimationPlayer\"\n\n\nfunc _process(_delta: float) -> void:\n\tvar clip := &\"hold\" if _scarecrow.at_wall else &\"walk\"\n\tif _player.assigned_animation != clip:\n\t\t_player.play(clip)",
+            "startLine": 2,
+            "cues": [
+              {
+                "at": 1.1,
+                "line": 4,
+                "label": "never writes Sprite.frame"
+              },
+              {
+                "at": 4.76,
+                "line": 13,
+                "label": "reads at_wall: game state in"
+              },
+              {
+                "at": 8.41,
+                "line": 14,
+                "label": "assigned_animation, not current"
+              },
+              {
+                "at": 12.07,
+                "line": 15,
+                "label": "play(): only chooses the clip"
+              }
+            ],
+            "codeFontSize": 19,
+            "inspectorLabel": "Source notes — not Inspector values",
+            "notes": [
+              {
+                "label": "Authority",
+                "value": "only the player writes frame"
+              },
+              {
+                "label": "Clock",
+                "value": "IDLE · no gameplay reads it"
+              },
+              {
+                "label": "Why assigned",
+                "value": "hold ends → current is \"\""
+              }
+            ],
+            "durationSeconds": 13.72
+          },
+          "rendered": {
+            "out": "media/B13.mp4",
+            "at": "2026-11-23T03:04:33.008482+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 13.72,
+      "audio_file": "mp3/beat-B13.mp3",
+      "render_duration_s": 13.733333333333333,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B13.mp4",
+        "filled_by": "remotion:GodotDevWorkbench",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "PLAY",
+      "role_note": "The cycle wrapping in play, then walk to hold.",
+      "narration_text": "In play, at normal speed: a dozen wraps with no catch at the seam, then the hold at the wall. Rui watched five wraps and saw no stutter, and judged the fixture strip free of drift.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 14,
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "Scarecrows placed by the script · no keys pressed",
+        "evidence_media": "media/B14.mp4",
+        "clip_file": "media/B14.mp4",
+        "capture_window": {
+          "take": "play",
+          "start_s": 0.0,
+          "end_s": 10.6667,
+          "frames": [
+            0,
+            320
+          ],
+          "media_sha256": "4992cefc66bc8b0332148fa3b32841a5ef2b15796ee64b92da90e00482348fa7"
+        }
+      },
+      "actual_duration_s": 10.6667,
+      "audio_file": "mix/B14.wav",
+      "render_duration_s": 10.7,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Native 3840x2160 engine capture fills the frame by design.",
+        "contrast_regions": [
+          {
+            "label": "burned-in shot label",
+            "box": [
+              0.031,
+              0.854,
+              0.557,
+              0.944
+            ]
+          }
+        ],
+        "contrast_reason": "Engine footage of a flat green meadow by design; the text a viewer must read is the burned-in label, so contrast is measured there."
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B14.mp4",
+        "filled_by": "media",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "PLAY",
+      "role_note": "The state machine in real play, with an interrupt in each phase.",
+      "narration_text": "Interrupts in each phase, keys sent by a script into the real game. P in startup freezes the bow half drawn; P again, and it finishes and fires. P on the active frame holds full draw; on resume the arrow leaves. P in recovery freezes the swing back. Moving does not interrupt. A target at the wall, walked out of the cone, cancels the draw: no arrow.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 27,
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "Scripted-input capture · keys sent by a script",
+        "clip_file": "media/B15.mp4",
+        "capture_window": {
+          "take": "interrupts",
+          "start_s": 0.0,
+          "end_s": 18.6333,
+          "frames": [
+            0,
+            559
+          ],
+          "media_sha256": "ae495f19b0ac8c573ddfbaa3f6c729f97ac2577e57b8e7507f6d866c0729d3ba"
+        }
+      },
+      "actual_duration_s": 18.6333,
+      "audio_file": "mix/B15.wav",
+      "render_duration_s": 18.633333333333333,
+      "qc": {
+        "full_bleed": true,
+        "full_bleed_reason": "Native 3840x2160 engine capture fills the frame by design.",
+        "contrast_regions": [
+          {
+            "label": "burned-in shot label",
+            "box": [
+              0.031,
+              0.854,
+              0.628,
+              0.944
+            ]
+          }
+        ],
+        "contrast_reason": "Engine footage of a flat green meadow by design; the text a viewer must read is the burned-in label, so contrast is measured there."
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B15.mp4",
+        "filled_by": "media",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "PROOF",
+      "role_note": "What the read-backs proved, the mutations, what no headless run shows.",
+      "narration_text": "What the tests proved. Both read-backs pass, sixty eight and one sixty six checks. The state machine test, one oh seven, drives real keys. The edge test, three twenty five, hits every boundary before, on and after. The pins pass again. Mutations one to three failed their read-backs; four passed, as a keyed rig should. No headless run draws a frame, so none of this says the motion reads.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 28,
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "motion": "hold",
+        "label": "Recorded output · test logs and mutations",
+        "evidence_media": "media/B16.png"
+      },
+      "image_file": "assets/b16.png",
+      "actual_duration_s": 20.03,
+      "audio_file": "mp3/beat-B16.mp3",
+      "render_duration_s": 20.033333333333335,
+      "build": {
+        "status": "STILL",
+        "src": "media\\B16.png",
+        "filled_by": "still",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B17",
+      "act": "MISTAKES",
+      "role_note": "Agent mistakes caught, Claude's readings overruled, what remains uncertain.",
+      "narration_text": "Mistakes caught. An agent reported seventy two checks where there were sixty eight, and mistyped a log line. Claude's own helper fix fired no arrow, and its playtest checklist was wrong: walking away cancels a draw only near the wall. Rui overruled the agent's minus eight degrees. Still uncertain: no human has seen a startup cancel.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 22,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "GodotDesignBoard",
+          "props": {
+            "title": "Caught, overruled, uncertain",
+            "section": "FRICTIONAL.md · TUNING.md · TEST-REPORT.md · 2026-11-19 to 11-22",
+            "excerptLabel": "DOCUMENT EXCERPT",
+            "excerpt": "A human instruction needs the same geometry check as a test.",
+            "source": "FRICTIONAL.md, TUNING.md, TEST-REPORT.md @ 62d7f72",
+            "status": "RECORDED, NOT HIDDEN",
+            "visualLabel": "Five points",
+            "layout": "cards",
+            "cards": [
+              {
+                "label": "Agent",
+                "text": "68 checks reported as 72 · a mistyped log line · PowerShell and cd-chain attempts, denied"
+              },
+              {
+                "label": "Claude",
+                "text": "a test-helper fix that fired no arrow · reverted before commit"
+              },
+              {
+                "label": "Claude",
+                "text": "playtest checklist: walk away to cancel · true only near the wall"
+              },
+              {
+                "label": "Overruled",
+                "text": "agent's −8° full draw: Rui saw it as too small · −16° kept"
+              },
+              {
+                "label": "Uncertain",
+                "text": "a startup cancel, never seen by a human · fixture vs play on the phases"
+              }
+            ],
+            "cues": [
+              {
+                "at": 1.4,
+                "card": 0
+              },
+              {
+                "at": 4.89,
+                "card": 1
+              },
+              {
+                "at": 8.39,
+                "card": 2
+              },
+              {
+                "at": 11.88,
+                "card": 3
+              },
+              {
+                "at": 15.37,
+                "card": 4
+              }
+            ],
+            "durationSeconds": 17.47
+          },
+          "rendered": {
+            "out": "media/B17.mp4",
+            "at": "2026-11-23T03:26:10.325126+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.47,
+      "audio_file": "mp3/beat-B17.mp3",
+      "render_duration_s": 17.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B17.mp4",
+        "filled_by": "remotion:GodotDesignBoard",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B18",
+      "act": "VERDICT",
+      "role_note": "Verdict: shown, checked, uncertain, next step, contributions, sheet source and licence, source revision.",
+      "narration_text": "The verdict. Shown working: a clean walk cycle, and a shot whose phases read in play. Limits: a startup cancel comes too early to see, and the fixture and the game disagree on the phases. Next: a larger release kick, so recovery reads. Rui wrote the brief, the table, every verdict and capture. Claude and the agents built and tested the rest.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 25,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "walker-mimic-keep-rui-sun @ 62d7f72 · shown, checked, still open",
+            "artifactLines": [
+              "shown — walk cycle with no seam or drift; shot phases read in play (Rui).",
+              "checked — read-backs 68 and 166/0; state 107/0; edges 325/0; pins 38/0; mutations 1–3 exit 1.",
+              "uncertain — startup cancel unseen by a human; fixture vs play on the phases.",
+              "next — a larger +2° release kick, so the recovery reads (the agent's next candidate).",
+              "who — Rui: brief, phase table, verdicts, captures · Claude + agent sessions: keys, tests, tools.",
+              "sources — sheet and rig parts written by make_sprites.gd, no third-party licence · 62d7f72 · Godot 4.7.2 Forward+."
+            ],
+            "durationSeconds": 17.96
+          },
+          "rendered": {
+            "out": "media/B18.mp4",
+            "at": "2026-11-23T02:54:35.594716+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 17.96,
+      "audio_file": "mp3/beat-B18.mp3",
+      "render_duration_s": 17.966666666666665,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B18.mp4",
+        "filled_by": "remotion:ClaudeVerdictArtifact",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B19",
+      "act": "HANDOFF",
+      "role_note": "Your Turn - a paste-ready Walker prompt; Liam signs off here, before the final card.",
+      "narration_text": "Your turn. Here is the paste ready prompt. Write your phase table in frames before any key exists. Let an agent key it and read it back, then judge the motion in the running game yourself, because no test can see it. Liam, in for Bear.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "estimated_duration_s": 18,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "type-on",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "WALKER · MIMIC KEEP ANIMATION",
+            "segment": "your turn",
+            "command": "Use Walker. I will write one committing action's phase table in frames, with the frame rate and Animation.step, before any key exists. Key it at every phase boundary, add a read-back that pins the times with a half-frame tolerance, and give me a fixture preview to capture. I judge the motion in the running game.",
+            "runningText": "reading the phase table; keys at 0, 8/30, 9/30, 0.5 s…",
+            "output": [
+              "the phase table, before the keys",
+              "a read-back that fails on a missing property",
+              "a verdict made in the running game"
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Claude",
+            "effortLabel": "Opus",
+            "durationSeconds": 12.82
+          },
+          "rendered": {
+            "out": "media/B19.mp4",
+            "at": "2026-11-23T02:55:49.480946+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 12.82,
+      "audio_file": "mp3/beat-B19.mp3",
+      "render_duration_s": 12.833333333333334,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B19.mp4",
+        "filled_by": "remotion:ClaudeComposerAsk",
+        "at": "2026-11-22T22:34:29"
+      }
+    },
+    {
+      "beat_id": "B20",
+      "act": "OUTRO",
+      "role_note": "OUTRO LOCK - ClaudeTitleOutro, exact title, @NikBearBrown, slug-seeded mascot/jingle.",
+      "narration_text": "",
+      "audio_file": "mix/B20-jingle.wav",
+      "jingle": {
+        "source": "brutalist.art logos/bear-brown/bear-brown-1.mp3 (stock @NikBearBrown jingle, unchanged except gain)",
+        "pick": "sha256(slug) mod 6 + 1 = 1 (OUTRO-LOCK: jingle seeded by the reel slug; the toolkit has no picker code)",
+        "gain_db": -8
+      },
+      "estimated_duration_s": 12.679979,
+      "actual_duration_s": 12.679979,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "remotion",
+        "motion": "reveal",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Mimic Keep: A Clip Is a List of Keys.",
+            "slug": "claude-liam-walker-mimic-keep-a7-gamedev",
+            "durationSeconds": 12.679979
+          },
+          "rendered": {
+            "out": "media/B20.mp4",
+            "at": "2026-11-23T02:57:04.125010+00:00"
+          }
+        }
+      },
+      "render_duration_s": 12.7,
+      "build": {
+        "status": "VIDEO",
+        "src": "media\\B20.mp4",
+        "filled_by": "remotion:ClaudeTitleOutro",
+        "at": "2026-11-22T22:34:29"
+      }
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+ "godot/assets/sprites/scarecrow_walk.png": {
+  "path": "godot/assets/sprites/scarecrow_walk.png",
+  "sha256": "3ac22115e039875fc7a14001e2efd53fadf6f784252565765985118d271fad36"
+ },
+ "captures/walk/r0/frame00000017.png": {
+  "path": "captures/walk/r0/frame00000017.png",
+  "sha256": "bc9729dbddaadf7f00f1e091a12e05a869104a63245c07f794ae6d947c24ee63"
+ },
+ "captures/walk/r0/frame00000020.png": {
+  "path": "captures/walk/r0/frame00000020.png",
+  "sha256": "f597dfb253204245dcc4e187715b5d92209acf66355a96495dc6ef3943b20293"
+ },
+ "captures/walk/r0/frame00000024.png": {
+  "path": "captures/walk/r0/frame00000024.png",
+  "sha256": "1913bad09916282bbecf022394d7a7f34d8e4dd92a99f4ce0765ae8bfef4361d"
+ },
+ "captures/walk/r0/frame00000028.png": {
+  "path": "captures/walk/r0/frame00000028.png",
+  "sha256": "da034e10bb2bad658d9db9d7401a49e4c7ab3537749bed32fbb0c314a2679661"
+ },
+ "evidence/a7-probes/walk_foot_position.out.txt": {
+  "path": "evidence/a7-probes/walk_foot_position.out.txt",
+  "sha256": "3caa3bbdc3b303c42cf697539cedc4236879d9fc8533abd5d824dbdc9231f37d"
+ },
+ "evidence/a7-mutations/m1a.diff": {
+  "path": "evidence/a7-mutations/m1a.diff",
+  "sha256": "a95504cd403c1dd32a4b6067d8ba0e039e255c05b168b61084ed129e3a2ed14d"
+ },
+ "evidence/a7-mutations/m1a_walk_subname.log": {
+  "path": "evidence/a7-mutations/m1a_walk_subname.log",
+  "sha256": "5921c363ce2698bf78ff8c1dda9858ed1ef0cced3c840144b7ad99e64d502ede"
+ },
+ "captures/shoot/r1/frame00000010.png": {
+  "path": "captures/shoot/r1/frame00000010.png",
+  "sha256": "b3a95153be4832d966867f52c68f89debc7f7f3d76ead54e31758f74dfd218a5"
+ },
+ "captures/shoot/r1/frame00000018.png": {
+  "path": "captures/shoot/r1/frame00000018.png",
+  "sha256": "9d6354c2f147487609f91192b930186b064e1802f71da802f6911fa54f65de8c"
+ },
+ "captures/shoot/r1/frame00000019.png": {
+  "path": "captures/shoot/r1/frame00000019.png",
+  "sha256": "1cdbd72cb5a9b729827e6b71a9ede93dd67a3886552b0eaef7c4fc5e8ae58fc1"
+ },
+ "captures/shoot/r1/frame00000025.png": {
+  "path": "captures/shoot/r1/frame00000025.png",
+  "sha256": "94acd85fe0c34a33bf6199aee9dd6a4de1da7f0cd917420fa3f22576e81ff39d"
+ },
+ "logs/shoot_preview_r1.log": {
+  "path": "logs/shoot_preview_r1.log",
+  "sha256": "db70b73384f9a1f90c565cb448f953f626cefa452428876ebbdc8045fec2ced0"
+ },
+ "captures/shoot/r0/frame00000018.png": {
+  "path": "captures/shoot/r0/frame00000018.png",
+  "sha256": "97d702e134533450eaf581b5b62d0624335d58ec103a5e4448f62eba602c57f3"
+ },
+ "captures/shoot/r0/frame00000019.png": {
+  "path": "captures/shoot/r0/frame00000019.png",
+  "sha256": "1cdbd72cb5a9b729827e6b71a9ede93dd67a3886552b0eaef7c4fc5e8ae58fc1"
+ },
+ "TUNING.md": {
+  "path": "TUNING.md",
+  "sha256": "516a2f7d59a75dfc4b567aabf60c3a7bca471eb4c38ccc1eca92891cabd4f6fe"
+ },
+ "logs/test_scarecrow_walk_readback_60fps.log": {
+  "path": "logs/test_scarecrow_walk_readback_60fps.log",
+  "sha256": "c3a50405b7033fd0d7e967db6f5e3cb9f5ea45acf5cef4175c354025ddd5e2a9"
+ },
+ "logs/test_archer_shot_readback_60fps.log": {
+  "path": "logs/test_archer_shot_readback_60fps.log",
+  "sha256": "0a484fead2fa4721cfec7ac24b2f10d2aa8eed91fdff8f136af1e18a8040430a"
+ },
+ "logs/test_archer_state_machine_60fps.log": {
+  "path": "logs/test_archer_state_machine_60fps.log",
+  "sha256": "277f12db3a1175ebc44b964659562c5abfb02913c6bc1682a56726873cf2d308"
+ },
+ "logs/test_archer_edges_60fps.log": {
+  "path": "logs/test_archer_edges_60fps.log",
+  "sha256": "661fe4bd2ac2b0c03c89463184dac88aa326ff17c54dcb909f4d8a8e647addbe"
+ },
+ "logs/test_pins_a7_60fps.log": {
+  "path": "logs/test_pins_a7_60fps.log",
+  "sha256": "3abe5dba9ab05d3c98899f790c9622a3a053b9dca6a4644ca11e92e2f47ce091"
+ },
+ "evidence/a7-mutations/m1b_rig_subname.log": {
+  "path": "evidence/a7-mutations/m1b_rig_subname.log",
+  "sha256": "e18515728ffa62c0615fdad4f3168fc81fd8fa31343502f21c1977bc1cd789fd"
+ },
+ "evidence/a7-mutations/m2_walk_loop_none.log": {
+  "path": "evidence/a7-mutations/m2_walk_loop_none.log",
+  "sha256": "ffcbc86b3c0daa72a335eaa8535a39971bed2e08fb3da9d46982b147625c7d41"
+ },
+ "evidence/a7-mutations/m3_frame_out_of_sheet.log": {
+  "path": "evidence/a7-mutations/m3_frame_out_of_sheet.log",
+  "sha256": "a11d27f57d6793e9acd44fb850ad4519a100eb09c4343ec80d6bb412c3f376d3"
+ },
+ "evidence/a7-mutations/m4_test_archer_shot_readback.log": {
+  "path": "evidence/a7-mutations/m4_test_archer_shot_readback.log",
+  "sha256": "5d3b90b2a6b1e99f2649b50b2ae43f8eb6bd60dc6a98bbe53105bad7e7b576d6"
+ },
+ "TEST-REPORT.md": {
+  "path": "TEST-REPORT.md",
+  "sha256": "dd2fd0504acdc18991569a9252f16da050df8fbef74449f8d58d5a2dfc5277ac"
+ }
+}

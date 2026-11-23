@@ -1,0 +1,30 @@
+diff --git a/runtime/remotion/src/scenes/GodotDesignBoard.tsx b/runtime/remotion/src/scenes/GodotDesignBoard.tsx
+index 901049e..4500225 100644
+--- a/runtime/remotion/src/scenes/GodotDesignBoard.tsx
++++ b/runtime/remotion/src/scenes/GodotDesignBoard.tsx
+@@ -7,7 +7,7 @@ import {CLAUDE as C, CLAUDE_FONT as F} from '../tokens/claude';
+  * diagrams, status comparisons or real engine evidence. No invented defaults.
+  * Diagram geometry is explanatory, not a screenshot or playable level. */
+ export const godotDesignBoardSchema=z.object({
+- title:z.string(),section:z.string(),excerpt:z.string(),source:z.string(),
++ title:z.string(),section:z.string(),excerptLabel:z.string().optional(),excerpt:z.string(),source:z.string(),
+  status:z.string(),visualLabel:z.string(),
+  layout:z.enum(['cards','flow','zones','jump','image']).default('cards'),
+  cards:z.array(z.object({label:z.string(),text:z.string()})).min(1).max(4),
+@@ -46,7 +46,7 @@ export const GodotDesignBoard:React.FC<z.infer<typeof godotDesignBoardSchema>>=(
+   <div style={{position:'absolute',top:height*.045,left:pad,right:pad,fontFamily:F.serif,fontSize:portrait?60:59,lineHeight:1.12}}>{p.title}</div>
+   <div style={{position:'absolute',left:pad,right:pad,top:height*.14,bottom:height*.12,display:'grid',gridTemplateColumns:portrait?'1fr':'0.84fr 1.16fr',gridTemplateRows:portrait?'auto 1fr':'1fr',gap:25}}>
+    <div style={{background:'#fffdf8',border:'2px solid #cfc6b5',borderRadius:15,padding:32,display:'flex',flexDirection:'column',minWidth:0}}>
+-    <div style={{fontSize:24,fontWeight:700,color:'#665546',marginBottom:22}}>GDD · DOCUMENT EXCERPT</div>
++    <div style={{fontSize:24,fontWeight:700,color:'#665546',marginBottom:22}}>{p.excerptLabel ?? 'GDD · DOCUMENT EXCERPT'}</div>
+     <div style={{fontFamily:F.serif,fontSize:portrait?36:40,lineHeight:1.15,marginBottom:25}}>{p.section}</div>
+     <div style={{borderLeft:'5px solid #985039',paddingLeft:22,fontSize:portrait?29:31,lineHeight:1.4,whiteSpace:'pre-wrap',overflowWrap:'anywhere'}}>{p.excerpt}</div>
+     <div style={{marginTop:'auto',paddingTop:24,fontSize:24,lineHeight:1.35,color:'#564739'}}>Reconstructed reading view.<br/>Exact excerpt; interpretation at right.</div>
+@@ -58,6 +58,6 @@ export const GodotDesignBoard:React.FC<z.infer<typeof godotDesignBoardSchema>>=(
+    </div>
+   </div>
+   <div style={{position:'absolute',left:pad,bottom:height*.045+(portrait?45:0),maxWidth:portrait?width*.88:width*.74,fontSize:23,color:'#564739',lineHeight:1.25}}>{p.source}</div>
+-  <div style={{position:'absolute',right:pad,bottom:height*.04,fontSize:28,fontFamily:F.serif}}>@NikBearBrown</div>
++  <div style={{position:'absolute',right:pad,bottom:height*.062,fontSize:28,fontFamily:F.serif}}>@NikBearBrown</div>
+  </AbsoluteFill>;
+ };
