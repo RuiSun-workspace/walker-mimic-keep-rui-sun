@@ -1,0 +1,24 @@
+[art] compiled B00  VIDEO    10.9s  ← B00.mp4
+[art] compiled B01  STILL    10.1s  ← B01.png
+[art] compiled B02  STILL     6.4s  ← B02.png
+[art] compiled B03  VIDEO    10.3s  ← B03.mp4
+[art] compiled B04  STILL     9.5s  ← B04.png
+[art] compiled B05  STILL     9.0s  ← B05.png
+[art] compiled B06  STILL    15.1s  ← B06.png
+[art] compiled B07  VIDEO    15.0s  ← B07.mp4
+[art] compiled B08  STILL    11.5s  ← B08.png
+[art] compiled B09  STILL    18.5s  ← B09.png
+[art] compiled B10  STILL    16.1s  ← B10.png
+[art] compiled B11  STILL    11.4s  ← B11.png
+[art] compiled B12  STILL    13.3s  ← B12.png
+[art] compiled B13  STILL    14.8s  ← B13.png
+[art] compiled B14  STILL    13.6s  ← B14.png
+[art] compiled B15  VIDEO    11.8s  ← B15.mp4
+[art] compiled B16  STILL    16.0s  ← B16.png
+[art] compiled B17  STILL     3.6s  ← B17.png
+[art] REFUSED: [art] command failed:
+F:\7270\film-env\Scripts\python.exe F:\7270\brutalist.art\runtime\qc\final_frame_check.py F:\7270\reels\mimic-keep-final-pitch --mp4 F:\7270\reels\mimic-keep-final-pitch\exports\landscape\.mimic-keep-final-pitch-candidate-azhucc8x\candidate.mp4 --sheet F:\7270\reels\mimic-keep-final-pitch\clips\_work\resolved-sheet.json
+[gate-v] FAILED: Regional contrast needs a written contrast_reason
+
+[art] motion histogram: hold:14  capture:4
+exit 2

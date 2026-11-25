@@ -1,0 +1,5 @@
+[art] REFUSED: [art] command failed:
+F:\7270\film-env\Scripts\python.exe F:\7270\brutalist.art\runtime\qc\final_frame_check.py F:\7270\reels\mimic-keep-final-pitch --mp4 F:\7270\reels\mimic-keep-final-pitch\exports\landscape\.mimic-keep-final-pitch-candidate-fgf05vjg\candidate.mp4 --sheet F:\7270\reels\mimic-keep-final-pitch\clips\_work\resolved-sheet.json
+
+[art] motion histogram: hold:14  capture:4
+exit 2

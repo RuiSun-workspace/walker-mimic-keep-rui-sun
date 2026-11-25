@@ -1,0 +1,331 @@
+{
+  "metadata": {
+    "title": "Mimic Keep: Final Project Pitch",
+    "slug": "mimic-keep-final-pitch",
+    "kind": "pitch",
+    "author": "Rui Sun",
+    "draft": "beat sheet draft 1, 2026-11-24 (Claude drafted from pitch/PROJECT-BRIEF.md draft 3). Narration approved by Rui 2026-11-24: \"可以定稿\".",
+    "audience": "Hiring manager for a technical designer role",
+    "voice": "am_onyx",
+    "engine": "kokoro",
+    "voice_note": "Local Kokoro voice reading Rui's script in the first person. It speaks as Rui. No instructor name, persona, handle or jingle anywhere in the film.",
+    "aspect_ratio": "16:9",
+    "width": 3840,
+    "height": 2160,
+    "fps": 30,
+    "captions": false,
+    "palette": "claude",
+    "game": {
+      "repo": "walker-mimic-keep-rui-sun",
+      "engine": "Godot 4.7.2",
+      "renderer": "Forward+",
+      "export_target": "Windows desktop (no export made yet)",
+      "capture_source": "tag a7 = 39f3fe8 (godot/ unchanged since)"
+    },
+    "label_rule": "Every beat burns one label. REAL = captured from the game at the named revision. REAL STILL = an unedited file or log from the repo. CONSTRUCTED = a drawing of something proposed; it does not exist.",
+    "question_map": {
+      "Q1 what": [
+        "B01",
+        "B02"
+      ],
+      "Q2 why care / different": [
+        "B04",
+        "B05",
+        "B06"
+      ],
+      "Q3 who and first 60 s": [
+        "B07"
+      ],
+      "Q4 what it proves": [
+        "B08",
+        "B09",
+        "B10"
+      ],
+      "Q5 in / out / first": [
+        "B11",
+        "B12"
+      ],
+      "Q6 risk": [
+        "B13"
+      ],
+      "Q7 why this project": [
+        "B14",
+        "B15"
+      ],
+      "exists vs will exist": [
+        "B16"
+      ]
+    },
+    "estimated_total_s": 229.6,
+    "estimate_note": "Estimated from the A7 film's measured Kokoro pace (3.15 words/s) + 0.6 s per beat; the real length comes from the measured audio.",
+    "captures": {
+      "play-r0": {
+        "path": "F:/7270/a8-captures/play-r0/ (frames f00000000-f00003046.png + f.wav; kept out of git)",
+        "recorded": "2026-11-24 16:32, Godot Movie Maker, windowed, --fixed-fps 30, 1280x720",
+        "source": "F:/7270/capture-build-a8 = git archive of tag a7 (39f3fe8), godot/ only",
+        "player": "Rui, playing by hand with the keyboard (not scripted)",
+        "result": "won at 1:30 (frame 2700); gate 100/100 the whole run; burned down 36; win banner 'Mimi is safe!' from frame 2700 to 3046",
+        "frames": 3047,
+        "game_time_s": "frame / 30 (HUD 0:45 at frame 1350, 1:30 at 2700)",
+        "selection": "Rui, 2026-11-24: \"录好了，赢了，选择最后的一段时间吧\" -> all four gameplay beats come from the second half of the run (0:45 to the win banner)",
+        "upscale": "3x nearest-neighbour to 3840x2160 (integer scale, no resampling blur)"
+      }
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "OPEN",
+      "narration_text": "I'm Rui Sun. This is Mimic Keep, a small wall defence game I have been building in Godot since October. The archer fires on its own; the scarecrows walk down to break the gate.",
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "REAL PLAY by Rui · tag a7 (39f3fe8)",
+        "visual_intent": "The game running: archer moving, auto-fire, scarecrows descending, one catching fire.",
+        "capture_window": {
+          "take": "play-r0",
+          "frames_planned": [
+            1380,
+            1707
+          ],
+          "note": "0:45-0:58, full frame; trimmed to the measured audio at build"
+        }
+      },
+      "estimated_duration_s": 11.4
+    },
+    {
+      "beat_id": "B01",
+      "act": "Q1 WHAT",
+      "narration_text": "In one sentence: Mimic Keep will be a short roguelite where arrows carry fire, ice or lightning, each enemy takes different damage from each, and two elements on one enemy react.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "CONSTRUCTED · proposed, not built",
+        "visual_intent": "One arrow, three element badges (fire, ice, lightning) dropping onto it; a scarecrow and two placeholder enemy silhouettes beside it."
+      },
+      "estimated_duration_s": 10.4
+    },
+    {
+      "beat_id": "B02",
+      "act": "Q1 ARTIFACT",
+      "narration_text": "When it is done, it will be a Windows build with one level, from title screen to end screen, plus an endless mode.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "CONSTRUCTED · proposed, not built",
+        "visual_intent": "A row of three screens: TITLE, LEVEL, END, then a looping arrow from LEVEL labelled ENDLESS."
+      },
+      "estimated_duration_s": 7.9
+    },
+    {
+      "beat_id": "B03",
+      "act": "EXISTS",
+      "narration_text": "Today only fire exists. A fire arrow sets a straw scarecrow burning for four seconds, with a tint shader and ember particles. That part is real, and it is tested.",
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "REAL PLAY by Rui · tag a7 (39f3fe8)",
+        "visual_intent": "Upper meadow cropped below the HUD (4.5x): several scarecrows are hit, take the burning tint and embers, and burn down.",
+        "evidence": "Burning rule mk-prototype (cab3d5c); tint shader a5 (f71d358); particles a6 (6046ae6).",
+        "capture_window": {
+          "take": "play-r0",
+          "frames_planned": [
+            1710,
+            2019
+          ],
+          "note": "0:57-1:07, crop game x 427-1280, y 60-540; each scarecrow burns down in 2-4 s, so the crop shows several instead of one"
+        }
+      },
+      "estimated_duration_s": 10.1
+    },
+    {
+      "beat_id": "B04",
+      "act": "Q2 REACTIONS",
+      "narration_text": "The plan adds ice and lightning. Fire on a chilled enemy will deal extra damage; ice plus lightning will stun. That is a first version, and playtests will change it.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "CONSTRUCTED · proposed, not built",
+        "visual_intent": "Three element badges in a triangle. Fire meets a frosted scarecrow: a large damage number. Ice meets lightning: the enemy freezes in place."
+      },
+      "estimated_duration_s": 10.1
+    },
+    {
+      "beat_id": "B05",
+      "act": "Q2 WHY CARE",
+      "narration_text": "Why care? In the level up games I have played, the choice is a bigger number. Here it will be which element to take, and the right answer depends on which enemies are coming.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "CONSTRUCTED · proposed, not built",
+        "visual_intent": "Three upgrade cards. Left: '+10% damage' greyed out. Right: two element cards, and an incoming enemy mix that makes one card light up."
+      },
+      "estimated_duration_s": 11.4
+    },
+    {
+      "beat_id": "B06",
+      "act": "Q2 COMPARABLES",
+      "narration_text": "Two games I have played. Genshin Impact has element reactions, but you trigger them by hand in an open world. A level up roguelite on WeChat, whose name I have forgotten, had skill choices and no reactions. Mimic Keep puts reactions into an auto fire run of a few minutes.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "Comparables named from Rui's own play · no third-party art shown",
+        "visual_intent": "Three plain text boxes in a row: 'Genshin Impact: reactions, hand-aimed', 'WeChat roguelite (name not remembered): level-up choices', 'Mimic Keep: both, in a short auto-fire run'. Text only; no logos or screenshots."
+      },
+      "estimated_duration_s": 16.5
+    },
+    {
+      "beat_id": "B07",
+      "act": "Q3 WHO",
+      "narration_text": "It is for a hiring manager looking for a technical designer, someone who builds systems and tunes their numbers. In the first minute they will open the build, press Enter and move with A and D; the archer fires by itself. The title screen and the build do not exist yet.",
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "REAL PLAY by Rui · tag a7 · no title screen or build yet",
+        "visual_intent": "On-screen key hints A and D appear as the archer moves left and right in the real game.",
+        "capture_window": {
+          "take": "play-r0",
+          "frames_planned": [
+            2020,
+            2469
+          ],
+          "note": "0:58-1:20, full frame; Rui moves left and right throughout; the HUD shows the A/D hint; trimmed to the measured audio at build"
+        }
+      },
+      "estimated_duration_s": 16.8
+    },
+    {
+      "beat_id": "B08",
+      "act": "Q4 PROVES · SO FAR",
+      "narration_text": "What it proves so far: a burning shader I wrote by hand, in tag a five; two particle effects with a GPU reading, in a six; and an animation state machine with frame exact tests, in a seven.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "label": "REAL · frames from tags a5, a6, a7",
+        "visual_intent": "Three panels, one per tag, each a real frame from that assignment's captures: burning tint, hit burst + embers, archer draw pose.",
+        "evidence": "a5 f71d358, a6 6046ae6, a7 39f3fe8; frames taken from the repo's captures/ folders."
+      },
+      "estimated_duration_s": 13.0
+    },
+    {
+      "beat_id": "B09",
+      "act": "Q4 PROVES · VERIFICATION",
+      "narration_text": "Each layer has headless tests a stranger can rerun, mutation runs that show the tests can fail, and checks by eye that no test replaces. The GPU reading was zero point zero six to zero point zero seven milliseconds per frame, with and without the effects, on an RTX 3070 laptop GPU.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "label": "REAL STILL · TEST-REPORT.md and test logs at tag a7",
+        "visual_intent": "The unedited log line 'RESULT test_archer_edges: 325 passed, 0 failed' (logs/test_archer_edges_60fps.log) and the GPU row from TEST-REPORT A6.7.",
+        "evidence": "TEST-REPORT.md A6.7 (GPU), A7.3 (edges 325/0), A7.4 (mutations)."
+      },
+      "estimated_duration_s": 17.1
+    },
+    {
+      "beat_id": "B10",
+      "act": "Q4 PROVES · NUMBERS",
+      "narration_text": "For a technical designer, the new evidence will be numbers: a damage table, element by enemy, pinned by tests, and a tuning log that names the playtest behind each change. One exists already: after my first playtest, the starting gap between spawns went from two point four seconds to three.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "label": "REAL STILL · godot/game/tuning.gd · the damage table is CONSTRUCTED",
+        "visual_intent": "Left: the real tuning.gd lines with Rui's playtest comment and SPAWN_INTERVAL_START 3.0. Right: an empty element-by-enemy grid labelled 'will exist'.",
+        "evidence": "tuning.gd spawn comment, mk-prototype (cab3d5c); balance_sim.gd written by Claude (say so in SOURCES.md)."
+      },
+      "estimated_duration_s": 16.5
+    },
+    {
+      "beat_id": "B11",
+      "act": "Q5 IN / OUT",
+      "narration_text": "In: three elements, two reactions, three enemy types, level up cards, one level, and endless mode. Out, on purpose: no save system, no permanent unlocks, no second level, and no multiplayer.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "CONSTRUCTED · scope plan",
+        "visual_intent": "Two trays, IN and OUT; items drop into each as they are spoken. OUT items get a plain cross."
+      },
+      "estimated_duration_s": 10.4
+    },
+    {
+      "beat_id": "B12",
+      "act": "Q5 FIRST",
+      "narration_text": "First, ice and the fire on chilled reaction, on the scarecrow that already exists. A headless test will check the reaction damage on an exact tick, and a captured clip will show it in play. Every arrow already passes its element to the hit.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "label": "REAL STILL · godot/game/arrow.gd:22 at tag a7",
+        "visual_intent": "The real line s.hit(Tuning.ARROW_DAMAGE, element) with 'fire' highlighted, then a constructed 'ice' badge sliding next to it, labelled proposed."
+      },
+      "estimated_duration_s": 14.6
+    },
+    {
+      "beat_id": "B13",
+      "act": "Q6 RISK",
+      "narration_text": "What could sink it is balance. Elements, enemies and upgrades multiply, and one build could beat everything. So the bot simulation will report time to kill per element and enemy, and win rate per build, so a dominant build shows up as a number before a playtest.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "CONSTRUCTED · proposed check",
+        "visual_intent": "A grid of build bars; one bar shoots far above the rest and gets flagged. Grey bars only; no real data shown."
+      },
+      "estimated_duration_s": 15.5
+    },
+    {
+      "beat_id": "B14",
+      "act": "Q7 WHY · BEFORE",
+      "narration_text": "Why this project? Mostly new learning. Before this course, my only game was a tile matching game in C, in 2022. This is its console output; its art was not mine, so I do not show it. It was tested by playing it ten times.",
+      "shot": {
+        "type": "STILL",
+        "source": "own",
+        "label": "REAL STILL · 2022 screenshot from Rui's course report, title bar cropped",
+        "visual_intent": "pitch/evidence/2022-lianliankan-console.png, full frame on a dark plate.",
+        "evidence": "pitch/evidence/README.md"
+      },
+      "estimated_duration_s": 14.9
+    },
+    {
+      "beat_id": "B15",
+      "act": "Q7 WHY · NOW",
+      "narration_text": "Godot, shaders, particles, animation and directing an agent are all new to me. I want to show that I can design a combat system and control its numbers, and make a small game I would want to play.",
+      "shot": {
+        "type": "CAPTURE",
+        "source": "screen",
+        "label": "REAL PLAY by Rui · tag a7 (39f3fe8)",
+        "visual_intent": "A longer stretch of the real game: a burning scarecrow falls, the archer keeps firing.",
+        "capture_window": {
+          "take": "play-r0",
+          "frames_planned": [
+            2470,
+            2824
+          ],
+          "note": "1:20-1:35, full frame, ends on the win banner at 1:30; trimmed to the measured audio at build"
+        }
+      },
+      "estimated_duration_s": 12.7
+    },
+    {
+      "beat_id": "B16",
+      "act": "EXISTS vs WILL",
+      "narration_text": "So, what is real. Exists today, at tags a five to a seven: the prototype, fire and burning, the shader, two particle effects, the animated archer, and the tests. Will exist: ice, lightning, reactions, new enemies, upgrade cards, title and end screens, endless mode, and a Windows build.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "Exists = tags a5–a7 · Will exist = proposed",
+        "visual_intent": "Two columns. EXISTS items appear in ink with their tag; WILL EXIST items appear in grey outline only."
+      },
+      "estimated_duration_s": 15.8
+    },
+    {
+      "beat_id": "B17",
+      "act": "CLOSE",
+      "narration_text": "Mimic Keep. A final project pitch by Rui Sun.",
+      "tail_silence_s": 1.0,
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "label": "Narration: AI voice (Kokoro am_onyx) speaking for Rui",
+        "visual_intent": "Title card: 'Mimic Keep — final project pitch', 'Rui Sun', repo name. No handle, no mascot, no jingle."
+      },
+      "estimated_duration_s": 4.5
+    }
+  ]
+}
